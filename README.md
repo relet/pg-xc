@@ -5,11 +5,12 @@ I am working on making the attributes more useful than they currently are.
 
 By order of usefulness:
 
-* Airspace from www.grytnes-it.no/pg/luftrom/
- * TODO: convert altitudes to numeric values
+* Airspace and lowest ceilings from www.grytnes-it.no/pg/luftrom/
+* Slope values for terrain model
 * Public cabins from Kartverket N50 data
 * Mountain tops from Kartverket N50 data
  * TODO: insert altitude
+* Surfaces of water from Kartverket N250 data
  
 Less useful:
 
@@ -18,5 +19,5 @@ Less useful:
 
 Planned:
 
-* Elevation, slope model and south-facing hillshade models for Norway
+* Elevation and south-facing hillshade models for Norway
 
