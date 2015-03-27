@@ -5,6 +5,7 @@ I am working on making the attributes more useful than they currently are.
 
 By order of usefulness:
 
+* Aggregate over all flown routes from the Norwegian flightlog.
 * Airspace and lowest ceilings from www.grytnes-it.no/pg/luftrom/
 * Slope values for terrain model
 * Public cabins from Kartverket N50 data
