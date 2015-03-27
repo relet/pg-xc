@@ -5,17 +5,20 @@ I am working on making the attributes more useful than they currently are.
 
 By order of usefulness:
 
-* Airspace and lowest ceilings from www.grytnes-it.no/pg/luftrom/
-* Slope values for terrain model
-* Public cabins from Kartverket N50 data
-* Mountain tops from Kartverket N50 data
+* Aggregate over all flown routes from the Norwegian flightlog - [link](https://github.com/relet/pg-xc/blob/master/geojson/routes.geojson)
+* [Airspace](https://github.com/relet/pg-xc/blob/master/geojson/luftrom.geojson) and lowest [ceilings](https://github.com/relet/pg-xc/blob/master/geojson/ceilings.geojson) from www.grytnes-it.no/pg/luftrom/ (without warranty of any kind, please double check with ippc.no)
+* Terrain model showing slope values - [link](https://drive.google.com/folderview?id=0B7wcsWcf-oh1ZllZQl9qQmh1bTA&usp=sharing)
+* Registered takeoffs from flightlog.org - [link](https://github.com/relet/pg-xc/blob/master/geojson/takeoffs.geojson)
+* Public cabins from Kartverket N50 data  - [link](https://github.com/relet/pg-xc/blob/master/geojson/hytter.geojson)
+* Mountain tops from Kartverket N50 data - [link](https://github.com/relet/pg-xc/blob/master/geojson/topper.geojson)
  * TODO: insert altitude
-* Surfaces of water from Kartverket N250 data
+* Surfaces of water from Kartverket N250 data - [link](https://github.com/relet/pg-xc/blob/master/geojson/water.geojson)
  
 Less useful:
 
-* Marked trails and ski tracks for Norway from https://kartkatalog.geonorge.no/metadata/uuid/d1422d17-6d95-4ef1-96ab-8af31744dd63
-* Some thermal hotspots from thermal.kk7.ch - not much activity is recorded for the North
+* Marked [trails](https://github.com/relet/pg-xc/blob/master/geojson/fotruter.geojson.gz) and [ski tracks](https://github.com/relet/pg-xc/blob/master/geojson/skiloyper.geojson) for Norway from https://kartkatalog.geonorge.no/metadata/uuid/d1422d17-6d95-4ef1-96ab-8af31744dd63
+* Some thermal hotspots from thermal.kk7.ch - not much activity is recorded for the North - [link](https://github.com/relet/pg-xc/blob/master/geojson/hotspots.geojson)
+* Some thermal hotspots extracted from flightlog.org - [link](https://github.com/relet/pg-xc/blob/master/geojson/hotspots_flightlog.geojson)
 
 Planned:
 
