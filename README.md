@@ -6,7 +6,7 @@ I am working on making the attributes more useful than they currently are.
 By order of usefulness:
 
 * Aggregate over all flown routes from the Norwegian flightlog - [link](https://github.com/relet/pg-xc/blob/master/geojson/routes.geojson)
-* [Airspace](https://github.com/relet/pg-xc/blob/master/geojson/luftrom.geojson) and lowest [ceilings](https://github.com/relet/pg-xc/blob/master/geojson/ceilings.geojson) from www.grytnes-it.no/pg/luftrom/ 
+* [Airspace](https://github.com/relet/pg-xc/blob/master/geojson/luftrom.geojson) and lowest [ceilings](https://github.com/relet/pg-xc/blob/master/geojson/ceilings.geojson) from www.grytnes-it.no/pg/luftrom/ (without warranty of any kind, please double check with ippc.no)
 * Terrain model showing slope values - [link](https://drive.google.com/folderview?id=0B7wcsWcf-oh1ZllZQl9qQmh1bTA&usp=sharing)
 * Registered takeoffs from flightlog.org - [link](https://github.com/relet/pg-xc/blob/master/geojson/takeoffs.geojson)
 * Public cabins from Kartverket N50 data  - [link](https://github.com/relet/pg-xc/blob/master/geojson/hytter.geojson)
