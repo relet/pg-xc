@@ -15,17 +15,27 @@ import shapely.geometry as shgeo
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
+# Lines containing these are usually recognized as names 
 re_name   = re.compile("^(?P<name>.* (TMA|CTA|CTR|TIZ|FIR))( cont.)?$")
 re_name2  = re.compile("^(?P<name>EN [RD].*)$")
 re_name3  = re.compile("^(?P<name>END.*)$")
+
+# Lines containing these are usually recognized as airspace class
 re_class  = re.compile("Class (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
+
+# Coordinates format, possibly in brackets
 RE_NE     = '(?P<ne>\(?(?P<n>\d+)N\s+(?P<e>\d+)E\)?)'
+# Match circle definitions, see log file for examples
 re_coord  = re.compile(RE_NE + " - ((\d\. )?A circle(,| with)? r|R)adius (?P<rad>[\d\.,]+) NM")
-RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
+# Match sector definitions, see log file for examples
 RE_SECTOR = '('+RE_NE + ' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
 re_coord2 = re.compile(RE_SECTOR)
+# Match all other formats in a coordinate list, including "along border" syntax
+RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
 re_coord3 = re.compile(RE_NE+"|(?P<along>along)|(?P<onlye>\d+)E|"+RE_CIRCLE2)
+
+# Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( FT AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) FT AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
@@ -35,6 +45,7 @@ PI2 = math.pi * 2
 DEG2RAD = PI2 / 360.0
 
 def c2ll(c):
+    """DegMinSec to decimal degrees"""
     ndeg = float(c[0][0:2])
     edeg = float(c[1][0:3])
     nmin = float(c[0][2:4])
@@ -46,6 +57,7 @@ def c2ll(c):
     return coo
 
 def ll2c(ll):
+    """Decimal degrees to DegMinSec"""
     lon, lat = ll
     ndeg = int(lat)
     edeg = int(lon)
@@ -58,16 +70,24 @@ def ll2c(ll):
     e = "%03d%02d%02d" % (edeg, emin, esec)
     return (n,e)
 
+def c2air(c):
+    """DegMinSec to OpenAIR format (Deg:Min:Sec)"""
+    n,e = c
+    return "%s:%s:%s N  %s:%s:%s E" % (n[0:2],n[2:4],n[4:],e[0:3],e[3:5],e[5:])
+
 def ft2m(f):
+    """Foot to Meters"""
     return int(float(f) * 0.3048)
 
 def nm2m(nm):
+    """Nautical miles to meters"""
     try:
         return float(nm) * 1852.0
     except:
         return float(nm.replace(",",".")) * 1852.0
 
 def gen_circle(n, e, rad):
+    """Generate a circle"""
     logger.debug("Generating circle around %s, %s, radius %s", n, e, rad)
     circle = []
     lon,lat = c2ll((n,e))
@@ -86,6 +106,7 @@ def gen_circle(n, e, rad):
     return circle
 
 def gen_sector(n, e, secfrom, secto, radfrom, radto):
+    """Generate a sector, possibly with an inner radius"""
     logger.debug("Generating sector around %s, %s, sec from %s to %s, radius %s to %s", n, e, secfrom, secto, radfrom, radto)
     isector = []
     osector = []
@@ -122,6 +143,7 @@ def gen_sector(n, e, secfrom, secto, radfrom, radto):
     return isector + osector + [isector[0]]
 
 def merge_poly(p1, p2):
+    """Merge two polygons using shapely ops"""
     if not p1:
         return p2
     logger.debug("Merging %s and %s", p1, p2)
@@ -130,23 +152,11 @@ def merge_poly(p1, p2):
     union = shops.cascaded_union([poly1, poly2])
     return [ll2c(ll) for ll in union.exterior.coords]
 
-def closest_index(ne, points):
-    mindist = 99999
-    index = None
-    lon,lat = c2ll(ne)
-    for i in xrange(len(points)):
-        plon,plat=c2ll(points[i])
-        d = abs(lon-plon)+abs(lat-plat)
-        if d < mindist:
-            mindist = d
-            index = i
-    logger.debug("closest_index to %s is %i", ne, index)
-    return index
-
 norge_fc = load(open("fastland.geojson","r"))
 norge = norge_fc.features[0].geometry.coordinates[0]
 logger.debug("Norway has %i points.", len(norge))
 def fill_along(llf, llt):
+    """Follow the Norwegian border line where required"""
     logger.debug("fill_along %s %s", llf, llt)
     minfrom = 99999
     minto   = 99999
@@ -172,9 +182,11 @@ collection = []
 coords_wrap = ""
 
 def wstrip(s):
-    return re.sub(' +',' ',s.strip())
+    """Remove double whitespaces, and strip"""
+    return re.sub('\s+',' ',s.strip())
 
 def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip):
+    """Complete and sanity check a feature definition"""
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
@@ -260,6 +272,7 @@ for filename in os.listdir("./sources/txt"):
     vcut = 999
 
     def parse(line):
+        """Parse a line (or half line) of converted pdftotext"""
         logger.debug("LINE '%s'", line)
         # TODO: make this a proper method
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
@@ -452,12 +465,7 @@ for filename in os.listdir("./sources/txt"):
 
 logger.info("%i Features", len(collection))
 
-# TODO: output formats in original coordinates
-
-# GeoJSON output, to KML via ogr2ogr
-
-logger.info("Converting to GeoJSON")
-fc = []
+# Apply filter by index or name
 
 if len(sys.argv)>1:
     try:
@@ -466,6 +474,48 @@ if len(sys.argv)>1:
     except:
         filt = sys.argv[1]
         collection = [x for x in collection if x.get('properties',{}).get('name') is not None and filt in x.get('properties').get('name','')]
+
+# OpenAIR output
+
+logger.info("Converting to OpenAIR")
+air = open("result/result.txt","w")
+
+for feature in collection:
+    properties = feature['properties']
+    geom       = feature['geometry']
+    class_=properties.get('class')
+    name=properties.get('name')
+    from_ =int(properties.get('from (ft amsl)'))
+    to_ =int(properties.get('to (ft amsl)'))
+
+    #FIXME Airspace classes according to OpenAIR:
+    # *     R restricted
+    # *     Q danger
+    # *     P prohibited
+    # *     A Class A
+    # *     B Class B
+    # *     C Class C
+    # *     D Class D 
+    # *     GP glider prohibited 
+    # *     CTR CTR
+    # *     W Wave Window
+    air.write("AC %s\n" % class_)
+    air.write("AN %s\n" % name)
+    air.write("AL %s ft\n" % from_)
+    air.write("AH %s ft\n" % to_)
+    for point in geom:
+        air.write("DP %s\n" % c2air(point))
+    air.write("*\n*\n")
+
+air.close()
+
+
+
+# GeoJSON output, to KML via ogr2ogr
+
+logger.info("Converting to GeoJSON")
+fc = []
+
 
 for feature in collection:
     geom = feature['geometry']
@@ -513,7 +563,5 @@ for feature in collection:
 
 result = FeatureCollection(fc)
 if len(sys.argv)>1:
-    open("result.geojson","w").write(str(result))
     print 'http://geojson.io/#data=data:application/json,'+urllib.quote(str(result))
-else:
-    print result
+open("result/result.geojson","w").write(str(result))
