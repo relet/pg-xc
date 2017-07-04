@@ -1,0 +1,4 @@
+log
+result.geojson
+sources/pdf/*.pdf
+sources/txt/*.txt

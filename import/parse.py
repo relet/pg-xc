@@ -9,6 +9,9 @@ import sys
 import urllib
 import logging
 
+import shapely.ops      as shops
+import shapely.geometry as shgeo
+
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -18,9 +21,9 @@ re_name3  = re.compile("^(?P<name>END.*)$")
 re_class  = re.compile("Class (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
 RE_NE     = '(?P<ne>\(?(?P<n>\d+)N\s+(?P<e>\d+)E\)?)'
-re_coord  = re.compile(RE_NE + " - (A circle(,| with)? r|R)adius (?P<rad>[\d\.,]+) NM")
+re_coord  = re.compile(RE_NE + " - ((\d\. )?A circle(,| with)? r|R)adius (?P<rad>[\d\.,]+) NM")
 RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-RE_SECTOR = RE_NE + ' - (A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
+RE_SECTOR = '('+RE_NE + ' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
 re_coord2 = re.compile(RE_SECTOR)
 re_coord3 = re.compile(RE_NE+"|(?P<along>along)|(?P<onlye>\d+)E|"+RE_CIRCLE2)
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( FT AMSL)?")
@@ -79,6 +82,7 @@ def gen_circle(n, e, rad):
         lon2 = lon + math.atan2(math.sin(brng)*math.sin(d)*math.cos(lat),
                                 math.cos(d)-math.sin(lat)*math.sin(lat2))
         circle.append(ll2c((lon2 / DEG2RAD, lat2 / DEG2RAD)))
+    circle.append(circle[0])
     return circle
 
 def gen_sector(n, e, secfrom, secto, radfrom, radto):
@@ -115,7 +119,16 @@ def gen_sector(n, e, secfrom, secto, radfrom, radto):
         lon2 = lon + math.atan2(math.sin(brng)*math.sin(d)*math.cos(lat),
                                 math.cos(d)-math.sin(lat)*math.sin(lat2))
         osector.append(ll2c((lon2 / DEG2RAD, lat2 / DEG2RAD)))
-    return isector + osector
+    return isector + osector + [isector[0]]
+
+def merge_poly(p1, p2):
+    if not p1:
+        return p2
+    logger.debug("Merging %s and %s", p1, p2)
+    poly1 = shgeo.Polygon([c2ll(c) for c in p1])
+    poly2 = shgeo.Polygon([c2ll(c) for c in p2])
+    union = shops.cascaded_union([poly1, poly2])
+    return [ll2c(ll) for ll in union.exterior.coords]
 
 def closest_index(ne, points):
     mindist = 99999
@@ -293,24 +306,25 @@ for filename in os.listdir("./sources/txt"):
                 coords  = coords.groupdict()
                 n = coords.get('n')
                 e = coords.get('e')
+                lastn, laste = n, e
                 rad = coords.get('rad')
                 c_gen = gen_circle(n, e, rad)
 
-                for cpair in c_gen:
-                    obj.insert(0,cpair)
+                obj = merge_poly(obj, c_gen)
 
             elif coords2:
                 coords  = coords2.groupdict()
                 n = coords.get('n')
                 e = coords.get('e')
+                if n is None and e is None:
+                    n,e = lastn, laste
                 secfrom = coords.get('secfrom')
                 secto = coords.get('secto')
                 radfrom = coords.get('radfrom')
                 radto = coords.get('rad')
                 c_gen = gen_sector(n, e, secfrom, secto, radfrom, radto)
 
-                for cpair in c_gen:
-                    obj.insert(0,cpair)
+                obj = merge_poly(obj, c_gen)
 
             else:
                 for ne,n,e,along,onlye,rad,cn,ce in coords3:
@@ -327,18 +341,7 @@ for filename in os.listdir("./sources/txt"):
 
                     if rad and cn and ce:
                         c_gen = gen_circle(cn, ce, rad)
-                        if len(obj):
-                            ci_to=closest_index(obj[-1], c_gen)
-                            ci_from=closest_index(obj[0], c_gen)
-                        else:
-                            ci_from=0
-                            ci_to=len(c_gen)
-                        if ci_to > ci_from:
-                            points = c_gen[ci_from:ci_to]
-                        else: 
-                            points = c_gen[ci_from:] + c_gen[:ci_to]
-                        for cpair in points:
-                            obj.insert(0,cpair)
+                        obj = merge_poly(obj, c_gen)
                     if n and e:
                         lastn, laste = n, e
                         obj.insert(0,(n,e))
