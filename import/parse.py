@@ -478,7 +478,8 @@ if len(sys.argv)>1:
 # OpenAIR output
 
 logger.info("Converting to OpenAIR")
-air = open("result/result.txt","w")
+airft = open("result/luftrom.ft.txt","w")
+airm = open("result/luftrom.m.txt","w")
 
 for feature in collection:
     properties = feature['properties']
@@ -487,6 +488,8 @@ for feature in collection:
     name=properties.get('name')
     from_ =int(properties.get('from (ft amsl)'))
     to_ =int(properties.get('to (ft amsl)'))
+    from_m =int(properties.get('from (m amsl)'))
+    to_m =int(properties.get('to (m amsl)'))
 
     #FIXME Airspace classes according to OpenAIR:
     # *     R restricted
@@ -499,15 +502,20 @@ for feature in collection:
     # *     GP glider prohibited 
     # *     CTR CTR
     # *     W Wave Window
-    air.write("AC %s\n" % class_)
-    air.write("AN %s\n" % name)
-    air.write("AL %s ft\n" % from_)
-    air.write("AH %s ft\n" % to_)
-    for point in geom:
-        air.write("DP %s\n" % c2air(point))
-    air.write("*\n*\n")
+    for air in (airft, airm):
+        air.write("AC %s\n" % class_)
+        air.write("AN %s\n" % name)
+    airft.write("AL %s ft\n" % from_)
+    airft.write("AH %s ft\n" % to_)
+    airm.write("AL %s MSL\n" % from_m)
+    airm.write("AH %s MSL\n" % to_m)
+    for air in (airft, airm):
+        for point in geom:
+            air.write("DP %s\n" % c2air(point))
+        air.write("*\n*\n")
 
-air.close()
+for air in (airft, airm):
+    air.close()
 
 
 
