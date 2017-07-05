@@ -1,0 +1,79 @@
+Endringslogg hentet fra originalen grytnes-it.no/pg/luftrom:
+
+* 11-mar-2015: Historiens største omlegging av norsk luftrom skjedde
+13/11-2014. Mange endringer over hele Norge! Østlandet minst berørt.
+* 13-mar-2015: fikset feil
+* 28-april-2015: fikset feil "bunn" på Oslo TMA 4. Rettet fra 4000 til
+4500fot.
+* 13-des-2015: oppdatert ny Skagen TIZ
+* 1.jan-2016: Sjekket ut endringer i CTA- og TMA-data  -> ikke nødvendig med
+endringer i kart.
+* 1.jan-2016: Lagt inn luftsportområde Boe og Tokke.
+* 1.jan-2016: Lagt inn utvidede luftsp.omr. for Hvittingfoss A og B (operative
+hos Avinor, LT og Røyken, men ikke kommet på trykk i AIP enda.)
+* 5.jan-2016: Fareområde D355 Vågan er flyttet noe.
+* 5.jan-2016: Fareområde D209 Risavika og D210 Tellenes lagt til.
+* 7.jan-2016: Fareområder avviklet: D103,154,160,251,257,258,261,262,466,467
+* 24.april-2016: Geitryggen TIZ er fjernet.
+* 9.aug-2016: Lagt inn nytt luftsportområde: Tynset, 7500fot til FL115
+* 18.aug-2016: Korrigert Forbord luftsportområde 1 og 2
+* 3.april-2017: Rettet TIZ for Hasvik, Hammerfest og Sørkjosen
+
+Endringslogg etter importen:
+sammenlignet med datasett for 13.mars.2015, endringer som ikke er oppført
+ovenfor.
+
+* 2017-07-07: Ny utvidet geometri for Leknes TIZ (ENLK)
+* 2017-07-07: Justert geometri for Båtsfjord TIZ (ENBS)
+* 2017-07-07: Lagt inn Longyear TIZ (ENSB)
+* 2017-07-07: Lagt inn Hamnerabben TIZ (ENAS)
+* 2017-07-07: Lagt inn Svea TIZ (ENSA)
+* 2017-07-07: Ny utvidet geometri for Evenes TIZ (ENEV)
+* 2017-07-07: Ny utvidet geometri for Kirkenes CTR (ENKR)
+* 2017-07-07: Endringer pa betegnelser (Kjevik TMA 1,2,3 -> Kjevik TMA,2,3 osv)
+* 2017-07-07: Endret nummerering i Norway CTA
+* 2017-07-07: Ny utvidet geometri for Vadsø TIZ (ENVD)
+* 2017-07-07: Ny Kjevik TMA 5 og 6 (AIP SUP 20/2017)
+* 2017-07-07: Lagt inn Alta TMA 3 > 1931m
+* 2017-07-07: Lagt inn Banak TMA (fantes i siste kml)
+* 2017-07-07: Ny utvidet geometri for Farris TMA 11
+* 2017-07-07: Endret navnene West Coast TMA -> Flesland TMA
+* 2017-07-07: Endret navnene West Coast TMA -> Sola TMA
+* 2017-07-07: Ny utvidet geometri for Hammerfest TMA 1,2
+* 2017-07-07: Minimal endring i geometri for Helgeland TMA 2
+* 2017-07-07: Kirkenes TMA ser ikke ut til å omfatte Pasvik(?)
+* 2017-07-07: Lagt inn Kirkenes TMA West og TMA 3
+* 2017-07-07: Lagt inn ny Oslo TMA 8 fra før Farris TMA 8
+* 2017-07-07: Minimal endring i geometri for Tromsø TMA
+* 2017-07-07: Lagt inn ny Tromsø TMA 2,3
+* 2017-07-07: Ny utvidet geometri for Varnes TMA 3 (over grensen)
+* 2017-07-07: Lagt inn Ørland TMA 5 (mot Svalbard)
+* 2017-07-07: Ny utvidet geometri for Rørvik TIZ (ENRM)
+* 2017-07-07: Lagt inn Værøy TIZ (ENVR)
+* 2017-07-07: Ny utvidet geometri for Røst TIZ (ENRS)
+* 2017-07-07: Ny utvidet geometri for Vardø TIZ (ENSS)
+* 2017-07-07: Ny utvidet geometri for Skagen TIZ (ENSK)
+* 2017-07-07: Ny utvidet geometri for Namsos TIZ (ENNM)
+* 2017-07-07: Ny utvidet geometri for Mehamn TIZ (ENMH)
+* 2017-07-07: Lagt inn Sørkjosen TIZ (ENSR)
+* 2017-07-07: Ny utvidet geometri for Berlevåg TIZ (ENBV)
+* 2017-07-07: Ny utvidet geometri for Helle TIZ (ENSH)
+* 2017-07-07: Ny utvidet geometri for Valan TIZ (ENVH)
+* 2017-07-07: Ny utvidet geometri for Hovden TIZ (ENOV)
+* 2017-07-07: Ny utvidet geometri for Molde TIZ (ENML)
+* 2017-07-07: Ny utvidet geometri for Stokka TIZ (ENST)
+* 2017-07-07: Ny utvidet geometri for Sørstokken TIZ (ENSO)
+* 2017-07-07: Lagt inn EN R 103 Kongsvinger (bare NOTAM)
+* 2017-07-07: EN R 402 Finnmark, detaljert grenselinje
+* 2017-07-07: Lagt inn EN D 420-3 Alomar, EN D 472-8 Andøya mm (varsel)
+* 2017-07-07: EN D 356 Tarva utvidet
+* 2017-07-07: EN D 304 til D 361 Hjerkinn
+* 2017-07-07: Lagt inn EN D 362-4 Røros RPAS
+* 2017-07-07: EN D 452 Lyngvær, knyttet geometrien
+* 2017-07-07: Endret størrelse av sektor for EN D459 Andesnes
+* 2017-07-07: Lagt inn luftsportsområder: Bardufoss, Bergen LH, Bodø LH,
+*             Harstad, Kristiansand LH, Lesja LH, Molde LH, Rygge LS, Skien LH,
+*             Tromso LH, Trondheim LH, Ulven, Vågåvatn, Alesund LH
+* 2017-07-07: Korrigert Bomoen, Fagerhaug, Hamar LH, Jarlsberg, Rognan
+*             til sirkel
+* 2017-07-07: Framnes, Geiteryggen TIZ fjernet

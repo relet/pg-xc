@@ -16,9 +16,9 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names 
-re_name   = re.compile("^(?P<name>.* (TMA|CTA|CTR|TIZ|FIR))( cont.)?$")
-re_name2  = re.compile("^(?P<name>EN [RD].*)$")
-re_name3  = re.compile("^(?P<name>END.*)$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (TMA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
+re_name2  = re.compile("^\s*(?P<name>EN [RD].*)\s*$")
+re_name3  = re.compile("^\s*(?P<name>END\d.*)\s*$")
 
 # Lines containing these are usually recognized as airspace class
 re_class  = re.compile("Class (?P<class>.)")
@@ -185,14 +185,20 @@ def wstrip(s):
     """Remove double whitespaces, and strip"""
     return re.sub('\s+',' ',s.strip())
 
-def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip):
+def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip):
     """Complete and sanity check a feature definition"""
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
-    if norway_aip or restrict_aip or airsport_aip or len(features)==0:
-        feature['properties']['name']=aipname
-    else:
+    if 'FIR' in str(aipname):
+        logger.debug("Ignoring: %s", aipname)
+        return {"properties":{}}, []
+    feature['properties']['name']=aipname
+    if norway_aip or sup_aip:
+        recount = len([f for f in features if aipname in f['properties']['name']])
+        if recount>0:
+            feature['properties']['name']=aipname + " " + str(recount+1)
+    elif not restrict_aip and not airsport_aip and len(features)>0:
         feature['properties']['name']=aipname + " " + str(len(features)+1)
     if 'TIZ' in str(aipname):
         feature['properties']['class']='G'
@@ -255,6 +261,7 @@ for filename in os.listdir("./sources/txt"):
     norway_aip = "ENR_2_1" in filename
     restrict_aip = "ENR_5_1" in filename
     airsport_aip = "ENR_5_5" in filename
+    sup_aip = "en_sup" in filename
     airsport_intable = False
 
     # this is global for all polygons
@@ -281,13 +288,14 @@ for filename in os.listdir("./sources/txt"):
         if main_aip:
             if not ats_chapter:
                 # skip to chapter 2.71
-                if "ATS luftrom" in line:
+                if "ATS airspace" in line:
                     logger.debug("Found chapter 2.71")
                     ats_chapter=True
                 return
             else:
                 # then skip everything after
-                if "ATS komm" in line or "Kallesignal" in line:
+                if "AD 2." in line:
+                #if "ATS komm" in line or "Kallesignal" in line:
                     logger.debug("End chapter 2.71")
                     ats_chapter=False
 
@@ -368,7 +376,7 @@ for filename in os.listdir("./sources/txt"):
                         finalcoord = False
                     if airsport_aip and finalcoord:
                         if feature['properties'].get('from (ft masl)') is not None:
-                            feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip)
+                            feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
                             lastv = None
 
             return
@@ -401,8 +409,9 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if norway_aip or (airsport_aip and finalcoord):
-                    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip)
+                if (norway_aip or airsport_aip or sup_aip) and finalcoord:
+                    logger.debug("Finalizing poly: Vertl complete.")
+                    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
             if toamsl is not None:
                 lastv = toamsl
                 feature['properties']['to (ft amsl)']=toamsl
@@ -414,7 +423,7 @@ for filename in os.listdir("./sources/txt"):
             name=name.groupdict()
 
             if restrict_aip:
-                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
                 lastv = None
 
             aipname = name.get('name')
@@ -429,7 +438,7 @@ for filename in os.listdir("./sources/txt"):
             elif wstrip(line) != "2" and airsport_intable:
                 to_amsl = feature['properties'].get('to (ft amsl)')
                 logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
-                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
                 if to_amsl:
                     feature['properties']['to (ft amsl)']=to_amsl
                     feature['properties']['to (m amsl)']=ft2m(to_amsl)
@@ -460,7 +469,7 @@ for filename in os.listdir("./sources/txt"):
             parse(line)
 
 
-    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip)
+    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
     collection.extend(features)
 
 logger.info("%i Features", len(collection))
