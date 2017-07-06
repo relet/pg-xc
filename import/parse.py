@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names 
-re_name   = re.compile("^\s*(?P<name>[^\s]* (TMA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>EN [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>END\d.*)\s*$")
 
@@ -185,22 +185,22 @@ def wstrip(s):
     """Remove double whitespaces, and strip"""
     return re.sub('\s+',' ',s.strip())
 
-def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip):
+def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip):
     """Complete and sanity check a feature definition"""
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
-    if 'FIR' in str(aipname):
+    if 'FIR' in str(aipname) or 'ADS' in str(aipname):
         logger.debug("Ignoring: %s", aipname)
         return {"properties":{}}, []
     feature['properties']['name']=aipname
-    if norway_aip or sup_aip:
+    if norway_aip or sup_aip or tia_aip:
         recount = len([f for f in features if aipname in f['properties']['name']])
         if recount>0:
             feature['properties']['name']=aipname + " " + str(recount+1)
     elif not restrict_aip and not airsport_aip and len(features)>0:
         feature['properties']['name']=aipname + " " + str(len(features)+1)
-    if 'TIZ' in str(aipname):
+    if 'TIZ' in str(aipname) or 'TIA' in str(aipname):
         feature['properties']['class']='G'
     elif 'CTR' in str(aipname):
         feature['properties']['class']='D'
@@ -259,6 +259,7 @@ for filename in os.listdir("./sources/txt"):
 
     main_aip = "EN_AD" in filename
     norway_aip = "ENR_2_1" in filename
+    tia_aip = "ENR_2_2" in filename
     restrict_aip = "ENR_5_1" in filename
     airsport_aip = "ENR_5_5" in filename
     sup_aip = "en_sup" in filename
@@ -278,7 +279,7 @@ for filename in os.listdir("./sources/txt"):
 
     vcut = 999
 
-    def parse(line):
+    def parse(line, half=1):
         """Parse a line (or half line) of converted pdftotext"""
         logger.debug("LINE '%s'", line)
         # TODO: make this a proper method
@@ -376,7 +377,7 @@ for filename in os.listdir("./sources/txt"):
                         finalcoord = False
                     if airsport_aip and finalcoord:
                         if feature['properties'].get('from (ft masl)') is not None:
-                            feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
+                            feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
 
             return
@@ -409,9 +410,9 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (norway_aip or airsport_aip or sup_aip) and finalcoord:
+                if (norway_aip or airsport_aip or sup_aip or tia_aip) and finalcoord:
                     logger.debug("Finalizing poly: Vertl complete.")
-                    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
+                    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
             if toamsl is not None:
                 lastv = toamsl
                 feature['properties']['to (ft amsl)']=toamsl
@@ -423,7 +424,7 @@ for filename in os.listdir("./sources/txt"):
             name=name.groupdict()
 
             if restrict_aip:
-                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
 
             aipname = name.get('name')
@@ -438,7 +439,7 @@ for filename in os.listdir("./sources/txt"):
             elif wstrip(line) != "2" and airsport_intable:
                 to_amsl = feature['properties'].get('to (ft amsl)')
                 logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
-                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
                 if to_amsl:
                     feature['properties']['to (ft amsl)']=to_amsl
                     feature['properties']['to (m amsl)']=ft2m(to_amsl)
@@ -451,25 +452,31 @@ for filename in os.listdir("./sources/txt"):
             if "Vertical limits" in line:
                 vcut = line.index("Vertical limits")
             else:
-                parse(line[:vcut])
-                parse(line[vcut:vcut+16])
+                parse(line[:vcut],1)
+                parse(line[vcut:vcut+16],2)
         elif restrict_aip:
             if "Vertikale grenser" in line:
                 vcut = line.index("Vertikale grenser")
             else:
-                parse(line[:vcut])
-                parse(line[vcut:])
+                parse(line[:vcut],1)
+                parse(line[vcut:],2)
         elif norway_aip:
             if "Tjenesteenhet" in line:
                 vcut = line.index("Tjenesteenhet")
             else:
-                parse(line[:vcut])
-                parse(line[vcut:])
+                parse(line[:vcut],1)
+                #parse(line[vcut:],2)
+        elif tia_aip:
+            if "Unit providing" in line:
+                vcut = line.index("Unit providing")
+            else:
+                parse(line[:vcut],1)
+                #parse(line[vcut:],2)
         else:
-            parse(line)
+            parse(line,1)
 
 
-    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip)
+    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
     collection.extend(features)
 
 logger.info("%i Features", len(collection))

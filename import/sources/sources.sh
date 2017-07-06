@@ -29,11 +29,13 @@ while read p; do
   if [ -z "$p" ]; then continue; fi
   if [[ $p =~ ^! ]]; then
       FILENAME=$(urlencode ${p:1})
+      URLNAME=${p:1}
   else
       FILENAME=$(urlencode $p)
+      URLNAME=$p
   fi
   if [ ! -e "./pdf/$FILENAME" ]; then
-      wget -O "./pdf/$FILENAME" "$p"
+      wget -O "./pdf/$FILENAME" "$URLNAME"
   fi
   if [[ $p =~ ^! ]]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
