@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from geojson import Feature, FeatureCollection, Polygon, load
@@ -152,18 +152,26 @@ def merge_poly(p1, p2):
     union = shops.cascaded_union([poly1, poly2])
     return [ll2c(ll) for ll in union.exterior.coords]
 
-norge_fc = load(open("fastland.geojson","r"))
-norge = norge_fc.features[0].geometry.coordinates[0]
-logger.debug("Norway has %i points.", len(norge))
-def fill_along(llf, llt):
-    """Follow the Norwegian border line where required"""
+norway_fc = load(open("fastland.geojson","r"))
+norway = norge_fc.features[0].geometry.coordinates[0]
+logger.debug("Norway has %i points.", len(norway))
+sweden_fc = load(open("fastland-sweden.geojson","r"))
+sweden = sweden_fc.features[0].geometry.coordinates[0]
+logger.debug("Sweden has %i points.", len(sweden))
+borders = {
+        'norway': norway,
+        'sweden': sweden
+}
+
+def fill_along(llf, llt, border=norway):
+    """Follow the Norwegian/Swedish border line where required"""
     logger.debug("fill_along %s %s", llf, llt)
     minfrom = 99999
     minto   = 99999
     fromindex = None
     toindex = None
-    for i in xrange(len(norge)):
-        lon,lat = norge[i]
+    for i in xrange(len(border)):
+        lon,lat = border[i]
         d = abs(lon-llf[0])+abs(lat-llf[1])
         if d < minfrom:
             minfrom = d
@@ -174,9 +182,9 @@ def fill_along(llf, llt):
             toindex = i
     logger.debug("Filling from index %i to %i", fromindex, toindex)
     if toindex < fromindex:
-        return norge[fromindex:toindex+1:-1]
+        return border[fromindex:toindex+1:-1]
     else:
-        return norge[fromindex:toindex+1]
+        return border[fromindex:toindex+1]
 
 collection = []
 coords_wrap = ""
@@ -258,12 +266,17 @@ for filename in os.listdir("./sources/txt"):
     data = open("./sources/txt/"+filename,"r").readlines()
 
     main_aip = "EN_AD" in filename
-    norway_aip = "ENR_2_1" in filename
-    tia_aip = "ENR_2_2" in filename
-    restrict_aip = "ENR_5_1" in filename
-    airsport_aip = "ENR_5_5" in filename
+    norway_aip = "EN_ENR_2_1" in filename
+    tia_aip = "EN_ENR_2_2" in filename
+    restrict_aip = "EN_ENR_5_1" in filename
+    airsport_aip = "EN_ENR_5_5" in filename
     sup_aip = "en_sup" in filename
     airsport_intable = False
+
+    if "EN_" in filename:
+        border = borders['norway']
+    if "ES_" in filename:
+        border = borders['sweden']
 
     # this is global for all polygons
     aipname = None
@@ -286,6 +299,7 @@ for filename in os.listdir("./sources/txt"):
         # TODO: make this a proper method
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
+        global border
 
         if main_aip:
             if not ats_chapter:
@@ -357,7 +371,7 @@ for filename in os.listdir("./sources/txt"):
                     if alonging:
                         if not n and not e:
                             n, e = lastn, laste
-                        fill = fill_along(c2ll(alonging), c2ll((n,e)))
+                        fill = fill_along(c2ll(alonging), c2ll((n,e)), border)
                         alonging = False
                         lastn, laste = None, None
                         for border in fill:
