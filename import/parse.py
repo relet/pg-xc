@@ -1,5 +1,8 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+# FIXME: Swedish files list all relevant airspace for each airport, ignore duplicates
+
 
 from geojson import Feature, FeatureCollection, Polygon, load
 import math
@@ -26,6 +29,7 @@ re_class2 = re.compile("^(?P<class>[CDG])$")
 
 # Coordinates format, possibly in brackets
 RE_NE     = '(?P<ne>\(?(?P<n>\d+)N\s+(?P<e>\d+)E\)?)'
+RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile(RE_NE + " - ((\d\. )?A circle(,| with)? r|R)adius (?P<rad>[\d\.,]+) NM")
 # Match sector definitions, see log file for examples
@@ -33,7 +37,9 @@ RE_SECTOR = '('+RE_NE + ' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<sect
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
 RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-re_coord3 = re.compile(RE_NE+"|(?P<along>along)|(?P<onlyn>\d+)N|(?P<onlye>\d+)E|"+RE_CIRCLE2)
+re_coord3 = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE2)
+# clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
+re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )centred on '+RE_NE+'( ?:(and )?(with )?radius (?P<rad2>[\d\.,]+) NM)? (?:- )'+RE_NE2)
 
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( FT AMSL)?")
@@ -86,7 +92,7 @@ def nm2m(nm):
     except:
         return float(nm.replace(",",".")) * 1852.0
 
-def gen_circle(n, e, rad):
+def gen_circle(n, e, rad, convert=True):
     """Generate a circle"""
     logger.debug("Generating circle around %s, %s, radius %s", n, e, rad)
     circle = []
@@ -101,7 +107,10 @@ def gen_circle(n, e, rad):
                             math.cos(lat) * math.sin(d) * math.cos(brng))
         lon2 = lon + math.atan2(math.sin(brng)*math.sin(d)*math.cos(lat),
                                 math.cos(d)-math.sin(lat)*math.sin(lat2))
-        circle.append(ll2c((lon2 / DEG2RAD, lat2 / DEG2RAD)))
+        if convert:
+            circle.append(ll2c((lon2 / DEG2RAD, lat2 / DEG2RAD)))
+        else:
+            circle.append((lon2 / DEG2RAD, lat2 / DEG2RAD))
     circle.append(circle[0])
     return circle
 
@@ -153,7 +162,7 @@ def merge_poly(p1, p2):
     return [ll2c(ll) for ll in union.exterior.coords]
 
 norway_fc = load(open("fastland.geojson","r"))
-norway = norge_fc.features[0].geometry.coordinates[0]
+norway = norway_fc.features[0].geometry.coordinates[0]
 logger.debug("Norway has %i points.", len(norway))
 sweden_fc = load(open("fastland-sweden.geojson","r"))
 sweden = sweden_fc.features[0].geometry.coordinates[0]
@@ -163,9 +172,11 @@ borders = {
         'sweden': sweden
 }
 
-def fill_along(llf, llt, border=norway):
-    """Follow the Norwegian/Swedish border line where required"""
-    logger.debug("fill_along %s %s", llf, llt)
+def fill_along(from_, to_, border):
+    """Follow a country border or other line"""
+    logger.debug("fill_along %s %s %s (%i)", from_, to_, border[0], len(border))
+    llf = c2ll(from_)
+    llt = c2ll(to_)
     minfrom = 99999
     minto   = 99999
     fromindex = None
@@ -193,7 +204,7 @@ def wstrip(s):
     """Remove double whitespaces, and strip"""
     return re.sub('\s+',' ',s.strip())
 
-def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip):
+def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip):
     """Complete and sanity check a feature definition"""
     feature['properties']['source_href']=source
     feature['geometry'] = obj
@@ -202,7 +213,7 @@ def finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, 
         logger.debug("Ignoring: %s", aipname)
         return {"properties":{}}, []
     feature['properties']['name']=aipname
-    if norway_aip or sup_aip or tia_aip:
+    if cta_aip or sup_aip or tia_aip:
         recount = len([f for f in features if aipname in f['properties']['name']])
         if recount>0:
             feature['properties']['name']=aipname + " " + str(recount+1)
@@ -265,12 +276,16 @@ for filename in os.listdir("./sources/txt"):
 
     data = open("./sources/txt/"+filename,"r").readlines()
 
+    # TODO: merge the cases
     main_aip = "EN_AD" in filename
-    norway_aip = "EN_ENR_2_1" in filename
+    cta_aip = "EN_ENR_2_1" in filename
     tia_aip = "EN_ENR_2_2" in filename
     restrict_aip = "EN_ENR_5_1" in filename
     airsport_aip = "EN_ENR_5_5" in filename
     sup_aip = "en_sup" in filename
+
+    if "ES_ENR_2_1" in filename:
+        cta_aip = True
     airsport_intable = False
 
     if "EN_" in filename:
@@ -339,6 +354,7 @@ for filename in os.listdir("./sources/txt"):
                 coords2 = re_coord2.search(nline)
                 coords3 = re_coord3.findall(nline)
                 logger.debug("Found %i coords in merged line: %s", coords3 and len(coords3) or '1', nline)
+                line = nline
                 coords_wrap = ""
 
             if coords:
@@ -366,16 +382,36 @@ for filename in os.listdir("./sources/txt"):
                 obj = merge_poly(obj, c_gen)
 
             else:
-                for ne,n,e,along,onlyn,onlye,rad,cn,ce in coords3:
-                    logger.debug("Coords: %s", (n,e,along,ne,rad,cn,ce))
+                for ne,n,e,along,arc,rad,cn,ce in coords3:
+                    logger.debug("Coords: %s", (n,e,ne,along,arc,rad,cn,ce))
+                    if arc:
+                        arcdata = re_arc.search(line)
+                        if not arcdata:
+                            coords_wrap += line.strip() + " "
+                            logger.debug("Continuing line after incomplete arc: %s", coords_wrap)
+                            return
+                        arcdata = arcdata.groupdict()
+                        n = arcdata['n']
+                        e = arcdata['e']
+                        rad = arcdata.get('rad1', arcdata.get('rad2'))
+                        arc = gen_circle(n, e, rad, convert=False)
+                        to_n = arcdata['n2']
+                        to_e = arcdata['e2']
+                        fill = fill_along((n,e),(to_n,to_e), arc)
+                        lastn, laste = None, None
+
+                        for apair in fill:
+                            bn, be = ll2c(apair)
+                            obj.insert(0,(bn,be))
+
                     if alonging:
                         if not n and not e:
                             n, e = lastn, laste
-                        fill = fill_along(c2ll(alonging), c2ll((n,e)), border)
+                        fill = fill_along(alonging, (n,e), border)
                         alonging = False
                         lastn, laste = None, None
-                        for border in fill:
-                            bn, be = ll2c(border)
+                        for bpair in fill:
+                            bn, be = ll2c(bpair)
                             obj.insert(0,(bn,be))
 
                     if rad and cn and ce:
@@ -394,7 +430,7 @@ for filename in os.listdir("./sources/txt"):
                         finalcoord = False
                     if airsport_aip and finalcoord:
                         if feature['properties'].get('from (ft masl)') is not None:
-                            feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
+                            feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
 
             return
@@ -427,9 +463,9 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (norway_aip or airsport_aip or sup_aip or tia_aip) and finalcoord:
+                if (cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord:
                     logger.debug("Finalizing poly: Vertl complete.")
-                    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
+                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             if toamsl is not None:
                 lastv = toamsl
                 feature['properties']['to (ft amsl)']=toamsl
@@ -441,7 +477,7 @@ for filename in os.listdir("./sources/txt"):
             name=name.groupdict()
 
             if restrict_aip:
-                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
 
             aipname = name.get('name')
@@ -456,7 +492,7 @@ for filename in os.listdir("./sources/txt"):
             elif wstrip(line) != "2" and airsport_intable:
                 to_amsl = feature['properties'].get('to (ft amsl)')
                 logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
-                feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 if to_amsl:
                     feature['properties']['to (ft amsl)']=to_amsl
                     feature['properties']['to (m amsl)']=ft2m(to_amsl)
@@ -477,7 +513,7 @@ for filename in os.listdir("./sources/txt"):
             else:
                 parse(line[:vcut],1)
                 parse(line[vcut:],2)
-        elif norway_aip:
+        elif cta_aip:
             if "Tjenesteenhet" in line:
                 vcut = line.index("Tjenesteenhet")
             else:
@@ -493,7 +529,7 @@ for filename in os.listdir("./sources/txt"):
             parse(line,1)
 
 
-    feature, obj = finalize(feature, features, obj, source, aipname, norway_aip, restrict_aip, sup_aip, tia_aip)
+    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
     collection.extend(features)
 
 logger.info("%i Features", len(collection))
