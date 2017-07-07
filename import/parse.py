@@ -33,7 +33,7 @@ RE_SECTOR = '('+RE_NE + ' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<sect
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
 RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-re_coord3 = re.compile(RE_NE+"|(?P<along>along)|(?P<onlye>\d+)E|"+RE_CIRCLE2)
+re_coord3 = re.compile(RE_NE+"|(?P<along>along)|(?P<onlyn>\d+)N|(?P<onlye>\d+)E|"+RE_CIRCLE2)
 
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( FT AMSL)?")
@@ -281,6 +281,7 @@ for filename in os.listdir("./sources/txt"):
 
     def parse(line, half=1):
         """Parse a line (or half line) of converted pdftotext"""
+        line = line.strip()
         logger.debug("LINE '%s'", line)
         # TODO: make this a proper method
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
@@ -312,16 +313,18 @@ for filename in os.listdir("./sources/txt"):
         coords2 = re_coord2.search(line)
         coords3 = re_coord3.findall(line)
         if coords or coords2 or coords3:
-            logger.debug("Found coords in line: %s", line)
+            logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or '1', line)
             if line.strip()[-1] == "N":
-                logger.debug("Continuing line after N coordinate")
                 coords_wrap += line.strip() + " "
+                logger.debug("Continuing line after N coordinate: %s", coords_wrap)
                 return
             elif coords_wrap:
                 nline = coords_wrap + line
                 logger.debug("Continued line after N coordinate: %s", nline)
-                coords = re_coord.search(line)
+                coords = re_coord.search(nline)
+                coords2 = re_coord2.search(nline)
                 coords3 = re_coord3.findall(nline)
+                logger.debug("Found %i coords in merged line: %s", coords3 and len(coords3) or '1', nline)
                 coords_wrap = ""
 
             if coords:
@@ -349,7 +352,7 @@ for filename in os.listdir("./sources/txt"):
                 obj = merge_poly(obj, c_gen)
 
             else:
-                for ne,n,e,along,onlye,rad,cn,ce in coords3:
+                for ne,n,e,along,onlyn,onlye,rad,cn,ce in coords3:
                     logger.debug("Coords: %s", (n,e,along,ne,rad,cn,ce))
                     if alonging:
                         if not n and not e:
@@ -491,6 +494,19 @@ if len(sys.argv)>1:
         filt = sys.argv[1]
         collection = [x for x in collection if x.get('properties',{}).get('name') is not None and filt in x.get('properties').get('name','')]
 
+# Add LonLat conversion to each feature
+
+for feature in collection:
+    geom = feature['geometry']
+    geo_ll=[c2ll(c) for c in geom]
+    feature['geometry_ll']=geo_ll
+    feature['area']=shgeo.Polygon(geo_ll).area
+
+# Sort dataset by size, so that smallest geometries are shown on top:
+
+collection.sort(key=lambda f:f['area'], reverse=True)
+
+
 # OpenAIR output
 
 logger.info("Converting to OpenAIR")
@@ -534,12 +550,6 @@ for air in (airft, airm):
     air.close()
 
 
-# Add LonLat conversion to each feature
-for feature in collection:
-    geom = feature['geometry']
-    feature['geometry_ll']=[c2ll(c) for c in geom]
-
-
 # GeoJSON output, to KML via ogr2ogr
 
 logger.info("Converting to GeoJSON")
@@ -554,34 +564,34 @@ for feature in collection:
     f = Feature()
     f.properties = feature['properties']
     f.properties.update({
-          'fill-opacity':0.5,
+          'fillOpacity':0.25,
         })
     class_=f.properties.get('class')
     from_ =int(f.properties.get('from (m amsl)'))
     to_ =int(f.properties.get('to (m amsl)'))
     if class_ in ['C', 'D', 'G', 'R']:
         if from_ < 500:
-            f.properties.update({'fill':'#c04040',
-                                 'stroke':'#c04040'})
+            f.properties.update({'fillColor':'#c04040',
+                                 'color':'#c04040'})
         elif from_ < 1000:
-            f.properties.update({'fill':'#c08040',
-                                 'stroke':'#c08040'})
+            f.properties.update({'fillColor':'#c08040',
+                                 'color':'#c08040'})
         elif from_ < 2000:
-            f.properties.update({'fill':'#c0c040',
-                                 'stroke':'#c0c040'})
+            f.properties.update({'fillColor':'#c0c040',
+                                 'color':'#c0c040'})
         elif from_ < 4000:
-            f.properties.update({'fill':'#40c040',
-                                 'stroke':'#40c040'})
+            f.properties.update({'fillColor':'#40c040',
+                                 'color':'#40c040'})
         else:
-            f.properties.update({'fill-opacity':'0.0',
-                                 'stroke-opacity':'0.0'})
+            f.properties.update({'fillOpacity':'0.05',
+                                 'color':'#ffffff'})
     elif class_ in ['Luftsport']:
         if to_ < 2000:
-            f.properties.update({'fill':'#c0c040',
-                                 'stroke':'#c0c040'})
+            f.properties.update({'fillColor':'#c0c040',
+                                 'color':'#c0c040'})
         else:
-            f.properties.update({'fill':'#40c040',
-                                 'stroke':'#40c040'})
+            f.properties.update({'fillColor':'#40c040',
+                                 'color':'#40c040'})
     else:
         logger.debug("Missing color scheme for: %s, %s", class_, from_)
     if geom[0]!=geom[-1]:
@@ -593,7 +603,7 @@ for feature in collection:
 result = FeatureCollection(fc)
 if len(sys.argv)>1:
     print 'http://geojson.io/#data=data:application/json,'+urllib.quote(str(result))
-open("result/result.geojson","w").write(str(result))
+open("result/luftrom.geojson","w").write(str(result))
 
 # OpenAIP output
 
