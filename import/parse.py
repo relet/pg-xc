@@ -484,6 +484,14 @@ for filename in os.listdir("./sources/txt"):
 
 logger.info("%i Features", len(collection))
 
+# Add LonLat conversion to each feature
+
+for feature in collection:
+    geom = feature['geometry']
+    geo_ll=[c2ll(c) for c in geom]
+    feature['geometry_ll']=geo_ll
+    feature['area']=shgeo.Polygon(geo_ll).area
+
 # Apply filter by index or name
 
 if len(sys.argv)>1:
@@ -494,18 +502,9 @@ if len(sys.argv)>1:
         filt = sys.argv[1]
         collection = [x for x in collection if x.get('properties',{}).get('name') is not None and filt in x.get('properties').get('name','')]
 
-# Add LonLat conversion to each feature
 
-for feature in collection:
-    geom = feature['geometry']
-    geo_ll=[c2ll(c) for c in geom]
-    feature['geometry_ll']=geo_ll
-    feature['area']=shgeo.Polygon(geo_ll).area
-
-# Sort dataset by size, so that smallest geometries are shown on top:
-
+## Sort dataset by size, so that smallest geometries are shown on top:
 collection.sort(key=lambda f:f['area'], reverse=True)
-
 
 # OpenAIR output
 
@@ -550,11 +549,10 @@ for air in (airft, airm):
     air.close()
 
 
-# GeoJSON output, to KML via ogr2ogr
+# GepoJSON output, to KML via ogr2ogr
 
 logger.info("Converting to GeoJSON")
 fc = []
-
 
 for feature in collection:
     geom = feature['geometry_ll']
@@ -583,7 +581,8 @@ for feature in collection:
             f.properties.update({'fillColor':'#40c040',
                                  'color':'#40c040'})
         else:
-            f.properties.update({'fillOpacity':'0.05',
+            f.properties.update({'fillOpacity':'0.0',
+                                 'opacity':'0.0',
                                  'color':'#ffffff'})
     elif class_ in ['Luftsport']:
         if to_ < 2000:
@@ -596,7 +595,7 @@ for feature in collection:
         logger.debug("Missing color scheme for: %s, %s", class_, from_)
     if geom[0]!=geom[-1]:
         geom.append(geom[0])
-    if from_ < 4000:
+    if from_ < 4200: 
         f.geometry = Polygon([geom])
         fc.append(f)
 
