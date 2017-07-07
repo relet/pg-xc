@@ -562,7 +562,7 @@ for feature in collection:
     f = Feature()
     f.properties = feature['properties']
     f.properties.update({
-          'fillOpacity':0.25,
+          'fillOpacity':0.15,
         })
     class_=f.properties.get('class')
     from_ =int(f.properties.get('from (m amsl)'))
@@ -570,7 +570,8 @@ for feature in collection:
     if class_ in ['C', 'D', 'G', 'R']:
         if from_ < 500:
             f.properties.update({'fillColor':'#c04040',
-                                 'color':'#c04040'})
+                                 'color':'#c04040',
+                                 'fillOpacity':0.35})
         elif from_ < 1000:
             f.properties.update({'fillColor':'#c08040',
                                  'color':'#c08040'})
@@ -581,8 +582,8 @@ for feature in collection:
             f.properties.update({'fillColor':'#40c040',
                                  'color':'#40c040'})
         else:
-            f.properties.update({'fillOpacity':'0.0',
-                                 'opacity':'0.0',
+            f.properties.update({'fillOpacity':0.0,
+                                 'opacity':0.0,
                                  'color':'#ffffff'})
     elif class_ in ['Luftsport']:
         if to_ < 2000:
