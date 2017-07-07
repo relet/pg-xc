@@ -37,6 +37,17 @@
                 var overLayers = {
                   "Norwegian airspace": new L.GeoJSON.AJAX("luftrom.geojson", {
                          onEachFeature: function (feature, layer) {
+                               layer.on('mouseover', function() {
+                                   this.setStyle({
+                                     'weight': 4,
+                                     'fillOpacity': 0.25
+                                   })})
+                               layer.on('mouseout', function() {
+                                   this.setStyle({
+                                     'weight': 2,
+                                     'fillOpacity': feature.properties['fillOpacity']
+                                   })})
+
                                var source=feature.properties['source_href'];
                                layer.bindPopup(
                                    '<h2>'+feature.properties['name']+'</h2><br />'+
