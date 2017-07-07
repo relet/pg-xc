@@ -15,7 +15,7 @@ import shapely.geometry as shgeo
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-# Lines containing these are usually recognized as names 
+# Lines containing these are usually recognized as names
 re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>EN [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>END\d.*)\s*$")
@@ -514,8 +514,8 @@ for feature in collection:
     # *     A Class A
     # *     B Class B
     # *     C Class C
-    # *     D Class D 
-    # *     GP glider prohibited 
+    # *     D Class D
+    # *     GP glider prohibited
     # *     CTR CTR
     # *     W Wave Window
     for air in (airft, airm):
@@ -534,6 +534,11 @@ for air in (airft, airm):
     air.close()
 
 
+# Add LonLat conversion to each feature
+for feature in collection:
+    geom = feature['geometry']
+    feature['geometry_ll']=[c2ll(c) for c in geom]
+
 
 # GeoJSON output, to KML via ogr2ogr
 
@@ -542,7 +547,7 @@ fc = []
 
 
 for feature in collection:
-    geom = feature['geometry']
+    geom = feature['geometry_ll']
     if not geom:
         logger.error("Feature without geometry: %s", feature)
         continue
@@ -582,10 +587,75 @@ for feature in collection:
     if geom[0]!=geom[-1]:
         geom.append(geom[0])
     if from_ < 4000:
-        f.geometry = Polygon([[c2ll(c) for c in geom]])
+        f.geometry = Polygon([geom])
         fc.append(f)
 
 result = FeatureCollection(fc)
 if len(sys.argv)>1:
     print 'http://geojson.io/#data=data:application/json,'+urllib.quote(str(result))
 open("result/result.geojson","w").write(str(result))
+
+# OpenAIP output
+
+logger.info("Converting to OpenAIP")
+out = open("result/luftrom.openaip","w")
+
+out.write("""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OPENAIP VERSION="367810a0f94887bf79cd9432d2a01142b0426795" DATAFORMAT="1.1">
+<AIRSPACES>
+""")
+
+# TODO: OpenAIP airspace categories
+#A
+#B
+#C
+#CTR
+#D
+#DANGER
+#E
+#F
+#G
+#GLIDING
+#OTH #Use for uncommon or unknown airspace category
+#RESTRICTED
+#TMA
+#TMZ
+#WAVE
+#PROHIBITED
+#FIR
+#UIR
+#RMZ
+
+# TODO: use fl as unit where meaningful
+for i,feature in enumerate(collection):
+    poly = ",".join([" ".join([str(x) for x in pair]) for pair in feature['geometry_ll']])
+    aipdata = {
+            'id': i,
+            'category': feature['properties']['class'],
+            'name': feature['properties']['name'],
+            'alt_from_unit': 'F',
+            'alt_to_unit': 'F',
+            'alt_from': feature['properties']['from (ft amsl)'],
+            'alt_to': feature['properties']['to (ft amsl)'],
+            'polygon': poly
+        }
+    out.write("""<ASP CATEGORY="{category}">
+<VERSION>367810a0f94887bf79cd9432d2a01142b0426795</VERSION>
+<ID>{id}</ID>
+<COUNTRY>NO</COUNTRY>
+<NAME>{name}</NAME>
+<ALTLIMIT_TOP REFERENCE="MSL">
+<ALT UNIT="{alt_to_unit}">{alt_to}</ALT>
+</ALTLIMIT_TOP>
+<ALTLIMIT_BOTTOM REFERENCE="MSL">
+<ALT UNIT="{alt_from_unit}">{alt_from}</ALT>
+</ALTLIMIT_BOTTOM>
+<GEOMETRY>
+<POLYGON>{polygon}</POLYGON>
+</GEOMETRY>
+</ASP>""".format(**aipdata))
+
+out.write("""</AIRSPACES>
+</OPENAIP>
+""")
+out.close()
