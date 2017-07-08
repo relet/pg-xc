@@ -26,12 +26,21 @@
                 var i, layer;
                 var layers = L.tileLayer.kartverket.getLayers();
 
-                var baseLayers = {};
+                var baseLayers = {
+                  'Norway: Kartverket Topography': 'topo2',
+                  'Europe: Kartverket Europa': 'europa',
+                  'Norway: Kartverket Light': 'norges_grunnkart',
+                  'Europe: Kartverket Light': 'egk'
+                }
                 for (i = 0; i < layers.length; i++) {
                     layer = layers[i];
-                    baseLayers[layer] = L.tileLayer.kartverket(layer);
+                    for (var key in baseLayers) {
+                      if (baseLayers[key]==layer) {
+                        baseLayers[key] = L.tileLayer.kartverket(layer);
+                      }
+                    }
                 }
-                baseLayers[layers[0]].addTo(map);
+                baseLayers['Norway: Kartverket Topography'].addTo(map);
                 L.control.layers(baseLayers).addTo(map);
 
                 var overLayers = {
