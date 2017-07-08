@@ -2,11 +2,49 @@
 
 <html lang="en">
   <head>
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
       <meta charset="utf-8">
       <title>Norwegian Airspace - resources for paraglider pilots</title>
   </head>
 
   <body>
       <h2>Resources for paraglider pilots in Norway</h2>
+
+This repository contains several data files than can be useful for planning XC trips in Norway.
+
+<h3>Airspace</h3>
+
+<p>This is best effort airspace information geared towards paraglider pilots. <br/>
+<span style='color:red'>THESE FILES ARE PROVIDED WITHOUT WARRANTY OF ANY KIND.</span> Errors and omissions will occur, and updates happen on a best effort basis. Each geometry contains a data source link which you *should always* check for possible updates.
+</p>
+
+<p><b><a href="viewer.html">Map view</a></b></p>
+
+<p><b>Files:</b>
+<ul>
+  <li><a href="">GEOJSON</a></li>
+  <li><a href="">Ceilings (tbd, currently outdated)</a></li>
+  <li><a href="">OpenAIR format in meters and feet above MSL</a></li>
+  <li><a href="">OpenAIP format (for inclusion in openaip.net)</a></li>
+</ul>
+</p>
+
+<h3>Other resources</h3>
+
+<p>By order of usefulness:</p>
+
+<ul>
+  <li>Aggregate over all flown routes from the Norwegian flightlog - [link](https://github.com/relet/pg-xc/blob/master/geojson/routes.geojson)</li>
+  <li>Terrain model showing slope values - [link](https://drive.google.com/folderview?id=0B7wcsWcf-oh1ZllZQl9qQmh1bTA&usp=sharing)</li>
+  <li>Registered takeoffs from flightlog.org - [link](https://github.com/relet/pg-xc/blob/master/geojson/takeoffs.geojson)</li>
+  <li>Public cabins from Kartverket N50 data  - [link](https://github.com/relet/pg-xc/blob/master/geojson/hytter.geojson)</li>
+  <li>Mountain tops from Kartverket N50 data - [link](https://github.com/relet/pg-xc/blob/master/geojson/topper.geojson)</li>
+  <li>Surfaces of water from Kartverket N250 data - [link](https://github.com/relet/pg-xc/blob/master/geojson/water.geojson)</li>
+  <li>Marked [trails](https://github.com/relet/pg-xc/blob/master/geojson/fotruter.geojson.gz) and [ski tracks](https://github.com/relet/pg-xc/blob/master/geojson/skiloyper.geojson) for Norway from https://kartkatalog.geonorge.no/metadata/uuid/d1422d17-6d95-4ef1-96ab-8af31744dd63?</li>
+  <li>Some thermal hotspots from thermal.kk7.ch - not much activity is recorded for the North - [link](https://github.com/relet/pg-xc/blob/master/geojson/hotspots.geojson)</li>
+  <li>Some thermal hotspots extracted from flightlog.org - [link](https://github.com/relet/pg-xc/blob/master/geojson/hotspots_flightlog.geojson)</li>
+</ul>
+
   </body>
 </html>
