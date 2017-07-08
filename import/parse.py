@@ -199,6 +199,7 @@ def fill_along(from_, to_, border):
 
 collection = []
 coords_wrap = ""
+completed = {}
 
 def wstrip(s):
     """Remove double whitespaces, and strip"""
@@ -206,6 +207,8 @@ def wstrip(s):
 
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip):
     """Complete and sanity check a feature definition"""
+    global completed
+
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
@@ -246,6 +249,11 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         if "None" in name:
             logger.error("Feature without name: #%i", index)
             sys.exit(1)
+        if name in completed:
+            logger.info("Duplicate feature name, skipping: #%i %s", index, name)
+            return {"properties":{}}, []
+            #sys.exit(1)
+        completed[name]=True
         if source is None:
             logger.error("Feature without source: #%i", index)
             sys.exit(1)
