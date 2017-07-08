@@ -44,8 +44,6 @@
                       }
                     }
                 }
-                baseLayers['Norway: Kartverket Topography'].addTo(map);
-                L.control.layers(baseLayers).addTo(map);
 
                 var onEachFeature_all = function (feature, layer) {
                                  layer.on('mouseover', function() {
@@ -93,11 +91,9 @@
                   " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
                 };
 
+                baseLayers['Norway: Kartverket Topography'].addTo(map);
                 overLayers["Norwegian airspace (2017-07-07)"].addTo(map);
-                var filter_control = L.control.layers(overLayers);
-                filter_control.id = 'filter-control';
-                filter_control.addTo(map);
-
+                L.control.layers(baseLayers, overLayers).addTo(map);
 
             }());
           </script>
