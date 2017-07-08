@@ -94,7 +94,7 @@
                 };
 
                 overLayers["Norwegian airspace (2017-07-07)"].addTo(map);
-                filter_control = L.control.layers(overLayers);
+                var filter_control = L.control.layers(overLayers);
                 filter_control.id = 'filter-control';
                 filter_control.addTo(map);
 
