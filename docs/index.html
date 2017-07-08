@@ -35,7 +35,7 @@
                 L.control.layers(baseLayers).addTo(map);
 
                 var overLayers = {
-                  "Norwegian airspace": new L.GeoJSON.AJAX("https://github.com/relet/pg-xc/blob/master/geojson/luftrom.geojson", {
+                  "Norwegian airspace": new L.GeoJSON.AJAX("luftrom.geojson", {
                          onEachFeature: function (feature, layer) {
                                layer.on('mouseover', function() {
                                    this.setStyle({
