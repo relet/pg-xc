@@ -76,7 +76,7 @@
                 var filter_all = function(key, search) {
                     return function(feature) {
                         for (var term in search) { 
-                            if (feature.properties[key].indexOf(search) > -1) {
+                            if (feature.properties[key].indexOf(term) > -1) {
                                 return true;
                             }
                         }
@@ -90,7 +90,7 @@
                   " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
                   " - Danger/Restricted": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
-                  " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftrom']) }),
+                  " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
                 };
 
                 overLayers["Norwegian airspace (2017-07-07)"].addTo(map);
