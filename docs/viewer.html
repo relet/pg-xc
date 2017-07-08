@@ -10,6 +10,10 @@
                 top: 0;
                 bottom: 0;
             }
+            #filter-control {
+                background-image: url(images/filter-2x.png);
+                background-size: 26px 26px;
+            }
         </style>
     </head>
     <body>
@@ -90,7 +94,9 @@
                 };
 
                 overLayers["Norwegian airspace (2017-07-07)"].addTo(map);
-                L.control.layers(overLayers).addTo(map);
+                filter_control = L.control.layers(overLayers);
+                filter_control.id = 'filter-control';
+                filter_control.addTo(map);
 
 
             }());
