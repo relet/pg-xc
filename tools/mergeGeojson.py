@@ -15,7 +15,11 @@ for file in files:
   data = geojson.loads(fd.read())
   fd.close()
 
-  geodata += [feature for feature in data["features"]]
+  if "features" in data: # FeatureCollections
+      geodata += [feature for feature in data["features"]]
+  elif "geometry" in data:
+      geodata += [data]
+
 
 print geojson.dumps(geojson.FeatureCollection(geodata))
   
