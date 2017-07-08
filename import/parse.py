@@ -37,7 +37,7 @@ RE_SECTOR = '('+RE_NE + ' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<sect
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
 RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-re_coord3 = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE2)
+re_coord3 = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE2)
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
 re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )centred on '+RE_NE+'( ?:(and )?(with )?radius (?P<rad2>[\d\.,]+) NM)? (?:- )'+RE_NE2)
 
