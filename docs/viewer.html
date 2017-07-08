@@ -43,37 +43,54 @@
                 baseLayers['Norway: Kartverket Topography'].addTo(map);
                 L.control.layers(baseLayers).addTo(map);
 
-                var overLayers = {
-                  "Norwegian airspace (2017-07-07)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", {
-                         onEachFeature: function (feature, layer) {
-                               layer.on('mouseover', function() {
-                                   this.setStyle({
-                                     'weight': 4,
-                                     'fillOpacity': 0.25
-                                   })})
-                               layer.on('mouseout', function() {
-                                   this.setStyle({
-                                     'weight': 2,
-                                     'fillOpacity': feature.properties['fillOpacity']
-                                   })})
+                var onEachFeature_all = function (feature, layer) {
+                                 layer.on('mouseover', function() {
+                                     this.setStyle({
+                                       'weight': 4,
+                                       'fillOpacity': 0.25
+                                     })})
+                                 layer.on('mouseout', function() {
+                                     this.setStyle({
+                                       'weight': 2,
+                                       'fillOpacity': feature.properties['fillOpacity']
+                                     })})
 
-                               var source=feature.properties['source_href'];
-                               layer.bindPopup(
-                                   '<h2>'+feature.properties['name']+'</h2><br />'+
-                                   'Class: '+feature.properties['class']+'<br />'+
-                                   'Ceiling: '+feature.properties['to (m amsl)']+'m above MSL<br />'+
-                                   'Floor: '+feature.properties['from (m amsl)']+'m above MSL<br />'+
-                                   '<a href="'+source+'">Kilde (PDF)</a><br />'
-                               );
-                         },
-                         style: function(feature) {
-                             return feature.properties;
-                         }
-                    })
+                                 var source=feature.properties['source_href'];
+                                 layer.bindPopup(
+                                     '<h2>'+feature.properties['name']+'</h2><br />'+
+                                     'Class: '+feature.properties['class']+'<br />'+
+                                     'Ceiling: '+feature.properties['to (m amsl)']+'m above MSL<br />'+
+                                     'Floor: '+feature.properties['from (m amsl)']+'m above MSL<br />'+
+                                     '<a href="'+source+'">Kilde (PDF)</a><br />'
+                                 );
+                };
+
+                var style_all = function(feature) {
+                    return feature.properties;
+                };
+
+                var filter_all = function(key, search) {
+                    return function(feature) {
+                        for (var term in search) { 
+                            if (feature.properties[key].indexOf(search) > -1) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                };
+
+                var overLayers = {
+                  "Norwegian airspace (2017-07-07)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
+                  " - CTA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
+                  " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
+                  " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
+                  " - Danger/Restricted": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
+                  " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftrom']) }),
                 };
 
                 overLayers["Norwegian airspace (2017-07-07)"].addTo(map);
-                //L.control.layers(overLayers).addTo(map);
+                L.control.layers(overLayers).addTo(map);
 
 
             }());
