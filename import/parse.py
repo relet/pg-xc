@@ -4,6 +4,7 @@
 # FIXME: Swedish files list all relevant airspace for each airport, ignore duplicates
 
 
+from codecs import open
 from geojson import Feature, FeatureCollection, Polygon, load
 import math
 import os
@@ -31,23 +32,24 @@ re_class2 = re.compile("^(?P<class>[CDG])$")
 RE_NE     = '(?P<ne>\(?(?P<n>\d+)N\s+(?P<e>\d+)E\)?)'
 RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
-re_coord  = re.compile(RE_NE + " - ((\d\. )?A circle(,| with)? r|R)adius (?P<rad>[\d\.,]+) NM")
+re_coord  = re.compile(RE_NE + " - (?:(?:\d\. )?A circle(?: with|,)? r|R)adius (?P<rad>[\d\.,]+) NM")
 # Match sector definitions, see log file for examples
-RE_SECTOR = '('+RE_NE + ' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
+RE_SECTOR = u'('+RE_NE + u' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
-RE_CIRCLE2 = 'A circle, radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE2)
-re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE2)
+RE_CIRCLE = 'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
+re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE)
+re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE+"|(?P<circle>A circle)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
-re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )centred on '+RE_NE+'( ?:(and )?(with )?radius (?P<rad2>[\d\.,]+) NM)? (?:- )'+RE_NE2)
+re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM)? (?:- )'+RE_NE2)
 
 # Lines containing these are box ceilings and floors
-re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( FT AMSL)?")
-re_vertl2 = re.compile("((?P<ftamsl>\d+) FT AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
+re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
 # COLUMN PARSING:
-re_header_es_enr_2_1 = re.compile("(?:(?:(Name)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)).*){6}")
+rexes_header_es_enr_2_1 = [re.compile("(?:(?:(Name)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)).*){%i}" % mult) \
+                               for mult in reversed(xrange(3,8))]
 
 CIRCLE_APPROX_POINTS = 32
 RAD_EARTH = 6371000.0
@@ -215,7 +217,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
 
     feature['properties']['source_href']=source
     feature['geometry'] = obj
-    aipname = wstrip(str(aipname))
+    aipname = wstrip(unicode(aipname))
     for ignore in ['ADS','AOR','FIR']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
@@ -227,13 +229,13 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
             feature['properties']['name']=aipname + " " + str(recount+1)
     elif not restrict_aip and not airsport_aip and len(features)>0:
         feature['properties']['name']=aipname + " " + str(len(features)+1)
-    if 'TIZ' in str(aipname) or 'TIA' in str(aipname):
+    if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
-    elif 'CTR' in str(aipname):
+    elif 'CTR' in aipname:
         feature['properties']['class']='D'
-    elif 'EN R' in str(aipname) or 'EN D' in str(aipname) or 'END' in str(aipname):
+    elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname:
         feature['properties']['class']='R'
-    elif 'TMA' in str(aipname) or 'CTA' in str(aipname) or 'FIR' in str(aipname):
+    elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname:
         feature['properties']['class']='C'
     elif '5_5' in source:
         feature['properties']['class']='Luftsport'
@@ -287,30 +289,29 @@ for filename in os.listdir("./sources/txt"):
     source = urllib.unquote(filename.split(".txt")[0])
     logger.info("Reading %s", "./sources/txt/"+filename)
 
-    data = open("./sources/txt/"+filename,"r").readlines()
+    data = open("./sources/txt/"+filename,"r","utf-8").readlines()
 
-    main_aip = "EN_AD" in filename
-    cta_aip = "EN_ENR_2_1" in filename
-    tia_aip = "EN_ENR_2_2" in filename
+    main_aip     = "EN_AD" in filename
+    cta_aip      = "ENR_2_1" in filename
+    tia_aip      = "EN_ENR_2_2" in filename
     restrict_aip = "EN_ENR_5_1" in filename
     airsport_aip = "EN_ENR_5_5" in filename
-    sup_aip = "en_sup" in filename
+    sup_aip      = "en_sup" in filename
 
     # TODO: merge the cases
-    if "ES_ENR_2_1" in filename:
-        cta_aip = True
-        es_enr_2_1 = True
+    es_enr_2_1 = "ES_ENR_2_1" in filename
 
     airsport_intable = False
 
     if "EN_" in filename:
-        country = 'en'
+        country = 'EN'
         border = borders['norway']
         re_coord3 = re_coord3_no
     if "ES_" in filename:
-        country = 'es'
+        country = 'ES'
         border = borders['sweden']
         re_coord3 = re_coord3_se
+    logger.debug("Country is %s", country)
 
     # this is global for all polygons
     aipname = None
@@ -368,7 +369,7 @@ for filename in os.listdir("./sources/txt"):
                 return
             elif coords_wrap:
                 nline = coords_wrap + line
-                logger.debug("Continued line after N coordinate: %s", nline)
+                logger.debug("Continued line: %s", nline)
                 coords = re_coord.search(nline)
                 coords2 = re_coord2.search(nline)
                 coords3 = re_coord3.findall(nline)
@@ -401,8 +402,10 @@ for filename in os.listdir("./sources/txt"):
                 obj = merge_poly(obj, c_gen)
 
             else:
-                for ne,n,e,along,arc,rad,cn,ce in coords3:
-                    logger.debug("Coords: %s", (n,e,ne,along,arc,rad,cn,ce))
+                for blob in coords3:
+                    ne,n,e,along,arc,rad,cn,ce = blob[:8]
+                    circle = blob[8] if len(blob)==9 else None
+                    logger.debug("Coords: %s", (n,e,ne,along,arc,rad,cn,ce,circle))
                     if arc:
                         arcdata = re_arc.search(line)
                         if not arcdata:
@@ -410,9 +413,10 @@ for filename in os.listdir("./sources/txt"):
                             logger.debug("Continuing line after incomplete arc: %s", coords_wrap)
                             return
                         arcdata = arcdata.groupdict()
+                        logger.debug("Completed arc: %s", arcdata)
                         n = arcdata['n']
                         e = arcdata['e']
-                        rad = arcdata.get('rad1', arcdata.get('rad2'))
+                        rad = arcdata.get('rad1') or arcdata.get('rad2')
                         arc = gen_circle(n, e, rad, convert=False)
                         to_n = arcdata['n2']
                         to_e = arcdata['e2']
@@ -422,6 +426,11 @@ for filename in os.listdir("./sources/txt"):
                         for apair in fill:
                             bn, be = ll2c(apair)
                             obj.insert(0,(bn,be))
+                    elif circle:
+                        coords_wrap += line.strip() + " "
+                        logger.debug("Continuing line after incomplete circle: %s", coords_wrap)
+                        return
+
 
                     if alonging:
                         if not n and not e:
@@ -482,7 +491,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (cta_aip or airsport_aip or sup_aip or tia_aip) and (finalcoord or country != 'en'):
+                if (cta_aip or airsport_aip or sup_aip or tia_aip) and (finalcoord or country != 'EN'):
                     logger.debug("Finalizing poly: Vertl complete.")
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             if toamsl is not None:
@@ -522,29 +531,34 @@ for filename in os.listdir("./sources/txt"):
     for line in data:
         if "\f" in line:
             column_parsing = False
-        line = line.strip()
-        if not line:
+        if not line.strip():
             if column_parsing and table:
                 # parse rows first, then cols
                 for col in xrange(0,len(table[0])):
                     for row in table:
-                        parse(table[row][col])
+                        parse(row[col])
                 table = []
+        headers = None
         if column_parsing:
             row = []
-            for vcut in xrange(0,len(column_parsing)-1):
-                lcut = line[column_parsing[vcut]:column_parsing[vcut+1]]
+            for i in xrange(0,len(column_parsing)-1):
+                lcut = line[column_parsing[i]:column_parsing[i+1]].strip()
+                #logger.debug("Cutting %i to %i as %s", column_parsing[i], column_parsing[i+1], lcut)
                 row.append(lcut)
             table.append(row)
-            # TODO: column parsing
-        elif es_enr_2_1: 
-            headers = re_header_es_enr_2_1.findall(line)
+            continue
+        elif es_enr_2_1:
+            for rex in rexes_header_es_enr_2_1:
+                headers = headers or rex.findall(line)
         if headers:
             logger.debug("Parsed header line as %s.", headers)
+            logger.debug("line=%s.", line)
             vcuts = []
             for header in headers[0]:
-                vcuts.append(line.index(header))
+                if header:
+                    vcuts.append(line.index(header))
             vcuts.append(len(line))
+            #logger.debug("vcuts=%s.", vcuts)
             column_parsing = vcuts
             continue
 
@@ -608,8 +622,8 @@ collection.sort(key=lambda f:f['area'], reverse=True)
 # OpenAIR output
 
 logger.info("Converting to OpenAIR")
-airft = open("result/luftrom.ft.txt","w")
-airm = open("result/luftrom.m.txt","w")
+airft = open("result/luftrom.ft.txt","w","utf-8")
+airm = open("result/luftrom.m.txt","w","utf-8")
 
 for feature in collection:
     properties = feature['properties']
@@ -710,19 +724,19 @@ for feature in collection:
         logger.debug("Missing color scheme for: %s, %s", class_, from_)
     if geom[0]!=geom[-1]:
         geom.append(geom[0])
-    if from_ < 4200: 
+    if from_ < 4200:
         f.geometry = Polygon([geom])
         fc.append(f)
 
 result = FeatureCollection(fc)
 if len(sys.argv)>1:
     print 'http://geojson.io/#data=data:application/json,'+urllib.quote(str(result))
-open("result/luftrom.geojson","w").write(str(result))
+open("result/luftrom.geojson","w","utf-8").write(str(result))
 
 # OpenAIP output
 
 logger.info("Converting to OpenAIP")
-out = open("result/luftrom.openaip","w")
+out = open("result/luftrom.openaip","w","utf-8")
 
 out.write("""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OPENAIP VERSION="367810a0f94887bf79cd9432d2a01142b0426795" DATAFORMAT="1.1">
@@ -763,7 +777,7 @@ for i,feature in enumerate(collection):
             'alt_to': feature['properties']['to (ft amsl)'],
             'polygon': poly
         }
-    out.write("""<ASP CATEGORY="{category}">
+    out.write(u"""<ASP CATEGORY="{category}">
 <VERSION>367810a0f94887bf79cd9432d2a01142b0426795</VERSION>
 <ID>{id}</ID>
 <COUNTRY>NO</COUNTRY>
