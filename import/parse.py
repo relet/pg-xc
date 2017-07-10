@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>EN [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>END\d.*)\s*$")
 
@@ -213,9 +213,10 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
-    if 'FIR' in str(aipname) or 'ADS' in str(aipname):
-        logger.debug("Ignoring: %s", aipname)
-        return {"properties":{}}, []
+    for ignore in ['ADS','AOR','FIR']:
+        if ignore in aipname:
+            logger.debug("Ignoring: %s", aipname)
+            return {"properties":{}}, []
     feature['properties']['name']=aipname
     if cta_aip or sup_aip or tia_aip:
         recount = len([f for f in features if aipname in f['properties']['name']])
@@ -285,7 +286,6 @@ for filename in os.listdir("./sources/txt"):
 
     data = open("./sources/txt/"+filename,"r").readlines()
 
-    # TODO: merge the cases
     main_aip = "EN_AD" in filename
     cta_aip = "EN_ENR_2_1" in filename
     tia_aip = "EN_ENR_2_2" in filename
@@ -293,14 +293,18 @@ for filename in os.listdir("./sources/txt"):
     airsport_aip = "EN_ENR_5_5" in filename
     sup_aip = "en_sup" in filename
 
+    # TODO: merge the cases
     if "ES_ENR_2_1" in filename:
         cta_aip = True
+
     airsport_intable = False
 
     if "EN_" in filename:
+        country = 'en'
         border = borders['norway']
         re_coord3 = re_coord3_no
     if "ES_" in filename:
+        country = 'es'
         border = borders['sweden']
         re_coord3 = re_coord3_se
 
@@ -325,7 +329,7 @@ for filename in os.listdir("./sources/txt"):
         # TODO: make this a proper method
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
-        global border, re_coord3
+        global border, re_coord3, country
 
         if main_aip:
             if not ats_chapter:
@@ -474,7 +478,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord:
+                if (cta_aip or airsport_aip or sup_aip or tia_aip) and (finalcoord or country != 'en'):
                     logger.debug("Finalizing poly: Vertl complete.")
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             if toamsl is not None:
