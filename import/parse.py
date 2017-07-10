@@ -46,6 +46,9 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( FT AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) FT AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
+# COLUMN PARSING:
+re_header_es_enr_2_1 = re.compile("(?:(?:(Name)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)).*){6}")
+
 CIRCLE_APPROX_POINTS = 32
 RAD_EARTH = 6371000.0
 PI2 = math.pi * 2
@@ -296,6 +299,7 @@ for filename in os.listdir("./sources/txt"):
     # TODO: merge the cases
     if "ES_ENR_2_1" in filename:
         cta_aip = True
+        es_enr_2_1 = True
 
     airsport_intable = False
 
@@ -513,7 +517,37 @@ for filename in os.listdir("./sources/txt"):
                     feature['properties']['to (m amsl)']=ft2m(to_amsl)
                 aipname = wstrip(line)
 
+    table = []
+    column_parsing = False
     for line in data:
+        if "\f" in line:
+            column_parsing = False
+        line = line.strip()
+        if not line:
+            if column_parsing and table:
+                # parse rows first, then cols
+                for col in xrange(0,len(table[0])):
+                    for row in table:
+                        parse(table[row][col])
+                table = []
+        if column_parsing:
+            row = []
+            for vcut in xrange(0,len(column_parsing)-1):
+                lcut = line[column_parsing[vcut]:column_parsing[vcut+1]]
+                row.append(lcut)
+            table.append(row)
+            # TODO: column parsing
+        elif es_enr_2_1: 
+            headers = re_header_es_enr_2_1.findall(line)
+        if headers:
+            logger.debug("Parsed header line as %s.", headers)
+            vcuts = []
+            for header in headers[0]:
+                vcuts.append(line.index(header))
+            vcuts.append(len(line))
+            column_parsing = vcuts
+            continue
+
         # parse columns separately for table formatted files
         # use header fields to detect the vcut character limit
         if airsport_aip:
