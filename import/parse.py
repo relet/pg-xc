@@ -21,8 +21,8 @@ logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
 re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]* ACC sector.*)( cont.)?\s*$")
-re_name2  = re.compile("^\s*(?P<name>EN [RD].*)\s*$")
-re_name3  = re.compile("^\s*(?P<name>END\d.*)\s*$")
+re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
+re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 
 # Lines containing these are usually recognized as airspace class
 re_class  = re.compile("Class (?P<class>.)")
@@ -41,14 +41,15 @@ RE_CIRCLE = 'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>
 re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE)
 re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE+"|(?P<circle>A circle)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
-re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM)? (?:- )'+RE_NE2)
+re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ km\))?)? (?:- )'+RE_NE2)
+
 
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
 # COLUMN PARSING:
-rexes_header_es_enr = [re.compile("(?:(?:(Name)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)).*){%i}" % mult) \
+rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remarks)).*){%i}" % mult) \
                            for mult in reversed(xrange(3,8))]
 
 
@@ -236,7 +237,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         feature['properties']['class']='G'
     elif 'CTR' in aipname:
         feature['properties']['class']='D'
-    elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname:
+    elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES R' in aipname or 'ES D' in aipname:
         feature['properties']['class']='R'
     elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname:
         feature['properties']['class']='C'
@@ -297,13 +298,14 @@ for filename in os.listdir("./sources/txt"):
     main_aip     = "EN_AD" in filename
     cta_aip      = "ENR_2_1" in filename
     tia_aip      = "ENR_2_2" in filename
-    restrict_aip = "EN_ENR_5_1" in filename
-    airsport_aip = "EN_ENR_5_5" in filename
+    restrict_aip = "ENR_5_1" in filename
+    airsport_aip = "ENR_5_5" in filename
     sup_aip      = "en_sup" in filename
 
     # TODO: merge the cases
     es_enr_2_1 = "ES_ENR_2_1" in filename
     es_enr_2_2 = "ES_ENR_2_2" in filename
+    es_enr_5_1 = "ES_ENR_5_1" in filename
 
     airsport_intable = False
 
@@ -502,7 +504,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (cta_aip or airsport_aip or sup_aip or tia_aip) and (finalcoord or country != 'EN'):
+                if ((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN':
                     logger.debug("Finalizing poly: Vertl complete.")
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             if toamsl is not None:
@@ -559,7 +561,7 @@ for filename in os.listdir("./sources/txt"):
                 row.append(lcut)
             table.append(row)
             continue
-        elif es_enr_2_1 or es_enr_2_2:
+        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1:
             for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
         if headers:
