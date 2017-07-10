@@ -573,12 +573,13 @@ airm = open("result/luftrom.m.txt","w")
 for feature in collection:
     properties = feature['properties']
     geom       = feature['geometry']
-    class_=properties.get('class')
-    name=properties.get('name')
-    from_ =int(properties.get('from (ft amsl)'))
-    to_ =int(properties.get('to (ft amsl)'))
-    from_m =int(properties.get('from (m amsl)'))
-    to_m =int(properties.get('to (m amsl)'))
+    class_ = properties.get('class')
+    source = properties.get('source_href')
+    name   = properties.get('name')
+    from_  = int(properties.get('from (ft amsl)'))
+    to_    = int(properties.get('to (ft amsl)'))
+    from_m = int(properties.get('from (m amsl)'))
+    to_m   = int(properties.get('to (m amsl)'))
 
     #FIXME Airspace classes according to OpenAIR:
     # *     R restricted
@@ -591,6 +592,19 @@ for feature in collection:
     # *     GP glider prohibited
     # *     CTR CTR
     # *     W Wave Window
+    # (TODO: G is used in the old files, is it ok to keep using it?)
+    translate = {
+            "A":"A",
+            "B":"B",
+            "C":"C",
+            "D":"D",
+            "R":"R",
+            "P":"P",
+            "G":"G",
+            "Luftrom": "W"
+    }
+    class_ = translate.get(class_,"Q")
+
     for air in (airft, airm):
         air.write("AC %s\n" % class_)
         air.write("AN %s\n" % name)
@@ -601,13 +615,14 @@ for feature in collection:
     for air in (airft, airm):
         for point in geom:
             air.write("DP %s\n" % c2air(point))
+        air.write("* Source: %s\n", source)
         air.write("*\n*\n")
 
 for air in (airft, airm):
     air.close()
 
 
-# GepoJSON output, to KML via ogr2ogr
+# GeoJSON output, to KML via ogr2ogr
 
 logger.info("Converting to GeoJSON")
 fc = []
