@@ -441,6 +441,7 @@ for filename in os.listdir("./sources/txt"):
                             obj.insert(0,(bn,be))
                     elif circle:
                         coords_wrap += line.strip() + " "
+                        # FIXME: incomplete circle continuation is broken
                         logger.debug("Continuing line after incomplete circle: %s", coords_wrap)
                         return
 
