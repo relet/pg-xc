@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]* ACC sector.*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>EN [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>END\d.*)\s*$")
 
@@ -48,8 +48,9 @@ re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
 # COLUMN PARSING:
-rexes_header_es_enr_2_1 = [re.compile("(?:(?:(Name)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)).*){%i}" % mult) \
-                               for mult in reversed(xrange(3,8))]
+rexes_header_es_enr = [re.compile("(?:(?:(Name)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)).*){%i}" % mult) \
+                           for mult in reversed(xrange(3,8))]
+
 
 CIRCLE_APPROX_POINTS = 32
 RAD_EARTH = 6371000.0
@@ -220,7 +221,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(unicode(aipname))
-    for ignore in ['ADS','AOR','FIR']:
+    for ignore in ['ACC','ADS','AOR','FIR']: 
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
@@ -237,7 +238,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         feature['properties']['class']='D'
     elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname:
         feature['properties']['class']='R'
-    elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname:
+    elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname:
         feature['properties']['class']='C'
     elif '5_5' in source:
         feature['properties']['class']='Luftsport'
@@ -295,13 +296,14 @@ for filename in os.listdir("./sources/txt"):
 
     main_aip     = "EN_AD" in filename
     cta_aip      = "ENR_2_1" in filename
-    tia_aip      = "EN_ENR_2_2" in filename
+    tia_aip      = "ENR_2_2" in filename
     restrict_aip = "EN_ENR_5_1" in filename
     airsport_aip = "EN_ENR_5_5" in filename
     sup_aip      = "en_sup" in filename
 
     # TODO: merge the cases
     es_enr_2_1 = "ES_ENR_2_1" in filename
+    es_enr_2_2 = "ES_ENR_2_2" in filename
 
     airsport_intable = False
 
@@ -557,8 +559,8 @@ for filename in os.listdir("./sources/txt"):
                 row.append(lcut)
             table.append(row)
             continue
-        elif es_enr_2_1:
-            for rex in rexes_header_es_enr_2_1:
+        elif es_enr_2_1 or es_enr_2_2:
+            for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
         if headers:
             logger.debug("Parsed header line as %s.", headers)
