@@ -615,7 +615,7 @@ for feature in collection:
     for air in (airft, airm):
         for point in geom:
             air.write("DP %s\n" % c2air(point))
-        air.write("* Source: %s\n", source)
+        air.write("* Source: %s\n" % source)
         air.write("*\n*\n")
 
 for air in (airft, airm):
