@@ -56,6 +56,8 @@ RAD_EARTH = 6371000.0
 PI2 = math.pi * 2
 DEG2RAD = PI2 / 360.0
 
+LINEBREAK = '--linebreak--'
+
 def c2ll(c):
     """DegMinSec to decimal degrees"""
     ndeg = float(c[0][0:2])
@@ -336,6 +338,13 @@ for filename in os.listdir("./sources/txt"):
         global features, finalcoord, lastn, laste, lastv, airsport_intable
         global border, re_coord3, country
 
+        if line==LINEBREAK:
+            # drop current feature, if we don't have vertl by now, 
+            # then this is just an overview polygon
+            feature = {"properties":{}}
+            obj = []
+            return
+
         if main_aip:
             if not ats_chapter:
                 # skip to chapter 2.71
@@ -537,6 +546,7 @@ for filename in os.listdir("./sources/txt"):
                 for col in xrange(0,len(table[0])):
                     for row in table:
                         parse(row[col])
+                parse(LINEBREAK)
                 table = []
         headers = None
         if column_parsing:
