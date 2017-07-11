@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 
@@ -42,6 +42,8 @@ re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise
 re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE+"|(?P<circle>A circle)|(?:radius)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
 re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
+
+#TODO: along the latitude ...
 
 
 # Lines containing these are box ceilings and floors
@@ -243,7 +245,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
       or 'ES R' in aipname or 'ES D' in aipname or 'ESTRA' in aipname \
       or 'EUCBA' in aipname:
         feature['properties']['class']='R'
-    elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname:
+    elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname \
+      or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname:
         feature['properties']['class']='C'
     elif '5_5' in source:
         feature['properties']['class']='Luftsport'
@@ -559,10 +562,11 @@ for filename in os.listdir("./sources/txt"):
                 aipname = wstrip(line)
 
     table = []
-    column_parsing = False
+    column_parsing = []
+    header_cont = False
     for line in data:
         if "\f" in line:
-            column_parsing = False
+            column_parsing = []
         if not line.strip():
             if column_parsing and table:
                 # parse rows first, then cols
@@ -572,7 +576,7 @@ for filename in os.listdir("./sources/txt"):
                 parse(LINEBREAK)
                 table = []
         headers = None
-        if column_parsing:
+        if column_parsing and not header_cont:
             row = []
             for i in xrange(0,len(column_parsing)-1):
                 lcut = line[column_parsing[i]:column_parsing[i+1]].strip()
@@ -581,8 +585,12 @@ for filename in os.listdir("./sources/txt"):
             table.append(row)
             continue
         elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2:
+            if line.strip()=='Vertical limits': # hack around ES_ENR_2_2 malformatting
+                headers = 'Vertical'
+                header_cont = True
             for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
+                header_cont = False
         if headers:
             logger.debug("Parsed header line as %s.", headers)
             logger.debug("line=%s.", line)
@@ -591,8 +599,7 @@ for filename in os.listdir("./sources/txt"):
                 if header:
                     vcuts.append(line.index(header))
             vcuts.append(len(line))
-            #logger.debug("vcuts=%s.", vcuts)
-            column_parsing = vcuts
+            column_parsing = sorted((column_parsing + vcuts))
             continue
 
         # parse columns separately for table formatted files
