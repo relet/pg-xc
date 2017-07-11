@@ -206,7 +206,15 @@ def fill_along(from_, to_, border):
         if d < minto:
             minto = d
             toindex = i
-    logger.debug("Filling from index %i to %i", fromindex, toindex)
+    blen   = abs(toindex-fromindex)
+    revlen = len(border)-blen
+    logger.debug("Filling from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
+    # FIXME:correctly handle clockwise/counterclockwise etc.
+    # if revlen < blen:
+    #     if toindex < fromindex:
+    #         return border[fromindex:] + border[:toindex+1]
+    #     else:
+    #         return border[fromindex::-1] + border[:toindex-1:-1]
     if toindex < fromindex:
         return border[fromindex:toindex+1:-1]
     else:
@@ -436,10 +444,15 @@ for filename in os.listdir("./sources/txt"):
                 obj = merge_poly(obj, c_gen)
 
             else:
+                skip_next = 0
                 for blob in coords3:
                     ne,n,e,along,arc,rad,cn,ce = blob[:8]
                     circle = blob[8] if len(blob)==9 else None
                     logger.debug("Coords: %s", (n,e,ne,along,arc,rad,cn,ce,circle))
+                    if skip_next > 0 and n:
+                        logger.debug("Skipped.")
+                        skip_next -= 1
+                        continue
                     if arc:
                         arcdata = re_arc.search(line)
                         if not arcdata:
@@ -460,6 +473,7 @@ for filename in os.listdir("./sources/txt"):
                         for apair in fill:
                             bn, be = ll2c(apair)
                             obj.insert(0,(bn,be))
+                        skip_next = 1
                     elif circle:
                         coords_wrap += line.strip() + " "
                         # FIXME: incomplete circle continuation is broken
