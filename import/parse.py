@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]* ACC sector.*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 
@@ -32,16 +32,16 @@ re_class2 = re.compile("^(?P<class>[CDG])$")
 RE_NE     = '(?P<ne>\(?(?P<n>\d+)N\s+(?P<e>\d+)E\)?)'
 RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
-re_coord  = re.compile(RE_NE + " - (?:(?:\d\. )?A circle(?: with|,)? r|R)adius (?P<rad>[\d\.,]+) NM")
+re_coord  = re.compile("(?:" + RE_NE + " - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
 # Match sector definitions, see log file for examples
 RE_SECTOR = u'('+RE_NE + u' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
 RE_CIRCLE = 'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
 re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE)
-re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE+"|(?P<circle>A circle)")
+re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE+"|(?P<circle>A circle)|(?:radius)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
-re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ km\))?)? (?:- )'+RE_NE2)
+re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
 
 
 # Lines containing these are box ceilings and floors
@@ -49,7 +49,7 @@ re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
 # COLUMN PARSING:
-rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remarks)).*){%i}" % mult) \
+rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
                            for mult in reversed(xrange(3,8))]
 
 
@@ -101,6 +101,9 @@ def nm2m(nm):
         return float(nm) * 1852.0
     except:
         return float(nm.replace(",",".")) * 1852.0
+def m2nm(m):
+    """Meters to nautical miles"""
+    return float(m) / 1852.0
 
 def gen_circle(n, e, rad, convert=True):
     """Generate a circle"""
@@ -208,7 +211,6 @@ def fill_along(from_, to_, border):
         return border[fromindex:toindex+1]
 
 collection = []
-coords_wrap = ""
 completed = {}
 
 def wstrip(s):
@@ -237,7 +239,9 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         feature['properties']['class']='G'
     elif 'CTR' in aipname:
         feature['properties']['class']='D'
-    elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES R' in aipname or 'ES D' in aipname:
+    elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname   \
+      or 'ES R' in aipname or 'ES D' in aipname or 'ESTRA' in aipname \
+      or 'EUCBA' in aipname:
         feature['properties']['class']='R'
     elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname:
         feature['properties']['class']='C'
@@ -306,6 +310,7 @@ for filename in os.listdir("./sources/txt"):
     es_enr_2_1 = "ES_ENR_2_1" in filename
     es_enr_2_2 = "ES_ENR_2_2" in filename
     es_enr_5_1 = "ES_ENR_5_1" in filename
+    es_enr_5_2 = "ES_ENR_5_2" in filename
 
     airsport_intable = False
 
@@ -327,6 +332,7 @@ for filename in os.listdir("./sources/txt"):
     lastn, laste = None, None
     lastv = None
     finalcoord = False
+    coords_wrap = ""
 
     feature = {"properties":{}}
     obj = []
@@ -347,6 +353,9 @@ for filename in os.listdir("./sources/txt"):
             # then this is just an overview polygon
             feature = {"properties":{}}
             obj = []
+            alonging = False
+            coords_wrap = ""
+            lastv = None
             return
 
         if main_aip:
@@ -392,10 +401,19 @@ for filename in os.listdir("./sources/txt"):
 
             if coords:
                 coords  = coords.groupdict()
-                n = coords.get('n')
-                e = coords.get('e')
+                n = coords.get('n') or coords.get('cn')
+                e = coords.get('e') or coords.get('ce')
+                rad = coords.get('rad') 
+                if not rad:
+                    rad_m = coords.get('rad_m')
+                    if rad_m:
+                        rad = m2nm(rad_m)
+                if not n or not e or not rad:
+                    coords_wrap += line.strip() + " "
+                    # FIXME: incomplete circle continuation is broken
+                    logger.debug("Continuing line after incomplete circle: %s", coords_wrap)
+                    return
                 lastn, laste = n, e
-                rad = coords.get('rad')
                 c_gen = gen_circle(n, e, rad)
 
                 obj = merge_poly(obj, c_gen)
@@ -442,7 +460,7 @@ for filename in os.listdir("./sources/txt"):
                     elif circle:
                         coords_wrap += line.strip() + " "
                         # FIXME: incomplete circle continuation is broken
-                        logger.debug("Continuing line after incomplete circle: %s", coords_wrap)
+                        logger.debug("Continuing line after incomplete circle (3): %s", coords_wrap)
                         return
 
 
@@ -562,7 +580,7 @@ for filename in os.listdir("./sources/txt"):
                 row.append(lcut)
             table.append(row)
             continue
-        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1:
+        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2:
             for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
         if headers:
