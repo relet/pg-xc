@@ -234,7 +234,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(unicode(aipname))
-    for ignore in ['ACC','ADS','AOR','FIR']: 
+    for ignore in ['ACC','ADS','AOR','FAB','FIR']: 
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
