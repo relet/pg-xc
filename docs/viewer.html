@@ -60,11 +60,18 @@
                                  var source=feature.properties['source_href'];
                                  var warning=''
                                  if (feature.properties['temporary'] == true) {
-                                   warning = '<span style="color:red">TEMPORARY:</span><br/>'+
-                                             feature.properties['Date from']+"-"+
-                                             feature.properties['Date until']+" "+
-                                             feature.properties['Time (UTC)']+" UTC"+
-                                             '</br>';
+                                   var periods = ''
+                                   var pfrom = feature.properties['Date from'];
+                                   var pto   = feature.properties['Date until'];
+                                   var ptime = feature.properties['Time (UTC)'];
+                                   for (var i=0; i < pfrom.length; i++) {
+                                       periods += pfrom[i]+" - "+pto[i]+" ";
+                                       if (ptime != null) {
+                                          periods += ptime+" UTC";
+                                       }
+                                       periods += "</br>";
+                                   }
+                                   warning = '<span style="color:red">TEMPORARY:</span><br/>'+periods;
                                  }
                                  layer.bindPopup(
                                      '<h2>'+feature.properties['name']+'</h2><br />'+warning+

@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR|CTR/TIZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR|CTR/TIZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 
@@ -46,10 +46,13 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 #TODO: along the latitude ...
 
 # Lines containing these are box ceilings and floors
-re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
+re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
 re_period = re.compile("Period: (?P<pfrom>.*)-(?P<pto>.*) Time: (?P<time>.*) UTC.*Vertical limit: (?P<vertlfrom>(GND|.* MSL|FL.*))-(?P<vertlto>(UNL|.* MSL|FL.*))")
+re_period2 = re.compile("Daglig mellom (?P<time>.*?) UTC")
+RE_MONTH = "(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+re_period3 = re.compile("(?P<pfrom>\d\d "+RE_MONTH+" 2\d\d\d) - (?P<pto>\d\d "+RE_MONTH+" 2\d\d\d)")
 
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
@@ -252,7 +255,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         feature['properties']['class']='D'
     elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname   \
       or 'ES R' in aipname or 'ES D' in aipname or 'ESTRA' in aipname \
-      or 'EUCBA' in aipname:
+      or 'EUCBA' in aipname or 'RPAS' in aipname:
         feature['properties']['class']='R'
     elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname \
       or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname:
@@ -514,34 +517,45 @@ for filename in os.listdir("./sources/txt"):
 
             return
 
-        period = re_period.search(line)
+        period = re_period3.search(line) or re_period2.search(line) or \
+                 re_period.search(line)
         if period:
             period = period.groupdict()
             logger.debug("Found period in line: %s", period)
             feature['properties']['temporary'] = True
             feature['properties']['dashArray'] = "5 5"
-            feature['properties']['Date from'] = period.get('pfrom')
-            feature['properties']['Date until'] = period.get('pto')
-            feature['properties']['Time (UTC)'] = period.get('time')
+            pfrom = period.get('pfrom')
+            if pfrom is not None:
+                ppfrom = feature['properties'].get('Date from',[])
+                feature['properties']['Date from'] = ppfrom + [pfrom]
+            pto = period.get('pto')
+            if pto is not None:
+                ppto = feature['properties'].get('Date until',[])
+                feature['properties']['Date until'] = ppto + [pto]
+            ptime = period.get('ptime')
+            if ptime is not None:
+                feature['properties']['Time (UTC)'] = ptime
             fromamsl = period.get('vertlfrom')
-            if fromamsl == 'GND':
-                fromamsl = 0
-            elif 'FL' in fromamsl:
-                fromamsl = int(fromamsl[2:]) * 100
-            elif 'MSL' in fromamsl:
-                fromamsl = int(fromamsl[:-4])
+            if fromamsl is not None:
+                if fromamsl == 'GND':
+                    fromamsl = 0
+                elif 'FL' in fromamsl:
+                    fromamsl = int(fromamsl[2:]) * 100
+                elif 'MSL' in fromamsl:
+                    fromamsl = int(fromamsl[:-4])
+                feature['properties']['from (ft amsl)']=int(fromamsl)
+                feature['properties']['from (m amsl)'] = ft2m(fromamsl)
             toamsl = period.get('vertlto')
-            if toamsl == 'UNL':
-                toamsl = 99999
-            elif 'FL' in toamsl:
-                toamsl = int(toamsl[2:]) * 100
-            elif 'MSL' in toamsl:
-                toamsl = int(toamsl[:-4])
-            feature['properties']['from (ft amsl)']=int(fromamsl)
-            feature['properties']['from (m amsl)'] = ft2m(fromamsl)
-            feature['properties']['to (ft amsl)']=int(toamsl)
-            feature['properties']['to (m amsl)'] = ft2m(toamsl)
-            logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
+            if toamsl is not None:
+                if toamsl == 'UNL':
+                    toamsl = 99999
+                elif 'FL' in toamsl:
+                    toamsl = int(toamsl[2:]) * 100
+                elif 'MSL' in toamsl:
+                    toamsl = int(toamsl[:-4])
+                feature['properties']['to (ft amsl)']=int(toamsl)
+                feature['properties']['to (m amsl)'] = ft2m(toamsl)
+                logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
             return
 
         vertl = re_vertl.search(line) or re_vertl2.search(line)
@@ -567,7 +581,10 @@ for filename in os.listdir("./sources/txt"):
                 if fromamsl == "GND": fromamsl = 0
                 toamsl = vertl.get('unl',vertl.get('to'))
                 if toamsl == "UNL": toamsl = 999999
-            logger.debug("From %s to %s", fromamsl, toamsl)
+            if toamsl is not None:
+                lastv = toamsl
+                feature['properties']['to (ft amsl)']=toamsl
+                feature['properties']['to (m amsl)'] = ft2m(toamsl)
             if fromamsl is not None:
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
@@ -575,10 +592,7 @@ for filename in os.listdir("./sources/txt"):
                 if ((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN':
                     logger.debug("Finalizing poly: Vertl complete.")
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
-            if toamsl is not None:
-                lastv = toamsl
-                feature['properties']['to (ft amsl)']=toamsl
-                feature['properties']['to (m amsl)'] = ft2m(toamsl)
+            logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line)
