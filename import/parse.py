@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR|CTR/TIZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 
@@ -48,7 +48,7 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
-re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] AMSL)|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
@@ -310,7 +310,7 @@ for filename in os.listdir("./sources/txt"):
 
     data = open("./sources/txt/"+filename,"r","utf-8").readlines()
 
-    main_aip     = "EN_AD" in filename
+    ad_aip       = "_AD_" in filename
     cta_aip      = "ENR_2_1" in filename
     tia_aip      = "ENR_2_2" in filename
     restrict_aip = "ENR_5_1" in filename
@@ -369,16 +369,16 @@ for filename in os.listdir("./sources/txt"):
             lastv = None
             return
 
-        if main_aip:
+        if ad_aip:
             if not ats_chapter:
                 # skip to chapter 2.71
-                if "ATS airspace" in line:
+                if "ATS airspace" in line or "ATS AIRSPACE" in line:
                     logger.debug("Found chapter 2.71")
                     ats_chapter=True
                 return
             else:
                 # then skip everything after
-                if "AD 2." in line:
+                if "AD 2." in line or "ATS COMM" in line:
                 #if "ATS komm" in line or "Kallesignal" in line:
                     logger.debug("End chapter 2.71")
                     ats_chapter=False
