@@ -83,7 +83,7 @@
                 };
 
                 var overLayers = {
-                  "Norwegian airspace (2017-07-07)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
+                  "Norwegian/Swedish airspace (2017-07-07)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
