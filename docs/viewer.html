@@ -58,8 +58,16 @@
                                      })})
 
                                  var source=feature.properties['source_href'];
+                                 var warning=''
+                                 if (feature.properties['temporary'] == true) {
+                                   warning = '<span style="color:red">TEMPORARY:</span><br/>'+
+                                             feature.properties['Date from']+"-"+
+                                             feature.properties['Date until']+" "+
+                                             feature.properties['Time (UTC)']+" UTC"+
+                                             '</br>';
+                                 }
                                  layer.bindPopup(
-                                     '<h2>'+feature.properties['name']+'</h2><br />'+
+                                     '<h2>'+feature.properties['name']+'</h2><br />'+warning+
                                      'Class: '+feature.properties['class']+'<br />'+
                                      'Ceiling: '+feature.properties['to (m amsl)']+'m above MSL<br />'+
                                      'Floor: '+feature.properties['from (m amsl)']+'m above MSL<br />'+

@@ -45,10 +45,11 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 
 #TODO: along the latitude ...
 
-
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d+) to (?P<to>UNL|\d+)( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+
+re_period = re.compile("Period: (?P<pfrom>.*)-(?P<pto>.*) Time: (?P<time>.*) UTC.*Vertical limit: (?P<vertlfrom>(GND|.* MSL|FL.*))-(?P<vertlto>(UNL|.* MSL|FL.*))")
 
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
@@ -325,7 +326,7 @@ for filename in os.listdir("./sources/txt"):
 
     airsport_intable = False
 
-    if "EN_" in filename:
+    if "EN_" or "en_" in filename:
         country = 'EN'
         border = borders['norway']
         re_coord3 = re_coord3_no
@@ -503,19 +504,50 @@ for filename in os.listdir("./sources/txt"):
                         alonging = (n,e)
                     if '(' in ne:
                         finalcoord = True
+                        logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if airsport_aip and finalcoord:
-                        if feature['properties'].get('from (ft masl)') is not None:
+                    if (airsport_aip or sup_aip) and finalcoord:
+                        if feature['properties'].get('from (ft amsl)') is not None:
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
 
             return
 
+        period = re_period.search(line)
+        if period:
+            period = period.groupdict()
+            logger.debug("Found period in line: %s", period)
+            feature['properties']['temporary'] = True
+            feature['properties']['dashArray'] = "5 5"
+            feature['properties']['Date from'] = period.get('pfrom')
+            feature['properties']['Date until'] = period.get('pto')
+            feature['properties']['Time (UTC)'] = period.get('time')
+            fromamsl = period.get('vertlfrom')
+            if fromamsl == 'GND':
+                fromamsl = 0
+            elif 'FL' in fromamsl:
+                fromamsl = int(fromamsl[2:]) * 100
+            elif 'MSL' in fromamsl:
+                fromamsl = int(fromamsl[:-4])
+            toamsl = period.get('vertlto')
+            if toamsl == 'UNL':
+                toamsl = 99999
+            elif 'FL' in toamsl:
+                toamsl = int(toamsl[2:]) * 100
+            elif 'MSL' in toamsl:
+                toamsl = int(toamsl[:-4])
+            feature['properties']['from (ft amsl)']=int(fromamsl)
+            feature['properties']['from (m amsl)'] = ft2m(fromamsl)
+            feature['properties']['to (ft amsl)']=int(toamsl)
+            feature['properties']['to (m amsl)'] = ft2m(toamsl)
+            logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
+            return
+
         vertl = re_vertl.search(line) or re_vertl2.search(line)
         if vertl:
-            vertl=vertl.groupdict()
-            logger.debug("Found vertl in line: %s\n%s", line, vertl)
+            vertl = vertl.groupdict()
+            logger.debug("Found vertl in line: %s", vertl)
             fromamsl, toamsl = None, None
 
             v = vertl.get('ftamsl')
