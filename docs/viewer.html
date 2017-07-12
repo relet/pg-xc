@@ -91,8 +91,8 @@
                   " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
                 };
 
-                baseLayers['Norway: Kartverket Topography'].addTo(map);
-                overLayers["Norwegian airspace (2017-07-07)"].addTo(map);
+                baseLayers['Europe: Kartverket Light'].addTo(map);
+                overLayers["Norwegian/Swedish airspace (2017-07-07)"].addTo(map);
                 L.control.layers(baseLayers, overLayers).addTo(map);
 
             }());
