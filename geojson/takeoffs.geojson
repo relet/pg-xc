@@ -5903,31 +5903,6 @@
     {
       "geometry": {
         "coordinates": [
-          70.2175,
-          22.00666667,
-          950.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "Garntindan (Nuvsv\u00e5g)",
-        "description": "Fjellrekke S for Svartfjellet. Mulig \u00e5 fly ned mot Nuvsv\u00e5g eller mot Nord-Tverrfjord.<br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6808\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6808</a>",
-        "directions": {
-          "e": false,
-          "n": false,
-          "ne": true,
-          "nw": false,
-          "s": false,
-          "se": false,
-          "sw": true,
-          "w": false
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
           26.25527778,
           69.82805556,
           392.0
@@ -6628,31 +6603,6 @@
     {
       "geometry": {
         "coordinates": [
-          70.27305556,
-          22.19694444,
-          915.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "Kollaren (Nuvsv\u00e5g",
-        "description": "Todelt flyging: f\u00f8rst en slakk skr\u00e5ning, deretter bratte fjellsider. Det gir en fin variasjon p\u00e5 flygingen. Et av de desiderte fineste flystedene i Nuvsv\u00e5g. Utsikten mot havet, S\u00f8r\u00f8ya og midnattsola er usl\u00e5elig. Flere mulige landingsplasser langs veien, for eksempel rett vest for toppen. Pass p\u00e5 h\u00f8yspent litt over veien. <br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6810\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6810</a>",
-        "directions": {
-          "e": false,
-          "n": true,
-          "ne": false,
-          "nw": true,
-          "s": false,
-          "se": false,
-          "sw": false,
-          "w": true
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
           30.455,
           70.21,
           70.0
@@ -6868,31 +6818,6 @@
           "ne": false,
           "nw": false,
           "s": false,
-          "se": false,
-          "sw": false,
-          "w": false
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          70.21694444,
-          22.03944444,
-          580.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "Mikkeldalsrabben (Nuvsv\u00e5g)",
-        "description": "Rygg SW for Svartfjellet. F\u00f8rste topp p\u00e5 580 moh. Der er det god plass til \u00e5 starte. Mulig \u00e5 fortsette videre langs eggen, da kommer man til 720 moh, men litt trangere plass p\u00e5 start.<br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6807\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6807</a>",
-        "directions": {
-          "e": false,
-          "n": true,
-          "ne": true,
-          "nw": false,
-          "s": true,
           "se": false,
           "sw": false,
           "w": false
@@ -7546,31 +7471,6 @@
           "se": false,
           "sw": true,
           "w": true
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          70.23361111,
-          21.99805556,
-          1156.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "Svartfjellet (Nuvsv\u00e5g)",
-        "description": "Finnmarks 2. h\u00f8yeste topp. Mulig \u00e5 fly ned rennen NE for toppen, dalen SE for toppen eller ned mot Nord-Tverrfjord.<br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6809\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=6809</a>",
-        "directions": {
-          "e": true,
-          "n": false,
-          "ne": false,
-          "nw": false,
-          "s": false,
-          "se": false,
-          "sw": true,
-          "w": false
         }
       },
       "type": "Feature"
@@ -8521,31 +8421,6 @@
           "se": true,
           "sw": false,
           "w": false
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          11.44361111,
-          16.78833333,
-          215.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "L\u00f8ten, Rokosj\u00f8en (Opptrekk)",
-        "description": "Trivelig vinsjeplass... f\u00f8r gjorde vi som vi ville men er etterhvert blitt litt mer vanskelig i fohold til lov om ferdsel i utmark og problematikken rundt dette <br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=1752\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=1752</a>",
-        "directions": {
-          "e": true,
-          "n": true,
-          "ne": true,
-          "nw": true,
-          "s": true,
-          "se": true,
-          "sw": true,
-          "w": true
         }
       },
       "type": "Feature"
@@ -13245,31 +13120,6 @@
           "s": false,
           "se": false,
           "sw": false,
-          "w": true
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          3.88611111,
-          67.42222222,
-          120.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "Voss, Bulken - R\u00f8the",
-        "description": "PPG-start\n<br/>\n<br/>Forel\u00f8pig kun til bruk for underteikna med fylgje.<br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=2466\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=2466</a>",
-        "directions": {
-          "e": true,
-          "n": true,
-          "ne": true,
-          "nw": true,
-          "s": true,
-          "se": true,
-          "sw": true,
           "w": true
         }
       },
@@ -40753,31 +40603,6 @@
     {
       "geometry": {
         "coordinates": [
-          61.47723058,
-          5.88693627,
-          863.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "F\u00f8rdsnipa - F\u00f8rde",
-        "description": "Det g\u00e5r mange stier til toppen, sjekk www.ut.no for veivalg. Mange muligheter for takeoff ved og rundt toppunktet. Landing p\u00e5 b\u00f8 ovenfor Sl\u00e5tten skule, snakk med grunneier for tillatelse til landing.  <br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=7175\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=7175</a>",
-        "directions": {
-          "e": false,
-          "n": false,
-          "ne": false,
-          "nw": false,
-          "s": true,
-          "se": true,
-          "sw": true,
-          "w": false
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
           6.84222222,
           61.93527778,
           400.0
@@ -43596,31 +43421,6 @@
           "se": false,
           "sw": true,
           "w": false
-        }
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          54.66666667,
-          69.99861111,
-          784.0
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "Name": "Hovdfjellet(Hovden),Stamnan,Berk\u00e5k",
-        "description": "Kj\u00f8r opp til forbi Frambanen (fotballbane) kj\u00f8r til venstre 4 hjulstrekk vei langsetter jordet til trimpost g\u00e5 herfra ca 50 min.\n<br/>Atv vei halvveis opp 40 min og g\u00e5 videre.60 min fra bilvei.  PP2 start. Kan v\u00e6re kraftige termiske forhold s\u00e5 elever b\u00e6r kun starte her tidlig p\u00e5 morgenen eller sent p\u00e5 kvelden. Finest forhold her antagligvis i sein kveldstermikk.\n<br/> Stor fin landing langsetter rv 700 150m s\u00f8r \u00f8st av Joker p\u00e5 Voll,sp\u00f8rr om landingstillatelse f\u00f8r tur. Kontakt Hans Olav Tokerud for info 91120447<br/><a href=\"http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=4826\">http://no.flightlog.org/fl.html?l=2&amp;a=22&amp;country_id=160&amp;start_id=4826</a>",
-        "directions": {
-          "e": false,
-          "n": false,
-          "ne": false,
-          "nw": true,
-          "s": false,
-          "se": false,
-          "sw": true,
-          "w": true
         }
       },
       "type": "Feature"
