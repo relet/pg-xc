@@ -20,6 +20,7 @@
          <div id="map"/>
          <script src="leaflet.js"></script>
          <script src="leaflet.ajax.min.js"></script>
+         <script src="leaflet.viewpoint.min.js"></script>
           <script src="L.TileLayer.Kartverket.min.js"></script>
           <script type="text/javascript">
             (function() {
@@ -97,6 +98,53 @@
                     }
                 };
 
+		var onEachFeature_takeoffs = function (feature, layer) {
+			layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)</h2><br />' +
+					feature.properties['description'].trim(),
+					{maxHeight: 250});
+
+		};
+		var pointToLayer_takeoffs = function (feature, latlng) {
+			var dirs = feature.properties['directions'];
+                        var directions = [];
+			if (dirs['n']) {directions.push(180);}
+			if (dirs['ne']) {directions.push(225);}
+			if (dirs['e']) {directions.push(270);}
+			if (dirs['se']) {directions.push(315);}
+			if (dirs['s']) {directions.push(0);}
+			if (dirs['sw']) {directions.push(45);}
+			if (dirs['w']) {directions.push(90);}
+			if (dirs['nw']) {directions.push(135);}
+			return L.viewpoint(latlng, {
+				directions: directions,
+				radius: 6,
+                                fillOpacity: 0,
+                                arrow: {
+				    color: '#4444ff',
+				    fillColor: '#4444ff',
+				    fillOpacity: 1.0,
+                                    height: 3,
+                                    width: 10,
+				    stroke: true
+                                     
+                                }
+			});
+		};
+		var style_takeoffs = function(feature) {
+		};
+		var filter_takeoffs = function(winddir) {
+			return function(feature) {
+				if ((feature.geometry.coordinates[2] < 200) || 
+			            (feature.properties['Name'].indexOf('PPG') > -1)) {
+					return false;
+				}
+			        if (!winddir) {
+					return true;
+				}
+				return feature.properties['directions'][winddir];
+                        };
+		};
+
                 var overLayers = {
                   "Norwegian/Swedish airspace (2017-07-07)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
@@ -104,6 +152,15 @@
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
                   " - Danger/Restricted": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
                   " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
+                  "Takeoffs": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards S": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards SE": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards E": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards NE": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('ne'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards N": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('n'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards NW": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('nw'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards W": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('w'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards SW": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('sw'), pointToLayer: pointToLayer_takeoffs}),
                 };
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
