@@ -74,6 +74,9 @@
                                    }
                                    warning = '<span style="color:red">TEMPORARY:</span><br/>'+periods;
                                  }
+                                 if (feature.properties['class'] == 'Luftsport') {
+              			   warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.</span><br />Contact your local club before flying, or keep to regular airspace limits.';
+				 }
                                  layer.bindPopup(
                                      '<h2>'+feature.properties['name']+'</h2><br />'+warning+
                                      'Class: '+feature.properties['class']+'<br />'+
