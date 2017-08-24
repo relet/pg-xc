@@ -20,6 +20,7 @@
          <div id="map"/>
          <script src="leaflet.js"></script>
          <script src="leaflet.ajax.min.js"></script>
+         <script src="leaflet.hash.js"></script>
          <script src="leaflet.viewpoint.min.js"></script>
           <script src="L.TileLayer.Kartverket.min.js"></script>
           <script type="text/javascript">
@@ -27,6 +28,7 @@
                 'use strict';
 
                 var map = L.map('map').setView([65.5, 17.0], 4);
+		var hash = new L.Hash(map);
 
                 var i, layer;
                 var layers = L.tileLayer.kartverket.getLayers();
