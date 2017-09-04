@@ -76,7 +76,7 @@ for feat in data2.features:
 
     compname = normalize(comp['properties']['name'])
     handled[compname] = compname
-    logger.debug("Feature found in reference: %s", name)
+    #logger.debug("Feature found in reference: %s", name)
     if abs(feat['area'] - comp['area']) > 0.001:
         logger.error("SIZE CHANGED: %s from %f to %f", name, comp['area'], feat['area'])
         exit(name, comp, feat)

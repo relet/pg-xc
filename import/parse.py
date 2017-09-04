@@ -23,6 +23,7 @@ logger = logging.getLogger(__name__)
 re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR|CTR/TIZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
+re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
 
 # Lines containing these are usually recognized as airspace class
 re_class  = re.compile("Class (?P<class>.)")
@@ -595,7 +596,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
-        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line)
+        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line)
         if name:
             name=name.groupdict()
 
@@ -627,6 +628,9 @@ for filename in os.listdir("./sources/txt"):
     for line in data:
         if "\f" in line:
             column_parsing = []
+        if sup_aip and ("Luftromsklasse" in line):
+            logger.debug("Skipping end of SUP")
+            break
         if not line.strip():
             if column_parsing and table:
                 # parse rows first, then cols
