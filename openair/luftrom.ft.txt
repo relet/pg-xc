@@ -14441,23 +14441,6 @@ DP 60:47:50 N  011:41:45 E
 * Source: https://ais.avinor.no/no/AIP/View/17/aip/EN_ENR_5_5_en.pdf
 *
 *
-AC R
-AN RPAS ELVENES RPAS ELVENES
-AL 0 ft
-AH 4000 ft
-DP 69:03:00 N  017:56:50 E
-DP 69:03:00 N  017:56:50 E
-DP 68:52:40 N  017:55:30 E
-DP 68:53:45 N  018:11:40 E
-DP 68:52:40 N  017:55:30 E
-DP 68:53:45 N  018:11:40 E
-DP 68:59:25 N  018:27:40 E
-DP 69:03:00 N  017:56:50 E
-DP 68:59:25 N  018:27:40 E
-DP 69:03:00 N  017:56:50 E
-* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2017_031_en.pdf
-*
-*
 AC Q
 AN Forbordsfjellet Område 2
 AL 0 ft
