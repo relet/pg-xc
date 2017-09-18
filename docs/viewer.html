@@ -132,7 +132,7 @@
                                     height: 3,
                                     width: 10,
 				    stroke: true
-                                     
+
                                 }
 			});
 		};
@@ -140,7 +140,7 @@
 		};
 		var filter_takeoffs = function(winddir) {
 			return function(feature) {
-				if ((feature.geometry.coordinates[2] < 200) || 
+				if ((feature.geometry.coordinates[2] < 200) ||
 			            (feature.properties['Name'].indexOf('PPG') > -1)) {
 					return false;
 				}
@@ -171,7 +171,13 @@
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
                 overLayers["Norwegian/Swedish airspace (2017-07-07)"].addTo(map);
-                L.control.layers(baseLayers, overLayers).addTo(map);
+
+                var lc = L.control.layers(baseLayers, overLayers);
+                // close layercontrol on click (fix for android phones)
+                document.getElementById('map').addEventListener('click', function(e) {
+                    lc.collapse();
+                }, false);
+                lc.addTo(map);
 
             }());
           </script>
