@@ -71,7 +71,7 @@ for feat in data2.features:
         # exit(name, comp, feat)
         comp2 = byarea.get(format_area(feat['area']))
         if comp2:
-            logger.debug("AREA MATCH, comparing %s (%s) with %s (%s) instead of %s (%s)", name, feat['area'], normalize(comp2['properties']['name']), comp2['area'], compname, comp['area'])
+            #logger.debug("AREA MATCH, comparing %s (%s) with %s (%s) instead of %s (%s)", name, feat['area'], normalize(comp2['properties']['name']), comp2['area'], compname, comp['area'])
             comp=comp2
 
     compname = normalize(comp['properties']['name'])
