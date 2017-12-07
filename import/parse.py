@@ -239,7 +239,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(unicode(aipname))
-    for ignore in ['ACC','ADS','AOR','FAB','FIR']: 
+    for ignore in ['ACC','ADS','AOR','FAB','FIR']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
@@ -365,7 +365,7 @@ for filename in os.listdir("./sources/txt"):
         global border, re_coord3, country
 
         if line==LINEBREAK:
-            # drop current feature, if we don't have vertl by now, 
+            # drop current feature, if we don't have vertl by now,
             # then this is just an overview polygon
             feature = {"properties":{}}
             obj = []
@@ -419,7 +419,7 @@ for filename in os.listdir("./sources/txt"):
                 coords  = coords.groupdict()
                 n = coords.get('n') or coords.get('cn')
                 e = coords.get('e') or coords.get('ce')
-                rad = coords.get('rad') 
+                rad = coords.get('rad')
                 if not rad:
                     rad_m = coords.get('rad_m')
                     if rad_m:
@@ -695,6 +695,13 @@ for filename in os.listdir("./sources/txt"):
         else:
             parse(line,1)
 
+    if "nidaros" in source:
+        aipname = "Nidaros"
+        feature['properties']['from (ft amsl)'] = 0
+        feature['properties']['from (m amsl)'] = 0
+        feature['properties']['to (ft amsl)']= 3500
+        feature['properties']['to (m amsl)'] = ft2m(3500)
+        feature['properties']['class'] = 'Luftsport'
 
     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
     collection.extend(features)
