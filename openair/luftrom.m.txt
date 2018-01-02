@@ -12517,6 +12517,21 @@ DP 61:59:00 N  005:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/25/aip/ad/ensd/EN_AD_2_ENSD_en.pdf
 *
 *
+AC Q
+AN Nidaros
+AL 0 MSL
+AH 1066 MSL
+DP 63:18:48 N  010:09:49 E
+DP 63:07:31 N  010:00:03 E
+DP 63:00:00 N  010:08:00 E
+DP 63:00:00 N  010:32:40 E
+DP 63:03:35 N  010:33:32 E
+DP 63:07:30 N  010:24:44 E
+DP 63:19:01 N  010:24:44 E
+DP 63:18:48 N  010:09:49 E
+* Source: http://nlf.no/sites/default/files/hangglidingparagliding/dokument/avtale_mellom_avinor_flysikring_og_nidaros_luftsportsklubb.pdf
+*
+*
 AC C
 AN Kjevik TMA
 AL 1524 MSL
