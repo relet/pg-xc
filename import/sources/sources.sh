@@ -1,5 +1,4 @@
 #!/bin/bash
-
 urlencode() {
     # urlencode <string>
     old_lc_collate=$LC_COLLATE
@@ -25,19 +24,44 @@ urldecode() {
 }
 
 while read p; do
+  LAYOUT=0
+  SKIP=0
+  # skip comment lines
   if [[ $p =~ ^# ]]; then continue; fi
+  # skip empty lines
   if [ -z "$p" ]; then continue; fi
-  if [[ $p =~ ^! ]]; then
-      FILENAME=$(urlencode ${p:1})
-      URLNAME=${p:1}
-  else
-      FILENAME=$(urlencode $p)
-      URLNAME=$p
+  # if a line starts with Z, download and unpack a zip archive
+  if [[ $p =~ ^Z ]]; then
+      FILENAME=$(urlencode ${p:2})
+      URLNAME=${p:2}
+      if [ ! -e "./zip/$FILENAME" ]; then
+          wget -O "./zip/$FILENAME" "$URLNAME"
+          cd zip
+          unzip "$FILENAME"
+          cd ..
+      fi
+      continue
   fi
-  if [ ! -e "./pdf/$FILENAME" ]; then
+
+  # otherwise, locate and parse a pdf
+  if [[ $p =~ ^.?! ]]; then
+      LAYOUT=1
+      SKIP=1
+  fi
+  if [[ $p =~ ^\. ]]; then
+      SKIP=$(($SKIP + 1))
+  fi
+  FILENAME=$(urlencode ${p:$SKIP})
+  URLNAME=${p:$SKIP}
+  # if a line starts with ., don't try downloading
+  if [[ $p =~ ^\. ]]; then
+      LOCAL=$(find ./zip/ -name "*${FILENAME}.pdf")
+      cp "$LOCAL" ./pdf/$FILENAME
+  elif [ ! -e "./pdf/$FILENAME" ]; then
       wget -O "./pdf/$FILENAME" "$URLNAME"
   fi
-  if [[ $p =~ ^! ]]; then
+
+  if [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
   else
       pdftotext "./pdf/$FILENAME" "./txt/$FILENAME.txt"

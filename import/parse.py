@@ -262,6 +262,9 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
       or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname:
         feature['properties']['class']='C'
     elif '5_5' in source:
+        if "Nidaros" in aipname:
+            #skip old Nidaros airspace
+            return {"properties":{}}, []
         feature['properties']['class']='Luftsport'
     index = len(collection)+len(features)
     if len(obj)>3:
