@@ -750,6 +750,9 @@ for feature in collection:
     from_m = int(properties.get('from (m amsl)'))
     to_m   = int(properties.get('to (m amsl)'))
 
+    if from_m > 3500:
+        continue
+
     #FIXME Airspace classes according to OpenAIR:
     # *     R restricted
     # *     Q danger
