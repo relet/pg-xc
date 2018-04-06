@@ -35,9 +35,11 @@ while read p; do
       FILENAME=$(urlencode ${p:2})
       URLNAME=${p:2}
       if [ ! -e "./zip/$FILENAME" ]; then
-          wget -O "./zip/$FILENAME" "$URLNAME"
+          mkdir -p ./zip/$FILENAME
+          wget -O "./zip/$FILENAME/archive.zip" "$URLNAME"
           cd zip
-          unzip "$FILENAME"
+          unzip "$FILENAME/archive.zip"
+          rm "$FILENAME/archive.zip"
           cd ..
       fi
       continue
@@ -56,11 +58,18 @@ while read p; do
   # if a line starts with ., don't try downloading
   if [[ $p =~ ^\. ]]; then
       LOCAL=$(find ./zip/ -name "*${FILENAME}.pdf")
+      ARCHIVE_URL=$(echo $LOCAL|awk -F "/" '{print $3}') # get third path after ./ and zip/
+      cd "./zip/$ARCHIVE_URL"
+      FILENAME=$(find . -name "*${FILENAME}.pdf")
+      FILENAME=$(urlencode "${FILENAME#./}")
+      cd ../..
+      FILENAME="${ARCHIVE_URL}%23${FILENAME}"
       cp "$LOCAL" ./pdf/$FILENAME
   elif [ ! -e "./pdf/$FILENAME" ]; then
       wget -O "./pdf/$FILENAME" "$URLNAME"
   fi
 
+  echo "Processing $FILENAME."
   if [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
   else
