@@ -24,13 +24,14 @@ re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
+re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
 
 # Lines containing these are usually recognized as airspace class
 re_class  = re.compile("Class (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
 
 # Coordinates format, possibly in brackets
-RE_NE     = '(?P<ne>\(?(?P<n>\d+)N\s+(?P<e>\d+)E\)?)'
+RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]+)N(?:\s+|-)(?P<e>[\d\.]+)E\)?)'
 RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile("(?:" + RE_NE + " - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
@@ -248,7 +249,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         recount = len([f for f in features if aipname in f['properties']['name']])
         if recount>0:
             feature['properties']['name']=aipname + " " + str(recount+1)
-    elif not restrict_aip and not airsport_aip and len(features)>0:
+    elif not restrict_aip and not airsport_aip and not "Hareid" in aipname and len(features)>0:
         feature['properties']['name']=aipname + " " + str(len(features)+1)
     if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
@@ -261,7 +262,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname \
       or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname:
         feature['properties']['class']='C'
-    elif '5_5' in source:
+    elif '5_5' in source or "Hareid" in aipname:
         if "Nidaros" in aipname:
             #skip old Nidaros airspace
             return {"properties":{}}, []
@@ -599,11 +600,12 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
-        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line)
+        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or re_miscnames.search(line)
         if name:
             name=name.groupdict()
 
-            if restrict_aip:
+            if restrict_aip or "Hareid" in line:
+                logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
 

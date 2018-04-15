@@ -45,8 +45,12 @@ while read p; do
       continue
   fi
 
-  # otherwise, locate and parse a pdf
-  if [[ $p =~ ^.?! ]]; then
+  # otherwise, locate and parse a html
+  if [[ $p =~ ^\+ ]]; then
+      LAYOUT=2
+      SKIP=1
+  # or pdf
+  elif [[ $p =~ ^.?! ]]; then
       LAYOUT=1
       SKIP=1
   fi
@@ -70,7 +74,10 @@ while read p; do
   fi
 
   echo "Processing $FILENAME."
-  if [ $LAYOUT = 1 ]; then
+  if [ $LAYOUT = 2 ]; then
+      mv "./pdf/$FILENAME" "./pdf/$FILENAME.html"
+      lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
+  elif [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
   else
       pdftotext "./pdf/$FILENAME" "./txt/$FILENAME.txt"

@@ -11093,6 +11093,21 @@ DP 62:10:24 N  006:09:56 E
 * Source: https://ais.avinor.no/no/AIP/View/30/aip/EN_ENR_5_5_en.pdf
 *
 *
+AC Q
+AN Hareid Nord*
+AL 0 MSL
+AH 762 MSL
+DP 62:21:57.4 N  006:02:55.0 E
+DP 62:25:14.4 N  006:00:02.3 E
+DP 62:25:27.8 N  005:57:10.5 E
+DP 62:25:11.7 N  005:53:40.0 E
+DP 62:24:18.1 N  005:50:57.8 E
+DP 62:22:35.2 N  005:48:56.2 E
+DP 62:21:01.2 N  005:49:15.5 E
+DP 62:19:35.0 N  005:51:45.1 E
+* Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
+*
+*
 AC R
 AN ES R59
 AL 0 MSL
@@ -11376,6 +11391,18 @@ DP 57:42:05 N  018:10:54 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%20180405.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
+AC Q
+AN Hareid Sør
+AL 0 MSL
+AH 1066 MSL
+DP 62:13:33.9 N  006:07:45.4 E
+DP 62:17:50.0 N  006:04:49.0 E
+DP 62:19:38.4 N  006:10:54.9 E
+DP 62:20:52.7 N  006:06:37.3 E
+DP 62:17:22.9 N  005:57:35.7 E
+* Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
+*
+*
 AC R
 AN EN D407 Mauken
 AL 0 MSL
@@ -11414,6 +11441,17 @@ DP 60:46:17 N  009:51:29 E
 DP 60:47:15 N  009:53:30 E
 DP 60:52:56 N  009:42:32 E
 * Source: https://ais.avinor.no/no/AIP/View/30/aip/EN_ENR_5_5_en.pdf
+*
+*
+AC Q
+AN Hareid Midt
+AL 0 MSL
+AH 1066 MSL
+DP 62:17:22.9 N  005:57:35.7 E
+DP 62:20:52.7 N  006:06:37.3 E
+DP 62:21:57.4 N  006:02:55.0 E
+DP 62:19:35.0 N  005:51:45.1 E
+* Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
 *
 *
 AC R
