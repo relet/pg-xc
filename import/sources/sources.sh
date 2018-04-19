@@ -37,10 +37,10 @@ while read p; do
       if [ ! -e "./zip/$FILENAME" ]; then
           mkdir -p ./zip/$FILENAME
           wget -O "./zip/$FILENAME/archive.zip" "$URLNAME"
-          cd zip
-          unzip "$FILENAME/archive.zip"
-          rm "$FILENAME/archive.zip"
-          cd ..
+          cd "zip/$FILENAME"
+          unzip "archive.zip"
+          rm "archive.zip"
+          cd ../..
       fi
       continue
   fi
