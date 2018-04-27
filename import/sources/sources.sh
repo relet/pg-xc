@@ -75,7 +75,7 @@ while read p; do
 
   echo "Processing $FILENAME."
   if [ $LAYOUT = 2 ]; then
-      mv "./pdf/$FILENAME" "./pdf/$FILENAME.html"
+      cp "./pdf/$FILENAME" "./pdf/$FILENAME.html"
       lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
   elif [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
