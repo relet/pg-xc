@@ -50,6 +50,7 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
 re_period = re.compile("Period: (?P<pfrom>.*)-(?P<pto>.*) Time: (?P<time>.*) UTC.*Vertical limit: (?P<vertlfrom>(GND|.* MSL|FL.*))-(?P<vertlto>(UNL|.* MSL|FL.*))")
 re_period2 = re.compile("Daglig mellom (?P<time>.*?) UTC")
@@ -323,6 +324,7 @@ for filename in os.listdir("./sources/txt"):
     cta_aip      = "ENR_2_1" in filename
     tia_aip      = "ENR_2_2" in filename
     restrict_aip = "ENR_5_1" in filename
+    military_aip = "ENR_5_2" in filename
     airsport_aip = "ENR_5_5" in filename
     sup_aip      = "en_sup" in filename
 
@@ -358,6 +360,7 @@ for filename in os.listdir("./sources/txt"):
     obj = []
 
     vcut = 999
+    vcut2 = 1000
 
     def parse(line, half=1):
         """Parse a line (or half line) of converted pdftotext"""
@@ -515,7 +518,7 @@ for filename in os.listdir("./sources/txt"):
                         logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if (airsport_aip or sup_aip) and finalcoord:
+                    if (airsport_aip or sup_aip or military_aip) and finalcoord:
                         if feature['properties'].get('from (ft amsl)') is not None:
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
@@ -563,7 +566,7 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
             return
 
-        vertl = re_vertl.search(line) or re_vertl2.search(line)
+        vertl = re_vertl.search(line) or re_vertl2.search(line) or re_vertl3.search(line)
         if vertl:
             vertl = vertl.groupdict()
             logger.debug("Found vertl in line: %s", vertl)
@@ -573,7 +576,7 @@ for filename in os.listdir("./sources/txt"):
             fl = vertl.get('fl')
             rmk = vertl.get('rmk')
             if rmk is not None:
-                v = 15000 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
+                v = 14999 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
             if fl is not None:
                 v = int(fl) * 100
             if v is not None:
@@ -679,12 +682,17 @@ for filename in os.listdir("./sources/txt"):
             else:
                 parse(line[:vcut],1)
                 parse(line[vcut:vcut+16],2)
-        elif restrict_aip:
+        elif restrict_aip or military_aip:
             if "Vertikale grenser" in line:
                 vcut = line.index("Vertikale grenser")
+                if "Aktiviseringstid" in line:
+                    vcut2 = line.index("Aktiviseringstid")
             else:
                 parse(line[:vcut],1)
-                parse(line[vcut:],2)
+                if military_aip:
+                    parse(line[vcut:vcut2],2)
+                else:
+                    parse(line[vcut:],2)
         elif cta_aip:
             if "Tjenesteenhet" in line:
                 vcut = line.index("Tjenesteenhet")
