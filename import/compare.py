@@ -85,7 +85,7 @@ for feat in data2.features:
         limits_old = (int(comp['properties']['from (m amsl)']), int(comp['properties']['to (m amsl)']))
     except:
         limits_old = (int(comp['properties']['floor']), int(comp['properties']['ceiling']))
-    if abs(limits_new[0]-limits_old[0])>1 and abs(limits_new[1]-limits_old[1])>1:
+    if abs(limits_new[0]-limits_old[0])>1 or abs(limits_new[1]-limits_old[1])>1:
         logger.error("LIMITS CHANGED: %s from %s to %s", name, limits_old, limits_new)
         exit(name, comp, feat)
 

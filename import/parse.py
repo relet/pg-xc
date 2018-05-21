@@ -566,7 +566,7 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
             return
 
-        vertl = re_vertl.search(line) or re_vertl2.search(line) or re_vertl3.search(line)
+        vertl = re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
         if vertl:
             vertl = vertl.groupdict()
             logger.debug("Found vertl in line: %s", vertl)
@@ -591,9 +591,23 @@ for filename in os.listdir("./sources/txt"):
                 if toamsl == "UNL": toamsl = 999999
             if toamsl is not None:
                 lastv = toamsl
+                currentv = feature['properties'].get('to (ft amsl)')
+                if currentv is not None and currentv != toamsl:
+                    logger.warn("attempt to overwrite vertl_to %s with %s." % (currentv, toamsl))
+                    if currentv > toamsl:
+                        logger.warn("skipping.")
+                        return
+                    logger.warn("ok.")
                 feature['properties']['to (ft amsl)']=toamsl
                 feature['properties']['to (m amsl)'] = ft2m(toamsl)
             if fromamsl is not None:
+                currentv = feature['properties'].get('from (ft amsl)')
+                if currentv is not None and currentv != fromamsl:
+                    logger.warn("attempt to overwrite vertl_from %s with %s." % (currentv, fromamsl))
+                    if currentv < fromamsl:
+                        logger.warn("skipping.")
+                        return
+                    logger.warn("ok.")
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
