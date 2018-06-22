@@ -48,7 +48,7 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 #TODO: along the latitude ...
 
 # Lines containing these are box ceilings and floors
-re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
+re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
