@@ -20,6 +20,7 @@
     </head>
     <body>
          <div id="map"/>
+         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
          <script src="leaflet.js"></script>
          <script src="L.TileLayer.Kartverket.min.js"></script>
          <script src="leaflet.ajax.min.js"></script>
@@ -108,12 +109,13 @@
                 };
 
 		var onEachFeature_takeoffs = function (feature, layer) {
-			layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)</h2><br />' +
+			layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)</h2>' +
                  		        'Weather forecast: <a href="http://xcmeteo.net/?p='+feature.geometry.coordinates[0]+'x'+feature.geometry.coordinates[1]+'">XCMeteo</a><br /><br />' +
 					feature.properties['description'].trim(),
 					{maxHeight: 250});
 
 		};
+
 		var pointToLayer_takeoffs = function (feature, latlng) {
 			var dirs = feature.properties['directions'];
                         var directions = [];
@@ -155,14 +157,44 @@
                         };
 		};
 
+		var onEachFeature_notam = function (feature, layer) {
+			layer.bindPopup('<h2>'+feature.properties['title']+'</h2>' +
+                             '<a href="'+feature.properties['src_href']+'">Explain this NOTAM</a><br /><br />'+
+					                   feature.properties['text'].trim(),
+					{maxHeight: 400, maxWidth: 600});
+      layer.on('mouseover', function() {
+                                     this.setStyle({
+                                       'weight': 4,
+                                       'fillOpacity': 0.25
+                                     })});
+      layer.on('mouseout', function() {
+                                     this.setStyle({
+                                       'weight': 2,
+                                       'fillOpacity': 0.1
+                                     })});
+
+		};
+    var ptl_notam = function(feature, latlng) {
+      var opacity = 0.1;
+      var radius=feature.properties['radius'];
+      if (radius>180000) return null;
+      return L.circle(latlng, radius, {
+                                     fillOpacity: opacity,
+                                     stroke: true})
+    }
+		var style_notam = function(feature) {
+
+		};
+
                 var overLayers = {
-                  "Norwegian/Swedish airspace (2017-07-07)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
+                  "<b>NOTAM</b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam, style: style_notam }),
+                  "<b>Norwegian/Swedish airspace</b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
                   " - Danger/Restricted": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
                   " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
-                  "Takeoffs": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
+                  "<b>Takeoffs</b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
                   " - towards S": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
                   " - towards SE": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
                   " - towards E": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
@@ -174,7 +206,7 @@
                 };
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
-                overLayers["Norwegian/Swedish airspace (2017-07-07)"].addTo(map);
+                overLayers["<b>Norwegian/Swedish airspace</b>"].addTo(map);
 
                 var lc = L.control.layers(baseLayers, overLayers);
                 // close layercontrol on click (fix for android phones)
