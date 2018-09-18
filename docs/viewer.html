@@ -228,6 +228,11 @@
                 overLayers[" - indicated only"].addTo(map);
                 overLayers["<b>Norwegian/Swedish airspace</b>"].addTo(map);
 
+                map.on('overlayadd', function() {
+                  overLayers[' - indicated only'].bringToFront();
+                  overLayers['<b>NOTAM</b>'].bringToFront();
+                });
+
                 var lc = L.control.layers(baseLayers, overLayers);
                 // close layercontrol on click (fix for android phones)
                 document.getElementById('map').addEventListener('click', function(e) {
