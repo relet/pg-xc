@@ -25,6 +25,7 @@
          <script src="L.TileLayer.Kartverket.min.js"></script>
          <script src="leaflet.ajax.min.js"></script>
          <script src="leaflet.viewpoint.min.js"></script>
+         <script src="leaflet.pattern.min.js"></script>
          <script src="leaflet.locate.min.js"></script>
          <script src="leaflet.hash.js"></script>
          <script src="https://use.fontawesome.com/17dabc76c0.js"></script>
@@ -172,22 +173,40 @@
                                        'weight': 2,
                                        'fillOpacity': 0.1
                                      })});
-
 		};
     var ptl_notam = function(feature, latlng) {
-      var opacity = 0.1;
       var radius=feature.properties['radius'];
       if (radius>180000) return null;
       return L.circle(latlng, radius, {
-                                     fillOpacity: opacity,
-                                     stroke: true})
+                                     fillOpacity: 0.1,
+                                     stroke: true
+      })
     }
-		var style_notam = function(feature) {
 
-		};
+    var stripes = new L.StripePattern({
+      angle: -45,
+    });
+    stripes.addTo(map);
+
+    var ptl_notam_shadow = function(feature, latlng) {
+      var opacity = 0.05;
+      var radius=feature.properties['radius'];
+      if (radius>180000) return null;
+      return L.circle(latlng, radius, {
+                                     color: 'gray',
+                                     fillColor: 'gray',
+                                     fillOpacity: opacity,
+                                     stroke: true,
+                                     opacity: 0.2,
+                                     fillPattern: stripes,
+                                     interactive: false
+      })
+    }
+
 
                 var overLayers = {
-                  "<b>NOTAM</b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam, style: style_notam }),
+                  "<b>NOTAM</b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
+                  " - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow }),
                   "<b>Norwegian/Swedish airspace</b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
@@ -206,6 +225,7 @@
                 };
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
+                overLayers[" - indicated only"].addTo(map);
                 overLayers["<b>Norwegian/Swedish airspace</b>"].addTo(map);
 
                 var lc = L.control.layers(baseLayers, overLayers);
