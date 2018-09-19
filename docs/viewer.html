@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="referrer" content="no-referrer">
-        <link rel="shortcut icon" href="favicon.ico"/>
-        <link rel="stylesheet" href="leaflet.css">
-        <link rel="stylesheet" href="leaflet.locate.min.css">
-        <style type="text/css">
+<html lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=iso-8859-1">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="stylesheet" href="leaflet.locate.min.css">
+  <style type="text/css">
             #map {
                 position: absolute;
                 left: 0;
@@ -17,26 +23,35 @@
                 background-image: url(images/filter-2x.png);
                 background-size: 26px 26px;
             }
-        </style>
-        <title>luftrom.info - Norwegian airspace for PG pilots</title>
-    </head>
-    <body>
-         <div id="map"/>
-         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-         <script src="leaflet.js"></script>
-         <script src="L.TileLayer.Kartverket.min.js"></script>
-         <script src="leaflet.ajax.min.js"></script>
-         <script src="leaflet.viewpoint.min.js"></script>
-         <script src="leaflet.pattern.min.js"></script>
-         <script src="leaflet.locate.min.js"></script>
-         <script src="leaflet.hash.js"></script>
-         <script src="https://use.fontawesome.com/17dabc76c0.js"></script>
-         <script type="text/javascript">
+  </style>
+  <title>luftrom.info - Norwegian airspace for PG pilots</title>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+  </script>
+  <script src="leaflet.js">
+  </script>
+  <script src="L.TileLayer.Kartverket.min.js">
+  </script>
+  <script src="leaflet.ajax.min.js">
+  </script>
+  <script src="leaflet.viewpoint.min.js">
+  </script>
+  <script src="leaflet.pattern.min.js">
+  </script>
+  <script src="leaflet.locate.min.js">
+  </script>
+  <script src="leaflet.hash.js">
+  </script>
+  <script src="https://use.fontawesome.com/17dabc76c0.js">
+  </script>
+  <script type="text/javascript">
             (function() {
                 'use strict';
 
                 var map = L.map('map').setView([65.5, 17.0], 4);
-            		var hash = new L.Hash(map);
+                        var hash = new L.Hash(map);
 
                 var i, layer;
                 var layers = L.tileLayer.kartverket.getLayers();
@@ -80,19 +95,19 @@
                                        if (ptime != null) {
                                           periods += ptime+" UTC";
                                        }
-                                       periods += "</br>";
+                                       periods += "<\/br>";
                                    }
-                                   warning = '<span style="color:red">TEMPORARY:</span><br/>'+periods;
+                                   warning = '<span style="color:red">TEMPORARY:<\/span><br/>'+periods;
                                  }
                                  if (feature.properties['class'] == 'Luftsport') {
-			           warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.</span><br />Contact your local club before flying, or keep to regular airspace limits.<br />';
-				 }
+                                   warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.<\/span><br />Contact your local club before flying, or keep to regular airspace limits.<br />';
+                                 }
                                  layer.bindPopup(
-                                     '<h2>'+feature.properties['name']+'</h2><br />'+warning+
+                                     '<h2>'+feature.properties['name']+'<\/h2><br />'+warning+
                                      'Class: '+feature.properties['class']+'<br />'+
                                      'Ceiling: '+feature.properties['to (m amsl)']+'m above MSL<br />'+
                                      'Floor: '+feature.properties['from (m amsl)']+'m above MSL<br />'+
-                                     '<a href="'+source+'">Reference (PDF)</a><br />'
+                                     '<a href="'+source+'">Reference (PDF)<\/a><br />'
                                  );
                 };
 
@@ -111,60 +126,60 @@
                     }
                 };
 
-		var onEachFeature_takeoffs = function (feature, layer) {
-			layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)</h2>' +
-                 		        'Weather forecast: <a href="http://xcmeteo.net/?p='+feature.geometry.coordinates[0]+'x'+feature.geometry.coordinates[1]+'">XCMeteo</a><br /><br />' +
-					feature.properties['description'].trim(),
-					{maxHeight: 250});
+                var onEachFeature_takeoffs = function (feature, layer) {
+                        layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)<\/h2>' +
+                                        'Weather forecast: <a href="http://xcmeteo.net/?p='+feature.geometry.coordinates[0]+'x'+feature.geometry.coordinates[1]+'">XCMeteo<\/a><br /><br />' +
+                                        feature.properties['description'].trim(),
+                                        {maxHeight: 250});
 
-		};
+                };
 
-		var pointToLayer_takeoffs = function (feature, latlng) {
-			var dirs = feature.properties['directions'];
+                var pointToLayer_takeoffs = function (feature, latlng) {
+                        var dirs = feature.properties['directions'];
                         var directions = [];
-			if (dirs['n']) {directions.push(180);}
-			if (dirs['ne']) {directions.push(225);}
-			if (dirs['e']) {directions.push(270);}
-			if (dirs['se']) {directions.push(315);}
-			if (dirs['s']) {directions.push(0);}
-			if (dirs['sw']) {directions.push(45);}
-			if (dirs['w']) {directions.push(90);}
-			if (dirs['nw']) {directions.push(135);}
-			return L.viewpoint(latlng, {
-				directions: directions,
-				radius: 6,
+                        if (dirs['n']) {directions.push(180);}
+                        if (dirs['ne']) {directions.push(225);}
+                        if (dirs['e']) {directions.push(270);}
+                        if (dirs['se']) {directions.push(315);}
+                        if (dirs['s']) {directions.push(0);}
+                        if (dirs['sw']) {directions.push(45);}
+                        if (dirs['w']) {directions.push(90);}
+                        if (dirs['nw']) {directions.push(135);}
+                        return L.viewpoint(latlng, {
+                                directions: directions,
+                                radius: 6,
                                 fillOpacity: 0,
                                 arrow: {
-				    color: '#4444ff',
-				    fillColor: '#4444ff',
-				    fillOpacity: 1.0,
+                                    color: '#4444ff',
+                                    fillColor: '#4444ff',
+                                    fillOpacity: 1.0,
                                     height: 3,
                                     width: 10,
-				    stroke: true
+                                    stroke: true
 
                                 }
-			});
-		};
-		var style_takeoffs = function(feature) {
-		};
-		var filter_takeoffs = function(winddir) {
-			return function(feature) {
-				if ((feature.geometry.coordinates[2] < 200) ||
-			            (feature.properties['Name'].indexOf('PPG') > -1)) {
-					return false;
-				}
-			        if (!winddir) {
-					return true;
-				}
-				return feature.properties['directions'][winddir];
+                        });
+                };
+                var style_takeoffs = function(feature) {
+                };
+                var filter_takeoffs = function(winddir) {
+                        return function(feature) {
+                                if ((feature.geometry.coordinates[2] < 200) ||
+                                    (feature.properties['Name'].indexOf('PPG') > -1)) {
+                                        return false;
+                                }
+                                if (!winddir) {
+                                        return true;
+                                }
+                                return feature.properties['directions'][winddir];
                         };
-		};
+                };
 
-		var onEachFeature_notam = function (feature, layer) {
-			layer.bindPopup('<h2>'+feature.properties['title']+'</h2>' +
-                             '<a href="'+feature.properties['src_href']+'">Explain this NOTAM</a><br /><br />'+
-					                   feature.properties['text'].trim(),
-					{maxHeight: 400, maxWidth: 600});
+                var onEachFeature_notam = function (feature, layer) {
+                        layer.bindPopup('<h2>'+feature.properties['title']+'<\/h2>' +
+                             '<a href="'+feature.properties['src_href']+'">Explain this NOTAM<\/a><br /><br />'+
+                                                           feature.properties['text'].trim(),
+                                        {maxHeight: 400, maxWidth: 600});
       layer.on('mouseover', function() {
                                      this.setStyle({
                                        'weight': 4,
@@ -175,7 +190,7 @@
                                        'weight': 2,
                                        'fillOpacity': 0.1
                                      })});
-		};
+                };
     var ptl_notam = function(feature, latlng) {
       var radius=feature.properties['radius'];
       if (radius>180000) return null;
@@ -207,15 +222,15 @@
 
 
                 var overLayers = {
-                  "<b>NOTAM</b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
+                  "<b>NOTAM<\/b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
                   " - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow }),
-                  "<b>Norwegian/Swedish airspace</b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
+                  "<b>Norwegian/Swedish airspace<\/b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
                   " - Danger/Restricted": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
                   " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
-                  "<b>Takeoffs</b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
+                  "<b>Takeoffs<\/b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
                   " - towards S": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
                   " - towards SE": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
                   " - towards E": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
@@ -228,11 +243,11 @@
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
                 overLayers[" - indicated only"].addTo(map);
-                overLayers["<b>Norwegian/Swedish airspace</b>"].addTo(map);
+                overLayers["<b>Norwegian/Swedish airspace<\/b>"].addTo(map);
 
                 map.on('overlayadd', function() {
                   overLayers[' - indicated only'].bringToFront();
-                  overLayers['<b>NOTAM</b>'].bringToFront();
+                  overLayers['<b>NOTAM<\/b>'].bringToFront();
                 });
 
                 var lc = L.control.layers(baseLayers, overLayers);
@@ -249,6 +264,6 @@
                 }).addTo(map);
 
             }());
-          </script>
-
-</body></html>
+  </script>
+</body>
+</html>

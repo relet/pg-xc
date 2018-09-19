@@ -1,61 +1,121 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-      <link rel="shortcut icon" href="favicon.ico"/>
-      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-
-      <meta charset="utf-8">
-      <title>Norwegian Airspace - resources for paraglider pilots</title>
-      <style>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.2.0">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href=
+  "https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity=
+  "sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+  crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title>Norwegian Airspace - resources for paraglider pilots</title>
+  <style>
           body {
             margin: 1cm;
           }
-      </style>
-  </head>
-
-  <body>
-      <h2>luftrom.info: Resources for paraglider pilots in Norway</h2>
-
-This repository contains several data files than can be useful for planning XC trips in Norway.
-
-<h3>Airspace</h3>
-
-<p>This is best effort airspace information geared towards paraglider pilots. <br/>
-<span style='color:red'>THESE FILES ARE PROVIDED WITHOUT WARRANTY OF ANY KIND.</span> Errors and omissions will occur, and updates happen on a best effort basis. Each geometry contains a data source link which you *should always* check for possible updates. See also <a href="http://www.madsen-system.se/luftrum/">madsen-system.se/luftrum</a> for updated Swedish airspace information by local glider pilots.
-</p>
-
-<p>Please consult also the <a href="https://github.com/relet/pg-xc/blob/master/geojson/changes/changelog">change log (Norwegian)</a> for inclusion or omission of updates. Subscribe to be notified of changes (via ATOM feeds) <a href="https://github.com/relet/pg-xc/commits/master/geojson/changes/changelog.atom">here</a>.
-</p>
-
-<p><b><a href="https://relet.github.io/pg-xc/viewer.html">Airspace map</a></b></p>
-
-<p>Please contact me with error reports, change requests and comments: <a href="#email" onclick="if (this.href.indexOf('gm')<2) {this.href=this.href.replace('https://','').replace('index.html','').replace(/ai/,'sch+pgxc:gmail').replace('ll','l.com').replace('#em','?thomas.hir').replace(/:/g,'@').replace('?','mailto?').replace('?',':').split('c/')[1]}">Click here</a></p>
-
-<p><b>Files:</b>
-<ul>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/luftrom.geojson">Airspace in geojson format</a></li>
-  <li>OpenAIR format in <a href="https://raw.githubusercontent.com/relet/pg-xc/master/openair/luftrom.m.txt">meters</a> and <a href="https://raw.githubusercontent.com/relet/pg-xc/master/openair/luftrom.ft.txt">feet</a> above MSL</a> - skipping airspace above 3500m</li>
-  <li><a href="https://raw.githubusercontent.com/relet/pg-xc/master/openaip/luftrom.openaip">OpenAIP format (for inclusion in openaip.net)</a></li>
-</ul>
-</p>
-
-<h3>Other resources</h3>
-
-<p>In no particular order:</p>
-
-<ul>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/routes.geojson">Aggregate over all flown routes from the Norwegian flightlog</a></li>
-  <li><a href="https://drive.google.com/folderview?id=0B7wcsWcf-oh1ZllZQl9qQmh1bTA&usp=sharing">Terrain model showing slope values</a></li>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/takeoffs.geojson">Registered takeoffs from flightlog.org</a></li>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/hytter.geojson">Public cabins from Kartverket N50 data</a></li>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/topper.geojson">Mountain tops from Kartverket N50 data</a></li>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/water.geojson">Surfaces of water from Kartverket N250 data</a></li>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/fotruter.geojson.gz">Marked trails</a> and <a href="https://github.com/relet/pg-xc/blob/master/geojson/skiloyper.geojson">ski tracks</a> for Norway</li>
-  <li><a href="https://github.com/relet/pg-xc/blob/master/geojson/hotspots_flightlog.geojson">Some thermal hotspots extracted from flightlog.org</a></li>
-  <li><a href="https://www.norgeskart.no/?test=1&#!?project=nrl&layers=1014,1002,1021,1022,1023,1024,1025,1026,1027,1020,1013,1015,1016,1017,1018,1019,1028,1029,1030,1031&zoom=5&lat=6933157.00&lon=295849.00">Nasjonalt register over Luftfartshindre (Kartverket)</a></li>
-  <li><a href="https://www.google.com/maps/d/embed?mid=1itL_wMDpI0hzPz3Gtfy23Sa1Yzw">Locations of model flying airports in Norway (NLF).</a></li>
-</ul>
-
-  </body>
+  </style>
+</head>
+<body>
+  <h2>luftrom.info: Resources for paraglider pilots in Norway</h2>This
+  repository contains several data files than can be useful for
+  planning XC trips in Norway.
+  <h3>Airspace</h3>
+  <p>This is best effort airspace information geared towards paraglider
+  pilots.<br>
+  <span style='color:red'>THESE FILES ARE PROVIDED WITHOUT WARRANTY OF
+  ANY KIND.</span> Errors and omissions will occur, and updates happen
+  on a best effort basis. Each geometry contains a data source link
+  which you *should always* check for possible updates. See also
+  <a href=
+  "http://www.madsen-system.se/luftrum/">madsen-system.se/luftrum</a>
+  for updated Swedish airspace information by local glider pilots.</p>
+  <p>Please consult also the <a href=
+  "https://github.com/relet/pg-xc/blob/master/geojson/changes/changelog">
+  change log (Norwegian)</a> for inclusion or omission of updates.
+  Subscribe to be notified of changes (via ATOM feeds) <a href=
+  "https://github.com/relet/pg-xc/commits/master/geojson/changes/changelog.atom">
+  here</a>.</p>
+  <p><b><a href="https://relet.github.io/pg-xc/viewer.html">Airspace
+  map</a></b></p>
+  <p>Please contact me with error reports, change requests and
+  comments: <a href="#email" onclick=
+  "if (this.href.indexOf(&#39;gm&#39;)&lt;2) {this.href=this.href.replace(&#39;https://&#39;,&#39;&#39;).replace(&#39;index.html&#39;,&#39;&#39;).replace(/ai/,&#39;sch+pgxc:gmail&#39;).replace(&#39;ll&#39;,&#39;l.com&#39;).replace(&#39;#em&#39;,&#39;?thomas.hir&#39;).replace(/:/g,&#39;@&#39;).replace(&#39;?&#39;,&#39;mailto?&#39;).replace(&#39;?&#39;,&#39;:&#39;).split(&#39;c/&#39;)[1]}">
+  Click here</a></p>
+  <p><b>Files:</b></p>
+  <ul>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/luftrom.geojson">
+      Airspace in geojson format</a>
+    </li>
+    <li>OpenAIR format in <a href=
+    "https://raw.githubusercontent.com/relet/pg-xc/master/openair/luftrom.m.txt">
+      meters</a> and <a href=
+      "https://raw.githubusercontent.com/relet/pg-xc/master/openair/luftrom.ft.txt">
+      feet</a> above MSL - skipping airspace above 3500m
+    </li>
+    <li>
+      <a href=
+      "https://raw.githubusercontent.com/relet/pg-xc/master/openaip/luftrom.openaip">
+      OpenAIP format (for inclusion in openaip.net)</a>
+    </li>
+  </ul>
+  <h3>Other resources</h3>
+  <p>In no particular order:</p>
+  <ul>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/routes.geojson">
+      Aggregate over all flown routes from the Norwegian flightlog</a>
+    </li>
+    <li>
+      <a href=
+      "https://drive.google.com/folderview?id=0B7wcsWcf-oh1ZllZQl9qQmh1bTA&usp=sharing">
+      Terrain model showing slope values</a>
+    </li>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/takeoffs.geojson">
+      Registered takeoffs from flightlog.org</a>
+    </li>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/hytter.geojson">
+      Public cabins from Kartverket N50 data</a>
+    </li>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/topper.geojson">
+      Mountain tops from Kartverket N50 data</a>
+    </li>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/water.geojson">
+      Surfaces of water from Kartverket N250 data</a>
+    </li>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/fotruter.geojson.gz">
+      Marked trails</a> and <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/skiloyper.geojson">
+      ski tracks</a> for Norway
+    </li>
+    <li>
+      <a href=
+      "https://github.com/relet/pg-xc/blob/master/geojson/hotspots_flightlog.geojson">
+      Some thermal hotspots extracted from flightlog.org</a>
+    </li>
+    <li>
+      <a href=
+      "https://www.norgeskart.no/?test=1&#!?project=nrl&layers=1014,1002,1021,1022,1023,1024,1025,1026,1027,1020,1013,1015,1016,1017,1018,1019,1028,1029,1030,1031&zoom=5&lat=6933157.00&lon=295849.00">
+      Nasjonalt register over Luftfartshindre (Kartverket)</a>
+    </li>
+    <li>
+      <a href=
+      "https://www.google.com/maps/d/embed?mid=1itL_wMDpI0hzPz3Gtfy23Sa1Yzw">
+      Locations of model flying airports in Norway (NLF).</a>
+    </li>
+  </ul>
+</body>
 </html>
