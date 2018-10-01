@@ -129,9 +129,9 @@
   					that.map.removeLayer(layer);
   				});
 
-	  			layers.forEach(function(element, index, array) {
-		  			that.map.addLayer(options[element]);
-			  	});
+          for (var i=0, len=layers.length; i<len; i++) {
+		  			that.map.addLayer(options[layers[i]]);
+			  	};
         }
 
 				this.movingMap = false;
