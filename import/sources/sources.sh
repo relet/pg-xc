@@ -23,9 +23,40 @@ urldecode() {
     printf '%b' "${url_encoded//%/\\x}"
 }
 
+process() {
+  FILENAME=$1
+  LAYOUT=$2
+
+  echo "Processing $FILENAME."
+  if [ $LAYOUT = 2 ]; then
+      cp "./pdf/$FILENAME" "./pdf/$FILENAME.html"
+      lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
+  elif [ $LAYOUT = 1 ]; then
+      pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
+  else
+      pdftotext "./pdf/$FILENAME" "./txt/$FILENAME.txt"
+  fi
+}
+
+fromzip() {
+  FILENAME=$1
+
+  LOCAL=$(find ./zip/ -name "*${FILENAME}.pdf")
+  ARCHIVE_URL=$(echo $LOCAL|awk -F "/" '{print $3}') # get third path after ./ and zip/
+  cd "./zip/$ARCHIVE_URL"
+  FILENAME=$(find . -name "*${FILENAME}.pdf")
+  FILENAME=$(urlencode "${FILENAME#./}")
+  cd ../..
+  FILENAME="${ARCHIVE_URL}%23${FILENAME}"
+  cp "$LOCAL" ./pdf/$FILENAME
+
+  echo "$FILENAME"
+}
+
 while read p; do
   LAYOUT=0
   SKIP=0
+  STOP=0
   # skip comment lines
   if [[ $p =~ ^# ]]; then continue; fi
   # skip empty lines
@@ -57,29 +88,32 @@ while read p; do
   if [[ $p =~ ^\. ]]; then
       SKIP=$(($SKIP + 1))
   fi
-  FILENAME=$(urlencode ${p:$SKIP})
+  if [[ $p =~ \*$ ]]; then
+      STOP=$(($STOP + 1))
+  fi
+  SNIPLEN=$((${#p}-$SKIP-$STOP))
+  FILENAME=$(urlencode ${p:$SKIP:$SNIPLEN})
   URLNAME=${p:$SKIP}
   # if a line starts with ., don't try downloading
   if [[ $p =~ ^\. ]]; then
-      LOCAL=$(find ./zip/ -name "*${FILENAME}.pdf")
-      ARCHIVE_URL=$(echo $LOCAL|awk -F "/" '{print $3}') # get third path after ./ and zip/
-      cd "./zip/$ARCHIVE_URL"
-      FILENAME=$(find . -name "*${FILENAME}.pdf")
-      FILENAME=$(urlencode "${FILENAME#./}")
-      cd ../..
-      FILENAME="${ARCHIVE_URL}%23${FILENAME}"
-      cp "$LOCAL" ./pdf/$FILENAME
+      if [[ $p =~ \*$ ]]; then
+          find ./zip/ -name "*${FILENAME}??_en.pdf" | while read f
+          do
+              FILENAME=$(basename "$f")
+              echo "Found match in zip $FILENAME";
+              FILENAME=$(fromzip "${FILENAME::-4}");
+              process $FILENAME $LAYOUT;
+          done
+          exit 1
+      else
+          FILENAME=$(fromzip $FILENAME)
+          process $FILENAME $LAYOUT
+      fi
   elif [ ! -e "./pdf/$FILENAME" ]; then
       wget -O "./pdf/$FILENAME" "$URLNAME"
+      process $FILENAME $LAYOUT
+  else
+      process $FILENAME $LAYOUT
   fi
 
-  echo "Processing $FILENAME."
-  if [ $LAYOUT = 2 ]; then
-      cp "./pdf/$FILENAME" "./pdf/$FILENAME.html"
-      lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
-  elif [ $LAYOUT = 1 ]; then
-      pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
-  else
-      pdftotext "./pdf/$FILENAME" "./txt/$FILENAME.txt"
-  fi
 done < sources.list

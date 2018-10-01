@@ -79,51 +79,8 @@ Z https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip
 .!ES_ENR_5_2_en
 .!ES_ENR_5_5_en
 
-# SWEDEN AD
-.ES_AD_2_ESCF_en
-.ES_AD_2_ESCM_en
-.ES_AD_2_ESDF_en
-.ES_AD_2_ESGG_en
-.ES_AD_2_ESGJ_en
-.ES_AD_2_ESGR_en
-.ES_AD_2_ESGT_en
-.ES_AD_2_ESIA_en
-.ES_AD_2_ESIB_en
-.ES_AD_2_ESKM_en
-.ES_AD_2_ESKN_en
-.ES_AD_2_ESMK_en
-.ES_AD_2_ESMQ_en
-.ES_AD_2_ESMS_en
-.ES_AD_2_ESMT_en
-.ES_AD_2_ESMX_en
-.ES_AD_2_ESND_en
-.ES_AD_2_ESNG_en
-.ES_AD_2_ESNK_en
-.ES_AD_2_ESNL_en
-.ES_AD_2_ESNN_en
-.ES_AD_2_ESNO_en
-.ES_AD_2_ESNQ_en
-.ES_AD_2_ESNS_en
-.ES_AD_2_ESNU_en
-.ES_AD_2_ESNV_en
-.ES_AD_2_ESNX_en
-.ES_AD_2_ESNZ_en
-.ES_AD_2_ESOE_en
-.ES_AD_2_ESOH_en
-.ES_AD_2_ESOK_en
-.ES_AD_2_ESOW_en
-.ES_AD_2_ESPA_en
-.ES_AD_2_ESPE_en
-.ES_AD_2_ESSA_en
-.ES_AD_2_ESSB_en
-.ES_AD_2_ESSD_en
-.ES_AD_2_ESSL_en
-.ES_AD_2_ESSP_en
-.ES_AD_2_ESST_en
-.ES_AD_2_ESSU_en
-.ES_AD_2_ESSV_en
-.ES_AD_2_ESTA_en
-.ES_AD_2_ESTL_en
+# SWEDEN AD - use wildcard
+.ES_AD_2_ES*
 
 # NLF special agreements
 http://nlf.no/sites/default/files/hangglidingparagliding/dokument/avtale_mellom_avinor_flysikring_og_nidaros_luftsportsklubb.pdf
