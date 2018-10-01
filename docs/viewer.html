@@ -205,7 +205,7 @@
                 };
     var ptl_notam = function(feature, latlng) {
       var radius=feature.properties['radius'];
-      if (radius>180000) return null;
+      //if (radius>180000) return null;
       return L.circle(latlng, radius, {
                                      fillOpacity: 0.1,
                                      stroke: true
@@ -220,7 +220,7 @@
     var ptl_notam_shadow = function(feature, latlng) {
       var opacity = 0.05;
       var radius=feature.properties['radius'];
-      if (radius>180000) return null;
+      //if (radius>180000) return null;
       return L.circle(latlng, radius, {
                                      color: 'gray',
                                      fillColor: 'gray',
