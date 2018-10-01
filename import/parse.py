@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|CTA|CTR|TIZ|FIR|CTR/TIZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
@@ -400,7 +400,10 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Found class in line: %s", line)
             class_=class_.groupdict()
             feature['properties']['class']=class_.get('class')
+            return
 
+        # temporary workaround KRAMFORS
+        if aipname and ("KRAMFORS" in aipname) and ("within" in line):
             return
 
         coords = re_coord.search(line)
