@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
@@ -49,6 +49,7 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
+re_vertl_td  = re.compile(u"(?:FL\s?)?(?P<flfrom>\d+) – FL\s?(?P<flto>\d+).*")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
@@ -300,14 +301,28 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
             logger.error("Feature without class (boo): #%i (%s)", index, source)
             sys.exit(1)
         if from_ is None:
-            logger.error("Feature without lower limit: #%i (%s)", index, source)
-            sys.exit(1)
+            if "en_sup_a_2018_015_en" in source:
+                feature['properties']['from (ft amsl)']='0'
+                feature['properties']['from (m amsl)']='0'
+                from_ = '0'
+            else:
+                logger.error("Feature without lower limit: #%i (%s)", index, source)
+                sys.exit(1)
         if to_ is None:
-            logger.error("Feature without upper limit: #%i (%s)", index, source)
-            sys.exit(1)
+            if "en_sup_a_2018_015_en" in source:
+                feature['properties']['to (ft amsl)']='99999'
+                feature['properties']['to (m amsl)']='9999'
+                to_ = '99999'
+            else:
+                logger.error("Feature without upper limit: #%i (%s)", index, source)
+                sys.exit(1)
         if int(from_) >= int(to_):
-            logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source)
-            sys.exit(1)
+            if "en_sup_a_2018_015_en" in source:
+                feature['properties']['from (ft amsl)']=to_
+                feature['properties']['to (ft amsl)']=from_
+            else:
+                logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source)
+                sys.exit(1)
     elif len(obj)>0:
         logger.error("Finalizing incomplete polygon #%i (%i points)", index, len(obj))
         sys.exit(1)
@@ -327,6 +342,7 @@ for filename in os.listdir("./sources/txt"):
     military_aip = "ENR_5_2" in filename
     airsport_aip = "ENR_5_5" in filename
     sup_aip      = "en_sup" in filename
+    trident      = "en_sup_a_2018_015_en" in filename
 
     # TODO: merge the cases
     es_enr_2_1 = "ES_ENR_2_1" in filename
@@ -350,6 +366,7 @@ for filename in os.listdir("./sources/txt"):
     aipname = None
     features = []
     ats_chapter = False
+    amc_areas = False
     alonging = False
     lastn, laste = None, None
     lastv = None
@@ -369,7 +386,7 @@ for filename in os.listdir("./sources/txt"):
         # TODO: make this a proper method
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
-        global border, re_coord3, country
+        global border, re_coord3, country, amc_areas
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -380,6 +397,13 @@ for filename in os.listdir("./sources/txt"):
             coords_wrap = ""
             lastv = None
             return
+
+        if trident:
+            if not amc_areas:
+                if "AMC Areas in Norwegian airspace" in line:
+                    logger.debug("Found AMC Areas line")
+                    amc_areas=True
+                return
 
         if ad_aip:
             if not ats_chapter:
@@ -521,8 +545,8 @@ for filename in os.listdir("./sources/txt"):
                         logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if (airsport_aip or sup_aip or military_aip) and finalcoord:
-                        if feature['properties'].get('from (ft amsl)') is not None:
+                    if (airsport_aip or sup_aip or military_aip or trident) and finalcoord:
+                        if feature['properties'].get('from (ft amsl)') is not None or trident:
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
 
@@ -569,20 +593,27 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
             return
 
-        vertl = re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+        vertl = (trident and re_vertl_td.search(line)) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
         if vertl:
             vertl = vertl.groupdict()
             logger.debug("Found vertl in line: %s", vertl)
             fromamsl, toamsl = None, None
 
             v = vertl.get('ftamsl')
+            flfrom = vertl.get('flfrom')
+            flto = vertl.get('flto')
             fl = vertl.get('fl')
             rmk = vertl.get('rmk')
+
             if rmk is not None:
                 v = 14999 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
             if fl is not None:
                 v = int(fl) * 100
-            if v is not None:
+
+            if flfrom is not None:
+                fromamsl = int(flfrom) * 100
+                toamsl   = int(flto) * 100
+            elif v is not None:
                 if lastv is None:
                     toamsl = v
                 else:
@@ -592,6 +623,7 @@ for filename in os.listdir("./sources/txt"):
                 if fromamsl == "GND": fromamsl = 0
                 toamsl = vertl.get('unl',vertl.get('to'))
                 if toamsl == "UNL": toamsl = 999999
+
             if toamsl is not None:
                 lastv = toamsl
                 currentv = feature['properties'].get('to (ft amsl)')
@@ -693,7 +725,7 @@ for filename in os.listdir("./sources/txt"):
 
         # parse columns separately for table formatted files
         # use header fields to detect the vcut character limit
-        if airsport_aip:
+        if airsport_aip or trident:
             if "Vertical limits" in line:
                 vcut = line.index("Vertical limits")
             else:
