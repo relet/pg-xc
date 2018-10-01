@@ -139,8 +139,10 @@
                 };
 
                 var onEachFeature_takeoffs = function (feature, layer) {
+                        var lon=feature.geometry.coordinates[0];
+                        var lat=feature.geometry.coordinates[1];
                         layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)<\/h2>' +
-                                        'Weather forecast: <a href="http://xcmeteo.net/?p='+feature.geometry.coordinates[0]+'x'+feature.geometry.coordinates[1]+'">XCMeteo<\/a><br /><br />' +
+                          'Weather forecast: <a href="http://xcmeteo.net/?p='+lon+'x'+lat+'">XCMeteo<\/a> <a href="https://www.windy.com/'+lat+'/'+lon+'?850h,'+lat+','+lon+',14">Windy</a><br /><br />' +
                                         feature.properties['description'].trim(),
                                         {maxHeight: 250});
 
