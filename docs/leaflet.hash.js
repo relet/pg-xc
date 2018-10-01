@@ -14,7 +14,6 @@
 	};
 
 	L.Hash.parseHash = function(hash) {
-    console.log('parseHash: ' + hash);
 		if(hash.indexOf('#') === 0) {
 			hash = hash.substr(1);
 		}
@@ -44,7 +43,6 @@
 		    precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2)),
 		    layers = [];
 
-		//console.log(this.options);
 		var options = this.options;
 		//Check active layers
 		for(var key in options) {
@@ -115,7 +113,6 @@
 			if (hash === this.lastHash) {
 				return;
 			}
-      console.log('update');
 			var parsed = this.parseHash(hash);
 			if (parsed) {
 				this.movingMap = true;
@@ -130,9 +127,8 @@
 				});
 
 				layers.forEach(function(element, index, array) {
-					//console.log(options[element]);
 					that.map.addLayer(options[element]);
-				});			
+				});
 
 				this.movingMap = false;
 			} else {
