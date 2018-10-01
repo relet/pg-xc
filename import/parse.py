@@ -24,6 +24,7 @@ re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
+re_td  = re.compile("^(?P<name>TRIDENT \d+)$")
 re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
 
 # Lines containing these are usually recognized as airspace class
@@ -31,7 +32,7 @@ re_class  = re.compile("Class (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
 
 # Coordinates format, possibly in brackets
-RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]+)N(?:\s+|-)(?P<e>[\d\.]+)E\)?)'
+RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]+)N(?: N)?(?:\s+|-)(?P<e>[\d\.]+)[E\)]+)'
 RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile("(?:" + RE_NE + " - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
@@ -49,7 +50,8 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 
 # Lines containing these are box ceilings and floors
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
-re_vertl_td  = re.compile(u"(?:FL\s?)?(?P<flfrom>\d+) – FL\s?(?P<flto>\d+).*")
+re_vertl_td  = re.compile(u"(?:(?:(?:FL\s?)?(?P<flfrom>\d+))|(?:(?P<ftamsl>\d+) ?FT)) [–-] FL\s?(?P<flto>\d+).*")
+re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
@@ -255,7 +257,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         feature['properties']['name']=aipname + " " + str(len(features)+1)
     if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
-    elif 'CTR' in aipname:
+    elif 'CTR' in aipname or 'TRIDENT' in aipname:
         feature['properties']['class']='D'
     elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname   \
       or 'ES R' in aipname or 'ES D' in aipname or 'ESTRA' in aipname \
@@ -271,7 +273,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         feature['properties']['class']='Luftsport'
     index = len(collection)+len(features)
     if len(obj)>3:
-        logger.debug("Created polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
+        logger.debug("Finalizing polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
         features.append(feature)
 
         # SANITY CHECK
@@ -326,6 +328,10 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     elif len(obj)>0:
         logger.error("Finalizing incomplete polygon #%i (%i points)", index, len(obj))
         sys.exit(1)
+    logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'), 
+                                                                     len(obj), 
+                                                                     feature['properties'].get('from (ft amsl)'),
+                                                                     feature['properties'].get('to (ft amsl)'))
     return {"properties":{}}, []
 
 
@@ -377,7 +383,7 @@ for filename in os.listdir("./sources/txt"):
     obj = []
 
     vcut = 999
-    vcut2 = 1000
+    vend = 1000
 
     def parse(line, half=1):
         """Parse a line (or half line) of converted pdftotext"""
@@ -593,7 +599,7 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
             return
 
-        vertl = (trident and re_vertl_td.search(line)) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+        vertl = (trident and (re_vertl_td.search(line) or re_vertl_td2.search(line))) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
         if vertl:
             vertl = vertl.groupdict()
             logger.debug("Found vertl in line: %s", vertl)
@@ -610,9 +616,9 @@ for filename in os.listdir("./sources/txt"):
             if fl is not None:
                 v = int(fl) * 100
 
-            if flfrom is not None:
-                fromamsl = int(flfrom) * 100
+            if flto is not None:
                 toamsl   = int(flto) * 100
+                fromamsl = v or (int(flfrom) * 100)
             elif v is not None:
                 if lastv is None:
                     toamsl = v
@@ -652,7 +658,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
-        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or re_miscnames.search(line)
+        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or re_miscnames.search(line) or re_td.search(line)
         if name:
             name=name.groupdict()
 
@@ -725,21 +731,30 @@ for filename in os.listdir("./sources/txt"):
 
         # parse columns separately for table formatted files
         # use header fields to detect the vcut character limit
-        if airsport_aip or trident:
+        if airsport_aip:
             if "Vertical limits" in line:
                 vcut = line.index("Vertical limits")
+                vend = vcut+16
             else:
                 parse(line[:vcut],1)
-                parse(line[vcut:vcut+16],2)
+                parse(line[vcut:vend],2)
+        elif trident:
+            if "Vertical limits" in line and not "non-" in line:
+                vcut = line.index("Vertical limits")-5
+                vend = vcut+32
+            else:
+                parse(line[:vcut],1)
+                parse(line[vcut:vend],2)
         elif restrict_aip or military_aip:
             if "Vertikale grenser" in line:
                 vcut = line.index("Vertikale grenser")
+                vend = vcut+16
                 if "Aktiviseringstid" in line:
-                    vcut2 = line.index("Aktiviseringstid")
+                    vend = line.index("Aktiviseringstid")
             else:
                 parse(line[:vcut],1)
                 if military_aip:
-                    parse(line[vcut:vcut2],2)
+                    parse(line[vcut:vend],2)
                 else:
                     parse(line[vcut:],2)
         elif cta_aip:
@@ -747,13 +762,11 @@ for filename in os.listdir("./sources/txt"):
                 vcut = line.index("Tjenesteenhet")
             else:
                 parse(line[:vcut],1)
-                #parse(line[vcut:],2)
         elif tia_aip:
             if "Unit providing" in line:
                 vcut = line.index("Unit providing")
             else:
                 parse(line[:vcut],1)
-                #parse(line[vcut:],2)
         else:
             parse(line,1)
 
