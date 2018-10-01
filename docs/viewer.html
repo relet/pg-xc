@@ -50,12 +50,17 @@
             (function() {
                 'use strict';
 
+                var shorthash = function(s) {
+                    return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
+                };
+
                 var map = L.map('map').setView([65.5, 17.0], 4);
-                        var hash = new L.Hash(map);
 
                 var i, layer;
                 var layers = L.tileLayer.kartverket.getLayers();
 
+                var allMapLayers = {
+                }
                 var baseLayers = {
                   'Norway: Kartverket Topography': 'topo4',
                   'Europe: Kartverket Europa': 'europa',
@@ -66,13 +71,17 @@
                     layer = layers[i];
                     for (var key in baseLayers) {
                       if (baseLayers[key]==layer) {
-                        baseLayers[key] = L.tileLayer.kartverket(layer);
+                        var l_base = L.tileLayer.kartverket(layer);
+                        baseLayers[key] = l_base;
+                        allMapLayers[layer] = l_base;
                       }
                     }
                 }
-                baseLayers["World: OpenStreetMap"] = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var l_osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
                 });
+                baseLayers["World: OpenStreetMap"] = l_osm;
+                allMapLayers["osm"] = l_osm;
 
                 var onEachFeature_all = function (feature, layer) {
                                  layer.on('mouseover', function() {
@@ -244,6 +253,11 @@
                   " - towards SW": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('sw'), pointToLayer: pointToLayer_takeoffs}),
                 };
 
+                for (var key in overLayers) {
+                    console.log("mapped "+key+" to "+shorthash(key));
+                    allMapLayers[shorthash(key)]=overLayers[key];
+                }
+
                 baseLayers['Europe: Kartverket Light'].addTo(map);
                 overLayers[" - indicated only"].addTo(map);
                 overLayers["<b>Norwegian/Swedish airspace<\/b>"].addTo(map);
@@ -252,6 +266,9 @@
                   overLayers[' - indicated only'].bringToFront();
                   overLayers['<b>NOTAM<\/b>'].bringToFront();
                 });
+
+                var hash = new L.Hash(map, allMapLayers);
+                hash.update();
 
                 var lc = L.control.layers(baseLayers, overLayers);
                 // close layercontrol on click (fix for android phones)
@@ -265,6 +282,8 @@
                       maxZoom: 9
                     }
                 }).addTo(map);
+
+                window.dispatchEvent(new Event('resize'));
 
             }());
   </script>
