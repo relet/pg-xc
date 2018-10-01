@@ -21,6 +21,25 @@ DP 82:00:00 N  000:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN END575 - J5 (Corridor) 16
+AL 0 MSL
+AH 9999 MSL
+DP 68:06:05.0 N  002:00:00.0 E
+DP 63:00:00.0 N  002:00:00.0 E
+DP 63:00:00.0 N  004:00:00.0 E
+DP 63:36:41.0 N  004:36:37.0 E
+DP 64:09:29.0 N  005:10:53.0 E
+DP 64:54:56.0 N  006:00:59.0 E
+DP 65:37:06.0 N  006:50:26.0 E
+DP 65:45:00.0 N  007:00:00.0 E
+DP 66:32:43.0 N  008:14:25.0 E
+DP 67:06:33.0 N  009:10:47.0 E
+DP 68:06:05.0 N  010:58:10.0 E
+DP 68:06:05.0 N  002:00:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Norway CTA 16
 AL 3200 MSL
@@ -2257,6 +2276,84 @@ DP 68:03:59 N  023:41:22 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
+AC R
+AN END575 - J5 (Corridor) 17
+AL 0 MSL
+AH 9999 MSL
+DP 64:45:56.0 N  012:24:42.0 E
+DP 64:30:00.0 N  012:27:00.0 E
+DP 64:03:21.0 N  012:16:54.0 E
+DP 64:03:27.0 N  012:55:36.0 E
+DP 64:03:28 N  012:55:36 E
+DP 64:03:33 N  012:56:14 E
+DP 64:05:42 N  013:12:39 E
+DP 64:05:14 N  013:17:02 E
+DP 64:03:54 N  013:31:59 E
+DP 64:02:43 N  013:42:54 E
+DP 64:01:25 N  013:51:59 E
+DP 64:01:14 N  013:54:18 E
+DP 64:00:47 N  013:58:54 E
+DP 64:04:23 N  014:02:08 E
+DP 64:07:45 N  014:05:42 E
+DP 64:08:02 N  014:06:06 E
+DP 64:11:09 N  014:09:28 E
+DP 64:12:10 N  014:09:20 E
+DP 64:15:42 N  014:08:54 E
+DP 64:23:57 N  014:07:36 E
+DP 64:24:25 N  014:07:32 E
+DP 64:27:10 N  014:07:14 E
+DP 64:27:42 N  014:06:51 E
+DP 64:28:41 N  014:05:09 E
+DP 64:30:25 N  013:53:32 E
+DP 64:31:59 N  013:48:11 E
+DP 64:34:47 N  013:39:14 E
+DP 64:35:06 N  013:39:28 E
+DP 64:38:22 N  013:42:18 E
+DP 64:39:09 N  013:43:17 E
+DP 64:53:23 N  014:00:54 E
+DP 64:54:52 N  014:02:47 E
+DP 64:57:44 N  014:06:29 E
+DP 65:01:58 N  014:12:18 E
+DP 65:07:08 N  014:19:32 E
+DP 65:07:57 N  014:19:52 E
+DP 65:14:52 N  014:22:44 E
+DP 65:18:35 N  014:30:20 E
+DP 65:26:40 N  014:30:00 E
+DP 65:31:02 N  014:29:48 E
+DP 65:40:56 N  014:31:46 E
+DP 65:42:17 N  014:32:31 E
+DP 65:44:17 N  014:34:06 E
+DP 65:48:51 N  014:37:26 E
+DP 65:51:04 N  014:36:28 E
+DP 65:54:04 N  014:35:03 E
+DP 65:57:27 N  014:34:23 E
+DP 66:07:57 N  014:30:58 E
+DP 66:08:00 N  014:32:18 E
+DP 66:09:12 N  015:02:08 E
+DP 66:11:42 N  015:10:42 E
+DP 66:13:57 N  015:18:19 E
+DP 66:14:08 N  015:18:57 E
+DP 66:16:56 N  015:29:04 E
+DP 66:17:48 N  015:28:39 E
+DP 66:23:32 N  015:25:49 E
+DP 66:25:48 N  015:24:30 E
+DP 66:29:03 N  015:22:38 E
+DP 66:29:53 N  015:24:05 E
+DP 66:32:35 N  015:29:44 E
+DP 66:33:28 N  015:32:00 E
+DP 66:34:23 N  015:33:29 E
+DP 66:36:20 N  015:37:32 E
+DP 66:37:18 N  015:38:45 E
+DP 66:43:00 N  015:46:26 E
+DP 66:44:06 N  015:48:28 E
+DP 66:46:02.0 N  015:51:05.0 E
+DP 66:50:00.0 N  014:50:00.0 E
+DP 66:53:01.0 N  014:05:03.0 E
+DP 66:46:58.0 N  013:59:00.0 E
+DP 64:45:56.0 N  012:24:42.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Norway CTA 7
 AL 2895 MSL
@@ -2328,6 +2425,38 @@ DP 64:30:36 N  019:51:07 E
 DP 66:07:05 N  016:59:27 E
 DP 66:25:50 N  016:23:32 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+*
+*
+AC R
+AN END542 - E2
+AL 0 MSL
+AH 9144 MSL
+DP 65:45:00.0 N  007:00:00.0 E
+DP 65:45:00.0 N  007:00:00.0 E
+DP 65:37:06.0 N  006:50:26.0 E
+DP 64:54:56.0 N  006:00:59.0 E
+DP 64:10:27.0 N  009:16:49.0 E
+DP 64:17:22.0 N  009:39:35.0 E
+DP 64:20:32.0 N  009:50:12.0 E
+DP 64:26:00.0 N  010:12:00.0 E
+DP 64:43:32.0 N  010:37:55.0 E
+DP 64:45:38.0 N  010:41:03.0 E
+DP 64:53:23.0 N  010:52:46.2 E
+DP 65:45:00.0 N  007:00:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN END539 - D8
+AL 0 MSL
+AH 9144 MSL
+DP 66:32:43.0 N  008:14:25.0 E
+DP 65:45:00.0 N  007:00:00.0 E
+DP 64:53:23.0 N  010:52:46.0 E
+DP 65:20:37.0 N  011:35:00.0 E
+DP 65:41:00.0 N  011:35:00.0 E
+DP 66:32:43.0 N  008:14:25.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC R
@@ -2447,6 +2576,22 @@ DP 65:37:06 N  006:50:26 E
 *
 *
 AC R
+AN END533 - D2
+AL 1524 MSL
+AH 9144 MSL
+DP 67:41:28.0 N  010:12:23.0 E
+DP 67:06:33.0 N  009:10:47.0 E
+DP 66:16:06.0 N  012:13:41.0 E
+DP 66:21:40.0 N  012:20:00.0 E
+DP 66:57:00.0 N  013:00:00.0 E
+DP 67:05:55.0 N  013:00:00.0 E
+DP 67:18:00.0 N  012:06:00.0 E
+DP 67:24:00.0 N  011:38:00.0 E
+DP 67:41:28.0 N  010:12:23.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
 AN ESTRA75Z 10
 AL 2895 MSL
 AH 20116 MSL
@@ -2514,6 +2659,18 @@ DP 58:31:01 N  013:19:28 E
 DP 58:43:58 N  013:09:50 E
 DP 58:45:58 N  012:29:51 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END536 - D5
+AL 1524 MSL
+AH 9144 MSL
+DP 67:06:33.0 N  009:10:47.0 E
+DP 66:32:43.0 N  008:14:25.0 E
+DP 65:41:00.0 N  011:35:00.0 E
+DP 66:16:06.0 N  012:13:41.0 E
+DP 67:06:33.0 N  009:10:47.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC G
@@ -2708,6 +2865,19 @@ DP 70:05:00 N  018:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN END548 - E8
+AL 0 MSL
+AH 9144 MSL
+DP 64:09:29.0 N  005:10:53.0 E
+DP 63:36:41.0 N  004:36:37.0 E
+DP 63:10:01.0 N  006:47:36.0 E
+DP 63:22:26.0 N  007:24:28.0 E
+DP 63:34:00.0 N  008:00:00.0 E
+DP 64:09:29.0 N  005:10:53.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Helgeland TMA 2
 AL 1371 MSL
@@ -2723,6 +2893,25 @@ DP 66:30:00 N  014:46:45 E
 DP 66:30:00 N  013:50:00 E
 DP 66:21:40 N  012:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END546 - E6
+AL 152 MSL
+AH 9144 MSL
+DP 64:26:00.0 N  010:12:00.0 E
+DP 64:20:32.0 N  009:50:10.0 E
+DP 64:10:27.0 N  009:16:49.0 E
+DP 63:46:21.0 N  008:00:00.0 E
+DP 63:34:00.0 N  008:00:00.0 E
+DP 63:26:35.0 N  008:15:12.0 E
+DP 63:23:33.0 N  008:48:36.0 E
+DP 63:31:01.0 N  009:44:41.0 E
+DP 63:42:31.0 N  009:58:11.0 E
+DP 63:51:44.0 N  010:25:19.0 E
+DP 64:08:02.0 N  010:47:24.0 E
+DP 64:26:00.0 N  010:12:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -3309,6 +3498,19 @@ DP 60:42:58 N  006:00:13 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN END551 - F3
+AL 0 MSL
+AH 9144 MSL
+DP 63:00:00.0 N  002:00:00.0 E
+DP 62:30:00.0 N  002:00:00.0 E
+DP 62:30:00.0 N  005:05:00.0 E
+DP 62:33:20.0 N  005:12:10.0 E
+DP 63:00:00.0 N  004:00:00.0 E
+DP 63:00:00.0 N  002:00:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Hammerfest TMA 2
 AL 1066 MSL
@@ -3344,6 +3546,20 @@ DP 70:05:00 N  021:50:36 E
 DP 70:19:20 N  021:02:54 E
 DP 70:05:00 N  020:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END540 - D9
+AL 0 MSL
+AH 9144 MSL
+DP 65:41:00.0 N  011:35:00.0 E
+DP 65:20:37.0 N  011:35:00.0 E
+DP 64:53:23.0 N  010:52:46.0 E
+DP 64:34:03.0 N  012:06:51.0 E
+DP 64:48:43.0 N  012:39:59.0 E
+DP 65:15:51.0 N  013:03:25.0 E
+DP 65:41:00.0 N  011:35:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -3643,6 +3859,23 @@ DP 68:11:00 N  015:36:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN EN R332 TRIDENT 2 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 62:51:10.0 N  008:23:23.0 E
+DP 62:46:09.9 N  008:18:40.9 E
+DP 62:28:00.0 N  008:38:00.0 E
+DP 62:47:00.0 N  010:21:00.0 E
+DP 63:00:00.0 N  010:08:00.0 E
+DP 63:07:12.0 N  010:00:12.0 E
+DP 63:10:08.0 N  009:49:35.0 E
+DP 63:02:11.0 N  008:54:15.0 E
+DP 62:58:40.0 N  008:30:45.0 E
+DP 62:51:10.0 N  008:23:23.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Alta TMA 2
 AL 1066 MSL
@@ -3686,6 +3919,19 @@ DP 68:17:50 N  017:04:59 E
 DP 68:49:37 N  017:15:20 E
 DP 68:53:52 N  016:53:57 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_5_2_en.pdf
+*
+*
+AC R
+AN END530 - C10
+AL 1524 MSL
+AH 9144 MSL
+DP 68:06:05.0 N  010:58:10.0 E
+DP 67:41:28.0 N  010:12:23.0 E
+DP 67:24:00.0 N  011:38:00.0 E
+DP 67:40:00.0 N  012:04:00.0 E
+DP 67:48:18.0 N  012:23:08.0 E
+DP 68:06:05.0 N  010:58:10.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -3774,6 +4020,60 @@ DP 58:19:14 N  016:37:31 E
 DP 58:31:44 N  015:44:25 E
 DP 58:47:59 N  015:53:52 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 13
+AL 0 MSL
+AH 609 MSL
+DP 62:22:00.0 N  011:19:02.0 E
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:34:52.2 N  012:07:44.2 E
+DP 61:43:26.0 N  012:08:16.0 E
+DP 61:43:25 N  012:08:16 E
+DP 61:45:09 N  012:08:46 E
+DP 61:50:05 N  012:10:11 E
+DP 61:52:16 N  012:10:58 E
+DP 61:52:39 N  012:10:57 E
+DP 62:02:39 N  012:13:53 E
+DP 62:04:31 N  012:14:29 E
+DP 62:07:08 N  012:15:20 E
+DP 62:09:56 N  012:16:01 E
+DP 62:12:28 N  012:16:46 E
+DP 62:15:57 N  012:17:57 E
+DP 62:17:26 N  012:17:18 E
+DP 62:19:51 N  012:15:16 E
+DP 62:20:41 N  012:14:41 E
+DP 62:22:00.0 N  012:13:45.0 E
+DP 62:22:00.0 N  011:19:02.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R341 TRIDENT 13 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 62:22:00.0 N  011:19:02.0 E
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:34:52.2 N  012:07:44.2 E
+DP 61:43:26.0 N  012:08:16.0 E
+DP 61:43:25 N  012:08:16 E
+DP 61:45:09 N  012:08:46 E
+DP 61:50:05 N  012:10:11 E
+DP 61:52:16 N  012:10:58 E
+DP 61:52:39 N  012:10:57 E
+DP 62:02:39 N  012:13:53 E
+DP 62:04:31 N  012:14:29 E
+DP 62:07:08 N  012:15:20 E
+DP 62:09:56 N  012:16:01 E
+DP 62:12:28 N  012:16:46 E
+DP 62:15:57 N  012:17:57 E
+DP 62:17:26 N  012:17:18 E
+DP 62:19:51 N  012:15:16 E
+DP 62:20:41 N  012:14:41 E
+DP 62:22:00.0 N  012:13:45.0 E
+DP 62:22:00.0 N  011:19:02.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -3903,6 +4203,21 @@ DP 62:47:00 N  010:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN END543 - E3
+AL 0 MSL
+AH 9144 MSL
+DP 64:53:23.0 N  010:52:46.0 E
+DP 64:45:38.0 N  010:41:03.0 E
+DP 64:43:32.0 N  010:37:55.0 E
+DP 64:26:00.0 N  010:12:00.0 E
+DP 64:08:02.0 N  010:47:24.0 E
+DP 64:13:58.0 N  011:00:02.0 E
+DP 64:34:03.0 N  012:06:51.0 E
+DP 64:53:23.0 N  010:52:46.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Oslo TMA 3
 AL 1066 MSL
@@ -3974,6 +4289,19 @@ DP 65:31:56 N  020:35:45 E
 DP 65:54:55 N  021:05:44 E
 DP 66:12:55 N  019:41:15 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END592 - H6 (Corridor)
+AL 0 MSL
+AH 7010 MSL
+DP 64:14:19.0 N  010:35:08.0 E
+DP 64:08:02.0 N  010:47:24.0 E
+DP 63:51:44.0 N  010:25:19.0 E
+DP 64:03:21.0 N  012:16:54.0 E
+DP 64:30:00.0 N  012:27:00.0 E
+DP 64:14:19.0 N  010:35:08.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -4069,6 +4397,18 @@ DP 60:55:30 N  010:33:30 E
 DP 60:47:00 N  010:13:35 E
 DP 60:43:45 N  010:06:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
+*
+*
+AC R
+AN EN R333 TRIDENT 3 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 62:28:00.0 N  008:38:00.0 E
+DP 62:10:00.0 N  009:04:00.0 E
+DP 62:28:00.0 N  010:40:00.0 E
+DP 62:47:00.0 N  010:21:00.0 E
+DP 62:28:00.0 N  008:38:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -4179,6 +4519,34 @@ DP 69:46:00 N  016:14:54 E
 DP 69:59:00 N  015:37:54 E
 DP 69:31:00 N  014:17:54 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_5_1_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 14
+AL 0 MSL
+AH 609 MSL
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:08:00.0 N  011:06:00.0 E
+DP 60:59:45.0 N  011:18:00.0 E
+DP 60:58:30.0 N  011:55:00.0 E
+DP 61:06:00.0 N  012:06:00.0 E
+DP 61:34:52.2 N  012:07:44.2 E
+DP 61:36:30.0 N  011:10:20.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R342 TRIDENT 14 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:08:00.0 N  011:06:00.0 E
+DP 60:59:45.0 N  011:18:00.0 E
+DP 60:58:30.0 N  011:55:00.0 E
+DP 61:06:00.0 N  012:06:00.0 E
+DP 61:34:52.2 N  012:07:44.2 E
+DP 61:36:30.0 N  011:10:20.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC G
@@ -4440,6 +4808,64 @@ DP 59:36:23 N  004:29:57 E
 *
 *
 AC R
+AN END575 - J5 (Corridor) 11
+AL 0 MSL
+AH 6248 MSL
+DP 62:22:00.0 N  010:38:47.72 E
+DP 62:00:00.0 N  010:34:25.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+DP 61:36:30.0 N  011:10:20.0 E
+DP 62:22:00.0 N  011:19:02.0 E
+DP 62:22:00.0 N  010:38:47.72 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R338 TRIDENT 10 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 62:22:00.0 N  010:38:47.72 E
+DP 62:00:00.0 N  010:34:25.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+DP 61:36:30.0 N  011:10:20.0 E
+DP 62:22:00.0 N  011:19:02.0 E
+DP 62:22:00 N  010:38:47.72 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor)
+AL 0 MSL
+AH 7010 MSL
+DP 63:34:00.0 N  008:00:00.0 E
+DP 63:22:26.0 N  007:24:28.0 E
+DP 62:51:10.0 N  008:23:23.0 E
+DP 62:58:40.0 N  008:30:45.0 E
+DP 63:02:11.0 N  008:54:15.0 E
+DP 63:23:28.0 N  008:21:35.0 E
+DP 63:26:35.0 N  008:15:12.0 E
+DP 63:34:00.0 N  008:00:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R340 TRIDENT 12 LOW
+AL 0 MSL
+AH 1371 MSL
+DP 62:48:00.0 N  011:04:00.0 E
+DP 62:22:00.0 N  011:04:00.0 E
+DP 62:22:00.0 N  012:13:45.0 E
+DP 62:20:41 N  012:14:41 E
+DP 62:36:42 N  012:03:22 E
+DP 62:37:39 N  012:03:55 E
+DP 62:44:52 N  012:08:10 E
+DP 62:47:41 N  012:07:03 E
+DP 62:48:00.0 N  012:06:55.0 E
+DP 62:48:00.0 N  011:04:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
 AN ES R47
 AL 0 MSL
 AH 2438 MSL
@@ -4491,6 +4917,22 @@ DP 56:11:40 N  015:38:39 E
 DP 56:23:09 N  016:05:29 E
 DP 56:39:30 N  015:50:30 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN EN R335 TRIDENT 5 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 62:08:00.0 N  010:36:00.0 E
+DP 61:56:00.0 N  009:32:00.0 E
+DP 61:41:25.0 N  010:01:25.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+DP 62:08:00.0 N  010:36:00.0 E
+DP 62:10:00.0 N  009:04:00.0 E
+DP 61:56:00.0 N  009:32:00.0 E
+DP 62:08:00.0 N  010:36:00.0 E
+DP 62:28:00.0 N  010:40:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -4673,6 +5115,18 @@ DP 67:15:00 N  012:31:54 E
 DP 67:22:00 N  011:57:54 E
 DP 66:48:00 N  011:07:54 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_5_1_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 5
+AL 0 MSL
+AH 9601 MSL
+DP 62:28:00.0 N  010:40:00.0 E
+DP 62:10:00.0 N  009:04:00.0 E
+DP 61:56:00.0 N  009:32:00.0 E
+DP 62:08:00.0 N  010:36:00.0 E
+DP 62:28:00.0 N  010:40:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -4986,6 +5440,21 @@ DP 63:00:00 N  010:08:00 E
 *
 *
 AC R
+AN EN R331 TRIDENT AMPHIB
+AL 0 MSL
+AH 1676 MSL
+DP 63:10:08.0 N  009:49:35.0 E
+DP 63:29:28.2 N  009:45:53.8 E
+DP 63:28:00.0 N  009:38:00.0 E
+DP 63:23:55.0 N  009:10:45.0 E
+DP 63:20:57.0 N  008:48:41.0 E
+DP 63:23:28.0 N  008:21:35.0 E
+DP 63:02:11.0 N  008:54:15.0 E
+DP 63:10:08.0 N  009:49:35.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
 AN ES R209B
 AL 1524 MSL
 AH 5943 MSL
@@ -4995,6 +5464,78 @@ DP 60:12:00 N  016:50:00 E
 DP 60:33:17 N  016:50:00 E
 DP 60:50:59 N  015:38:02 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 15
+AL 0 MSL
+AH 9999 MSL
+DP 61:43:26.0 N  012:08:16.0 E
+DP 61:06:00.0 N  012:06:00.0 E
+DP 60:58:30.0 N  011:55:00.0 E
+DP 61:00:49.0 N  012:13:24.0 E
+DP 61:00:47 N  012:13:25 E
+DP 61:01:08 N  012:14:22 E
+DP 61:03:04 N  012:26:52 E
+DP 61:03:06 N  012:29:11 E
+DP 61:02:47 N  012:36:36 E
+DP 61:03:07 N  012:39:05 E
+DP 61:03:18 N  012:40:06 E
+DP 61:03:20 N  012:40:14 E
+DP 61:03:34 N  012:40:53 E
+DP 61:03:40 N  012:40:58 E
+DP 61:08:35 N  012:42:26 E
+DP 61:09:52 N  012:44:26 E
+DP 61:11:49 N  012:47:25 E
+DP 61:14:15 N  012:49:08 E
+DP 61:15:29 N  012:50:01 E
+DP 61:15:55 N  012:50:11 E
+DP 61:21:23 N  012:52:15 E
+DP 61:22:05 N  012:51:16 E
+DP 61:34:05 N  012:34:05 E
+DP 61:34:00 N  012:26:47 E
+DP 61:33:45 N  012:25:11 E
+DP 61:36:50 N  012:20:22 E
+DP 61:38:27 N  012:16:16 E
+DP 61:43:25 N  012:08:16 E
+DP 61:43:26.0 N  012:08:16.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R343 TRIDENT 15 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 61:43:26.0 N  012:08:16.0 E
+DP 61:06:00.0 N  012:06:00.0 E
+DP 60:58:30.0 N  011:55:00.0 E
+DP 61:00:49.0 N  012:13:24.0 E
+DP 61:00:47 N  012:13:25 E
+DP 61:01:08 N  012:14:22 E
+DP 61:03:04 N  012:26:52 E
+DP 61:03:06 N  012:29:11 E
+DP 61:02:47 N  012:36:36 E
+DP 61:03:07 N  012:39:05 E
+DP 61:03:18 N  012:40:06 E
+DP 61:03:20 N  012:40:14 E
+DP 61:03:34 N  012:40:53 E
+DP 61:03:40 N  012:40:58 E
+DP 61:08:35 N  012:42:26 E
+DP 61:09:52 N  012:44:26 E
+DP 61:11:49 N  012:47:25 E
+DP 61:14:15 N  012:49:08 E
+DP 61:15:29 N  012:50:01 E
+DP 61:15:55 N  012:50:11 E
+DP 61:21:23 N  012:52:15 E
+DP 61:22:05 N  012:51:16 E
+DP 61:34:05 N  012:34:05 E
+DP 61:34:00 N  012:26:47 E
+DP 61:33:45 N  012:25:11 E
+DP 61:36:50 N  012:20:22 E
+DP 61:38:27 N  012:16:16 E
+DP 61:43:25 N  012:08:16 E
+DP 61:43:26.0 N  012:08:16.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -5478,6 +6019,18 @@ DP 70:15:00 N  018:45:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN EN R339 TRIDENT 11 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 61:45:00.0 N  010:31:10.0 E
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:08:00.0 N  011:06:00.0 E
+DP 61:20:10.0 N  010:25:00.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN ÖSTERSUND TMA 2
 AL 1005 MSL
@@ -5575,6 +6128,18 @@ DP 70:16:11 N  022:28:23 E
 DP 70:29:11 N  022:48:55 E
 DP 70:39:30 N  021:52:09 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/ad/enhk/EN_AD_2_ENHK_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 2
+AL 0 MSL
+AH 4724 MSL
+DP 63:02:11.0 N  008:54:15.0 E
+DP 63:09:47.0 N  009:46:47.0 E
+DP 63:30:34.4 N  009:41:34.7 E
+DP 63:24:19.5 N  008:54:44.0 E
+DP 63:02:11.0 N  008:54:15.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -5690,6 +6255,20 @@ DP 59:50:00 N  011:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC R
+AN EN R344 TRIDENT DV WEST
+AL 0 MSL
+AH 9999 MSL
+DP 63:23:28.0 N  008:21:35.0 E
+DP 63:20:57.0 N  008:48:41.0 E
+DP 63:23:55.0 N  009:10:45.0 E
+DP 63:28:00.0 N  009:38:00.0 E
+DP 63:34:00.0 N  009:11:00.0 E
+DP 63:56:00.0 N  009:00:00.0 E
+DP 63:23:28.0 N  008:21:35.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Møre TMA 4
 AL 1676 MSL
@@ -5778,6 +6357,18 @@ DP 64:18:00 N  010:59:00 E
 DP 64:28:00 N  012:18:00 E
 DP 64:39:30 N  012:11:30 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/ad/ennm/EN_AD_2_ENNM_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 6
+AL 0 MSL
+AH 9601 MSL
+DP 62:08:00.0 N  010:36:00.0 E
+DP 61:56:00.0 N  009:32:00.0 E
+DP 61:41:25.0 N  010:01:25.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+DP 62:08:00.0 N  010:36:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC D
@@ -5930,6 +6521,36 @@ DP 65:01:52 N  022:28:12 E
 DP 65:26:28 N  021:29:21 E
 DP 65:33:33 N  021:11:55 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN EN R345 TRIDENT DV EAST
+AL 0 MSL
+AH 1676 MSL
+DP 63:10:08.0 N  009:49:35.0 E
+DP 63:25:58.0 N  010:31:02.0 E
+DP 63:28:58.0 N  010:31:02.0 E
+DP 63:32:41.0 N  010:46:15.0 E
+DP 63:47:00.0 N  009:52:00.0 E
+DP 63:33:15.0 N  010:05:40.0 E
+DP 63:29:28.2 N  009:45:53.8 E
+DP 63:10:08.0 N  009:49:35.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R346 TRIDENT DV SOUTH
+AL 0 MSL
+AH 9999 MSL
+DP 63:10:08.0 N  009:49:35.0 E
+DP 63:07:12.0 N  010:00:12.0 E
+DP 63:00:00.0 N  010:08:00.0 E
+DP 62:55:48.0 N  010:12:12.0 E
+DP 63:22:22.0 N  011:04:18.0 E
+DP 63:22:25.0 N  010:45:06.0 E
+DP 63:25:58.0 N  010:31:02.0 E
+DP 63:10:08.0 N  009:49:35.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC G
@@ -6243,6 +6864,32 @@ DP 64:11:12 N  021:21:20 E
 DP 64:20:41 N  021:31:12 E
 DP 64:28:52 N  020:20:28 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 10
+AL 0 MSL
+AH 4724 MSL
+DP 62:48:00.0 N  010:20:00.2 E
+DP 62:28:00.0 N  010:40:00.0 E
+DP 62:22:00.0 N  010:38:47.72 E
+DP 62:22:00.0 N  011:04:00.0 E
+DP 62:48:00.0 N  011:04:00.0 E
+DP 62:48:00.0 N  010:20:00.2 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC R
+AN EN R337 TRIDENT 9 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 62:48:00.0 N  010:20:00.2 E
+DP 62:28:00.0 N  010:40:00.0 E
+DP 62:22:00.0 N  010:38:47.72 E
+DP 62:22:00.0 N  011:04:00.0 E
+DP 62:48:00.0 N  011:04:00.0 E
+DP 62:48:00.0 N  010:20:00.2 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC C
@@ -6746,6 +7393,18 @@ DP 59:51:57 N  013:03:06 E
 DP 59:55:37 N  013:21:06 E
 DP 60:26:53 N  012:55:32 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN END575 - J5 (Corridor) 7
+AL 0 MSL
+AH 9601 MSL
+DP 61:41:25.0 N  010:01:25.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+DP 61:20:10.0 N  010:25:00.0 E
+DP 61:20:10.0 N  009:57:35.0 E
+DP 61:41:25.0 N  010:01:25.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC R
@@ -7807,6 +8466,18 @@ DP 61:25:00 N  005:21:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/ad/enbl/EN_AD_2_ENBL_en.pdf
 *
 *
+AC G
+AN HEMAVAN TIZ/RMZ
+AL 0 MSL
+AH 304 MSL
+DP 65:56:03 N  015:03:08 E
+DP 65:52:35 N  014:46:59 E
+DP 65:34:07 N  015:09:13 E
+DP 65:38:44 N  015:30:53 E
+DP 65:56:03 N  015:03:08 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/AD/AD 2/ESUT/ES_AD_2_ESUT_en.pdf
+*
+*
 AC D
 AN SUNDSVALL CTR
 AL 0 MSL
@@ -8108,6 +8779,20 @@ DP 56:41:20 N  015:06:58 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
+AC G
+AN PAJALA TIZ/RMZ
+AL 0 MSL
+AH 609 MSL
+DP 67:20:41 N  023:09:01 E
+DP 67:20:03 N  022:41:23 E
+DP 67:17:35 N  022:38:39 E
+DP 67:09:19 N  022:56:25 E
+DP 67:08:47 N  023:19:15 E
+DP 67:13:51 N  023:26:21 E
+DP 67:20:41 N  023:09:01 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/AD/AD 2/ESUP/ES_AD_2_ESUP_en.pdf
+*
+*
 AC Q
 AN Gauldal
 AL 0 MSL
@@ -8371,6 +9056,17 @@ DP 58:54:35 N  013:05:05 E
 DP 59:07:53 N  013:20:30 E
 DP 59:14:30 N  012:54:50 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN EN R336 TRIDENT 6 LOW
+AL 0 MSL
+AH 2895 MSL
+DP 61:41:25.0 N  010:01:25.0 E
+DP 61:45:00.0 N  010:31:10.0 E
+DP 61:20:10.0 N  010:25:00.0 E
+DP 61:41:25.0 N  010:01:25.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC D
@@ -8909,6 +9605,20 @@ DP 59:22:15 N  011:47:23 E
 DP 59:22:00 N  011:47:40 E
 DP 59:23:33 N  011:38:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
+*
+*
+AC D
+AN SÄVE CTR
+AL 0 MSL
+AH 457 MSL
+DP 57:57:13 N  011:50:09 E
+DP 57:47:19 N  011:40:41 E
+DP 57:37:49 N  011:45:50 E
+DP 57:37:36 N  011:54:53 E
+DP 57:45:44 N  012:04:11 E
+DP 57:56:57 N  011:57:50 E
+DP 57:57:13 N  011:50:09 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/AD/AD 2/ESGP/ES_AD_2_ESGP_en.pdf
 *
 *
 AC Q
