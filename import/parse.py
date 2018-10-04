@@ -739,6 +739,7 @@ for filename in os.listdir("./sources/txt"):
                 parse(line[:vcut],1)
                 parse(line[vcut:vend],2)
         elif trident:
+            if "Page 2-5" in line: vcut+=3
             if "Vertical limits" in line and not "non-" in line:
                 vcut = line.index("Vertical limits")-5
                 vend = vcut+32

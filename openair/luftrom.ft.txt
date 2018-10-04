@@ -21,6 +21,25 @@ DP 82:00:00 N  000:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC D
+AN TRIDENT 15 2
+AL 0 ft
+AH 99999 ft
+DP 68:06:05.0 N  002:00:00.0 E
+DP 63:00:00.0 N  002:00:00.0 E
+DP 63:00:00.0 N  004:00:00.0 E
+DP 63:36:41.0 N  004:36:37.0 E
+DP 64:09:29.0 N  005:10:53.0 E
+DP 64:54:56.0 N  006:00:59.0 E
+DP 65:37:06.0 N  006:50:26.0 E
+DP 65:45:00.0 N  007:00:00.0 E
+DP 66:32:43.0 N  008:14:25.0 E
+DP 67:06:33.0 N  009:10:47.0 E
+DP 68:06:05.0 N  010:58:10.0 E
+DP 68:06:05.0 N  002:00:00.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC C
 AN Norway CTA 16
 AL 10500 ft
@@ -3893,6 +3912,33 @@ DP 58:47:59 N  015:53:52 E
 *
 *
 AC D
+AN TRIDENT 13
+AL 9500 ft
+AH 20000 ft
+DP 62:22:00.0 N  011:19:02.0 E
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:34:52.2 N  012:07:44.2 E
+DP 61:43:26.0 N  012:08:16.0 E
+DP 61:43:25 N  012:08:16 E
+DP 61:45:09 N  012:08:46 E
+DP 61:50:05 N  012:10:11 E
+DP 61:52:16 N  012:10:58 E
+DP 61:52:39 N  012:10:57 E
+DP 62:02:39 N  012:13:53 E
+DP 62:04:31 N  012:14:29 E
+DP 62:07:08 N  012:15:20 E
+DP 62:09:56 N  012:16:01 E
+DP 62:12:28 N  012:16:46 E
+DP 62:15:57 N  012:17:57 E
+DP 62:17:26 N  012:17:18 E
+DP 62:19:51 N  012:15:16 E
+DP 62:20:41 N  012:14:41 E
+DP 62:22:00.0 N  012:13:45.0 E
+DP 62:22:00.0 N  011:19:02.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
+AC D
 AN EN R341 TRIDENT 13 LOW
 AL 0 ft
 AH 9500 ft
@@ -4362,6 +4408,20 @@ DP 69:46:00 N  016:14:54 E
 DP 69:59:00 N  015:37:54 E
 DP 69:31:00 N  014:17:54 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_5_1_en.pdf
+*
+*
+AC D
+AN TRIDENT 14
+AL 9500 ft
+AH 20000 ft
+DP 61:36:30.0 N  011:10:20.0 E
+DP 61:08:00.0 N  011:06:00.0 E
+DP 60:59:45.0 N  011:18:00.0 E
+DP 60:58:30.0 N  011:55:00.0 E
+DP 61:06:00.0 N  012:06:00.0 E
+DP 61:34:52.2 N  012:07:44.2 E
+DP 61:36:30.0 N  011:10:20.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC D
@@ -5269,6 +5329,21 @@ DP 63:00:00 N  010:08:00 E
 * Source: https://ais.avinor.no/no/AIP/View/41/aip/EN_ENR_2_1_en.pdf
 *
 *
+AC D
+AN EN R331 TRIDENT AMPHIB
+AL 0 ft
+AH 5500 ft
+DP 63:10:08.0 N  009:49:35.0 E
+DP 63:29:28.2 N  009:45:53.8 E
+DP 63:28:00.0 N  009:38:00.0 E
+DP 63:23:55.0 N  009:10:45.0 E
+DP 63:20:57.0 N  008:48:41.0 E
+DP 63:23:28.0 N  008:21:35.0 E
+DP 63:02:11.0 N  008:54:15.0 E
+DP 63:10:08.0 N  009:49:35.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
+*
+*
 AC R
 AN ES R209B
 AL 5000 ft
@@ -5279,6 +5354,42 @@ DP 60:12:00 N  016:50:00 E
 DP 60:33:17 N  016:50:00 E
 DP 60:50:59 N  015:38:02 E
 * Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2018100107.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC D
+AN TRIDENT 15
+AL 9500 ft
+AH 20000 ft
+DP 61:43:26.0 N  012:08:16.0 E
+DP 61:06:00.0 N  012:06:00.0 E
+DP 60:58:30.0 N  011:55:00.0 E
+DP 61:00:49.0 N  012:13:24.0 E
+DP 61:00:47 N  012:13:25 E
+DP 61:01:08 N  012:14:22 E
+DP 61:03:04 N  012:26:52 E
+DP 61:03:06 N  012:29:11 E
+DP 61:02:47 N  012:36:36 E
+DP 61:03:07 N  012:39:05 E
+DP 61:03:18 N  012:40:06 E
+DP 61:03:20 N  012:40:14 E
+DP 61:03:34 N  012:40:53 E
+DP 61:03:40 N  012:40:58 E
+DP 61:08:35 N  012:42:26 E
+DP 61:09:52 N  012:44:26 E
+DP 61:11:49 N  012:47:25 E
+DP 61:14:15 N  012:49:08 E
+DP 61:15:29 N  012:50:01 E
+DP 61:15:55 N  012:50:11 E
+DP 61:21:23 N  012:52:15 E
+DP 61:22:05 N  012:51:16 E
+DP 61:34:05 N  012:34:05 E
+DP 61:34:00 N  012:26:47 E
+DP 61:33:45 N  012:25:11 E
+DP 61:36:50 N  012:20:22 E
+DP 61:38:27 N  012:16:16 E
+DP 61:43:25 N  012:08:16 E
+DP 61:43:26.0 N  012:08:16.0 E
+* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2018_015_en.pdf
 *
 *
 AC D
