@@ -38,8 +38,6 @@
   </script>
   <script src="leaflet.viewpoint.min.js">
   </script>
-  <script src="leaflet.pattern.min.js">
-  </script>
   <script src="leaflet.locate.min.js">
   </script>
   <script src="leaflet.hash.min.js">
@@ -214,30 +212,25 @@
       })
     }
 
-    var stripes = new L.StripePattern({
-      angle: -45,
-    });
-    stripes.addTo(map);
+    var style_notam_shadow = function(feature) {
+      return { color: 'gray',
+               fillColor: 'gray',
+               fillOpacity: 0.2,
+               stroke: true,
+               opacity: 0.5,
+               interactive: false
+      };
+    };
 
     var ptl_notam_shadow = function(feature, latlng) {
-      var opacity = 0.05;
       var radius=feature.properties['radius'];
-      if (radius>180000) opacity=0;
-      return L.circle(latlng, radius, {
-                                     color: 'gray',
-                                     fillColor: 'gray',
-                                     fillOpacity: opacity,
-                                     stroke: true,
-                                     opacity: 0.2,
-                                     fillPattern: stripes,
-                                     interactive: false
-      })
+      return L.circle(latlng, radius, {})
     }
 
 
                 var overLayers = {
                   "<b>NOTAM<\/b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
-                  " - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow }),
+                  " - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow, style: style_notam_shadow }),
                   "<b>Norwegian/Swedish airspace<\/b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
