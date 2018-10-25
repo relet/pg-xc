@@ -84,6 +84,11 @@
 
                 var plugify = function(text) {
                   text = text.toLowerCase();
+                  if (text.includes('tma')) text=text.substring(0, text.indexOf('tma')+3);
+                  if (text.includes('tia')) text=text.substring(0, text.indexOf('tia')+3);
+                  if (text.includes('tiz')) text=text.substring(0, text.indexOf('tiz')+3);
+                  if (text.includes('cta')) text=text.substring(0, text.indexOf('cta')+3);
+                  if (text.includes('ctr')) text=text.substring(0, text.indexOf('ctr')+3);
                   if (text.includes('en d') || text.includes('en r') || text.includes('es d') || text.includes('es r')) {
                     text=text.split(' ').slice(0,2).join('');
                   } else {
@@ -94,7 +99,7 @@
 
                 var onEachFeature_all = function (feature, layer) {
                                  var plug=plugify(feature.properties['name']);
-                                 
+
                                  airspace[plug]=(airspace[plug]||[]).concat([layer]);
                                  layer.on('mouseover', function() {
                                      this.setStyle({
