@@ -57,6 +57,8 @@
                 var i, layer;
                 var layers = L.tileLayer.kartverket.getLayers();
                 var airspace = {};
+                
+                var big_notam=300000;
 
                 var allMapLayers = {
                 }
@@ -210,6 +212,10 @@
                   return airspace[plugify(name)];
                 }
                 var onEachFeature_notam = function (feature, layer) {
+                        var radius=feature.properties['radius'];
+                        var opacity=0.1;
+                        if (radius>big_notam) opacity=0;
+
                         layer.bindPopup('<h2>'+feature.properties['title']+'<\/h2>' +
                                         '<a href="'+feature.properties['src_href']+'">Explain this NOTAM<\/a><br /><br />'+
                                         feature.properties['text'].trim(),
@@ -234,7 +240,7 @@
                         layer.on('mouseout', function() {
                                      this.setStyle({
                                        'weight': 2,
-                                       'fillOpacity': 0.1
+                                       'fillOpacity': opacity
                                      });
                                      feature.properties['affected'].forEach(function(s) {
                                        var f = findFeature(s);
@@ -249,19 +255,24 @@
                                      });
                         });
                 };
-                var ptl_notam = function(feature, latlng) {
+    var ptl_notam = function(feature, latlng) {
                 var radius=feature.properties['radius'];
-                //if (radius>180000) return null;
+                var opacity=0.1;
+                if (radius>big_notam) opacity=0;
                 return L.circle(latlng, radius, {
-                                     fillOpacity: 0.1,
+                                     fillOpacity: opacity,
                                      stroke: true
                 });
     }
 
     var style_notam_shadow = function(feature) {
+      var radius=feature.properties['radius'];
+      var opacity=0.2;
+      if (radius>big_notam) opacity=0;
+
       return { color: 'gray',
                fillColor: 'gray',
-               fillOpacity: 0.2,
+               fillOpacity: opacity,
                stroke: true,
                opacity: 0.5,
                interactive: false
