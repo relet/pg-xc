@@ -48,6 +48,8 @@
             (function() {
                 'use strict';
 
+                var luftrom='https://rawcdn.githack.com/relet/pg-xc/71d9ee22abf884248575277eca58ecc68c6da68e/geojson/luftrom.geojson';
+
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
                 };
@@ -284,25 +286,25 @@
       return L.circle(latlng, radius, {})
     }
 
-
+                //TODO: Use geojsonLayer.refilter for filtered layers.
                 var overLayers = {
                   "<b>NOTAM<\/b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
                   " - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow, style: style_notam_shadow }),
-                  "<b>Norwegian/Swedish airspace<\/b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all }),
-                  " - CTA (<4200m)": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
-                  " - TMA": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
-                  " - CTR/TIA/TIZ": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
-                  " - Danger/Restricted": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
-                  " - Air sport": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/luftrom.geojson", { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
-                  "<b>Takeoffs<\/b>": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards S": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards SE": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards E": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards NE": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('ne'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards N": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('n'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards NW": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('nw'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards W": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('w'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards SW": new L.GeoJSON.AJAX("https://rawgit.com/relet/pg-xc/master/geojson/takeoffs.geojson", { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('sw'), pointToLayer: pointToLayer_takeoffs}),
+                  "<b>Norwegian/Swedish airspace<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all }),
+                  " - CTA (<4200m)": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
+                  " - TMA": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
+                  " - CTR/TIA/TIZ": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
+                  " - Danger/Restricted": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
+                  " - Air sport": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
+                  "<b>Takeoffs<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards S": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards SE": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards E": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards NE": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('ne'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards N": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('n'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards NW": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('nw'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards W": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('w'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards SW": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('sw'), pointToLayer: pointToLayer_takeoffs}),
                 };
 
                 for (var key in overLayers) {
