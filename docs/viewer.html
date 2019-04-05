@@ -48,7 +48,7 @@
             (function() {
                 'use strict';
 
-                var luftrom='https://rawcdn.githack.com/relet/pg-xc/a6ae27e6ca53039ca871580e675b1ffa1d8186d2/geojson/luftrom.geojson';
+                var luftrom='https://rawcdn.githack.com/relet/pg-xc/b3cc1ab546f05cef47840ed8e039571d16b49b4e/geojson/luftrom.geojson';
 
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
@@ -131,6 +131,9 @@
                                        periods += "<\/br>";
                                    }
                                    warning = '<span style="color:red">TEMPORARY:<\/span><br/>'+periods;
+                                 }
+                                 if (feature.properties['notam_only'] == 'true') {
+                                   warning = '<span style="color:red">ONLY ACTIVE IF NOTAM IS SENT.<\/span><br />GND / Unspecified: Please check NOTAM for altitude limits.<br />';
                                  }
                                  if (feature.properties['class'] == 'Luftsport') {
                                    warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.<\/span><br />Contact your local club before flying, or keep to regular airspace limits.<br />';
