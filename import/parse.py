@@ -302,11 +302,12 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         if class_ is None:
             logger.error("Feature without class (boo): #%i (%s)", index, source)
             sys.exit(1)
-        if "EN R" in aipname and ("Romerike" in aipname or "Oslo" in aipname):
+        if "EN R" in aipname and ("Romerike" in aipname or ("Oslo" in aipname and not "102" in aipname)):
+          feature['properties']['notam_only'] = 'true'
           feature['properties']['from (ft amsl)'] = '0'
-          feature['properties']['to (ft amsl)'] = '0'
+          feature['properties']['to (ft amsl)'] = '99999' # unspecified
           feature['properties']['from (m amsl)'] = '0'
-          feature['properties']['to (m amsl)'] = '0'
+          feature['properties']['to (m amsl)'] = '99999'
           from_ = '0'
           to_ = '0'
         if from_ is None:
@@ -907,7 +908,11 @@ for feature in collection:
     from_ =int(f.properties.get('from (m amsl)'))
     to_ =int(f.properties.get('to (m amsl)'))
     if class_ in ['C', 'D', 'G', 'R']:
-        if from_ < 500:
+        if f.properties.get('notam_only'):
+            f.properties.update({'fillColor':'#c0c0c0',
+                                 'color':'#606060',
+                                 'fillOpacity':0.35})
+        elif from_ < 500:
             f.properties.update({'fillColor':'#c04040',
                                  'color':'#c04040',
                                  'fillOpacity':0.35})
