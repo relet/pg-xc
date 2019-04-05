@@ -302,6 +302,13 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         if class_ is None:
             logger.error("Feature without class (boo): #%i (%s)", index, source)
             sys.exit(1)
+        if "EN R" in aipname and ("Romerike" in aipname or "Oslo" in aipname):
+          feature['properties']['from (ft amsl)'] = '0'
+          feature['properties']['to (ft amsl)'] = '0'
+          feature['properties']['from (m amsl)'] = '0'
+          feature['properties']['to (m amsl)'] = '0'
+          from_ = '0'
+          to_ = '0'
         if from_ is None:
             if "en_sup_a_2018_015_en" in source:
                 feature['properties']['from (ft amsl)']='0'
@@ -319,7 +326,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
                 logger.error("Feature without upper limit: #%i (%s)", index, source)
                 sys.exit(1)
         if int(from_) >= int(to_):
-            if "en_sup_a_2018_015_en" in source:
+            if "en_sup_a_2018_015_en" in source or "Romerike" in aipname or "Oslo" in aipname:
                 feature['properties']['from (ft amsl)']=to_
                 feature['properties']['to (ft amsl)']=from_
             else:
@@ -337,6 +344,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
 
 for filename in os.listdir("./sources/txt"):
     source = urllib.unquote(filename.split(".txt")[0])
+    if ".swp" in filename: 
+        continue
     logger.info("Reading %s", "./sources/txt/"+filename)
 
     data = open("./sources/txt/"+filename,"r","utf-8").readlines()
@@ -553,6 +562,7 @@ for filename in os.listdir("./sources/txt"):
                         finalcoord = False
                     if (airsport_aip or sup_aip or military_aip or trident) and finalcoord:
                         if feature['properties'].get('from (ft amsl)') is not None or trident:
+                            logger.debug("Finalizing: finalcoord.")
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
 
@@ -690,16 +700,24 @@ for filename in os.listdir("./sources/txt"):
     header_cont = False
     for line in data:
         if "\f" in line:
+            logger.debug("Stop column parsing, \f found")
             column_parsing = []
         if sup_aip and ("Luftromsklasse" in line):
             logger.debug("Skipping end of SUP")
+            break
+        if country == 'ES' and 'Vinschning av sk' in line:
+            logger.debug("Skipping end of document")
             break
         if not line.strip():
             if column_parsing and table:
                 # parse rows first, then cols
                 for col in xrange(0,len(table[0])):
                     for row in table:
-                        parse(row[col])
+                        if not len(row)>col:
+                            logger.debug("ERROR not in table format: row=%s, col=%s", row, col)
+                            #sys.exit(1)
+                        else:
+                           parse(row[col])
                 parse(LINEBREAK)
                 table = []
         headers = None
@@ -727,6 +745,7 @@ for filename in os.listdir("./sources/txt"):
                     vcuts.append(line.index(header))
             vcuts.append(len(line))
             column_parsing = sorted((column_parsing + vcuts))
+            logger.debug("DEBUG: column parsing: %s", vcuts)
             continue
 
         # parse columns separately for table formatted files
@@ -779,6 +798,8 @@ for filename in os.listdir("./sources/txt"):
         feature['properties']['to (m amsl)'] = ft2m(3500)
         feature['properties']['class'] = 'Luftsport'
 
+    #if len(obj)>0:
+    logger.debug("Finalizing: end of doc.")
     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
     collection.extend(features)
 
