@@ -48,7 +48,7 @@
             (function() {
                 'use strict';
 
-                var luftrom='https://rawcdn.githack.com/relet/pg-xc/b3cc1ab546f05cef47840ed8e039571d16b49b4e/geojson/luftrom.geojson';
+                var luftrom='https://rawcdn.githack.com/relet/pg-xc/3daf972de420f971072bcc715f0ff18a6347f033/geojson/luftrom.geojson';
 
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
@@ -59,7 +59,7 @@
                 var i, layer;
                 var layers = L.tileLayer.kartverket.getLayers();
                 var airspace = {};
-                
+
                 var big_notam=300000;
 
                 var allMapLayers = {
