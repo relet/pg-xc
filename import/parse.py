@@ -184,7 +184,12 @@ def merge_poly(p1, p2):
     poly1 = shgeo.Polygon([c2ll(c) for c in p1])
     poly2 = shgeo.Polygon([c2ll(c) for c in p2])
     union = shops.cascaded_union([poly1, poly2])
-    return [ll2c(ll) for ll in union.exterior.coords]
+    try:
+      return [ll2c(ll) for ll in union.exterior.coords]
+    except:
+      logger.debug("Polygon union is still a MultiPolygon.")
+      return [ll2c(ll) for part in union for ll in part.exterior.coords]
+
 
 norway_fc = load(open("fastland.geojson","r"))
 norway = norway_fc.features[0].geometry.coordinates[0]
@@ -334,8 +339,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
                 logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source)
                 sys.exit(1)
     elif len(obj)>0:
-        logger.error("Finalizing incomplete polygon #%i (%i points)", index, len(obj))
-        sys.exit(1)
+        logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
+        #sys.exit(1)
     logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'), 
                                                                      len(obj), 
                                                                      feature['properties'].get('from (ft amsl)'),
