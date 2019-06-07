@@ -188,6 +188,7 @@ def merge_poly(p1, p2):
       return [ll2c(ll) for ll in union.exterior.coords]
     except:
       logger.debug("Polygon union is still a MultiPolygon.")
+      sys.exit(1)
       return [ll2c(ll) for part in union for ll in part.exterior.coords]
 
 
