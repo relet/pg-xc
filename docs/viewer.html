@@ -49,6 +49,7 @@
                 'use strict';
 
                 var luftrom='https://rawcdn.githack.com/relet/pg-xc/6f81a7fb94e2d332546f0332f7abdf98cbb37916/geojson/luftrom.geojson';
+                var takeoffs='https://rawcdn.githack.com/relet/pg-xc/b1f37521ad0dd0d96a90a3d794a349251d619aee/geojson/takeoffs.geojson';
 
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
@@ -299,15 +300,15 @@
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
                   " - Danger/Restricted": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
                   " - Air sport": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
-                  "<b>Takeoffs<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards S": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards SE": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards E": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards NE": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('ne'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards N": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('n'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards NW": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('nw'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards W": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('w'), pointToLayer: pointToLayer_takeoffs}),
-                  " - towards SW": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('sw'), pointToLayer: pointToLayer_takeoffs}),
+                  "<b>Takeoffs<\/b>": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards S": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards SE": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('se'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards E": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('e'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards NE": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('ne'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards N": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('n'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards NW": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('nw'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards W": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('w'), pointToLayer: pointToLayer_takeoffs}),
+                  " - towards SW": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('sw'), pointToLayer: pointToLayer_takeoffs}),
                 };
 
                 for (var key in overLayers) {
