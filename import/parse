@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm log
+rm result/*
+rm changes/*
+
+./parse.py 2>&1 | tee log
+
