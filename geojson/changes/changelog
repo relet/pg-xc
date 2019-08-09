@@ -108,4 +108,5 @@ ovenfor.
 * 2019-02-14: fjernet Fagernes, endret Sveg TIA
 * 2019-04-05: lagt inn nye EN R områder til NOTAM aktivisering
 * 2019-06-24: lagt inn ER R forsvaret Eggemoen
-
+* 2019-08-10: Oppdatert lenker, fikset luftrom til AC W i openair-formatet
+*             forenklet geometrier med landesgrense til < 100 punkter for OpenAIR.

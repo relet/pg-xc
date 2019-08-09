@@ -6,6 +6,7 @@
 
 from codecs import open
 from geojson import Feature, FeatureCollection, Polygon, load
+import json
 import math
 import os
 import re
@@ -71,6 +72,9 @@ PI2 = math.pi * 2
 DEG2RAD = PI2 / 360.0
 
 LINEBREAK = '--linebreak--'
+
+def printj(s):
+    return json.dumps(s)
 
 def c2ll(c):
     """DegMinSec to decimal degrees"""
@@ -176,6 +180,16 @@ def gen_sector(n, e, secfrom, secto, radfrom, radto):
         osector.append(ll2c((lon2 / DEG2RAD, lat2 / DEG2RAD)))
     return isector + osector + [isector[0]]
 
+def simplify_poly(p, target):
+    """Simplify a polygon to target point count"""
+    poly = shgeo.Polygon([c2ll(c) for c in p])
+    tolerance = 0.001
+    while len(poly.exterior.coords)>target:
+        poly = poly.simplify(tolerance)
+        logger.debug("Simplified to %i points using tolerance %d", len(poly.exterior.coords), tolerance)
+        tolerance += 0.0002
+    return [ll2c(ll) for ll in poly.exterior.coords]
+
 def merge_poly(p1, p2):
     """Merge two polygons using shapely ops"""
     if not p1:
@@ -238,6 +252,7 @@ def fill_along(from_, to_, border):
 
 collection = []
 completed = {}
+names = {} 
 
 def wstrip(s):
     """Remove double whitespaces, and strip"""
@@ -278,6 +293,16 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
             return {"properties":{}}, []
         feature['properties']['class']='Luftsport'
     index = len(collection)+len(features)
+
+    if names.get(aipname):
+        logger.debug("DUPLICATE NAME: %s", aipname)
+
+    if len(obj)>100:
+        #TODO: reduce polygon count for older devices
+        logger.debug("COMPLEX POLYGON %s with %i points", feature['properties'].get('name'), len(obj))
+        obj=simplify_poly(obj, 100)
+        feature['geometry'] = obj
+
     if len(obj)>3:
         logger.debug("Finalizing polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
         features.append(feature)
@@ -295,9 +320,9 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
             logger.error("Feature without name: #%i", index)
             sys.exit(1)
         if name in completed:
-            logger.info("Duplicate feature name, skipping: #%i %s", index, name)
+            logger.info("ERROR Duplicate feature name: #%i %s", index, name)
             return {"properties":{}}, []
-            #sys.exit(1)
+            sys.exit(1)
         completed[name]=True
         if source is None:
             logger.error("Feature without source: #%i", index)
@@ -342,6 +367,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     elif len(obj)>0:
         logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
         #sys.exit(1)
+    names[aipname]=True
     logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'), 
                                                                      len(obj), 
                                                                      feature['properties'].get('from (ft amsl)'),
@@ -371,6 +397,7 @@ for filename in os.listdir("./sources/txt"):
     es_enr_2_2 = "ES_ENR_2_2" in filename
     es_enr_5_1 = "ES_ENR_5_1" in filename
     es_enr_5_2 = "ES_ENR_5_2" in filename
+    en_enr_5_1 = "EN_ENR_5_1" in filename
 
     airsport_intable = False
 
@@ -679,7 +706,7 @@ for filename in os.listdir("./sources/txt"):
         if name:
             name=name.groupdict()
 
-            if restrict_aip or "Hareid" in line:
+            if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
@@ -874,7 +901,7 @@ for feature in collection:
             "R":"R",
             "P":"P",
             "G":"G",
-            "Luftrom": "W"
+            "Luftsport": "W"
     }
     class_ = translate.get(class_,"Q")
 
