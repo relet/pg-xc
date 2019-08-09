@@ -149,7 +149,11 @@
                 };
 
                 var style_all = function(feature) {
+                    if (feature.properties['class'] == 'Luftsport') {
+                        feature.properties['color'] = '#9966ff';
+                    }
                     return feature.properties;
+
                 };
 
                 var filter_all = function(key, search) {
