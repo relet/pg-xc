@@ -481,7 +481,7 @@ DP 65:57:27 N  019:23:57 E
 DP 66:31:16 N  018:02:28 E
 DP 66:53:57 N  018:42:22 E
 DP 67:03:00 N  018:42:23 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC R
@@ -605,7 +605,7 @@ DP 66:30:55 N  017:52:46 E
 DP 66:54:54 N  018:34:45 E
 DP 67:00:00 N  018:34:45 E
 DP 67:00:00 N  016:54:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC R
@@ -618,7 +618,7 @@ DP 63:59:45 N  019:13:27 E
 DP 64:30:40 N  019:59:31 E
 DP 66:08:55 N  017:05:18 E
 DP 66:32:03 N  016:20:54 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -662,7 +662,7 @@ DP 66:35:11 N  024:46:42 E
 DP 67:23:20 N  024:38:01 E
 DP 67:39:43 N  024:27:12 E
 DP 68:03:59 N  023:41:22 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -735,7 +735,7 @@ DP 64:04:16 N  019:11:57 E
 DP 64:30:36 N  019:51:07 E
 DP 66:07:05 N  016:59:27 E
 DP 66:25:50 N  016:23:32 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -937,7 +937,7 @@ DP 66:58:56 N  016:11:42 E
 DP 67:00:00 N  016:14:53 E
 DP 67:00:00 N  019:00:00 E
 DP 68:30:51 N  019:00:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -1166,7 +1166,7 @@ DP 64:36:30 N  014:52:52 E
 DP 63:51:45 N  019:01:54 E
 DP 64:04:50 N  019:20:53 E
 DP 65:26:22 N  015:27:13 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -1187,7 +1187,7 @@ DP 58:17:43 N  013:19:28 E
 DP 58:31:01 N  013:19:28 E
 DP 58:43:58 N  013:09:50 E
 DP 58:45:58 N  012:29:51 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -1209,7 +1209,7 @@ DP 65:39:42 N  021:38:24 E
 DP 65:42:48 N  021:42:17 E
 DP 65:45:36 N  021:40:32 E
 DP 67:23:58 N  020:34:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -1258,7 +1258,7 @@ DP 64:38:20 N  015:01:21 E
 DP 63:55:33 N  018:59:19 E
 DP 64:04:16 N  019:11:57 E
 DP 65:21:21 N  015:31:08 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -1293,7 +1293,7 @@ DP 66:04:46 N  020:20:09 E
 DP 65:51:55 N  020:09:44 E
 DP 65:43:10 N  021:34:34 E
 DP 67:19:55 N  020:29:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC R
@@ -1311,7 +1311,7 @@ DP 66:08:04 N  020:30:38 E
 DP 66:37:57 N  019:57:41 E
 DP 66:57:01 N  018:40:32 E
 DP 66:57:03 N  018:29:16 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -1335,7 +1335,7 @@ DP 58:36:59 N  017:27:25 E
 DP 58:57:58 N  017:24:28 E
 DP 58:58:43 N  017:13:24 E
 DP 59:00:43 N  016:42:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -1369,7 +1369,7 @@ DP 55:40:39 N  014:17:41 E
 DP 56:13:16 N  013:54:44 E
 DP 56:19:20 N  013:24:44 E
 DP 56:23:12 N  012:26:34 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -1404,7 +1404,7 @@ DP 65:56:19 N  022:10:04 E
 DP 66:00:22 N  022:28:25 E
 DP 66:18:54 N  022:17:17 E
 DP 67:33:38 N  021:29:26 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC C
@@ -1499,7 +1499,7 @@ DP 58:36:59 N  017:27:25 E
 DP 58:57:58 N  017:24:28 E
 DP 58:58:43 N  017:13:24 E
 DP 59:00:43 N  016:42:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -1530,7 +1530,7 @@ DP 65:51:55 N  020:09:44 E
 DP 66:07:55 N  020:22:44 E
 DP 66:35:55 N  019:51:44 E
 DP 66:54:54 N  018:34:45 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -1546,7 +1546,7 @@ DP 66:04:46 N  020:20:09 E
 DP 66:07:55 N  020:22:44 E
 DP 66:35:55 N  019:51:44 E
 DP 66:54:54 N  018:34:45 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
 AC R
@@ -1569,7 +1569,7 @@ DP 67:59:23 N  020:48:43 E
 DP 67:47:23 N  020:54:42 E
 DP 67:47:23 N  021:16:13 E
 DP 68:17:45 N  021:46:11 E
-DP 68:32:02 N  021:59:42 E
+DP 68:31:55 N  021:59:35 E
 DP 68:32:45 N  021:58:13 E
 DP 68:33:02 N  021:58:08 E
 DP 68:33:21 N  021:56:44 E
@@ -1652,7 +1652,7 @@ DP 69:01:56 N  020:46:29 E
 DP 69:02:39 N  020:42:09 E
 DP 69:02:43 N  020:37:39 E
 DP 69:03:36 N  020:32:55 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -1841,7 +1841,7 @@ DP 57:27:10 N  012:45:50 E
 DP 58:06:29 N  012:47:06 E
 DP 58:06:59 N  012:21:14 E
 DP 58:15:11 N  012:05:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -1875,7 +1875,7 @@ DP 66:09:39 N  020:20:51 E
 DP 66:09:55 N  020:17:51 E
 DP 66:45:27 N  019:13:06 E
 DP 66:54:54 N  018:34:45 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -2074,7 +2074,7 @@ DP 59:24:31 N  016:55:45 E
 DP 59:41:58 N  017:05:48 E
 DP 59:45:52 N  017:31:10 E
 DP 60:17:58 N  018:12:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2365,7 +2365,7 @@ DP 59:24:22 N  018:41:24 E
 DP 59:40:58 N  018:59:47 E
 DP 60:15:58 N  018:33:17 E
 DP 60:17:58 N  018:12:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2382,7 +2382,7 @@ DP 58:10:59 N  016:14:41 E
 DP 58:19:14 N  016:37:31 E
 DP 58:31:44 N  015:44:25 E
 DP 58:47:59 N  015:53:52 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2431,7 +2431,7 @@ DP 60:15:00 N  012:43:00 E
 DP 60:09:00 N  014:17:00 E
 DP 60:34:00 N  014:27:00 E
 DP 60:44:00 N  012:53:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -2451,7 +2451,7 @@ DP 58:17:43 N  013:19:28 E
 DP 58:31:01 N  013:19:28 E
 DP 58:43:58 N  013:09:50 E
 DP 58:45:58 N  012:29:51 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -2485,7 +2485,7 @@ DP 65:26:28 N  021:29:21 E
 DP 65:01:52 N  022:28:12 E
 DP 65:26:26 N  023:01:43 E
 DP 65:50:58 N  022:19:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2549,7 +2549,7 @@ DP 63:22:44 N  020:25:24 E
 DP 63:28:52 N  020:38:47 E
 DP 63:46:59 N  020:56:39 E
 DP 64:14:09 N  020:06:35 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2582,7 +2582,7 @@ DP 65:49:55 N  019:11:46 E
 DP 65:31:56 N  020:35:45 E
 DP 65:54:55 N  021:05:44 E
 DP 66:12:55 N  019:41:15 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2762,7 +2762,7 @@ DP 65:46:55 N  022:29:43 E
 DP 65:57:55 N  023:43:42 E
 DP 66:33:55 N  023:15:42 E
 DP 66:35:55 N  022:44:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -2775,7 +2775,7 @@ DP 57:27:29 N  017:50:17 E
 DP 57:19:55 N  018:33:38 E
 DP 57:42:25 N  018:54:46 E
 DP 58:04:42 N  018:40:31 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -2833,7 +2833,7 @@ DP 62:51:18 N  014:49:21 E
 DP 63:03:26 N  015:11:49 E
 DP 63:20:23 N  015:16:42 E
 DP 63:29:05 N  014:29:18 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2909,7 +2909,7 @@ DP 58:49:57 N  018:32:22 E
 DP 59:02:31 N  018:45:17 E
 DP 59:15:18 N  018:58:06 E
 DP 59:35:58 N  019:16:25 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2925,7 +2925,7 @@ DP 67:30:55 N  020:55:04 E
 DP 67:47:25 N  020:54:44 E
 DP 67:59:24 N  020:48:44 E
 DP 68:09:43 N  020:23:56 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2975,7 +2975,7 @@ DP 57:28:29 N  012:29:51 E
 DP 57:41:49 N  012:31:11 E
 DP 57:50:54 N  012:36:41 E
 DP 58:04:14 N  011:47:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -2991,7 +2991,7 @@ DP 55:07:15 N  013:47:20 E
 DP 55:26:20 N  013:47:20 E
 DP 55:35:00 N  013:38:50 E
 DP 55:49:37 N  013:36:36 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -3017,7 +3017,7 @@ DP 64:20:41 N  021:31:12 E
 DP 64:38:42 N  021:46:47 E
 DP 64:42:33 N  021:47:26 E
 DP 64:50:46 N  020:38:22 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3082,7 +3082,7 @@ DP 67:31:05 N  017:45:36 E
 DP 67:33:06 N  017:34:38 E
 DP 67:31:09 N  017:24:07 E
 DP 67:33:14 N  017:12:11 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -3115,7 +3115,7 @@ DP 56:04:59 N  015:36:46 E
 DP 56:11:40 N  015:38:39 E
 DP 56:23:09 N  016:05:29 E
 DP 56:39:30 N  015:50:30 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3151,7 +3151,7 @@ DP 55:19:56 N  014:50:21 E
 DP 55:20:15 N  014:44:48 E
 DP 55:15:34 N  014:24:53 E
 DP 55:17:26 N  014:18:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3187,7 +3187,7 @@ DP 55:19:56 N  014:50:21 E
 DP 55:20:15 N  014:44:48 E
 DP 55:15:34 N  014:24:53 E
 DP 55:17:26 N  014:18:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3202,7 +3202,7 @@ DP 58:36:59 N  017:27:25 E
 DP 58:40:39 N  016:51:33 E
 DP 58:41:27 N  016:20:39 E
 DP 58:51:23 N  016:12:04 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -3348,7 +3348,7 @@ DP 58:25:39 N  015:02:25 E
 DP 58:40:28 N  015:14:39 E
 DP 58:44:48 N  014:58:58 E
 DP 58:49:42 N  014:47:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -3360,7 +3360,7 @@ DP 61:51:55 N  013:48:41 E
 DP 61:51:54 N  015:01:46 E
 DP 62:12:16 N  015:02:12 E
 DP 62:12:17 N  013:48:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3399,7 +3399,7 @@ DP 66:51:00 N  021:27:49 E
 DP 67:01:14 N  021:48:09 E
 DP 67:16:03 N  021:11:15 E
 DP 67:19:37 N  020:48:10 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3491,7 +3491,7 @@ DP 67:24:25 N  017:04:42 E
 DP 67:33:14 N  017:12:11 E
 DP 67:34:04 N  017:11:02 E
 DP 67:44:33 N  016:37:20 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -3506,7 +3506,7 @@ DP 58:17:43 N  013:19:28 E
 DP 58:31:01 N  013:19:28 E
 DP 58:43:58 N  013:09:50 E
 DP 58:45:58 N  012:29:51 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -3518,7 +3518,7 @@ DP 64:28:57 N  016:08:27 E
 DP 64:21:52 N  017:21:40 E
 DP 64:40:51 N  017:31:48 E
 DP 64:47:56 N  016:17:56 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -3546,7 +3546,7 @@ DP 56:29:59 N  016:39:49 E
 DP 56:42:02 N  016:40:30 E
 DP 56:57:48 N  016:34:14 E
 DP 56:58:44 N  015:55:39 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3559,7 +3559,7 @@ DP 62:17:30 N  016:52:37 E
 DP 62:11:22 N  017:02:15 E
 DP 62:14:28 N  017:54:31 E
 DP 62:41:03 N  017:57:54 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3599,7 +3599,7 @@ DP 55:17:30 N  014:29:00 E
 DP 55:19:00 N  014:33:54 E
 DP 55:19:56 N  014:39:14 E
 DP 55:20:15 N  014:44:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -3677,7 +3677,7 @@ DP 59:09:33 N  016:39:41 E
 DP 59:09:43 N  016:47:22 E
 DP 59:41:58 N  017:05:48 E
 DP 59:56:20 N  016:53:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3709,7 +3709,7 @@ DP 60:41:00 N  015:27:00 E
 DP 60:12:00 N  016:50:00 E
 DP 60:33:17 N  016:50:00 E
 DP 60:50:59 N  015:38:02 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -3777,7 +3777,7 @@ DP 59:14:30 N  012:54:50 E
 DP 59:07:53 N  013:20:30 E
 DP 59:25:42 N  013:57:50 E
 DP 59:46:44 N  013:35:37 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -3791,7 +3791,7 @@ DP 67:04:11 N  023:40:10 E
 DP 67:10:12 N  023:32:49 E
 DP 67:16:50 N  023:32:37 E
 DP 67:28:31 N  022:36:05 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3822,7 +3822,7 @@ DP 58:53:58 N  018:39:47 E
 DP 58:59:58 N  018:51:17 E
 DP 59:09:58 N  018:33:47 E
 DP 59:09:58 N  018:09:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC G
@@ -3835,7 +3835,7 @@ DP 58:09:48 N  013:41:39 E
 DP 58:06:28 N  014:04:08 E
 DP 58:40:40 N  014:22:43 E
 DP 58:46:08 N  013:45:34 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3848,7 +3848,7 @@ DP 59:56:20 N  016:53:28 E
 DP 59:41:58 N  017:05:48 E
 DP 59:45:52 N  017:31:10 E
 DP 60:17:58 N  018:12:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3863,7 +3863,7 @@ DP 57:39:01 N  014:25:13 E
 DP 57:39:47 N  014:28:41 E
 DP 57:53:13 N  014:27:11 E
 DP 58:03:51 N  014:19:18 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -3950,7 +3950,7 @@ DP 60:50:59 N  015:38:02 E
 DP 60:33:17 N  016:50:00 E
 DP 61:00:00 N  016:50:00 E
 DP 61:00:00 N  015:48:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -3967,7 +3967,7 @@ DP 59:14:58 N  017:54:48 E
 DP 59:14:58 N  017:21:48 E
 DP 59:38:28 N  017:21:48 E
 DP 59:41:58 N  017:05:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3983,7 +3983,7 @@ DP 58:36:59 N  017:27:25 E
 DP 58:57:58 N  017:24:28 E
 DP 58:58:43 N  017:13:24 E
 DP 59:00:43 N  016:42:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -3998,7 +3998,7 @@ DP 54:55:00 N  014:10:00 E
 DP 55:10:33 N  014:10:00 E
 DP 55:17:26 N  014:18:28 E
 DP 55:26:20 N  013:47:20 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4013,7 +4013,7 @@ DP 58:54:01 N  014:57:58 E
 DP 58:57:34 N  015:06:24 E
 DP 59:12:15 N  015:32:25 E
 DP 59:31:20 N  015:18:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -4034,7 +4034,7 @@ DP 67:23:54 N  018:43:12 E
 DP 67:26:45 N  018:49:15 E
 DP 67:41:29 N  018:09:37 E
 DP 67:48:05 N  017:37:07 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -4073,7 +4073,7 @@ DP 60:14:16 N  015:06:34 E
 DP 60:09:38 N  015:48:49 E
 DP 60:20:58 N  016:08:48 E
 DP 60:39:28 N  015:15:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4086,7 +4086,7 @@ DP 65:02:58 N  019:26:03 E
 DP 65:15:02 N  019:43:16 E
 DP 65:28:18 N  019:03:08 E
 DP 65:39:52 N  018:27:10 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4128,7 +4128,7 @@ DP 63:23:56 N  019:43:04 E
 DP 63:12:16 N  020:05:40 E
 DP 63:22:44 N  020:25:24 E
 DP 63:52:21 N  019:20:01 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4143,7 +4143,7 @@ DP 58:06:59 N  012:21:14 E
 DP 58:06:29 N  012:47:06 E
 DP 58:06:01 N  013:07:45 E
 DP 58:38:44 N  012:17:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -4207,7 +4207,7 @@ DP 62:41:15 N  015:03:07 E
 DP 62:45:40 N  015:18:03 E
 DP 63:16:46 N  015:35:51 E
 DP 63:20:23 N  015:16:42 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4253,7 +4253,7 @@ DP 59:46:28 N  018:15:17 E
 DP 59:48:58 N  018:10:47 E
 DP 59:48:58 N  017:59:56 E
 DP 59:48:58 N  017:46:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSA/ES_AD_2_ESSA_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSA/ES_AD_2_ESSA_en.pdf
 *
 *
 AC D
@@ -4428,7 +4428,7 @@ DP 64:14:09 N  020:06:35 E
 DP 63:46:59 N  020:56:39 E
 DP 64:11:12 N  021:21:20 E
 DP 64:16:28 N  020:11:37 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4440,7 +4440,7 @@ DP 62:43:54 N  016:37:53 E
 DP 62:28:24 N  016:46:35 E
 DP 62:41:03 N  017:57:54 E
 DP 62:52:51 N  017:17:31 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4480,7 +4480,7 @@ DP 64:42:07 N  018:08:06 E
 DP 64:15:31 N  018:54:52 E
 DP 64:23:04 N  019:18:13 E
 DP 64:50:21 N  018:30:31 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -4607,7 +4607,7 @@ DP 59:32:20 N  018:50:10 E
 DP 59:35:58 N  019:16:25 E
 DP 59:40:25 N  019:49:41 E
 DP 60:02:07 N  019:18:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -4632,7 +4632,7 @@ DP 64:58:32 N  022:23:44 E
 DP 65:01:52 N  022:28:12 E
 DP 65:26:28 N  021:29:21 E
 DP 65:33:33 N  021:11:55 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -4664,7 +4664,7 @@ DP 58:07:28 N  016:25:56 E
 DP 58:15:42 N  017:02:52 E
 DP 58:21:59 N  017:12:54 E
 DP 58:36:59 N  017:27:25 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4688,7 +4688,7 @@ DP 65:55:16 N  014:35:34 E
 DP 65:30:24 N  015:10:26 E
 DP 65:36:09 N  015:37:27 E
 DP 66:01:15 N  015:03:22 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -4714,7 +4714,7 @@ DP 57:48:16 N  013:48:00 E
 DP 58:02:02 N  013:58:04 E
 DP 58:10:59 N  013:57:10 E
 DP 58:14:38 N  013:45:22 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -4757,7 +4757,7 @@ DP 56:41:26 N  014:47:50 E
 DP 57:07:04 N  015:00:09 E
 DP 57:10:09 N  015:04:27 E
 DP 57:13:39 N  014:37:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4769,7 +4769,7 @@ DP 63:13:05 N  018:43:40 E
 DP 63:04:11 N  019:15:39 E
 DP 63:23:56 N  019:43:04 E
 DP 63:32:33 N  019:10:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -4795,7 +4795,7 @@ DP 60:18:30 N  013:19:36 E
 DP 59:43:59 N  013:23:49 E
 DP 59:44:42 N  013:48:26 E
 DP 60:19:13 N  013:44:39 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -4808,7 +4808,7 @@ DP 63:06:33 N  016:21:18 E
 DP 63:00:55 N  016:39:44 E
 DP 63:10:04 N  017:15:58 E
 DP 63:26:37 N  016:54:07 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -4821,7 +4821,7 @@ DP 62:50:16 N  018:59:35 E
 DP 63:04:11 N  019:15:39 E
 DP 63:13:05 N  018:43:40 E
 DP 63:20:49 N  018:15:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -4860,7 +4860,7 @@ DP 64:42:33 N  021:47:26 E
 DP 64:50:12 N  021:47:45 E
 DP 64:52:27 N  021:51:58 E
 DP 65:04:54 N  020:56:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -4886,7 +4886,7 @@ DP 57:34:59 N  018:59:47 E
 DP 57:56:28 N  019:28:47 E
 DP 58:02:58 N  019:28:47 E
 DP 58:02:58 N  019:03:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -4929,7 +4929,7 @@ DP 64:16:28 N  020:11:37 E
 DP 64:11:12 N  021:21:20 E
 DP 64:20:41 N  021:31:12 E
 DP 64:28:52 N  020:20:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -4959,7 +4959,7 @@ DP 60:03:58 N  015:15:49 E
 DP 60:01:09 N  016:17:20 E
 DP 60:07:25 N  016:27:31 E
 DP 60:20:58 N  016:08:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5015,7 +5015,7 @@ DP 65:28:18 N  019:03:08 E
 DP 65:15:02 N  019:43:16 E
 DP 65:28:58 N  020:03:59 E
 DP 65:41:07 N  019:27:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5027,7 +5027,7 @@ DP 65:28:18 N  019:03:08 E
 DP 65:15:02 N  019:43:16 E
 DP 65:28:58 N  020:03:59 E
 DP 65:41:07 N  019:27:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -5041,7 +5041,7 @@ DP 57:53:58 N  011:18:51 E
 DP 58:10:28 N  011:22:21 E
 DP 58:24:58 N  011:11:51 E
 DP 58:24:58 N  010:42:21 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -5096,7 +5096,7 @@ DP 61:23:53 N  014:08:24 E
 DP 61:32:38 N  014:12:32 E
 DP 61:37:19 N  013:58:41 E
 DP 61:39:26 N  013:35:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -5122,7 +5122,7 @@ DP 58:28:35 N  014:49:34 E
 DP 58:32:32 N  014:58:39 E
 DP 58:44:48 N  014:58:58 E
 DP 58:45:08 N  014:47:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -5134,7 +5134,7 @@ DP 63:20:49 N  018:15:17 E
 DP 63:13:05 N  018:43:40 E
 DP 63:32:33 N  019:10:19 E
 DP 63:40:07 N  018:40:52 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5150,7 +5150,7 @@ DP 65:43:32 N  021:41:06 E
 DP 65:46:34 N  021:48:13 E
 DP 65:56:01 N  022:10:35 E
 DP 66:00:25 N  022:02:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -5175,7 +5175,7 @@ DP 65:39:52 N  018:27:10 E
 DP 65:28:18 N  019:03:08 E
 DP 65:41:07 N  019:27:19 E
 DP 65:52:44 N  018:51:23 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5187,7 +5187,7 @@ DP 65:39:52 N  018:27:10 E
 DP 65:28:18 N  019:03:08 E
 DP 65:41:07 N  019:27:19 E
 DP 65:52:44 N  018:51:23 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5228,7 +5228,7 @@ DP 58:17:23 N  015:58:25 E
 DP 58:23:08 N  016:03:19 E
 DP 58:29:59 N  015:42:21 E
 DP 58:31:29 N  015:23:09 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSL/ES_AD_2_ESSL_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSL/ES_AD_2_ESSL_en.pdf
 *
 *
 AC C
@@ -5355,7 +5355,7 @@ DP 56:39:04 N  012:32:49 E
 DP 56:37:04 N  012:33:14 E
 DP 56:40:13 N  013:09:08 E
 DP 57:03:15 N  013:07:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5383,7 +5383,7 @@ DP 62:11:22 N  017:02:15 E
 DP 61:56:27 N  017:25:22 E
 DP 62:02:33 N  018:03:21 E
 DP 62:14:28 N  017:54:31 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -5443,7 +5443,7 @@ DP 60:23:09 N  012:37:18 E
 DP 59:51:57 N  013:03:06 E
 DP 59:55:37 N  013:21:06 E
 DP 60:26:53 N  012:55:32 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -5455,7 +5455,7 @@ DP 55:03:00 N  015:14:49 E
 DP 55:19:59 N  015:49:49 E
 DP 55:29:59 N  015:49:49 E
 DP 55:29:59 N  015:14:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -5477,7 +5477,7 @@ DP 59:39:58 N  017:34:48 E
 DP 59:48:58 N  017:46:48 E
 DP 59:48:58 N  018:10:47 E
 DP 59:54:48 N  018:06:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -5503,7 +5503,7 @@ DP 58:43:00 N  015:10:00 E
 DP 58:54:00 N  016:09:00 E
 DP 59:04:00 N  016:09:00 E
 DP 59:04:00 N  015:46:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -5515,7 +5515,7 @@ DP 58:10:32 N  017:50:19 E
 DP 57:54:50 N  017:48:53 E
 DP 58:04:42 N  018:40:31 E
 DP 58:15:15 N  018:33:39 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5544,7 +5544,7 @@ DP 62:26:56 N  018:20:46 E
 DP 62:38:36 N  018:39:46 E
 DP 62:46:56 N  018:39:46 E
 DP 62:46:56 N  018:11:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC G
@@ -5632,7 +5632,7 @@ DP 65:42:55 N  021:48:43 E
 DP 65:46:55 N  022:09:43 E
 DP 65:52:25 N  022:07:43 E
 DP 66:05:55 N  021:24:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -5660,7 +5660,7 @@ DP 56:35:44 N  014:21:20 E
 DP 56:38:03 N  014:32:01 E
 DP 56:49:17 N  014:24:26 E
 DP 56:59:59 N  014:25:29 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5673,7 +5673,7 @@ DP 67:19:55 N  020:29:44 E
 DP 67:23:55 N  020:55:04 E
 DP 67:30:55 N  020:55:04 E
 DP 67:32:24 N  019:55:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -5702,7 +5702,7 @@ DP 57:39:47 N  014:28:41 E
 DP 57:42:51 N  014:42:34 E
 DP 57:58:05 N  014:56:16 E
 DP 58:06:28 N  014:50:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -5715,7 +5715,7 @@ DP 63:13:49 N  013:53:36 E
 DP 63:19:58 N  014:00:50 E
 DP 63:29:05 N  014:29:18 E
 DP 63:35:52 N  013:50:57 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -5728,7 +5728,7 @@ DP 55:49:59 N  015:47:19 E
 DP 56:04:59 N  016:29:48 E
 DP 56:09:59 N  016:29:48 E
 DP 56:14:59 N  016:02:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -5775,7 +5775,7 @@ DP 55:03:00 N  015:14:49 E
 DP 54:55:00 N  015:14:49 E
 DP 54:55:00 N  015:49:49 E
 DP 55:19:59 N  015:49:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -5791,7 +5791,7 @@ DP 58:11:15 N  012:43:50 E
 DP 58:22:48 N  012:58:25 E
 DP 58:37:45 N  012:50:14 E
 DP 58:38:18 N  012:40:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESIB/ES_AD_2_ESIB_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESIB/ES_AD_2_ESIB_en.pdf
 *
 *
 AC R
@@ -5807,7 +5807,7 @@ DP 55:56:59 N  015:51:49 E
 DP 56:04:29 N  015:58:49 E
 DP 56:10:59 N  015:57:49 E
 DP 56:15:59 N  015:36:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC G
@@ -5864,7 +5864,7 @@ DP 67:37:25 N  020:14:44 E
 DP 67:46:25 N  020:33:44 E
 DP 67:57:54 N  020:42:44 E
 DP 68:00:54 N  020:27:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNQ/ES_AD_2_ESNQ_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNQ/ES_AD_2_ESNQ_en.pdf
 *
 *
 AC C
@@ -5955,7 +5955,7 @@ DP 55:17:26 N  014:18:28 E
 DP 55:40:39 N  014:17:41 E
 DP 55:37:34 N  014:01:07 E
 DP 55:42:16 N  013:48:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -6000,7 +6000,7 @@ DP 58:43:17 N  014:32:46 E
 DP 58:49:42 N  014:47:48 E
 DP 58:54:01 N  014:57:58 E
 DP 59:06:02 N  014:29:37 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -6028,7 +6028,7 @@ DP 55:42:16 N  013:48:06 E
 DP 55:37:34 N  014:01:07 E
 DP 55:40:39 N  014:17:41 E
 DP 56:13:16 N  013:54:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -6047,7 +6047,7 @@ DP 55:54:52 N  013:31:15 E
 DP 55:55:30 N  013:27:50 E
 DP 55:56:08 N  013:06:26 E
 DP 55:58:34 N  012:51:56 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -6071,7 +6071,7 @@ DP 59:46:44 N  013:35:37 E
 DP 59:25:42 N  013:57:50 E
 DP 59:39:15 N  014:17:36 E
 DP 59:47:12 N  014:12:05 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -6086,7 +6086,7 @@ DP 63:37:12 N  020:32:57 E
 DP 63:40:57 N  020:41:21 E
 DP 63:51:26 N  020:25:55 E
 DP 63:57:33 N  020:03:27 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNU/ES_AD_2_ESNU_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNU/ES_AD_2_ESNU_en.pdf
 *
 *
 AC W
@@ -6116,7 +6116,7 @@ DP 59:04:58 N  018:01:48 E
 DP 59:02:15 N  018:10:25 E
 DP 59:12:48 N  018:28:47 E
 DP 59:24:22 N  018:41:24 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -6143,7 +6143,7 @@ DP 58:29:43 N  017:58:17 E
 DP 58:18:13 N  018:05:42 E
 DP 58:33:04 N  018:48:49 E
 DP 58:40:23 N  018:30:24 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -6156,7 +6156,7 @@ DP 55:39:59 N  014:39:49 E
 DP 55:39:59 N  015:09:49 E
 DP 55:56:29 N  015:09:49 E
 DP 55:58:10 N  014:48:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -6169,7 +6169,7 @@ DP 58:40:23 N  018:30:24 E
 DP 58:33:04 N  018:48:49 E
 DP 58:43:28 N  019:19:47 E
 DP 58:54:08 N  019:01:32 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -6181,7 +6181,7 @@ DP 59:31:20 N  015:18:28 E
 DP 59:12:15 N  015:32:25 E
 DP 59:27:39 N  015:59:12 E
 DP 59:34:33 N  015:50:57 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -6222,7 +6222,7 @@ DP 56:04:59 N  015:36:46 E
 DP 56:06:17 N  015:19:55 E
 DP 56:07:16 N  015:06:54 E
 DP 56:08:29 N  014:50:16 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -6236,7 +6236,7 @@ DP 58:36:59 N  017:27:25 E
 DP 58:48:10 N  017:46:18 E
 DP 58:55:30 N  017:58:46 E
 DP 59:03:45 N  017:21:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -6253,7 +6253,7 @@ DP 65:35:54 N  019:33:36 E
 DP 65:39:58 N  019:25:07 E
 DP 65:42:22 N  019:18:38 E
 DP 65:43:59 N  018:57:31 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNX/ES_AD_2_ESNX_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNX/ES_AD_2_ESNX_en.pdf
 *
 *
 AC G
@@ -6265,7 +6265,7 @@ DP 63:15:37 N  017:32:51 E
 DP 62:48:58 N  017:41:49 E
 DP 62:50:08 N  017:59:20 E
 DP 63:16:48 N  017:50:36 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -6292,7 +6292,7 @@ DP 65:44:55 N  020:24:45 E
 DP 65:51:55 N  020:34:45 E
 DP 65:56:55 N  020:11:45 E
 DP 66:01:55 N  019:42:45 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESPE/ES_AD_2_ESPE_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESPE/ES_AD_2_ESPE_en.pdf
 *
 *
 AC C
@@ -6304,7 +6304,7 @@ DP 62:52:51 N  017:17:31 E
 DP 62:41:03 N  017:57:54 E
 DP 62:53:47 N  018:02:27 E
 DP 63:02:04 N  017:51:05 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -6315,7 +6315,7 @@ DP 56:13:16 N  013:54:44 E
 DP 55:40:39 N  014:17:41 E
 DP 56:12:55 N  014:23:49 E
 DP 56:13:16 N  013:54:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -6358,7 +6358,7 @@ DP 55:39:59 N  015:09:49 E
 DP 55:39:59 N  015:39:49 E
 DP 55:53:59 N  015:39:49 E
 DP 55:56:29 N  015:09:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -6418,7 +6418,7 @@ DP 61:08:57 N  014:13:43 E
 DP 60:43:28 N  014:31:41 E
 DP 60:46:05 N  014:47:21 E
 DP 61:11:34 N  014:29:34 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -6431,7 +6431,7 @@ DP 62:58:43 N  014:01:57 E
 DP 63:09:07 N  014:01:58 E
 DP 63:13:49 N  013:53:36 E
 DP 63:19:33 N  013:31:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC W
@@ -6473,7 +6473,7 @@ DP 65:52:35 N  014:46:59 E
 DP 65:34:07 N  015:09:13 E
 DP 65:38:44 N  015:30:53 E
 DP 65:56:03 N  015:03:08 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESUT/ES_AD_2_ESUT_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESUT/ES_AD_2_ESUT_en.pdf
 *
 *
 AC D
@@ -6487,7 +6487,7 @@ DP 62:18:02 N  017:26:55 E
 DP 62:20:09 N  017:41:12 E
 DP 62:33:27 N  017:37:47 E
 DP 62:41:57 N  017:25:37 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNN/ES_AD_2_ESNN_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNN/ES_AD_2_ESNN_en.pdf
 *
 *
 AC D
@@ -6501,7 +6501,7 @@ DP 65:24:44 N  022:17:44 E
 DP 65:27:08 N  022:26:50 E
 DP 65:35:44 N  022:18:54 E
 DP 65:43:21 N  021:53:14 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESPA/ES_AD_2_ESPA_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESPA/ES_AD_2_ESPA_en.pdf
 *
 *
 AC R
@@ -6527,7 +6527,7 @@ DP 67:00:29 N  021:10:49 E
 DP 67:04:57 N  021:17:00 E
 DP 67:12:37 N  020:51:31 E
 DP 67:14:42 N  020:25:57 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNG/ES_AD_2_ESNG_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNG/ES_AD_2_ESNG_en.pdf
 *
 *
 AC R
@@ -6580,7 +6580,7 @@ DP 65:55:23 N  019:18:39 E
 DP 65:51:55 N  019:26:45 E
 DP 65:51:55 N  020:09:44 E
 DP 66:04:47 N  020:20:09 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -6605,7 +6605,7 @@ DP 56:58:44 N  015:55:39 E
 DP 56:57:48 N  016:34:14 E
 DP 57:12:58 N  016:28:07 E
 DP 57:13:24 N  016:11:29 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -6617,7 +6617,7 @@ DP 66:09:55 N  020:17:51 E
 DP 66:09:39 N  020:20:51 E
 DP 66:35:55 N  019:51:44 E
 DP 66:45:27 N  019:13:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -6662,7 +6662,7 @@ DP 60:15:06 N  015:43:49 E
 DP 60:20:18 N  015:52:49 E
 DP 60:29:28 N  015:37:54 E
 DP 60:34:58 N  015:17:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSD/ES_AD_2_ESSD_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSD/ES_AD_2_ESSD_en.pdf
 *
 *
 AC G
@@ -6674,7 +6674,7 @@ DP 56:28:37 N  013:56:03 E
 DP 56:13:16 N  013:54:44 E
 DP 56:12:55 N  014:23:49 E
 DP 56:28:38 N  014:19:15 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -6719,7 +6719,7 @@ DP 56:33:03 N  012:34:06 E
 DP 56:23:12 N  012:26:34 E
 DP 56:19:20 N  013:24:44 E
 DP 56:35:20 N  013:04:14 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -6734,7 +6734,7 @@ DP 58:40:23 N  018:30:24 E
 DP 58:48:28 N  018:50:17 E
 DP 58:54:08 N  019:01:32 E
 DP 59:00:58 N  018:29:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -6747,7 +6747,7 @@ DP 57:10:09 N  015:04:27 E
 DP 57:14:16 N  015:10:11 E
 DP 57:26:54 N  015:06:07 E
 DP 57:28:54 N  014:51:34 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -6761,7 +6761,7 @@ DP 56:06:17 N  015:19:55 E
 DP 56:12:08 N  015:24:53 E
 DP 56:27:01 N  015:28:30 E
 DP 56:28:27 N  015:09:15 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESDF/ES_AD_2_ESDF_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESDF/ES_AD_2_ESDF_en.pdf
 *
 *
 AC G
@@ -6775,7 +6775,7 @@ DP 55:43:50 N  014:08:30 E
 DP 55:54:38 N  014:16:00 E
 DP 56:07:30 N  014:14:35 E
 DP 56:08:00 N  014:01:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESMK/ES_AD_2_ESMK_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESMK/ES_AD_2_ESMK_en.pdf
 *
 *
 AC C
@@ -6789,7 +6789,7 @@ DP 56:31:50 N  015:10:02 E
 DP 56:31:34 N  015:29:37 E
 DP 56:39:30 N  015:50:30 E
 DP 56:41:20 N  015:06:58 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -6803,7 +6803,7 @@ DP 67:09:19 N  022:56:25 E
 DP 67:08:47 N  023:19:15 E
 DP 67:13:51 N  023:26:21 E
 DP 67:20:41 N  023:09:01 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESUP/ES_AD_2_ESUP_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESUP/ES_AD_2_ESUP_en.pdf
 *
 *
 AC W
@@ -6846,7 +6846,7 @@ DP 59:23:15 N  013:27:47 E
 DP 59:29:58 N  013:33:50 E
 DP 59:36:19 N  013:35:58 E
 DP 59:38:58 N  013:24:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESOK/ES_AD_2_ESOK_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESOK/ES_AD_2_ESOK_en.pdf
 *
 *
 AC C
@@ -6862,7 +6862,7 @@ DP 55:51:23 N  013:50:02 E
 DP 56:00:00 N  013:51:52 E
 DP 56:00:36 N  013:43:27 E
 DP 56:03:37 N  013:02:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -6874,7 +6874,7 @@ DP 59:22:28 N  018:38:17 E
 DP 59:07:28 N  019:04:17 E
 DP 59:17:58 N  019:22:46 E
 DP 59:24:58 N  019:00:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -6888,7 +6888,7 @@ DP 64:31:56 N  020:57:05 E
 DP 64:31:36 N  021:27:45 E
 DP 64:37:44 N  021:31:34 E
 DP 64:43:18 N  021:04:45 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNS/ES_AD_2_ESNS_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNS/ES_AD_2_ESNS_en.pdf
 *
 *
 AC D
@@ -6902,7 +6902,7 @@ DP 58:29:29 N  016:14:49 E
 DP 58:31:39 N  016:37:28 E
 DP 58:38:28 N  016:37:48 E
 DP 58:40:28 N  016:15:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSP/ES_AD_2_ESSP_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSP/ES_AD_2_ESSP_en.pdf
 *
 *
 AC D
@@ -6916,7 +6916,7 @@ DP 58:41:33 N  016:56:08 E
 DP 58:45:28 N  017:16:08 E
 DP 58:51:38 N  017:15:28 E
 DP 58:53:33 N  016:54:18 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESKN/ES_AD_2_ESKN_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESKN/ES_AD_2_ESKN_en.pdf
 *
 *
 AC D
@@ -6957,7 +6957,7 @@ DP 59:51:56 N  017:38:55 E
 DP 59:54:48 N  018:06:47 E
 DP 60:05:43 N  018:14:47 E
 DP 60:17:58 N  018:12:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC D
@@ -6987,7 +6987,7 @@ DP 59:02:00 N  015:03:31 E
 DP 59:12:24 N  015:12:28 E
 DP 59:24:34 N  015:13:25 E
 DP 59:25:34 N  015:01:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESOE/ES_AD_2_ESOE_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESOE/ES_AD_2_ESOE_en.pdf
 *
 *
 AC G
@@ -7042,7 +7042,7 @@ DP 57:24:37 N  017:51:32 E
 DP 57:25:22 N  017:54:06 E
 DP 57:25:49 N  017:56:53 E
 DP 57:25:58 N  017:59:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -7056,7 +7056,7 @@ DP 59:23:48 N  016:39:44 E
 DP 59:34:06 N  016:47:49 E
 DP 59:45:56 N  016:48:05 E
 DP 59:47:04 N  016:36:15 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESOW/ES_AD_2_ESOW_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESOW/ES_AD_2_ESOW_en.pdf
 *
 *
 AC C
@@ -7068,7 +7068,19 @@ DP 58:56:17 N  012:49:50 E
 DP 58:54:35 N  013:05:05 E
 DP 59:07:53 N  013:20:30 E
 DP 59:14:30 N  012:54:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN ES R01A
+AL 0 MSL
+AH 304799 MSL
+DP 67:59:24 N  020:48:43 E
+DP 67:47:24 N  020:54:43 E
+DP 67:47:24 N  021:16:13 E
+DP 67:59:24 N  021:27:54 E
+DP 67:59:24 N  020:48:43 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -7083,7 +7095,7 @@ DP 56:09:30 N  013:00:04 E
 DP 56:13:00 N  013:06:02 E
 DP 56:22:59 N  013:03:20 E
 DP 56:27:21 N  012:40:21 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESTA/ES_AD_2_ESTA_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESTA/ES_AD_2_ESTA_en.pdf
 *
 *
 AC D
@@ -7099,7 +7111,7 @@ DP 57:40:25 N  014:10:20 E
 DP 57:51:07 N  014:17:18 E
 DP 57:54:59 N  014:15:48 E
 DP 57:56:47 N  014:04:56 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESGJ/ES_AD_2_ESGJ_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESGJ/ES_AD_2_ESGJ_en.pdf
 *
 *
 AC D
@@ -7169,7 +7181,7 @@ DP 57:13:16 N  013:48:01 E
 DP 57:12:43 N  014:03:12 E
 DP 57:25:51 N  014:06:19 E
 DP 57:32:12 N  013:36:26 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -7194,7 +7206,7 @@ DP 64:30:07 N  017:10:40 E
 DP 64:35:23 N  017:13:29 E
 DP 64:39:38 N  016:52:31 E
 DP 64:39:40 N  016:29:13 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNV/ES_AD_2_ESNV_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNV/ES_AD_2_ESNV_en.pdf
 *
 *
 AC W
@@ -7224,7 +7236,7 @@ DP 63:06:36 N  014:43:49 E
 DP 63:13:44 N  014:51:49 E
 DP 63:17:06 N  014:29:49 E
 DP 63:17:16 N  014:14:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNZ/ES_AD_2_ESNZ_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNZ/ES_AD_2_ESNZ_en.pdf
 *
 *
 AC D
@@ -7238,7 +7250,7 @@ DP 57:28:50 N  018:19:37 E
 DP 57:38:14 N  018:31:08 E
 DP 57:48:56 N  018:32:32 E
 DP 57:50:25 N  018:21:57 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSV/ES_AD_2_ESSV_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSV/ES_AD_2_ESSV_en.pdf
 *
 *
 AC C
@@ -7251,7 +7263,7 @@ DP 56:40:13 N  013:09:08 E
 DP 56:45:35 N  013:14:50 E
 DP 57:00:27 N  013:30:48 E
 DP 57:07:18 N  013:25:56 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -7263,7 +7275,7 @@ DP 56:07:22 N  013:10:30 E
 DP 56:03:37 N  013:02:46 E
 DP 56:00:36 N  013:43:27 E
 DP 56:19:20 N  013:24:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -7295,7 +7307,7 @@ DP 55:56:23 N  014:22:28 E
 DP 55:56:23 N  014:22:28 E
 DP 55:56:23 N  014:22:28 E
 DP 55:56:23 N  014:22:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -7338,7 +7350,7 @@ DP 57:29:59 N  012:12:51 E
 DP 57:37:49 N  012:27:51 E
 DP 57:47:16 N  012:30:08 E
 DP 57:49:59 N  012:19:51 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESGG/ES_AD_2_ESGG_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESGG/ES_AD_2_ESGG_en.pdf
 *
 *
 AC D
@@ -7352,7 +7364,7 @@ DP 56:44:06 N  014:43:59 E
 DP 56:54:12 N  014:52:53 E
 DP 57:05:36 N  014:53:45 E
 DP 57:06:57 N  014:43:12 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESMX/ES_AD_2_ESMX_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESMX/ES_AD_2_ESMX_en.pdf
 *
 *
 AC D
@@ -7366,7 +7378,7 @@ DP 58:23:36 N  014:13:10 E
 DP 58:25:24 N  014:36:43 E
 DP 58:30:43 N  014:45:44 E
 DP 58:37:23 N  014:39:13 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESIA/ES_AD_2_ESIA_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESIA/ES_AD_2_ESIA_en.pdf
 *
 *
 AC D
@@ -7380,7 +7392,7 @@ DP 63:17:59 N  019:15:35 E
 DP 63:21:01 N  019:19:47 E
 DP 63:29:39 N  019:06:19 E
 DP 63:30:55 N  018:45:59 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNO/ES_AD_2_ESNO_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNO/ES_AD_2_ESNO_en.pdf
 *
 *
 AC C
@@ -7393,7 +7405,7 @@ DP 56:35:20 N  013:04:14 E
 DP 56:19:20 N  013:24:44 E
 DP 56:40:45 N  013:26:34 E
 DP 56:45:35 N  013:14:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -7407,7 +7419,7 @@ DP 55:54:29 N  015:33:49 E
 DP 55:57:59 N  015:27:49 E
 DP 56:04:16 N  015:23:49 E
 DP 56:06:59 N  015:04:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -7437,7 +7449,7 @@ DP 56:39:24 N  012:57:55 E
 DP 56:41:30 N  012:58:22 E
 DP 56:54:26 N  012:57:05 E
 DP 56:54:51 N  012:44:11 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESMT/ES_AD_2_ESMT_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESMT/ES_AD_2_ESMT_en.pdf
 *
 *
 AC R
@@ -7493,7 +7505,7 @@ DP 59:47:58 N  017:34:48 E
 DP 59:51:58 N  017:47:48 E
 DP 59:58:58 N  017:49:48 E
 DP 60:02:58 N  017:39:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESCM/ES_AD_2_ESCM_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESCM/ES_AD_2_ESCM_en.pdf
 *
 *
 AC D
@@ -7508,7 +7520,7 @@ DP 58:11:36 N  012:37:11 E
 DP 58:22:25 N  012:28:29 E
 DP 58:24:40 N  012:23:19 E
 DP 58:28:49 N  012:13:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESGT/ES_AD_2_ESGT_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESGT/ES_AD_2_ESGT_en.pdf
 *
 *
 AC R
@@ -7521,7 +7533,7 @@ DP 60:07:27 N  018:46:47 E
 DP 60:07:27 N  018:59:47 E
 DP 60:21:57 N  018:59:46 E
 DP 60:21:57 N  018:36:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -7644,7 +7656,7 @@ DP 57:37:36 N  011:54:53 E
 DP 57:45:44 N  012:04:11 E
 DP 57:56:57 N  011:57:50 E
 DP 57:57:13 N  011:50:09 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESGP/ES_AD_2_ESGP_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESGP/ES_AD_2_ESGP_en.pdf
 *
 *
 AC W
@@ -7669,7 +7681,7 @@ DP 63:40:07 N  018:40:52 E
 DP 63:32:33 N  019:10:19 E
 DP 63:23:56 N  019:43:04 E
 DP 63:44:08 N  019:02:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -7682,7 +7694,7 @@ DP 64:49:11 N  021:15:14 E
 DP 64:48:35 N  021:29:44 E
 DP 64:54:55 N  021:44:44 E
 DP 65:03:25 N  021:42:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -7696,7 +7708,7 @@ DP 56:32:22 N  016:20:28 E
 DP 56:34:58 N  016:29:34 E
 DP 56:42:48 N  016:26:17 E
 DP 56:52:21 N  016:12:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESMQ/ES_AD_2_ESMQ_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESMQ/ES_AD_2_ESMQ_en.pdf
 *
 *
 AC C
@@ -7707,7 +7719,7 @@ DP 56:23:12 N  012:26:34 E
 DP 56:11:48 N  012:48:28 E
 DP 56:19:20 N  013:24:44 E
 DP 56:23:12 N  012:26:34 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC G
@@ -7721,7 +7733,7 @@ DP 64:23:32 N  018:55:25 E
 DP 64:25:09 N  019:00:22 E
 DP 64:35:37 N  018:51:06 E
 DP 64:42:20 N  018:30:14 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNL/ES_AD_2_ESNL_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNL/ES_AD_2_ESNL_en.pdf
 *
 *
 AC G
@@ -7738,20 +7750,6 @@ DP 58:34:52 N  008:57:36 E
 DP 58:37:28 N  008:54:06 E
 DP 58:37:53 N  008:43:08 E
 * Source: https://ais.avinor.no/no/AIP/View/64/aip/ad/engk/EN_AD_2_ENGK_en.pdf
-*
-*
-AC R
-AN ES R18
-AL 0 MSL
-AH 304799 MSL
-DP 59:31:12 N  015:02:28 E
-DP 59:23:52 N  014:34:49 E
-DP 59:17:04 N  014:34:49 E
-DP 59:13:35 N  014:39:35 E
-DP 59:15:09 N  014:49:33 E
-DP 59:18:29 N  014:56:37 E
-DP 59:31:12 N  015:02:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -7805,7 +7803,7 @@ DP 58:38:04 N  017:52:59 E
 DP 58:34:59 N  017:54:57 E
 DP 58:43:41 N  018:14:04 E
 DP 58:54:58 N  018:07:24 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -7822,7 +7820,7 @@ DP 59:14:58 N  018:09:48 E
 DP 59:22:58 N  018:09:48 E
 DP 59:26:29 N  017:57:17 E
 DP 59:26:28 N  017:44:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSB/ES_AD_2_ESSB_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSB/ES_AD_2_ESSB_en.pdf
 *
 *
 AC C
@@ -7836,7 +7834,27 @@ DP 55:55:30 N  013:27:50 E
 DP 55:54:52 N  013:31:15 E
 DP 56:00:36 N  013:43:27 E
 DP 56:03:37 N  013:02:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+*
+*
+AC R
+AN ES R18
+AL 0 MSL
+AH 304799 MSL
+DP 59:28:53 N  015:00:06 E
+DP 59:28:38 N  014:53:02 E
+DP 59:23:52 N  014:34:49 E
+DP 59:20:50 N  014:34:49 E
+DP 59:19:37 N  014:34:49 E
+DP 59:17:04 N  014:34:49 E
+DP 59:13:35 N  014:39:35 E
+DP 59:15:12 N  014:49:52 E
+DP 59:17:41 N  014:54:58 E
+DP 59:21:06 N  014:57:57 E
+DP 59:24:18 N  014:59:25 E
+DP 59:27:34 N  015:00:51 E
+DP 59:28:53 N  015:00:06 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -7867,7 +7885,7 @@ DP 59:09:43 N  016:47:22 E
 DP 59:18:12 N  016:52:09 E
 DP 59:29:28 N  016:49:42 E
 DP 59:30:45 N  016:45:11 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESSU/ES_AD_2_ESSU_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESSU/ES_AD_2_ESSU_en.pdf
 *
 *
 AC D
@@ -7881,7 +7899,7 @@ DP 55:23:44 N  013:18:20 E
 DP 55:24:36 N  013:31:19 E
 DP 55:33:10 N  013:32:15 E
 DP 55:40:24 N  013:27:11 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESMS/ES_AD_2_ESMS_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESMS/ES_AD_2_ESMS_en.pdf
 *
 *
 AC W
@@ -7965,7 +7983,7 @@ DP 58:29:43 N  017:58:17 E
 DP 58:32:43 N  018:11:47 E
 DP 58:40:23 N  018:30:24 E
 DP 58:45:40 N  018:18:27 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8115,7 +8133,7 @@ DP 61:58:00 N  014:25:24 E
 DP 62:02:24 N  014:44:49 E
 DP 62:04:14 N  014:44:38 E
 DP 62:07:42 N  014:24:24 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESND/ES_AD_2_ESND_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESND/ES_AD_2_ESND_en.pdf
 *
 *
 AC R
@@ -8129,7 +8147,7 @@ DP 59:50:38 N  019:13:56 E
 DP 59:56:32 N  018:53:32 E
 DP 60:08:16 N  018:50:39 E
 DP 60:12:57 N  018:43:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -8146,7 +8164,7 @@ DP 59:29:28 N  017:57:48 E
 DP 59:30:28 N  017:46:48 E
 DP 59:33:28 N  017:41:48 E
 DP 59:48:58 N  017:46:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -8158,7 +8176,7 @@ DP 54:55:00 N  013:39:50 E
 DP 54:55:00 N  014:06:16 E
 DP 55:04:30 N  014:00:33 E
 DP 55:04:59 N  013:39:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -8171,7 +8189,7 @@ DP 56:05:14 N  012:58:57 E
 DP 56:03:37 N  013:02:46 E
 DP 56:07:22 N  013:10:30 E
 DP 56:19:20 N  013:24:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -8184,7 +8202,7 @@ DP 56:05:14 N  012:58:57 E
 DP 56:03:37 N  013:02:46 E
 DP 56:07:22 N  013:10:30 E
 DP 56:19:20 N  013:24:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC W
@@ -8236,7 +8254,7 @@ DP 65:44:49 N  020:44:42 E
 DP 65:45:19 N  020:46:58 E
 DP 65:45:37 N  020:49:26 E
 DP 65:45:43 N  020:52:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8249,7 +8267,7 @@ DP 62:38:26 N  017:57:47 E
 DP 62:38:26 N  018:17:46 E
 DP 62:42:26 N  018:23:46 E
 DP 62:52:26 N  018:04:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8263,7 +8281,7 @@ DP 58:43:58 N  017:35:47 E
 DP 58:38:04 N  017:52:59 E
 DP 58:51:58 N  017:52:17 E
 DP 58:54:58 N  017:41:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -8301,7 +8319,7 @@ DP 58:19:16 N  013:56:34 E
 DP 58:25:40 N  014:06:22 E
 DP 58:35:55 N  014:06:57 E
 DP 58:37:01 N  013:58:54 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESGR/ES_AD_2_ESGR_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESGR/ES_AD_2_ESGR_en.pdf
 *
 *
 AC C
@@ -8399,7 +8417,7 @@ DP 58:11:58 N  014:33:04 E
 DP 58:12:58 N  014:42:19 E
 DP 58:16:58 N  014:42:19 E
 DP 58:20:49 N  014:39:11 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -8443,7 +8461,7 @@ DP 59:53:39 N  013:31:41 E
 DP 59:53:52 N  013:39:15 E
 DP 60:01:32 N  013:44:06 E
 DP 60:08:44 N  013:37:18 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESOH/ES_AD_2_ESOH_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESOH/ES_AD_2_ESOH_en.pdf
 *
 *
 AC W
@@ -8482,7 +8500,7 @@ DP 57:53:58 N  011:02:51 E
 DP 58:15:28 N  010:50:51 E
 DP 58:24:58 N  010:42:21 E
 DP 58:24:58 N  010:34:51 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -8559,7 +8577,7 @@ DP 58:12:27 N  013:30:08 E
 DP 58:12:57 N  013:31:54 E
 DP 58:13:15 N  013:33:50 E
 DP 58:13:21 N  013:35:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC D
@@ -8573,7 +8591,7 @@ DP 55:59:03 N  013:21:30 E
 DP 56:05:03 N  013:27:09 E
 DP 56:07:30 N  013:18:50 E
 DP 56:09:18 N  013:01:32 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESTL/ES_AD_2_ESTL_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESTL/ES_AD_2_ESTL_en.pdf
 *
 *
 AC R
@@ -8586,7 +8604,7 @@ DP 57:27:58 N  011:41:51 E
 DP 57:34:58 N  011:46:50 E
 DP 57:38:58 N  011:43:50 E
 DP 57:38:58 N  011:28:51 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC G
@@ -8611,7 +8629,7 @@ DP 56:33:03 N  012:34:06 E
 DP 56:32:21 N  012:44:53 E
 DP 56:35:20 N  013:04:14 E
 DP 56:40:13 N  013:09:08 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -8623,7 +8641,7 @@ DP 65:28:25 N  022:06:43 E
 DP 65:19:55 N  022:19:43 E
 DP 65:23:55 N  022:32:43 E
 DP 65:32:25 N  022:19:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8649,7 +8667,7 @@ DP 59:44:28 N  019:24:46 E
 DP 59:47:28 N  019:22:16 E
 DP 59:50:38 N  019:13:56 E
 DP 59:52:43 N  019:06:35 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8665,6 +8683,24 @@ DP 69:14:40 N  018:58:00 E
 DP 69:14:40 N  018:52:25 E
 DP 69:12:00 N  018:37:25 E
 * Source: https://ais.avinor.no/no/AIP/View/64/aip/EN_ENR_5_1_en.pdf
+*
+*
+AC R
+AN ES R18A
+AL 0 MSL
+AH 304799 MSL
+DP 59:26:34 N  014:54:13 E
+DP 59:20:50 N  014:34:49 E
+DP 59:19:37 N  014:34:49 E
+DP 59:17:42 N  014:40:36 E
+DP 59:16:56 N  014:41:33 E
+DP 59:16:35 N  014:46:23 E
+DP 59:15:12 N  014:49:52 E
+DP 59:17:41 N  014:54:58 E
+DP 59:21:06 N  014:57:57 E
+DP 59:24:18 N  014:59:25 E
+DP 59:26:34 N  014:54:13 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8756,7 +8792,7 @@ DP 58:35:57 N  014:51:02 E
 DP 58:37:37 N  014:50:07 E
 DP 58:38:59 N  014:48:46 E
 DP 58:40:44 N  014:46:32 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8773,7 +8809,7 @@ DP 65:43:55 N  021:36:14 E
 DP 65:45:25 N  021:41:44 E
 DP 65:47:25 N  021:39:44 E
 DP 65:48:35 N  021:36:16 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8786,7 +8822,7 @@ DP 56:32:59 N  013:15:50 E
 DP 56:36:59 N  013:21:50 E
 DP 56:43:29 N  013:22:50 E
 DP 56:43:29 N  013:06:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC C
@@ -8797,7 +8833,7 @@ DP 65:41:22 N  021:34:43 E
 DP 65:33:33 N  021:11:55 E
 DP 65:26:28 N  021:29:21 E
 DP 65:41:22 N  021:34:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC R
@@ -8824,7 +8860,7 @@ DP 65:46:34 N  021:48:13 E
 DP 65:45:17 N  022:00:43 E
 DP 65:50:58 N  022:19:28 E
 DP 65:56:01 N  022:10:35 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -8870,7 +8906,7 @@ DP 56:27:55 N  012:37:23 E
 DP 56:26:17 N  012:46:01 E
 DP 56:28:36 N  012:57:32 E
 DP 56:35:20 N  013:04:14 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -8884,7 +8920,7 @@ DP 56:27:55 N  012:37:23 E
 DP 56:26:17 N  012:46:01 E
 DP 56:28:36 N  012:57:32 E
 DP 56:35:20 N  013:04:14 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC W
@@ -8923,7 +8959,7 @@ DP 58:54:58 N  018:07:24 E
 DP 58:48:58 N  018:25:48 E
 DP 58:53:58 N  018:30:47 E
 DP 59:00:58 N  018:29:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -8970,7 +9006,7 @@ DP 56:04:59 N  015:49:49 E
 DP 56:04:39 N  015:50:39 E
 DP 55:56:59 N  016:06:48 E
 DP 56:07:59 N  016:16:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -8986,7 +9022,7 @@ DP 55:56:59 N  015:47:19 E
 DP 56:03:49 N  015:47:19 E
 DP 56:06:59 N  015:37:19 E
 DP 56:06:59 N  015:28:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9006,7 +9042,7 @@ DP 58:25:08 N  014:43:27 E
 DP 58:27:11 N  014:45:05 E
 DP 58:29:21 N  014:45:47 E
 DP 58:30:21 N  014:37:08 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9030,7 +9066,7 @@ DP 58:15:27 N  015:20:24 E
 DP 58:13:41 N  015:29:49 E
 DP 58:19:41 N  015:37:19 E
 DP 58:25:44 N  015:18:59 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESCF/ES_AD_2_ESCF_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESCF/ES_AD_2_ESCF_en.pdf
 *
 *
 AC R
@@ -9137,7 +9173,7 @@ DP 60:03:23 N  013:00:30 E
 DP 60:04:42 N  013:06:59 E
 DP 60:10:47 N  013:04:16 E
 DP 60:16:40 N  012:56:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESST/ES_AD_2_ESST_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESST/ES_AD_2_ESST_en.pdf
 *
 *
 AC R
@@ -9173,7 +9209,7 @@ DP 62:38:36 N  018:39:46 E
 DP 62:26:56 N  018:20:46 E
 DP 62:26:56 N  018:39:46 E
 DP 62:38:36 N  018:39:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -9214,7 +9250,7 @@ DP 57:33:14 N  017:58:17 E
 DP 57:36:19 N  018:01:47 E
 DP 57:37:05 N  018:06:47 E
 DP 57:40:58 N  017:57:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -9285,7 +9321,7 @@ DP 56:41:19 N  012:44:10 E
 DP 56:41:59 N  012:43:40 E
 DP 56:41:59 N  012:40:50 E
 DP 56:45:59 N  012:33:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9315,7 +9351,7 @@ DP 55:16:59 N  013:55:50 E
 DP 55:16:59 N  014:06:19 E
 DP 55:26:29 N  013:59:49 E
 DP 55:26:29 N  013:57:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9333,7 +9369,7 @@ DP 59:44:32 N  018:53:32 E
 DP 60:08:16 N  018:50:39 E
 DP 60:08:16 N  018:50:39 E
 DP 60:08:16 N  018:50:39 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -9359,7 +9395,7 @@ DP 55:53:59 N  015:39:49 E
 DP 55:59:59 N  015:39:49 E
 DP 56:02:29 N  015:36:04 E
 DP 56:04:16 N  015:23:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9415,7 +9451,7 @@ DP 62:13:26 N  013:35:49 E
 DP 62:15:56 N  013:41:49 E
 DP 62:20:26 N  013:40:19 E
 DP 62:20:26 N  013:28:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9433,7 +9469,7 @@ DP 57:32:58 N  018:12:07 E
 DP 57:34:30 N  018:12:32 E
 DP 57:35:24 N  018:10:54 E
 DP 57:37:42 N  018:10:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9446,7 +9482,7 @@ DP 66:09:55 N  022:55:43 E
 DP 66:06:55 N  023:11:42 E
 DP 66:09:55 N  023:12:42 E
 DP 66:14:55 N  023:08:42 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -9491,7 +9527,7 @@ DP 56:06:59 N  015:37:19 E
 DP 56:03:49 N  015:47:19 E
 DP 56:09:53 N  015:48:29 E
 DP 56:11:23 N  015:30:27 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9503,7 +9539,7 @@ DP 58:43:41 N  018:14:04 E
 DP 58:45:40 N  018:18:27 E
 DP 58:48:58 N  018:25:48 E
 DP 58:54:58 N  018:07:24 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9552,7 +9588,7 @@ DP 55:58:34 N  012:51:56 E
 DP 56:03:37 N  013:02:46 E
 DP 56:05:14 N  012:58:57 E
 DP 56:11:48 N  012:48:28 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC C
@@ -9563,7 +9599,7 @@ DP 59:45:52 N  017:31:10 E
 DP 59:41:58 N  017:05:48 E
 DP 59:38:28 N  017:21:48 E
 DP 59:45:52 N  017:31:10 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
 AC W
@@ -9576,6 +9612,21 @@ DP 59:25:11 N  009:45:16 E
 DP 59:29:18 N  009:57:26 E
 DP 59:32:24 N  009:46:11 E
 * Source: https://ais.avinor.no/no/AIP/View/64/aip/EN_ENR_5_5_en.pdf
+*
+*
+AC R
+AN ES R18B
+AL 0 MSL
+AH 304799 MSL
+DP 59:28:53 N  015:00:06 E
+DP 59:28:38 N  014:53:02 E
+DP 59:23:52 N  014:34:49 E
+DP 59:20:50 N  014:34:49 E
+DP 59:26:34 N  014:54:13 E
+DP 59:24:18 N  014:59:25 E
+DP 59:27:34 N  015:00:51 E
+DP 59:28:53 N  015:00:06 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9617,7 +9668,7 @@ DP 64:53:55 N  021:16:50 E
 DP 64:59:25 N  021:18:44 E
 DP 65:01:15 N  021:29:44 E
 DP 65:02:55 N  021:22:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -9658,7 +9709,7 @@ DP 67:40:07 N  020:37:43 E
 DP 67:43:23 N  020:36:52 E
 DP 67:45:54 N  020:30:44 E
 DP 67:46:59 N  020:20:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9673,7 +9724,7 @@ DP 65:31:25 N  019:15:15 E
 DP 65:33:55 N  019:12:45 E
 DP 65:35:25 N  019:08:45 E
 DP 65:35:25 N  019:03:15 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9686,7 +9737,7 @@ DP 57:20:58 N  014:05:19 E
 DP 57:21:28 N  014:10:49 E
 DP 57:29:28 N  014:14:19 E
 DP 57:30:41 N  014:06:10 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9700,7 +9751,7 @@ DP 58:21:15 N  011:57:47 E
 DP 58:24:58 N  012:01:50 E
 DP 58:27:39 N  012:01:27 E
 DP 58:27:49 N  011:55:13 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9713,7 +9764,7 @@ DP 58:22:58 N  012:48:10 E
 DP 58:24:58 N  012:54:50 E
 DP 58:30:58 N  012:45:50 E
 DP 58:30:58 N  012:40:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9791,7 +9842,7 @@ DP 63:06:40 N  017:41:18 E
 DP 62:58:41 N  017:43:57 E
 DP 62:59:10 N  017:50:59 E
 DP 63:07:09 N  017:48:22 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESNK/ES_AD_2_ESNK_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESNK/ES_AD_2_ESNK_en.pdf
 *
 *
 AC W
@@ -9831,7 +9882,7 @@ DP 65:51:55 N  021:24:44 E
 DP 65:52:25 N  021:35:44 E
 DP 65:55:55 N  021:35:44 E
 DP 65:56:55 N  021:29:44 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -9843,7 +9894,7 @@ DP 63:34:56 N  020:40:15 E
 DP 63:31:56 N  020:46:15 E
 DP 63:40:56 N  020:55:15 E
 DP 63:40:56 N  020:50:45 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC G
@@ -9855,7 +9906,7 @@ DP 61:00:49 N  014:24:48 E
 DP 60:53:10 N  014:30:10 E
 DP 60:54:13 N  014:36:27 E
 DP 61:01:52 N  014:31:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/AD/AD 2/ESKM/ES_AD_2_ESKM_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/AD/AD 2/ESKM/ES_AD_2_ESKM_en.pdf
 *
 *
 AC R
@@ -10025,7 +10076,7 @@ DP 58:53:28 N  017:42:02 E
 DP 58:48:39 N  017:37:51 E
 DP 58:39:58 N  017:51:17 E
 DP 58:53:28 N  017:42:02 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10063,7 +10114,7 @@ DP 63:50:18 N  020:16:21 E
 DP 63:51:37 N  020:18:13 E
 DP 63:53:01 N  020:19:15 E
 DP 63:56:46 N  020:18:15 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10089,7 +10140,7 @@ DP 58:34:29 N  015:23:29 E
 DP 58:35:50 N  015:27:41 E
 DP 58:38:35 N  015:26:04 E
 DP 58:40:54 N  015:23:08 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10113,7 +10164,22 @@ DP 57:40:58 N  017:57:17 E
 DP 57:37:05 N  018:06:47 E
 DP 57:37:42 N  018:10:53 E
 DP 57:42:05 N  018:10:54 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
+AN ES R18C
+AL 0 MSL
+AH 304799 MSL
+DP 59:19:37 N  014:34:49 E
+DP 59:17:04 N  014:34:49 E
+DP 59:13:35 N  014:39:35 E
+DP 59:15:12 N  014:49:52 E
+DP 59:16:35 N  014:46:23 E
+DP 59:16:56 N  014:41:33 E
+DP 59:17:42 N  014:40:36 E
+DP 59:19:37 N  014:34:49 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -10153,7 +10219,7 @@ DP 55:53:29 N  014:21:49 E
 DP 55:57:59 N  014:28:49 E
 DP 55:58:29 N  014:20:19 E
 DP 55:59:29 N  014:16:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -10188,7 +10254,7 @@ DP 62:35:56 N  017:59:47 E
 DP 62:35:56 N  018:05:47 E
 DP 62:39:56 N  018:09:46 E
 DP 62:39:56 N  018:00:32 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10213,7 +10279,7 @@ DP 59:41:57 N  013:44:49 E
 DP 59:41:47 N  013:49:49 E
 DP 59:45:57 N  013:49:49 E
 DP 59:46:57 N  013:44:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10226,7 +10292,7 @@ DP 62:39:56 N  018:00:32 E
 DP 62:39:56 N  018:04:47 E
 DP 62:45:56 N  018:10:51 E
 DP 62:45:56 N  018:07:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -10273,7 +10339,7 @@ DP 60:27:09 N  017:25:19 E
 DP 60:30:11 N  017:30:49 E
 DP 60:32:43 N  017:32:54 E
 DP 60:33:51 N  017:26:42 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10285,7 +10351,7 @@ DP 58:27:58 N  012:37:50 E
 DP 58:21:58 N  012:44:50 E
 DP 58:22:58 N  012:48:10 E
 DP 58:29:28 N  012:39:20 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -10334,7 +10400,7 @@ DP 63:07:56 N  017:14:37 E
 DP 63:05:56 N  017:13:47 E
 DP 63:06:56 N  017:24:47 E
 DP 63:09:46 N  017:18:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10348,7 +10414,7 @@ DP 57:36:44 N  011:49:20 E
 DP 57:37:21 N  011:47:35 E
 DP 57:39:18 N  011:47:01 E
 DP 57:39:18 N  011:43:17 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10360,7 +10426,7 @@ DP 57:20:58 N  014:05:19 E
 DP 57:16:59 N  014:04:49 E
 DP 57:16:59 N  014:09:19 E
 DP 57:21:28 N  014:10:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10446,6 +10512,46 @@ DP 59:53:30 N  010:31:00 E
 *
 *
 AC R
+AN ES R112
+AL 0 MSL
+AH 609 MSL
+DP 59:17:30 N  017:40:53 E
+DP 59:17:28 N  017:41:34 E
+DP 59:17:22 N  017:42:13 E
+DP 59:17:12 N  017:42:50 E
+DP 59:16:59 N  017:43:22 E
+DP 59:16:42 N  017:43:48 E
+DP 59:16:24 N  017:44:08 E
+DP 59:16:04 N  017:44:20 E
+DP 59:15:42 N  017:44:24 E
+DP 59:15:21 N  017:44:20 E
+DP 59:15:01 N  017:44:08 E
+DP 59:14:43 N  017:43:48 E
+DP 59:14:26 N  017:43:22 E
+DP 59:14:13 N  017:42:50 E
+DP 59:14:03 N  017:42:13 E
+DP 59:13:57 N  017:41:34 E
+DP 59:13:55 N  017:40:53 E
+DP 59:13:57 N  017:40:11 E
+DP 59:14:03 N  017:39:32 E
+DP 59:14:13 N  017:38:55 E
+DP 59:14:26 N  017:38:23 E
+DP 59:14:43 N  017:37:57 E
+DP 59:15:01 N  017:37:37 E
+DP 59:15:21 N  017:37:25 E
+DP 59:15:42 N  017:37:21 E
+DP 59:16:04 N  017:37:25 E
+DP 59:16:24 N  017:37:37 E
+DP 59:16:42 N  017:37:57 E
+DP 59:16:59 N  017:38:23 E
+DP 59:17:12 N  017:38:55 E
+DP 59:17:22 N  017:39:32 E
+DP 59:17:28 N  017:40:11 E
+DP 59:17:30 N  017:40:53 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
 AN ES R40
 AL 0 MSL
 AH 5486 MSL
@@ -10455,7 +10561,7 @@ DP 56:50:23 N  015:27:19 E
 DP 56:49:59 N  015:30:49 E
 DP 56:52:29 N  015:33:49 E
 DP 56:54:29 N  015:32:19 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10468,7 +10574,7 @@ DP 67:44:04 N  020:14:27 E
 DP 67:44:05 N  020:20:18 E
 DP 67:46:59 N  020:20:44 E
 DP 67:47:45 N  020:17:10 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10481,7 +10587,7 @@ DP 58:00:44 N  012:54:04 E
 DP 58:00:11 N  012:56:35 E
 DP 58:01:25 N  013:00:14 E
 DP 58:04:17 N  012:59:56 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10495,7 +10601,37 @@ DP 59:18:44 N  016:55:18 E
 DP 59:18:44 N  016:59:48 E
 DP 59:20:52 N  017:01:48 E
 DP 59:21:58 N  016:57:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
+AN ES R16
+AL 0 MSL
+AH 487 MSL
+DP 59:36:04 N  017:41:58 E
+DP 59:35:24 N  017:40:35 E
+DP 59:34:07 N  017:41:12 E
+DP 59:33:43 N  017:42:08 E
+DP 59:32:54 N  017:44:00 E
+DP 59:32:01 N  017:46:02 E
+DP 59:33:00 N  017:48:13 E
+DP 59:33:04 N  017:48:16 E
+DP 59:33:16 N  017:48:15 E
+DP 59:33:44 N  017:48:07 E
+DP 59:33:54 N  017:47:59 E
+DP 59:33:59 N  017:47:50 E
+DP 59:34:19 N  017:47:33 E
+DP 59:34:33 N  017:47:32 E
+DP 59:34:48 N  017:47:17 E
+DP 59:34:52 N  017:47:13 E
+DP 59:35:24 N  017:46:10 E
+DP 59:35:39 N  017:45:11 E
+DP 59:35:32 N  017:44:04 E
+DP 59:35:49 N  017:42:51 E
+DP 59:36:03 N  017:42:18 E
+DP 59:36:04 N  017:42:04 E
+DP 59:36:04 N  017:41:58 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10511,7 +10647,7 @@ DP 56:33:59 N  012:42:20 E
 DP 56:41:19 N  012:44:50 E
 DP 56:43:29 N  012:41:50 E
 DP 56:45:59 N  012:33:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10535,7 +10671,7 @@ DP 58:15:58 N  013:49:49 E
 DP 58:15:28 N  013:54:49 E
 DP 58:18:58 N  013:55:49 E
 DP 58:19:28 N  013:51:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10550,7 +10686,7 @@ DP 55:43:19 N  014:09:19 E
 DP 55:45:14 N  014:08:19 E
 DP 55:46:09 N  014:09:54 E
 DP 55:46:32 N  014:05:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10563,7 +10699,7 @@ DP 62:31:56 N  017:58:07 E
 DP 62:33:56 N  017:58:47 E
 DP 62:35:56 N  018:00:47 E
 DP 62:35:56 N  017:57:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10575,7 +10711,7 @@ DP 60:36:27 N  015:39:48 E
 DP 60:36:27 N  015:45:48 E
 DP 60:38:57 N  015:45:48 E
 DP 60:38:57 N  015:39:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10615,7 +10751,7 @@ DP 57:42:17 N  014:51:54 E
 DP 57:42:26 N  014:52:25 E
 DP 57:42:32 N  014:52:58 E
 DP 57:42:33 N  014:53:34 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10695,7 +10831,7 @@ DP 56:09:48 N  014:49:13 E
 DP 56:09:57 N  014:49:43 E
 DP 56:10:03 N  014:50:15 E
 DP 56:10:04 N  014:50:48 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10707,7 +10843,7 @@ DP 67:24:26 N  023:15:51 E
 DP 67:23:33 N  023:21:10 E
 DP 67:25:39 N  023:24:07 E
 DP 67:26:33 N  023:18:21 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10720,7 +10856,7 @@ DP 63:13:42 N  014:39:18 E
 DP 63:12:08 N  014:40:48 E
 DP 63:14:26 N  014:46:18 E
 DP 63:15:56 N  014:44:08 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10745,7 +10881,7 @@ DP 57:36:28 N  011:56:20 E
 DP 57:34:58 N  011:59:50 E
 DP 57:36:58 N  012:02:50 E
 DP 57:39:05 N  011:59:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10758,7 +10894,28 @@ DP 59:27:41 N  017:27:50 E
 DP 59:29:16 N  017:29:31 E
 DP 59:30:48 N  017:29:51 E
 DP 59:31:06 N  017:24:02 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
+AN ES R16B
+AL 0 MSL
+AH 487 MSL
+DP 59:36:04 N  017:41:58 E
+DP 59:35:24 N  017:40:35 E
+DP 59:34:07 N  017:41:12 E
+DP 59:33:43 N  017:42:08 E
+DP 59:32:54 N  017:44:00 E
+DP 59:33:59 N  017:47:50 E
+DP 59:34:19 N  017:47:33 E
+DP 59:34:33 N  017:47:32 E
+DP 59:34:48 N  017:47:17 E
+DP 59:35:32 N  017:44:04 E
+DP 59:35:49 N  017:42:51 E
+DP 59:36:03 N  017:42:18 E
+DP 59:36:04 N  017:42:04 E
+DP 59:36:04 N  017:41:58 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10770,7 +10927,7 @@ DP 67:05:21 N  020:54:05 E
 DP 67:02:54 N  020:55:39 E
 DP 67:03:15 N  020:59:43 E
 DP 67:05:41 N  020:58:25 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10815,29 +10972,6 @@ DP 69:17:40 N  016:09:24 E
 * Source: https://ais.avinor.no/no/AIP/View/64/aip/EN_ENR_5_1_en.pdf
 *
 *
-AC R
-AN ES R16A
-AL 0 MSL
-AH 487 MSL
-DP 59:36:04 N  017:41:58 E
-DP 59:35:24 N  017:40:35 E
-DP 59:34:07 N  017:41:12 E
-DP 59:33:43 N  017:42:08 E
-DP 59:34:09 N  017:47:13 E
-DP 59:34:19 N  017:47:33 E
-DP 59:34:33 N  017:47:32 E
-DP 59:34:52 N  017:47:13 E
-DP 59:35:24 N  017:46:10 E
-DP 59:35:39 N  017:45:11 E
-DP 59:35:29 N  017:43:38 E
-DP 59:35:32 N  017:43:23 E
-DP 59:35:49 N  017:42:51 E
-DP 59:36:03 N  017:42:18 E
-DP 59:36:04 N  017:42:04 E
-DP 59:36:04 N  017:41:58 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
-*
-*
 AC G
 AN Sogn TIA 9
 AL 2286 MSL
@@ -10858,7 +10992,7 @@ DP 59:48:57 N  017:13:47 E
 DP 59:46:58 N  017:13:47 E
 DP 59:46:58 N  017:18:47 E
 DP 59:49:27 N  017:17:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -10978,7 +11112,7 @@ DP 67:53:40 N  021:02:17 E
 DP 67:53:46 N  021:02:47 E
 DP 67:53:50 N  021:03:19 E
 DP 67:53:51 N  021:03:53 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -11098,7 +11232,7 @@ DP 64:56:18 N  020:34:19 E
 DP 64:56:24 N  020:34:45 E
 DP 64:56:28 N  020:35:14 E
 DP 64:56:29 N  020:35:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -11178,7 +11312,7 @@ DP 67:46:14 N  020:45:34 E
 DP 67:46:20 N  020:46:02 E
 DP 67:46:23 N  020:46:32 E
 DP 67:46:24 N  020:47:03 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11190,7 +11324,7 @@ DP 55:57:58 N  015:33:00 E
 DP 55:57:58 N  015:37:00 E
 DP 56:00:00 N  015:37:00 E
 DP 56:00:00 N  015:33:00 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -11350,21 +11484,7 @@ DP 62:40:07 N  017:52:24 E
 DP 62:40:13 N  017:52:49 E
 DP 62:40:17 N  017:53:15 E
 DP 62:40:18 N  017:53:43 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
-*
-*
-AC R
-AN ES R24
-AL 0 MSL
-AH 609 MSL
-DP 59:20:27 N  017:53:11 E
-DP 59:20:08 N  017:51:08 E
-DP 59:19:16 N  017:50:33 E
-DP 59:18:10 N  017:52:29 E
-DP 59:18:20 N  017:54:58 E
-DP 59:19:37 N  017:55:20 E
-DP 59:20:27 N  017:53:11 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11376,7 +11496,7 @@ DP 57:54:58 N  011:38:38 E
 DP 57:54:35 N  011:42:22 E
 DP 57:56:23 N  011:44:50 E
 DP 57:57:11 N  011:43:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11428,7 +11548,7 @@ DP 59:47:05 N  018:41:14 E
 DP 59:47:11 N  018:41:36 E
 DP 59:47:15 N  018:42:00 E
 DP 59:47:16 N  018:42:25 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11468,7 +11588,7 @@ DP 59:13:45 N  017:54:46 E
 DP 59:13:51 N  017:55:08 E
 DP 59:13:55 N  017:55:32 E
 DP 59:13:56 N  017:55:57 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11508,7 +11628,7 @@ DP 59:10:39 N  017:39:48 E
 DP 59:10:45 N  017:40:10 E
 DP 59:10:49 N  017:40:34 E
 DP 59:10:50 N  017:40:59 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11548,7 +11668,7 @@ DP 59:08:08 N  015:06:07 E
 DP 59:08:14 N  015:06:29 E
 DP 59:08:18 N  015:06:53 E
 DP 59:08:19 N  015:07:18 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -11560,7 +11680,7 @@ DP 59:04:28 N  017:47:47 E
 DP 59:02:58 N  017:50:47 E
 DP 59:05:28 N  017:52:57 E
 DP 59:05:28 N  017:49:47 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -11640,7 +11760,7 @@ DP 58:11:36 N  013:54:49 E
 DP 58:11:42 N  013:55:10 E
 DP 58:11:46 N  013:55:34 E
 DP 58:11:47 N  013:55:58 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -11840,7 +11960,7 @@ DP 56:52:56 N  014:48:37 E
 DP 56:53:02 N  014:48:57 E
 DP 56:53:06 N  014:49:19 E
 DP 56:53:07 N  014:49:42 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -11932,7 +12052,7 @@ DP 55:59:29 N  014:16:19 E
 DP 55:58:29 N  014:20:19 E
 DP 56:00:59 N  014:19:19 E
 DP 56:00:59 N  014:16:49 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -12132,7 +12252,7 @@ DP 60:25:01 N  018:09:22 E
 DP 60:25:07 N  018:09:43 E
 DP 60:25:10 N  018:10:06 E
 DP 60:25:11 N  018:10:30 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC W
@@ -12295,6 +12415,46 @@ DP 59:23:43 N  010:47:08 E
 * Source: https://ais.avinor.no/no/AIP/View/64/aip/EN_ENR_5_5_en.pdf
 *
 *
+AC R
+AN ES R24
+AL 0 MSL
+AH 609 MSL
+DP 59:20:19 N  017:53:09 E
+DP 59:20:18 N  017:53:32 E
+DP 59:20:15 N  017:53:54 E
+DP 59:20:09 N  017:54:15 E
+DP 59:20:02 N  017:54:33 E
+DP 59:19:53 N  017:54:47 E
+DP 59:19:42 N  017:54:58 E
+DP 59:19:31 N  017:55:05 E
+DP 59:19:19 N  017:55:07 E
+DP 59:19:08 N  017:55:05 E
+DP 59:18:57 N  017:54:58 E
+DP 59:18:46 N  017:54:47 E
+DP 59:18:37 N  017:54:33 E
+DP 59:18:30 N  017:54:15 E
+DP 59:18:24 N  017:53:54 E
+DP 59:18:21 N  017:53:32 E
+DP 59:18:20 N  017:53:09 E
+DP 59:18:21 N  017:52:47 E
+DP 59:18:24 N  017:52:25 E
+DP 59:18:30 N  017:52:04 E
+DP 59:18:37 N  017:51:46 E
+DP 59:18:46 N  017:51:32 E
+DP 59:18:57 N  017:51:21 E
+DP 59:19:08 N  017:51:14 E
+DP 59:19:19 N  017:51:12 E
+DP 59:19:31 N  017:51:14 E
+DP 59:19:42 N  017:51:21 E
+DP 59:19:53 N  017:51:32 E
+DP 59:20:02 N  017:51:46 E
+DP 59:20:09 N  017:52:04 E
+DP 59:20:15 N  017:52:25 E
+DP 59:20:18 N  017:52:47 E
+DP 59:20:19 N  017:53:09 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
 AC W
 AN Jarlsberg
 AL 0 MSL
@@ -12452,7 +12612,7 @@ DP 57:25:43 N  016:39:16 E
 DP 57:25:49 N  016:39:35 E
 DP 57:25:52 N  016:39:56 E
 DP 57:25:53 N  016:40:18 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12492,7 +12652,7 @@ DP 57:16:19 N  012:05:34 E
 DP 57:16:25 N  012:05:53 E
 DP 57:16:28 N  012:06:14 E
 DP 57:16:29 N  012:06:35 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12505,7 +12665,7 @@ DP 56:42:59 N  012:48:50 E
 DP 56:43:59 N  012:49:50 E
 DP 56:44:59 N  012:48:50 E
 DP 56:44:59 N  012:46:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12549,21 +12709,7 @@ DP 67:39:17 N  021:00:51 E
 DP 67:39:26 N  021:00:29 E
 DP 67:39:31 N  021:00:04 E
 DP 67:39:31 N  020:59:16 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
-*
-*
-AC R
-AN ES R52
-AL 0 MSL
-AH 762 MSL
-DP 56:52:59 N  016:37:13 E
-DP 56:52:34 N  016:35:48 E
-DP 56:51:29 N  016:35:48 E
-DP 56:50:49 N  016:37:38 E
-DP 56:51:24 N  016:38:58 E
-DP 56:51:53 N  016:39:15 E
-DP 56:52:59 N  016:37:13 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12579,7 +12725,7 @@ DP 59:33:16 N  017:48:15 E
 DP 59:33:44 N  017:48:07 E
 DP 59:33:54 N  017:47:59 E
 DP 59:33:59 N  017:47:50 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12596,6 +12742,20 @@ DP 68:32:34 N  017:34:55 E
 *
 *
 AC R
+AN ES R52
+AL 0 MSL
+AH 609 MSL
+DP 56:52:38 N  016:37:13 E
+DP 56:52:34 N  016:35:48 E
+DP 56:51:29 N  016:35:48 E
+DP 56:50:49 N  016:37:38 E
+DP 56:51:26 N  016:38:50 E
+DP 56:51:55 N  016:39:12 E
+DP 56:52:38 N  016:37:13 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
 AN ES R96
 AL 0 MSL
 AH 670 MSL
@@ -12606,21 +12766,7 @@ DP 59:04:06 N  018:06:35 E
 DP 59:04:14 N  018:06:40 E
 DP 59:04:50 N  018:08:52 E
 DP 59:05:36 N  018:08:06 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
-*
-*
-AC R
-AN ES R16B
-AL 0 MSL
-AH 487 MSL
-DP 59:34:09 N  017:47:13 E
-DP 59:33:43 N  017:42:08 E
-DP 59:32:54 N  017:44:00 E
-DP 59:33:59 N  017:47:50 E
-DP 59:34:01 N  017:47:31 E
-DP 59:34:02 N  017:47:24 E
-DP 59:34:09 N  017:47:13 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12836,7 +12982,7 @@ DP 65:04:04 N  019:30:22 E
 DP 65:04:07 N  019:30:35 E
 DP 65:04:09 N  019:30:50 E
 DP 65:04:10 N  019:31:05 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12876,7 +13022,7 @@ DP 64:52:03 N  020:17:39 E
 DP 64:52:06 N  020:17:52 E
 DP 64:52:08 N  020:18:07 E
 DP 64:52:09 N  020:18:21 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12956,7 +13102,7 @@ DP 59:12:31 N  017:48:54 E
 DP 59:12:34 N  017:49:05 E
 DP 59:12:36 N  017:49:17 E
 DP 59:12:37 N  017:49:29 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -12996,7 +13142,7 @@ DP 59:22:16 N  018:01:44 E
 DP 59:22:19 N  018:01:55 E
 DP 59:22:21 N  018:02:07 E
 DP 59:22:22 N  018:02:20 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -13400,6 +13546,32 @@ DP 59:00:06 N  005:39:25 E
 *
 *
 AC R
+AN ES R09
+AL 0 MSL
+AH 6096 MSL
+DP 63:26:59 N  019:15:28 E
+DP 63:26:45 N  019:15:32 E
+DP 63:22:12 N  019:18:03 E
+DP 63:26:56 N  019:15:46 E
+DP 63:25:26 N  019:26:03 E
+DP 63:26:59 N  019:15:28 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
+AN ES R16A
+AL 0 MSL
+AH 487 MSL
+DP 59:35:39 N  017:45:11 E
+DP 59:35:32 N  017:44:04 E
+DP 59:34:48 N  017:47:17 E
+DP 59:34:52 N  017:47:13 E
+DP 59:35:24 N  017:46:10 E
+DP 59:35:39 N  017:45:11 E
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC R
 AN EN D424 Makani Karmøy
 AL 0 MSL
 AH 609 MSL
@@ -13476,7 +13648,7 @@ DP 59:54:43 N  016:33:41 E
 DP 59:54:44 N  016:33:46 E
 DP 59:54:45 N  016:33:52 E
 DP 59:54:46 N  016:33:59 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -13488,7 +13660,7 @@ DP 56:08:30 N  015:39:20 E
 DP 56:08:30 N  015:39:54 E
 DP 56:08:54 N  015:39:54 E
 DP 56:08:54 N  015:39:20 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019092008.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
 AC R
@@ -13529,17 +13701,5 @@ DP 58:55:31 N  005:34:24 E
 DP 58:55:31 N  005:34:26 E
 DP 58:55:31 N  005:34:29 E
 * Source: https://ais.avinor.no/no/AIP/View/64/aip/EN_ENR_5_1_en.pdf
-*
-*
-AC R
-AN ES R09
-AL 0 MSL
-AH 6096 MSL
-DP 63:26:56 N  019:15:46 E
-DP 63:22:08 N  019:17:16 E
-DP 63:26:56 N  019:15:46 E
-DP 63:25:26 N  019:26:03 E
-DP 63:26:56 N  019:15:46 E
-* Source: https://www.aro.lfv.se/Content/Files/AIP_OFFLINE%2019040410.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
