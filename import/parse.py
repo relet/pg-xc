@@ -622,22 +622,34 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['Time (UTC)'] = ptime
             fromamsl = period.get('vertlfrom')
             if fromamsl is not None:
+                fl = None
                 if fromamsl == 'GND':
                     fromamsl = 0
                 elif 'FL' in fromamsl:
-                    fromamsl = int(fromamsl[2:]) * 100
+                    logger.debug("CHECK read FL")
+                    fl = int(fromamsl[2:])
+                    fromamsl = fl * 100
                 elif 'MSL' in fromamsl:
                     fromamsl = int(fromamsl[:-4])
+                if fl:
+                    feature['properties']['from (fl)']=fl
+                    logger.debug("CHECK used FL")
                 feature['properties']['from (ft amsl)']=int(fromamsl)
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
             toamsl = period.get('vertlto')
             if toamsl is not None:
+                fl = None
                 if toamsl == 'UNL':
                     toamsl = 99999
                 elif 'FL' in toamsl:
-                    toamsl = int(toamsl[2:]) * 100
+                    logger.debug("CHECK read FL")
+                    fl = int(toamsl[2:])
+                    toamsl = fl * 100
                 elif 'MSL' in toamsl:
                     toamsl = int(toamsl[:-4])
+                if fl:
+                    feature['properties']['to (fl)']=fl
+                    logger.debug("CHECK used FL")
                 feature['properties']['to (ft amsl)']=int(toamsl)
                 feature['properties']['to (m amsl)'] = ft2m(toamsl)
                 logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
@@ -658,11 +670,14 @@ for filename in os.listdir("./sources/txt"):
             if rmk is not None:
                 v = 14999 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
             if fl is not None:
+                logger.debug("CHECK read FL")
                 v = int(fl) * 100
 
             if flto is not None:
+                logger.debug("CHECK read FL")
                 toamsl   = int(flto) * 100
                 fromamsl = v or (int(flfrom) * 100)
+                fl = fl or flfrom
             elif v is not None:
                 if lastv is None:
                     toamsl = v
@@ -683,6 +698,9 @@ for filename in os.listdir("./sources/txt"):
                         logger.warn("skipping.")
                         return
                     logger.warn("ok.")
+                if flto is not None:
+                    logger.debug("CHECK used FL")
+                    feature['properties']['to (fl)']=flto
                 feature['properties']['to (ft amsl)']=toamsl
                 feature['properties']['to (m amsl)'] = ft2m(toamsl)
             if fromamsl is not None:
@@ -693,6 +711,9 @@ for filename in os.listdir("./sources/txt"):
                         logger.warn("skipping.")
                         return
                     logger.warn("ok.")
+                if fl is not None:
+                    logger.debug("CHECK used FL")
+                    feature['properties']['from (fl)']=fl
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
@@ -870,13 +891,15 @@ airm = open("result/luftrom.m.txt","w","utf-8")
 for feature in collection:
     properties = feature['properties']
     geom       = feature['geometry']
-    class_ = properties.get('class')
-    source = properties.get('source_href')
-    name   = properties.get('name')
-    from_  = int(properties.get('from (ft amsl)'))
-    to_    = int(properties.get('to (ft amsl)'))
-    from_m = int(properties.get('from (m amsl)'))
-    to_m   = int(properties.get('to (m amsl)'))
+    class_  = properties.get('class')
+    source  = properties.get('source_href')
+    name    = properties.get('name')
+    from_fl = int(properties.get('from (fl)',0))
+    from_   = int(properties.get('from (ft amsl)'))
+    to_     = int(properties.get('to (ft amsl)'))
+    to_fl   = int(properties.get('to (fl)',0))
+    from_m  = int(properties.get('from (m amsl)'))
+    to_m    = int(properties.get('to (m amsl)'))
 
     if from_m > 3500 and not "CTA" in name:
         continue
@@ -908,10 +931,21 @@ for feature in collection:
     for air in (airft, airm):
         air.write("AC %s\n" % class_)
         air.write("AN %s\n" % name)
-    airft.write("AL %s ft\n" % from_)
-    airft.write("AH %s ft\n" % to_)
-    airm.write("AL %s MSL\n" % from_m)
-    airm.write("AH %s MSL\n" % to_m)
+
+    # use FL if provided, otherwise values in M or ft
+    if from_fl:
+        airft.write("AL %s FL\n" % from_fl)
+        airm.write("AL %s FL\n" % from_fl)
+    else:
+        airft.write("AL %s ft\n" % from_)
+        airm.write("AL %s MSL\n" % from_m)
+    if to_fl:
+        airft.write("AH %s FL\n" % to_fl)
+        airm.write("AH %s FL\n" % to_fl)
+    else:
+        airft.write("AH %s ft\n" % to_)
+        airm.write("AH %s MSL\n" % to_m)
+
     for air in (airft, airm):
         for point in geom:
             air.write("DP %s\n" % c2air(point))
