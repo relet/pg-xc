@@ -53,7 +53,7 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl_td  = re.compile(u"(?:(?:(?:FL\s?)?(?P<flfrom>\d+))|(?:(?P<ftamsl>\d+) ?FT)) [–-] FL\s?(?P<flto>\d+).*")
 re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
-re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (AMSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
 re_period = re.compile("Period: (?P<pfrom>.*)-(?P<pto>.*) Time: (?P<time>.*) UTC.*Vertical limit: (?P<vertlfrom>(GND|.* MSL|FL.*))-(?P<vertlto>(UNL|.* MSL|FL.*))")
