@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import geojson
@@ -22,7 +22,7 @@ data1 = geojson.load(open(files[0],"r"))
 data2 = geojson.load(open(files[1],"r"))
 
 def normalize(s):
-    return unicode(s).strip().lower().replace(u'å','a').replace(u'ø','o').replace(u'æ','a').replace(' ','-').replace('/','-').replace(',','-').replace('--','-')
+    return str(s).strip().lower().replace(u'å','a').replace(u'ø','o').replace(u'æ','a').replace(' ','-').replace('/','-').replace(',','-').replace('--','-')
 
 def format_area(f):
     return "%.6f" % f

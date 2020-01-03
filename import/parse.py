@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # FIXME: Swedish files list all relevant airspace for each airport, ignore duplicates
@@ -63,7 +63,7 @@ re_period3 = re.compile("(?P<pfrom>\d\d "+RE_MONTH+" 2\d\d\d) - (?P<pto>\d\d "+R
 
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
-                           for mult in reversed(xrange(3,8))]
+                           for mult in reversed(range(3,8))]
 
 
 CIRCLE_APPROX_POINTS = 32
@@ -130,7 +130,7 @@ def gen_circle(n, e, rad, convert=True):
     lon     = lon * DEG2RAD # deg -> rad
     lat     = lat * DEG2RAD # deg -> rad
     d      = rad/RAD_EARTH # angular distance
-    for i in xrange(0,CIRCLE_APPROX_POINTS):
+    for i in range(0,CIRCLE_APPROX_POINTS):
         brng = i * PI2 / CIRCLE_APPROX_POINTS # bearing (rad)
         lat2 = math.asin(math.sin(lat) * math.cos(d) +
                             math.cos(lat) * math.sin(d) * math.cos(brng))
@@ -163,7 +163,7 @@ def gen_sector(n, e, secfrom, secto, radfrom, radto):
     dto     = radto/RAD_EARTH # angular distance
     if radfrom == 0:
         isector = [(n,e)]
-    for i in xrange(0,CIRCLE_APPROX_POINTS+1): # bearings are inclusive
+    for i in range(0,CIRCLE_APPROX_POINTS+1): # bearings are inclusive
         brng = secfrom + i * secdiff / CIRCLE_APPROX_POINTS # bearing (rad)
         if radfrom > 0:
             d = dfrom
@@ -226,7 +226,7 @@ def fill_along(from_, to_, border):
     minto   = 99999
     fromindex = None
     toindex = None
-    for i in xrange(len(border)):
+    for i in range(len(border)):
         lon,lat = border[i]
         d = abs(lon-llf[0])+abs(lat-llf[1])
         if d < minfrom:
@@ -264,7 +264,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
 
     feature['properties']['source_href']=source
     feature['geometry'] = obj
-    aipname = wstrip(unicode(aipname))
+    aipname = wstrip(str(aipname))
     for ignore in ['ACC','ADS','AOR','FAB','FIR']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
@@ -376,7 +376,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
 
 
 for filename in os.listdir("./sources/txt"):
-    source = urllib.unquote(filename.split(".txt")[0])
+    source = urllib.parse.unquote(filename.split(".txt")[0])
     if ".swp" in filename: 
         continue
     logger.info("Reading %s", "./sources/txt/"+filename)
@@ -766,7 +766,7 @@ for filename in os.listdir("./sources/txt"):
         if not line.strip():
             if column_parsing and table:
                 # parse rows first, then cols
-                for col in xrange(0,len(table[0])):
+                for col in range(0,len(table[0])):
                     for row in table:
                         if not len(row)>col:
                             logger.debug("ERROR not in table format: row=%s, col=%s", row, col)
@@ -778,7 +778,7 @@ for filename in os.listdir("./sources/txt"):
         headers = None
         if column_parsing and not header_cont:
             row = []
-            for i in xrange(0,len(column_parsing)-1):
+            for i in range(0,len(column_parsing)-1):
                 lcut = line[column_parsing[i]:column_parsing[i+1]].strip()
                 #logger.debug("Cutting %i to %i as %s", column_parsing[i], column_parsing[i+1], lcut)
                 row.append(lcut)
@@ -1013,7 +1013,7 @@ for feature in collection:
 
 result = FeatureCollection(fc)
 if len(sys.argv)>1:
-    print 'http://geojson.io/#data=data:application/json,'+urllib.quote(str(result))
+    print('http://geojson.io/#data=data:application/json,'+urllib.quote(str(result)))
 open("result/luftrom.geojson","w","utf-8").write(str(result))
 
 # OpenAIP output
