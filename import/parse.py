@@ -421,6 +421,7 @@ for filename in os.listdir("./sources/txt"):
     lastv = None
     finalcoord = False
     coords_wrap = ""
+    skipsalen = False
 
     feature = {"properties":{}}
     obj = []
@@ -436,6 +437,7 @@ for filename in os.listdir("./sources/txt"):
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
         global border, re_coord3, country, amc_areas
+        global skipsalen
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -478,11 +480,13 @@ for filename in os.listdir("./sources/txt"):
         # temporary workaround KRAMFORS
         if aipname and ("KRAMFORS" in aipname) and ("within" in line):
             return
+        if aipname and ("SÄLEN" in aipname) and ("Sector" in line):
+            skipsalen = True
 
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
         coords3 = re_coord3.findall(line)
-        if coords or coords2 or coords3:
+        if (coords or coords2 or coords3) and not skipsalen:
             logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or 1, line)
             if line.strip()[-1] == "N":
                 coords_wrap += line.strip() + " "
@@ -756,6 +760,7 @@ for filename in os.listdir("./sources/txt"):
     table = []
     column_parsing = []
     header_cont = False
+    skipsalen = False
     for line in data:
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
