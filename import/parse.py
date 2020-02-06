@@ -626,7 +626,7 @@ for filename in os.listdir("./sources/txt"):
                 if fromamsl == 'GND':
                     fromamsl = 0
                 elif 'FL' in fromamsl:
-                    logger.debug("CHECK read FL")
+                    logger.debug("CHECK 1 read FL")
                     fl = int(fromamsl[2:])
                     fromamsl = fl * 100
                 elif 'MSL' in fromamsl:
@@ -642,11 +642,12 @@ for filename in os.listdir("./sources/txt"):
                 if toamsl == 'UNL':
                     toamsl = 99999
                 elif 'FL' in toamsl:
-                    logger.debug("CHECK read FL")
+                    logger.debug("CHECK 2 read FL from ", toamsl)
                     fl = int(toamsl[2:])
                     toamsl = fl * 100
                 elif 'MSL' in toamsl:
                     toamsl = int(toamsl[:-4])
+                logger.debug("CHECK 3 read FL as ", fl)
                 if fl:
                     feature['properties']['to (fl)']=fl
                     logger.debug("CHECK used FL")
@@ -670,17 +671,19 @@ for filename in os.listdir("./sources/txt"):
             if rmk is not None:
                 v = 14999 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
             if fl is not None:
-                logger.debug("CHECK read FL")
+                logger.debug("CHECK 4 read FL")
                 v = int(fl) * 100
 
             if flto is not None:
-                logger.debug("CHECK read FL")
+                logger.debug("CHECK 5 read FL")
                 toamsl   = int(flto) * 100
                 fromamsl = v or (int(flfrom) * 100)
                 fl = fl or flfrom
             elif v is not None:
                 if lastv is None:
                     toamsl = v
+                    if fl is not None:
+                        flto = fl
                 else:
                     fromamsl = v
             else:
@@ -887,6 +890,7 @@ collection.sort(key=lambda f:f['area'], reverse=True)
 logger.info("Converting to OpenAIR")
 airft = open("result/luftrom.ft.txt","w","utf-8")
 airm = open("result/luftrom.m.txt","w","utf-8")
+airfl = open("result/luftrom.fl.txt","w","utf-8")
 
 for feature in collection:
     properties = feature['properties']
@@ -928,31 +932,35 @@ for feature in collection:
     }
     class_ = translate.get(class_,"Q")
 
-    for air in (airft, airm):
+    for air in (airft, airm, airfl):
         air.write("AC %s\n" % class_)
         air.write("AN %s\n" % name)
 
     # use FL if provided, otherwise values in M or ft
     if from_fl:
         airft.write("AL %s FL\n" % from_fl)
-        airm.write("AL %s FL\n" % from_fl)
+        airfl.write("AL %s FL\n" % from_fl)
+        airm.write("AL %s MSL\n" % from_m)
     else:
         airft.write("AL %s ft\n" % from_)
+        airfl.write("AL %s MSL\n" % from_m)
         airm.write("AL %s MSL\n" % from_m)
     if to_fl:
         airft.write("AH %s FL\n" % to_fl)
-        airm.write("AH %s FL\n" % to_fl)
+        airfl.write("AH %s FL\n" % to_fl)
+        airm.write("AH %s MSL\n" % to_m)
     else:
         airft.write("AH %s ft\n" % to_)
+        airfl.write("AH %s MSL\n" % to_m)
         airm.write("AH %s MSL\n" % to_m)
 
-    for air in (airft, airm):
+    for air in (airft, airm, airfl):
         for point in geom:
             air.write("DP %s\n" % c2air(point))
         air.write("* Source: %s\n" % source)
         air.write("*\n*\n")
 
-for air in (airft, airm):
+for air in (airft, airm, airfl):
     air.close()
 
 
