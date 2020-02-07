@@ -5,6 +5,7 @@
 
 
 from codecs import open
+import copy
 from geojson import Feature, FeatureCollection, Polygon, load
 import json
 import math
@@ -21,10 +22,11 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
+re_name5  = re.compile("^(?P<name>Sector .*)$")
 re_td  = re.compile("^(?P<name>TRIDENT \d+)$")
 re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
 
@@ -285,7 +287,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
       or 'EUCBA' in aipname or 'RPAS' in aipname:
         feature['properties']['class']='R'
     elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname \
-      or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname:
+      or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname \
+      or 'Sector' in aipname:
         feature['properties']['class']='C'
     elif '5_5' in source or "Hareid" in aipname:
         if "Nidaros" in aipname:
@@ -421,7 +424,7 @@ for filename in os.listdir("./sources/txt"):
     lastv = None
     finalcoord = False
     coords_wrap = ""
-    skipsalen = False
+    salen = []
 
     feature = {"properties":{}}
     obj = []
@@ -437,7 +440,7 @@ for filename in os.listdir("./sources/txt"):
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
         global border, re_coord3, country, amc_areas
-        global skipsalen
+        global salen
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -480,13 +483,17 @@ for filename in os.listdir("./sources/txt"):
         # temporary workaround KRAMFORS
         if aipname and ("KRAMFORS" in aipname) and ("within" in line):
             return
+        # workaround SÄLEN sectors
         if aipname and ("SÄLEN" in aipname) and ("Sector" in line):
-            skipsalen = True
+            logger.debug("TEST: Breaking up SÄLEN.")
+            salen.append((aipname, obj))
+            feature, obj =  {"properties":{}}, []
+            aipname = "SÄLEN CTR "+line
 
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
         coords3 = re_coord3.findall(line)
-        if (coords or coords2 or coords3) and not skipsalen:
+        if (coords or coords2 or coords3):
             logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or 1, line)
             if line.strip()[-1] == "N":
                 coords_wrap += line.strip() + " "
@@ -726,11 +733,18 @@ for filename in os.listdir("./sources/txt"):
                 lastv = None
                 if ((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN':
                     logger.debug("Finalizing poly: Vertl complete.")
+                    if aipname and ("SÄLEN" in aipname) and len(salen)>0:
+                        for x in salen:
+                            aipname_,  obj_ = x
+                            features_ = copy.deepcopy(features)
+                            logger.debug("Finalizing SÄLEN: " + aipname_)
+                            finalize(feature, features_, obj_, source, aipname_, cta_aip, restrict_aip, sup_aip, tia_aip)
+                        salen = []
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
-        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or re_miscnames.search(line) or re_td.search(line)
+        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or re_miscnames.search(line) or re_td.search(line) or re_name5.search(line)
         if name:
             name=name.groupdict()
 
@@ -760,7 +774,6 @@ for filename in os.listdir("./sources/txt"):
     table = []
     column_parsing = []
     header_cont = False
-    skipsalen = False
     for line in data:
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
@@ -943,16 +956,16 @@ for feature in collection:
 
     # use FL if provided, otherwise values in M or ft
     if from_fl:
-        airft.write("AL %s FL\n" % from_fl)
-        airfl.write("AL %s FL\n" % from_fl)
+        airft.write("AL %s ft\n" % from_)
+        airfl.write("AL FL%s\n" % from_fl)
         airm.write("AL %s MSL\n" % from_m)
     else:
         airft.write("AL %s ft\n" % from_)
         airfl.write("AL %s MSL\n" % from_m)
         airm.write("AL %s MSL\n" % from_m)
     if to_fl:
-        airft.write("AH %s FL\n" % to_fl)
-        airfl.write("AH %s FL\n" % to_fl)
+        airft.write("AH %s ft\n" % to_)
+        airfl.write("AH FL%s\n" % to_fl)
         airm.write("AH %s MSL\n" % to_m)
     else:
         airft.write("AH %s ft\n" % to_)
