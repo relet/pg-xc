@@ -58,9 +58,10 @@ re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
 re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
+# temporary airspace (occured once during Bergen cycle race) 
+RE_MONTH = "(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 re_period = re.compile("Period: (?P<pfrom>.*)-(?P<pto>.*) Time: (?P<time>.*) UTC.*Vertical limit: (?P<vertlfrom>(GND|.* MSL|FL.*))-(?P<vertlto>(UNL|.* MSL|FL.*))")
 re_period2 = re.compile("Daglig mellom (?P<time>.*?) UTC")
-RE_MONTH = "(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 re_period3 = re.compile("(?P<pfrom>\d\d "+RE_MONTH+" 2\d\d\d) - (?P<pto>\d\d "+RE_MONTH+" 2\d\d\d)")
 
 # COLUMN PARSING:
@@ -207,13 +208,15 @@ def merge_poly(p1, p2):
       sys.exit(1)
       return [ll2c(ll) for part in union for ll in part.exterior.coords]
 
-
+# define polygons for the country borders
 norway_fc = load(open("fastland.geojson","r"))
 norway = norway_fc.features[0].geometry.coordinates[0]
 logger.debug("Norway has %i points.", len(norway))
+
 sweden_fc = load(open("fastland-sweden.geojson","r"))
 sweden = sweden_fc.features[0].geometry.coordinates[0]
 logger.debug("Sweden has %i points.", len(sweden))
+
 borders = {
         'norway': norway,
         'sweden': sweden
@@ -241,24 +244,20 @@ def fill_along(from_, to_, border):
     blen   = abs(toindex-fromindex)
     revlen = len(border)-blen
     logger.debug("Filling from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
-    # FIXME:correctly handle clockwise/counterclockwise etc.
-    # if revlen < blen:
-    #     if toindex < fromindex:
-    #         return border[fromindex:] + border[:toindex+1]
-    #     else:
-    #         return border[fromindex::-1] + border[:toindex-1:-1]
+    # FIXME:correctly handle clockwise/counterclockwise/southwards/northwards etc.
+    # currently we just select whichever path is shortest
     if toindex < fromindex:
         return border[fromindex:toindex+1:-1]
     else:
         return border[fromindex:toindex+1]
 
-collection = []
-completed = {}
-names = {} 
-
 def wstrip(s):
     """Remove double whitespaces, and strip"""
     return re.sub('\s+',' ',s.strip())
+
+collection = []
+completed = {}
+names = {} 
 
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip):
     """Complete and sanity check a feature definition"""
@@ -301,7 +300,6 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         logger.debug("DUPLICATE NAME: %s", aipname)
 
     if len(obj)>100:
-        #TODO: reduce polygon count for older devices
         logger.debug("COMPLEX POLYGON %s with %i points", feature['properties'].get('name'), len(obj))
         obj=simplify_poly(obj, 100)
         feature['geometry'] = obj
@@ -336,6 +334,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         if class_ is None:
             logger.error("Feature without class (boo): #%i (%s)", index, source)
             sys.exit(1)
+        # SPECIAL CASE NOTAM reserved ENR in Oslo area
         if "EN R" in aipname and ("Romerike" in aipname or ("Oslo" in aipname and not "102" in aipname)):
           feature['properties']['notam_only'] = 'true'
           feature['properties']['from (ft amsl)'] = '0'
@@ -361,6 +360,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
                 logger.error("Feature without upper limit: #%i (%s)", index, source)
                 sys.exit(1)
         if int(from_) >= int(to_):
+            # SPECIAL CASE NOTAM reserved ENR in Oslo area
             if "en_sup_a_2018_015_en" in source or "Romerike" in aipname or "Oslo" in aipname:
                 feature['properties']['from (ft amsl)']=to_
                 feature['properties']['to (ft amsl)']=from_
@@ -369,7 +369,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
                 sys.exit(1)
     elif len(obj)>0:
         logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
-        #sys.exit(1)
+
     names[aipname]=True
     logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'), 
                                                                      len(obj), 
@@ -424,7 +424,7 @@ for filename in os.listdir("./sources/txt"):
     lastv = None
     finalcoord = False
     coords_wrap = ""
-    salen = []
+    sectors = []
 
     feature = {"properties":{}}
     obj = []
@@ -436,11 +436,11 @@ for filename in os.listdir("./sources/txt"):
         """Parse a line (or half line) of converted pdftotext"""
         line = line.strip()
         logger.debug("LINE '%s'", line)
-        # TODO: make this a proper method
+
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
         global border, re_coord3, country, amc_areas
-        global salen
+        global sectors
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -480,22 +480,24 @@ for filename in os.listdir("./sources/txt"):
             feature['properties']['class']=class_.get('class')
             return
 
-        # temporary workaround KRAMFORS
+        # SPECIAL CASE temporary workaround KRAMFORS
         if aipname and ("KRAMFORS" in aipname) and ("within" in line):
             return
-        # workaround SÄLEN/SAAB CTR sectors
+        # SPECIAL CASE workaround SÄLEN/SAAB CTR sectors
         if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and ("Sector" in line):
             logger.debug("TEST: Breaking up SÄLEN/SAAB, aipname=."+aipname)
-            salen.append((aipname, obj))
+            sectors.append((aipname, obj))
             feature, obj =  {"properties":{}}, []
             if "SÄLEN" in aipname:
                 aipname = "SÄLEN CTR "+line
             else:
                 aipname = "SAAB CTR "+line
 
+        # IDENTIFY coordinates
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
         coords3 = re_coord3.findall(line)
+
         if (coords or coords2 or coords3):
             logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or 1, line)
             if line.strip()[-1] == "N":
@@ -616,8 +618,9 @@ for filename in os.listdir("./sources/txt"):
 
             return
 
-        period = re_period3.search(line) or re_period2.search(line) or \
-                 re_period.search(line)
+        # IDENTIFY temporary restrictions
+        period = re_period3.search(line) or re_period2.search(line) or re_period.search(line)
+
         if period:
             period = period.groupdict()
             logger.debug("Found period in line: %s", period)
@@ -670,7 +673,10 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
             return
 
-        vertl = (trident and (re_vertl_td.search(line) or re_vertl_td2.search(line))) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+        # IDENTIFY altitude limits
+        vertl = (trident and (re_vertl_td.search(line) or re_vertl_td2.search(line))) or re_vertl.search(line) or \
+                 re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+
         if vertl:
             vertl = vertl.groupdict()
             logger.debug("Found vertl in line: %s", vertl)
@@ -736,20 +742,23 @@ for filename in os.listdir("./sources/txt"):
                 lastv = None
                 if ((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN':
                     logger.debug("Finalizing poly: Vertl complete.")
-                    if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(salen)>0:
-                        for x in salen[1:]:
+                    if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
+                        for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
                             aipname_,  obj_ = x
-                            logger.debug("Restoring "+aipname_+" "+str(len(salen)))
+                            logger.debug("Restoring "+aipname_+" "+str(len(sectors)))
                             feature_ = copy.deepcopy(feature)
                             logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
                             finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, sup_aip, tia_aip)
-                        salen = []
+                        sectors = []
                         logger.debug("Finalizing last poly as ."+aipname)
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
-        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or re_miscnames.search(line) or re_td.search(line) or re_name5.search(line)
+        # IDENTIFY airspace naming
+        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
+               re_miscnames.search(line) or re_td.search(line) or re_name5.search(line)
+
         if name:
             name=name.groupdict()
 
@@ -765,6 +774,8 @@ for filename in os.listdir("./sources/txt"):
             aipname = name
             logger.debug("Found name '%s' in line: %s", aipname, line)
             return
+
+        # FIXME: document this sectiono
         if airsport_aip and line.strip():
             logger.debug("Unhandled line in airsport_aip: %s", line)
             if wstrip(line)=="1":
