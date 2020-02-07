@@ -44,8 +44,8 @@ RE_SECTOR = u'('+RE_NE + u' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<se
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
 RE_CIRCLE = 'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE)
-re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d+)E|"+RE_CIRCLE+"|(?P<circle>A circle)|(?:radius)")
+re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE)
+re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE+"|(?P<circle>A circle)|(?:radius)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
 re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
 
@@ -499,7 +499,9 @@ for filename in os.listdir("./sources/txt"):
         coords3 = re_coord3.findall(line)
 
         if (coords or coords2 or coords3):
+
             logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or 1, line)
+            logger.debug(printj(coords3))
             if line.strip()[-1] == "N":
                 coords_wrap += line.strip() + " "
                 logger.debug("Continuing line after N coordinate: %s", coords_wrap)
