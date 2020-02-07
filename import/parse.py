@@ -483,12 +483,15 @@ for filename in os.listdir("./sources/txt"):
         # temporary workaround KRAMFORS
         if aipname and ("KRAMFORS" in aipname) and ("within" in line):
             return
-        # workaround SÄLEN sectors
-        if aipname and ("SÄLEN" in aipname) and ("Sector" in line):
-            logger.debug("TEST: Breaking up SÄLEN.")
+        # workaround SÄLEN/SAAB CTR sectors
+        if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and ("Sector" in line):
+            logger.debug("TEST: Breaking up SÄLEN/SAAB, aipname=."+aipname)
             salen.append((aipname, obj))
             feature, obj =  {"properties":{}}, []
-            aipname = "SÄLEN CTR "+line
+            if "SÄLEN" in aipname:
+                aipname = "SÄLEN CTR "+line
+            else:
+                aipname = "SAAB CTR "+line
 
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
@@ -733,13 +736,15 @@ for filename in os.listdir("./sources/txt"):
                 lastv = None
                 if ((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN':
                     logger.debug("Finalizing poly: Vertl complete.")
-                    if aipname and ("SÄLEN" in aipname) and len(salen)>0:
-                        for x in salen:
+                    if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(salen)>0:
+                        for x in salen[1:]:
                             aipname_,  obj_ = x
-                            features_ = copy.deepcopy(features)
-                            logger.debug("Finalizing SÄLEN: " + aipname_)
-                            finalize(feature, features_, obj_, source, aipname_, cta_aip, restrict_aip, sup_aip, tia_aip)
+                            logger.debug("Restoring "+aipname_+" "+str(len(salen)))
+                            feature_ = copy.deepcopy(feature)
+                            logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
+                            finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, sup_aip, tia_aip)
                         salen = []
+                        logger.debug("Finalizing last poly as ."+aipname)
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
@@ -752,8 +757,12 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
+            name=name.get('name')
 
-            aipname = name.get('name')
+            if (name == "Sector a") or (name == "Sector b") or (aipname and ("Sector" in aipname) and (("SÄLEN" in aipname) or ("SAAB" in aipname))):
+                return
+
+            aipname = name
             logger.debug("Found name '%s' in line: %s", aipname, line)
             return
         if airsport_aip and line.strip():
