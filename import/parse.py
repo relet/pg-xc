@@ -275,7 +275,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         recount = len([f for f in features if aipname in f['properties']['name']])
         if recount>0:
             feature['properties']['name']=aipname + " " + str(recount+1)
-    elif not restrict_aip and not airsport_aip and not "Hareid" in aipname and len(features)>0:
+    elif not restrict_aip and not airsport_aip and not "Hareid" in aipname and not "Sector" in aipname and len(features)>0:
         feature['properties']['name']=aipname + " " + str(len(features)+1)
     if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
@@ -978,20 +978,20 @@ for feature in collection:
 
     # use FL if provided, otherwise values in M or ft
     if from_fl:
-        airft.write("AL %s ft\n" % from_)
+        airft.write("AL %sft AMSL\n" % from_)
         airfl.write("AL FL%s\n" % from_fl)
         airm.write("AL %s MSL\n" % from_m)
     else:
-        airft.write("AL %s ft\n" % from_)
-        airfl.write("AL %s MSL\n" % from_m)
+        airft.write("AL %sft AMSL\n" % from_)
+        airfl.write("AL %sft AMSL\n" % from_)
         airm.write("AL %s MSL\n" % from_m)
     if to_fl:
-        airft.write("AH %s ft\n" % to_)
+        airft.write("AH %sft AMSL\n" % to_)
         airfl.write("AH FL%s\n" % to_fl)
         airm.write("AH %s MSL\n" % to_m)
     else:
-        airft.write("AH %s ft\n" % to_)
-        airfl.write("AH %s MSL\n" % to_m)
+        airft.write("AH %sft AMSL\n" % to_)
+        airfl.write("AH %sft AMSL\n" % to_)
         airm.write("AH %s MSL\n" % to_m)
 
     for air in (airft, airm, airfl):
