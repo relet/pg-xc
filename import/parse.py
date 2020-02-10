@@ -280,10 +280,11 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
         if recount>0:
             logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + " " + str(recount+1))                    
             feature['properties']['name']=aipname + " " + str(recount+1)
-    elif not restrict_aip and not airsport_aip and not "Hareid" in aipname and not "Sector" in aipname and \
-         not "ESTRA" in aipname and not "EUCBA" in aipname and not "END" in aipname and len(features)>0 and len(obj)>0:
-        logger.debug("MULTIFEAT renamed " + aipname + " INTO " + aipname + " " + str(len(features)+1))                    
-        feature['properties']['name']=aipname + " " + str(len(features)+1)
+    # FIXME THIS SEEMS COMPLETELY OBSOLETE, CONFIRM?
+    # elif not restrict_aip and not airsport_aip and not "Hareid" in aipname and not "Sector" in aipname and \
+    #     not "ESTRA" in aipname and not "EUCBA" in aipname and not "END" in aipname and len(features)>0 and len(obj)>0:
+    #    logger.debug("MULTIFEAT renamed " + aipname + " INTO " + aipname + " " + str(len(features)+1))                    
+    #    feature['properties']['name']=aipname + " " + str(len(features)+1)
     if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
     elif 'CTR' in aipname or 'TRIDENT' in aipname:
