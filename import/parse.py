@@ -833,7 +833,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("line=%s.", line)
             vcuts = []
             if cold_resp:
-                vcuts = [0, 44, 60, 110]
+                vcuts = [0, 44, 65, 110]
             else:
                 for header in headers[0]:
                     if header:

@@ -888,27 +888,6 @@ DP 58:33:13 N  004:50:27 E
 * Source: https://ais.avinor.no/no/AIP/View/73/aip/EN_ENR_2_1_en.pdf
 *
 *
-AC R
-AN EN D CR20Z CR MAIN FBZ
-AL 335 MSL
-AH 914 MSL
-DP 69:25:55 N  018:16:55 E
-DP 68:47:25 N  016:45:06 E
-DP 68:41:22 N  016:41:17 E
-DP 68:22:31 N  017:15:27 E
-DP 68:20:28 N  017:28:03 E
-DP 68:24:21 N  018:06:04 E
-DP 68:25:13 N  019:33:15 E
-DP 68:56:41 N  020:15:48 E
-DP 69:03:21 N  020:25:00 E
-DP 69:21:58 N  020:49:55 E
-DP 69:27:56 N  020:43:51 E
-DP 69:33:55 N  019:59:18 E
-DP 69:33:09 N  019:24:38 E
-DP 69:25:55 N  018:16:55 E
-* Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2020_001_en.pdf
-*
-*
 AC C
 AN SUECIA CTA
 AL 3810 MSL
