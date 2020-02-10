@@ -27,7 +27,7 @@ re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
 re_name5  = re.compile("^(?P<name>Sector .*)$")
-re_td  = re.compile("^(?P<name>TRIDENT \d+)$")
+re_name_cr  = re.compile("^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
 re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
 
 # Lines containing these are usually recognized as airspace class
@@ -55,7 +55,7 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl_td  = re.compile(u"(?:(?:(?:FL\s?)?(?P<flfrom>\d+))|(?:(?P<ftamsl>\d+) ?FT)) [–-] FL\s?(?P<flto>\d+).*")
 re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
-re_vertl2 = re.compile("((?P<ftamsl>\d+) [Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL (?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+re_vertl2 = re.compile("((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
 # temporary airspace (occured once during Bergen cycle race) 
@@ -401,7 +401,7 @@ for filename in os.listdir("./sources/txt"):
     military_aip = "ENR_5_2" in filename
     airsport_aip = "ENR_5_5" in filename
     sup_aip      = "en_sup" in filename
-    trident      = "en_sup_a_2018_015_en" in filename
+    cold_resp    = "en_sup_a_2020" in filename
 
     # TODO: merge the cases
     es_enr_2_1 = "ES_ENR_2_1" in filename
@@ -426,7 +426,6 @@ for filename in os.listdir("./sources/txt"):
     aipname = None
     features = []
     ats_chapter = False
-    amc_areas = False
     alonging = False
     lastn, laste = None, None
     lastv = None
@@ -448,8 +447,8 @@ for filename in os.listdir("./sources/txt"):
 
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
-        global border, re_coord3, country, amc_areas
-        global sectors, name_cont
+        global border, re_coord3, country 
+        global sectors, name_cont, cold_resp
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -460,13 +459,6 @@ for filename in os.listdir("./sources/txt"):
             coords_wrap = ""
             lastv = None
             return
-
-        if trident:
-            if not amc_areas:
-                if "AMC Areas in Norwegian airspace" in line:
-                    logger.debug("Found AMC Areas line")
-                    amc_areas=True
-                return
 
         if ad_aip:
             if not ats_chapter:
@@ -621,8 +613,8 @@ for filename in os.listdir("./sources/txt"):
                         logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if (airsport_aip or sup_aip or military_aip or trident) and finalcoord:
-                        if feature['properties'].get('from (ft amsl)') is not None or trident:
+                    if (airsport_aip or sup_aip or military_aip or cold_resp) and finalcoord:
+                        if feature['properties'].get('from (ft amsl)') is not None:
                             logger.debug("Finalizing: finalcoord.")
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                             lastv = None
@@ -685,8 +677,7 @@ for filename in os.listdir("./sources/txt"):
             return
 
         # IDENTIFY altitude limits
-        vertl = (trident and (re_vertl_td.search(line) or re_vertl_td2.search(line))) or re_vertl.search(line) or \
-                 re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+        vertl = re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
 
         if vertl:
             vertl = vertl.groupdict()
@@ -727,11 +718,11 @@ for filename in os.listdir("./sources/txt"):
                 lastv = toamsl
                 currentv = feature['properties'].get('to (ft amsl)')
                 if currentv is not None and currentv != toamsl:
-                    logger.warn("attempt to overwrite vertl_to %s with %s." % (currentv, toamsl))
+                    logger.warning("attempt to overwrite vertl_to %s with %s." % (currentv, toamsl))
                     if currentv > toamsl:
-                        logger.warn("skipping.")
+                        logger.warning("skipping.")
                         return
-                    logger.warn("ok.")
+                    logger.warning("ok.")
                 if flto is not None:
                     logger.debug("CHECK used FL")
                     feature['properties']['to (fl)']=flto
@@ -740,11 +731,11 @@ for filename in os.listdir("./sources/txt"):
             if fromamsl is not None:
                 currentv = feature['properties'].get('from (ft amsl)')
                 if currentv is not None and currentv != fromamsl:
-                    logger.warn("attempt to overwrite vertl_from %s with %s." % (currentv, fromamsl))
+                    logger.warning("attempt to overwrite vertl_from %s with %s." % (currentv, fromamsl))
                     if currentv < fromamsl:
-                        logger.warn("skipping.")
+                        logger.warning("skipping.")
                         return
-                    logger.warn("ok.")
+                    logger.warning("ok.")
                 if fl is not None:
                     logger.debug("CHECK used FL")
                     feature['properties']['from (fl)']=fl
@@ -768,21 +759,24 @@ for filename in os.listdir("./sources/txt"):
 
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
-               re_miscnames.search(line) or re_td.search(line) or re_name5.search(line)
+               re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line)
         if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line
             logger.debug("Continuing name as "+aipname)
-            if line == '' or 'EN D' in aipname:
+            if line == '' or 'EN D' in aipname or cold_resp:
                 name_cont = False
 
         if name:
-            name=name.groupdict()
+            named=name.groupdict()
 
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
-            name=name.get('name')
+            name=named.get('name')
+            if named.get('name_cont'):
+                name += ' '+named.get('name_cont')
+                name_cont=True
 
             if (name == "Sector a") or (name == "Sector b") or (aipname and ("Sector" in aipname) and (("SÄLEN" in aipname) or ("SAAB" in aipname))):
                 return
@@ -814,6 +808,8 @@ for filename in os.listdir("./sources/txt"):
     table = []
     column_parsing = []
     header_cont = False
+    cr_areas = False
+
     for line in data:
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
@@ -824,7 +820,15 @@ for filename in os.listdir("./sources/txt"):
         if country == 'ES' and 'Vinschning av sk' in line:
             logger.debug("Skipping end of document")
             break
-        if not line.strip():
+        if cold_resp: 
+            if '3. AMC and Danger' in line:
+                break
+            if 'Restricted areas established' in line:
+                cr_areas=True
+            elif not cr_areas:
+                continue
+        
+        if not line.strip() or (cold_resp and 'Area Name' in line):
             if column_parsing and table:
                 # parse rows first, then cols
                 for col in range(0,len(table[0])):
@@ -841,11 +845,10 @@ for filename in os.listdir("./sources/txt"):
             row = []
             for i in range(0,len(column_parsing)-1):
                 lcut = line[column_parsing[i]:column_parsing[i+1]].strip()
-                #logger.debug("Cutting %i to %i as %s", column_parsing[i], column_parsing[i+1], lcut)
                 row.append(lcut)
             table.append(row)
             continue
-        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2:
+        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2 or cold_resp:
             if line.strip()=='Vertical limits': # hack around ES_ENR_2_2 malformatting
                 headers = 'Vertical'
                 header_cont = True
@@ -856,6 +859,8 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Parsed header line as %s.", headers)
             logger.debug("line=%s.", line)
             vcuts = []
+            if cold_resp:
+                vcuts = [0]
             for header in headers[0]:
                 if header:
                     vcuts.append(line.index(header))
@@ -870,14 +875,6 @@ for filename in os.listdir("./sources/txt"):
             if "Vertical limits" in line:
                 vcut = line.index("Vertical limits")
                 vend = vcut+16
-            else:
-                parse(line[:vcut],1)
-                parse(line[vcut:vend],2)
-        elif trident:
-            if "Page 2-5" in line: vcut+=3
-            if "Vertical limits" in line and not "non-" in line:
-                vcut = line.index("Vertical limits")-5
-                vend = vcut+32
             else:
                 parse(line[:vcut],1)
                 parse(line[vcut:vend],2)
