@@ -925,6 +925,11 @@ for feature in collection:
     geo_ll=[c2ll(c) for c in geom]
     feature['geometry_ll']=geo_ll
     feature['area']=shgeo.Polygon(geo_ll).area
+    
+    #HACK: decrease area of 'EN R 405 CR MAIN'
+    if feature['properties']['name']=='EN R 405 CR MAIN':
+        logger.debug("COLD RESPONSE ORDER HACK applied")
+        feature['area']=feature['area']-0.1
 
 # Apply filter by index or name
 

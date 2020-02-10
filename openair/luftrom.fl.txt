@@ -1295,6 +1295,24 @@ DP 65:21:21 N  015:31:08 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_2_en.pdf
 *
 *
+AC C
+AN Norway CTA 9
+AL FL95
+AH FL660
+DP 62:00:00 N  005:00:00 E
+DP 61:32:00 N  004:38:00 E
+DP 61:00:00 N  004:30:00 E
+DP 61:00:00 N  005:29:00 E
+DP 60:54:27 N  005:42:29 E
+DP 60:42:58 N  006:00:13 E
+DP 60:48:24 N  006:30:00 E
+DP 61:00:00 N  006:30:00 E
+DP 61:30:00 N  006:20:00 E
+DP 62:00:00 N  006:20:00 E
+DP 62:00:00 N  005:00:00 E
+* Source: https://ais.avinor.no/no/AIP/View/73/aip/EN_ENR_2_1_en.pdf
+*
+*
 AC R
 AN EN R 405 CR MAIN
 AL 0ft AMSL
@@ -1321,24 +1339,6 @@ DP 69:26:57 N  020:00:11 E
 DP 69:26:26 N  019:30:00 E
 DP 69:20:06 N  018:27:37 E
 * Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/en_sup_a_2020_001_en.pdf
-*
-*
-AC C
-AN Norway CTA 9
-AL FL95
-AH FL660
-DP 62:00:00 N  005:00:00 E
-DP 61:32:00 N  004:38:00 E
-DP 61:00:00 N  004:30:00 E
-DP 61:00:00 N  005:29:00 E
-DP 60:54:27 N  005:42:29 E
-DP 60:42:58 N  006:00:13 E
-DP 60:48:24 N  006:30:00 E
-DP 61:00:00 N  006:30:00 E
-DP 61:30:00 N  006:20:00 E
-DP 62:00:00 N  006:20:00 E
-DP 62:00:00 N  005:00:00 E
-* Source: https://ais.avinor.no/no/AIP/View/73/aip/EN_ENR_2_1_en.pdf
 *
 *
 AC R
