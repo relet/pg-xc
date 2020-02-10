@@ -266,6 +266,10 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
     feature['properties']['source_href']=source
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
+    if aipname == 'EN D476':
+        aipname = 'EN D476 R og B 1'
+    if aipname == 'EN D477':
+        aipname = 'EN D477 R og B 2'
     for ignore in ['ACC','ADS','AOR','FAB','FIR']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
@@ -761,11 +765,11 @@ for filename in os.listdir("./sources/txt"):
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
                re_miscnames.search(line) or re_td.search(line) or re_name5.search(line)
-        if name_cont:
+        if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line
             logger.debug("Continuing name as "+aipname)
-        if line == '':
-            name_cont = False
+            if line == '' or 'EN D' in aipname:
+                name_cont = False
 
         if name:
             name=name.groupdict()
@@ -779,6 +783,8 @@ for filename in os.listdir("./sources/txt"):
             if (name == "Sector a") or (name == "Sector b") or (aipname and ("Sector" in aipname) and (("SÄLEN" in aipname) or ("SAAB" in aipname))):
                 return
             if "ES R" in name or "ES D" in name:
+                name_cont=True
+            if "EN D" in name and len(name)<8:
                 name_cont=True
 
             aipname = name
