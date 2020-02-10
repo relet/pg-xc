@@ -425,6 +425,7 @@ for filename in os.listdir("./sources/txt"):
     finalcoord = False
     coords_wrap = ""
     sectors = []
+    name_cont = False
 
     feature = {"properties":{}}
     obj = []
@@ -440,7 +441,7 @@ for filename in os.listdir("./sources/txt"):
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
         global border, re_coord3, country, amc_areas
-        global sectors
+        global sectors, name_cont
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -760,6 +761,11 @@ for filename in os.listdir("./sources/txt"):
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
                re_miscnames.search(line) or re_td.search(line) or re_name5.search(line)
+        if name_cont:
+            aipname = aipname + " " + line
+            logger.debug("Continuing name as "+aipname)
+        if line == '':
+            name_cont = False
 
         if name:
             name=name.groupdict()
@@ -772,6 +778,8 @@ for filename in os.listdir("./sources/txt"):
 
             if (name == "Sector a") or (name == "Sector b") or (aipname and ("Sector" in aipname) and (("SÄLEN" in aipname) or ("SAAB" in aipname))):
                 return
+            if "ES R" in name or "ES D" in name:
+                name_cont=True
 
             aipname = name
             logger.debug("Found name '%s' in line: %s", aipname, line)
