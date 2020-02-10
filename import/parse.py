@@ -343,6 +343,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
             logger.error("Feature without class (boo): #%i (%s)", index, source)
             sys.exit(1)
         # SPECIAL CASE NOTAM reserved ENR in Oslo area
+        if "EN R" in aipname and "Kongsvinger" in aipname:
+          feature['properties']['notam_only'] = 'true'
         if "EN R" in aipname and ("Romerike" in aipname or ("Oslo" in aipname and not "102" in aipname)):
           feature['properties']['notam_only'] = 'true'
           feature['properties']['from (ft amsl)'] = '0'
