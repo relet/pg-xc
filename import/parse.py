@@ -60,9 +60,9 @@ re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
 # temporary airspace (occured once during Bergen cycle race) 
 RE_MONTH = "(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
-re_period = re.compile("Period: (?P<pfrom>.*)-(?P<pto>.*) Time: (?P<time>.*) UTC.*Vertical limit: (?P<vertlfrom>(GND|.* MSL|FL.*))-(?P<vertlto>(UNL|.* MSL|FL.*))")
-re_period2 = re.compile("Daglig mellom (?P<time>.*?) UTC")
-re_period3 = re.compile("(?P<pfrom>\d\d "+RE_MONTH+" 2\d\d\d) - (?P<pto>\d\d "+RE_MONTH+" 2\d\d\d)")
+re_period = re.compile("Active from (?P<pfrom>\d+ "+RE_MONTH+") (?P<ptimefrom>\d+)")
+re_period2 = re.compile("^(?P<pto>\d+ "+RE_MONTH+") (?P<ptimeto>\d+)")
+re_period3 = re.compile("Established for (?P<pfrom>\d+ "+RE_MONTH+") - (?P<pto>\d+ "+RE_MONTH+")")
 
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
@@ -622,9 +622,9 @@ for filename in os.listdir("./sources/txt"):
             return
 
         # IDENTIFY temporary restrictions
-        period = re_period3.search(line) or re_period2.search(line) or re_period.search(line)
+        period = re_period.search(line) or re_period2.search(line) or re_period3.search(line)
 
-        if period:
+        if cold_resp and period:
             period = period.groupdict()
             logger.debug("Found period in line: %s", period)
             feature['properties']['temporary'] = True
@@ -637,43 +637,15 @@ for filename in os.listdir("./sources/txt"):
             if pto is not None:
                 ppto = feature['properties'].get('Date until',[])
                 feature['properties']['Date until'] = ppto + [pto]
-            ptime = period.get('ptime')
-            if ptime is not None:
-                feature['properties']['Time (UTC)'] = ptime
-            fromamsl = period.get('vertlfrom')
-            if fromamsl is not None:
-                fl = None
-                if fromamsl == 'GND':
-                    fromamsl = 0
-                elif 'FL' in fromamsl:
-                    logger.debug("CHECK 1 read FL")
-                    fl = int(fromamsl[2:])
-                    fromamsl = fl * 100
-                elif 'MSL' in fromamsl:
-                    fromamsl = int(fromamsl[:-4])
-                if fl:
-                    feature['properties']['from (fl)']=fl
-                    logger.debug("CHECK used FL")
-                feature['properties']['from (ft amsl)']=int(fromamsl)
-                feature['properties']['from (m amsl)'] = ft2m(fromamsl)
-            toamsl = period.get('vertlto')
-            if toamsl is not None:
-                fl = None
-                if toamsl == 'UNL':
-                    toamsl = 99999
-                elif 'FL' in toamsl:
-                    logger.debug("CHECK 2 read FL from ", toamsl)
-                    fl = int(toamsl[2:])
-                    toamsl = fl * 100
-                elif 'MSL' in toamsl:
-                    toamsl = int(toamsl[:-4])
-                logger.debug("CHECK 3 read FL as ", fl)
-                if fl:
-                    feature['properties']['to (fl)']=fl
-                    logger.debug("CHECK used FL")
-                feature['properties']['to (ft amsl)']=int(toamsl)
-                feature['properties']['to (m amsl)'] = ft2m(toamsl)
-                logger.debug("Set vertl to: %s - %s", fromamsl, toamsl)
+            ptimefrom = period.get('ptimefrom')
+            if ptimefrom is not None:
+                feature['properties']['Time from (UTC)'] = ptimefrom
+            ptimeto = period.get('ptimeto')
+            if ptimeto is not None:
+                feature['properties']['Time to (UTC)'] = ptimeto
+            if pto is not None:
+                logger.debug("Finalizing COLD_RESP polygon with time to")
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
             return
 
         # IDENTIFY altitude limits
@@ -742,8 +714,8 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if ((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN':
-                    logger.debug("Finalizing poly: Vertl complete.")
+                if (((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN') and not cold_resp:
+                    logger.debug("Finalizing poly: Vertl complete. "+str(cold_resp))
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
                             aipname_,  obj_ = x
@@ -773,6 +745,7 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
                 lastv = None
+
             name=named.get('name')
             if named.get('name_cont'):
                 name += ' '+named.get('name_cont')
@@ -860,11 +833,12 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("line=%s.", line)
             vcuts = []
             if cold_resp:
-                vcuts = [0]
-            for header in headers[0]:
-                if header:
-                    vcuts.append(line.index(header))
-            vcuts.append(len(line))
+                vcuts = [0, 44, 60, 110]
+            else:
+                for header in headers[0]:
+                    if header:
+                        vcuts.append(line.index(header))
+                vcuts.append(len(line))
             column_parsing = sorted((column_parsing + vcuts))
             logger.debug("DEBUG: column parsing: %s", vcuts)
             continue
