@@ -69,7 +69,7 @@ rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|
                            for mult in reversed(range(3,8))]
 
 
-CIRCLE_APPROX_POINTS = 32
+CIRCLE_APPROX_POINTS = 64
 RAD_EARTH = 6371000.0
 PI2 = math.pi * 2
 DEG2RAD = PI2 / 360.0
@@ -209,7 +209,7 @@ def merge_poly(p1, p2):
       return [ll2c(ll) for part in union for ll in part.exterior.coords]
 
 # define polygons for the country borders
-norway_fc = load(open("fastland.geojson","r"))
+norway_fc = load(open("norway.geojson","r"))
 norway = norway_fc.features[0].geometry.coordinates[0]
 logger.debug("Norway has %i points.", len(norway))
 
@@ -222,9 +222,9 @@ borders = {
         'sweden': sweden
 }
 
-def fill_along(from_, to_, border):
+def fill_along(from_, to_, border, clockwise=None):
     """Follow a country border or other line"""
-    logger.debug("fill_along %s %s %s (%i)", from_, to_, border[0], len(border))
+    logger.debug("fill_along %s %s %s (%i) %s", from_, to_, border[0], len(border), clockwise and "clockwise")
     llf = c2ll(from_)
     llt = c2ll(to_)
     minfrom = 99999
@@ -243,15 +243,30 @@ def fill_along(from_, to_, border):
             toindex = i
     blen   = abs(toindex-fromindex)
     revlen = len(border)-blen
-    logger.debug("Filling from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
     # FIXME:correctly handle clockwise/counterclockwise/southwards/northwards etc.
     # currently we just select whichever path is shortest
-    if toindex < fromindex:
-        logger.debug("Filling fwd")
-        return border[fromindex:toindex:-1]
+    if clockwise is None:
+        clockwise = (toindex > fromindex) 
+        if blen>revlen:
+            clockwise = not clockwise
+    if clockwise:
+        logger.debug("Filling fwd from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
+        if toindex < fromindex:
+            logger.debug("Filling fwd, wraparound")
+            result = border[fromindex:]+border[:toindex]
+        else:
+            logger.debug("Filling fwd")
+            result = border[fromindex:toindex+1]
     else:
-        logger.debug("Filling bkw")
-        return border[fromindex:toindex+1]
+        logger.debug("Filling bkw from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
+        if toindex > fromindex:
+            logger.debug("Filling bkw, wraparound")
+            result = border[fromindex::-1]+border[:toindex+1:-1]
+        else:
+            logger.debug("Filling bkw")
+            result = border[fromindex+1:toindex:-1]
+    logger.debug("Resulting in a polygon with %i points.", len(result))
+    return result
 
 def wstrip(s):
     """Remove double whitespaces, and strip"""
@@ -579,7 +594,9 @@ for filename in os.listdir("./sources/txt"):
                         arc = gen_circle(n, e, rad, convert=False)
                         to_n = arcdata['n2']
                         to_e = arcdata['e2']
-                        fill = fill_along((n,e),(to_n,to_e), arc)
+                        cw = arcdata['dir']
+                        logger.debug("ARC IS "+cw)
+                        fill = fill_along(obj[-1],(to_n,to_e), arc, (cw=='clockwise'))
                         lastn, laste = None, None
 
                         for apair in fill:
