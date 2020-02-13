@@ -247,8 +247,10 @@ def fill_along(from_, to_, border):
     # FIXME:correctly handle clockwise/counterclockwise/southwards/northwards etc.
     # currently we just select whichever path is shortest
     if toindex < fromindex:
-        return border[fromindex:toindex+1:-1]
+        logger.debug("Filling fwd")
+        return border[fromindex:toindex:-1]
     else:
+        logger.debug("Filling bkw")
         return border[fromindex:toindex+1]
 
 def wstrip(s):
@@ -259,7 +261,7 @@ collection = []
 completed = {}
 names = {} 
 
-def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip):
+def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
     global completed
 
@@ -275,7 +277,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
     feature['properties']['name']=aipname
-    if cta_aip or sup_aip or tia_aip:
+    if cta_aip or aip_sup or tia_aip:
         recount = len([f for f in features if aipname in f['properties']['name']])
         if recount>0:
             logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + " " + str(recount+1))                    
@@ -402,7 +404,8 @@ for filename in os.listdir("./sources/txt"):
     restrict_aip = "ENR_5_1" in filename
     military_aip = "ENR_5_2" in filename
     airsport_aip = "ENR_5_5" in filename
-    sup_aip      = "en_sup" in filename
+    aip_sup      = "en_sup" in filename
+    es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
     cold_resp    = "en_sup_a_2020" in filename
 
     # TODO: merge the cases
@@ -418,7 +421,7 @@ for filename in os.listdir("./sources/txt"):
         country = 'EN'
         border = borders['norway']
         re_coord3 = re_coord3_no
-    if "ES_" in filename:
+    if "ES_" in filename or "aro.lfv.se" in filename:
         country = 'ES'
         border = borders['sweden']
         re_coord3 = re_coord3_se
@@ -615,10 +618,10 @@ for filename in os.listdir("./sources/txt"):
                         logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if (airsport_aip or sup_aip or military_aip or cold_resp) and finalcoord:
+                    if (airsport_aip or aip_sup or military_aip or cold_resp) and finalcoord:
                         if feature['properties'].get('from (ft amsl)') is not None:
                             logger.debug("Finalizing: finalcoord.")
-                            feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
+                            feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                             lastv = None
 
             return
@@ -647,7 +650,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['Time to (UTC)'] = ptimeto
             if pto is not None:
                 logger.debug("Finalizing COLD_RESP polygon with time to")
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
         # IDENTIFY altitude limits
@@ -716,7 +719,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (((cta_aip or airsport_aip or sup_aip or tia_aip) and finalcoord) or country != 'EN') and not cold_resp:
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip) and finalcoord) or country != 'EN') and not cold_resp:
                     logger.debug("Finalizing poly: Vertl complete. "+str(cold_resp))
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
@@ -724,10 +727,10 @@ for filename in os.listdir("./sources/txt"):
                             logger.debug("Restoring "+aipname_+" "+str(len(sectors)))
                             feature_ = copy.deepcopy(feature)
                             logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
-                            finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, sup_aip, tia_aip)
+                            finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip)
                         sectors = []
                         logger.debug("Finalizing last poly as ."+aipname)
-                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
+                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
 
@@ -745,7 +748,7 @@ for filename in os.listdir("./sources/txt"):
 
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 lastv = None
 
             name=named.get('name')
@@ -774,7 +777,7 @@ for filename in os.listdir("./sources/txt"):
             elif wstrip(line) != "2" and airsport_intable:
                 to_amsl = feature['properties'].get('to (ft amsl)')
                 logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 if to_amsl:
                     feature['properties']['to (ft amsl)']=to_amsl
                     feature['properties']['to (m amsl)']=ft2m(to_amsl)
@@ -789,7 +792,7 @@ for filename in os.listdir("./sources/txt"):
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
             column_parsing = []
-        if sup_aip and ("Luftromsklasse" in line):
+        if aip_sup and ("Luftromsklasse" in line):
             logger.debug("Skipping end of SUP")
             break
         if country == 'ES' and 'Vinschning av sk' in line:
@@ -830,12 +833,16 @@ for filename in os.listdir("./sources/txt"):
             for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
                 header_cont = False
+        elif es_aip_sup and not vcuts:
+            headers = True
         if headers:
             logger.debug("Parsed header line as %s.", headers)
             logger.debug("line=%s.", line)
             vcuts = []
             if cold_resp:
                 vcuts = [0, 44, 65, 110]
+            elif es_aip_sup:
+               vcuts = [0, 45, 110]
             else:
                 for header in headers[0]:
                     if header:
@@ -889,7 +896,7 @@ for filename in os.listdir("./sources/txt"):
 
     #if len(obj)>0:
     logger.debug("Finalizing: end of doc.")
-    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, sup_aip, tia_aip)
+    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
     collection.extend(features)
 
 logger.info("%i Features", len(collection))
