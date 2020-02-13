@@ -253,7 +253,7 @@ def fill_along(from_, to_, border, clockwise=None):
         logger.debug("Filling fwd from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
         if toindex < fromindex:
             logger.debug("Filling fwd, wraparound")
-            result = border[fromindex:]+border[:toindex]
+            result = border[fromindex:]+border[:toindex+1]
         else:
             logger.debug("Filling fwd")
             result = border[fromindex:toindex+1]
