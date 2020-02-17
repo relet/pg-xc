@@ -6,9 +6,7 @@
 
 from codecs import open
 from geojson import load
-import copy
-import json
-import math
+from copy import deepcopy
 import os
 import re
 import sys
@@ -554,7 +552,7 @@ for filename in os.listdir("./sources/txt"):
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
                             aipname_,  obj_ = x
                             logger.debug("Restoring "+aipname_+" "+str(len(sectors)))
-                            feature_ = copy.deepcopy(feature)
+                            feature_ = deepcopy(feature)
                             logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
                             finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip)
                         sectors = []
@@ -723,7 +721,6 @@ for filename in os.listdir("./sources/txt"):
         feature['properties']['to (m amsl)'] = ft2m(3500)
         feature['properties']['class'] = 'Luftsport'
 
-    #if len(obj)>0:
     logger.debug("Finalizing: end of doc.")
     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
     collection.extend(features)
