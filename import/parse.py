@@ -18,6 +18,8 @@ import logging
 import shapely.ops      as shops
 import shapely.geometry as shgeo
 
+from targets import geojson, openaip, openair, xcontest
+
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -104,11 +106,6 @@ def ll2c(ll):
     n = "%02d%02d%02d" % (ndeg, nmin, nsec)
     e = "%03d%02d%02d" % (edeg, emin, esec)
     return (n,e)
-
-def c2air(c):
-    """DegMinSec to OpenAIR format (Deg:Min:Sec)"""
-    n,e = c
-    return "%s:%s:%s N  %s:%s:%s E" % (n[0:2],n[2:4],n[4:],e[0:3],e[3:5],e[5:])
 
 def ft2m(f):
     """Foot to Meters"""
@@ -279,8 +276,10 @@ names = {}
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
     global completed
+    global country
 
     feature['properties']['source_href']=source
+    feature['properties']['country']=country
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
     if aipname == 'EN D476':
@@ -297,11 +296,6 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         if recount>0:
             logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + " " + str(recount+1))                    
             feature['properties']['name']=aipname + " " + str(recount+1)
-    # FIXME THIS SEEMS COMPLETELY OBSOLETE, CONFIRM?
-    # elif not restrict_aip and not airsport_aip and not "Hareid" in aipname and not "Sector" in aipname and \
-    #     not "ESTRA" in aipname and not "EUCBA" in aipname and not "END" in aipname and len(features)>0 and len(obj)>0:
-    #    logger.debug("MULTIFEAT renamed " + aipname + " INTO " + aipname + " " + str(len(features)+1))                    
-    #    feature['properties']['name']=aipname + " " + str(len(features)+1)
     if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
     elif 'CTR' in aipname or 'TRIDENT' in aipname:
@@ -945,206 +939,8 @@ if len(sys.argv)>1:
 ## Sort dataset by size, so that smallest geometries are shown on top:
 collection.sort(key=lambda f:f['area'], reverse=True)
 
-# OpenAIR output
-
-logger.info("Converting to OpenAIR")
-airft = open("result/luftrom.ft.txt","w","utf-8")
-airm = open("result/luftrom.m.txt","w","utf-8")
-airfl = open("result/luftrom.fl.txt","w","utf-8")
-
-for feature in collection:
-    properties = feature['properties']
-    geom       = feature['geometry']
-    class_  = properties.get('class')
-    source  = properties.get('source_href')
-    name    = properties.get('name')
-    from_fl = int(properties.get('from (fl)',0))
-    from_   = int(properties.get('from (ft amsl)'))
-    to_     = int(properties.get('to (ft amsl)'))
-    to_fl   = int(properties.get('to (fl)',0))
-    from_m  = int(properties.get('from (m amsl)'))
-    to_m    = int(properties.get('to (m amsl)'))
-
-    if from_m > 3500 and not "CTA" in name:
-        continue
-
-    #FIXME Airspace classes according to OpenAIR:
-    # *     R restricted
-    # *     Q danger
-    # *     P prohibited
-    # *     A Class A
-    # *     B Class B
-    # *     C Class C
-    # *     D Class D
-    # *     GP glider prohibited
-    # *     CTR CTR
-    # *     W Wave Window
-    # (TODO: G is used in the old files, is it ok to keep using it?)
-    translate = {
-            "A":"A",
-            "B":"B",
-            "C":"C",
-            "D":"D",
-            "R":"R",
-            "P":"P",
-            "G":"G",
-            "Luftsport": "W"
-    }
-    class_ = translate.get(class_,"Q")
-
-    for air in (airft, airm, airfl):
-        air.write("AC %s\n" % class_)
-        air.write("AN %s\n" % name)
-
-    # use FL if provided, otherwise values in M or ft
-    if from_fl:
-        airft.write("AL %sft AMSL\n" % from_)
-        airfl.write("AL FL%s\n" % from_fl)
-        airm.write("AL %s MSL\n" % from_m)
-    else:
-        airft.write("AL %sft AMSL\n" % from_)
-        airfl.write("AL %sft AMSL\n" % from_)
-        airm.write("AL %s MSL\n" % from_m)
-    if to_fl:
-        airft.write("AH %sft AMSL\n" % to_)
-        airfl.write("AH FL%s\n" % to_fl)
-        airm.write("AH %s MSL\n" % to_m)
-    else:
-        airft.write("AH %sft AMSL\n" % to_)
-        airfl.write("AH %sft AMSL\n" % to_)
-        airm.write("AH %s MSL\n" % to_m)
-
-    for air in (airft, airm, airfl):
-        for point in geom:
-            air.write("DP %s\n" % c2air(point))
-        air.write("* Source: %s\n" % source)
-        air.write("*\n*\n")
-
-for air in (airft, airm, airfl):
-    air.close()
-
-
-# GeoJSON output, to KML via ogr2ogr
-
-logger.info("Converting to GeoJSON")
-fc = []
-
-for feature in collection:
-    geom = feature['geometry_ll']
-    if not geom:
-        logger.error("Feature without geometry: %s", feature)
-        continue
-    f = Feature()
-    f.properties = feature['properties']
-    f.properties.update({
-          'fillOpacity':0.15,
-        })
-    class_=f.properties.get('class')
-    from_ =int(f.properties.get('from (m amsl)'))
-    to_ =int(f.properties.get('to (m amsl)'))
-    if class_ in ['C', 'D', 'G', 'R']:
-        if f.properties.get('notam_only'):
-            f.properties.update({'fillColor':'#c0c0c0',
-                                 'color':'#606060',
-                                 'fillOpacity':0.35})
-        elif from_ < 500:
-            f.properties.update({'fillColor':'#c04040',
-                                 'color':'#c04040',
-                                 'fillOpacity':0.35})
-        elif from_ < 1000:
-            f.properties.update({'fillColor':'#c08040',
-                                 'color':'#c08040'})
-        elif from_ < 2000:
-            f.properties.update({'fillColor':'#c0c040',
-                                 'color':'#c0c040'})
-        elif from_ < 4000:
-            f.properties.update({'fillColor':'#40c040',
-                                 'color':'#40c040'})
-        else:
-            f.properties.update({'fillOpacity':0.0,
-                                 'opacity':0.0,
-                                 'color':'#ffffff'})
-    elif class_ in ['Luftsport']:
-        if to_ < 2000:
-            f.properties.update({'fillColor':'#c0c040',
-                                 'color':'#c0c040'})
-        else:
-            f.properties.update({'fillColor':'#40c040',
-                                 'color':'#40c040'})
-    else:
-        logger.debug("Missing color scheme for: %s, %s", class_, from_)
-    if geom[0]!=geom[-1]:
-        geom.append(geom[0])
-    if from_ < 4200:
-        f.geometry = Polygon([geom])
-        fc.append(f)
-
-result = FeatureCollection(fc)
-if len(sys.argv)>1:
-    print('http://geojson.io/#data=data:application/json,'+urllib.quote(str(result)))
-open("result/luftrom.geojson","w","utf-8").write(str(result))
-
-# OpenAIP output
-
-logger.info("Converting to OpenAIP")
-out = open("result/luftrom.openaip","w","utf-8")
-
-out.write("""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OPENAIP VERSION="367810a0f94887bf79cd9432d2a01142b0426795" DATAFORMAT="1.1">
-<AIRSPACES>
-""")
-
-# TODO: OpenAIP airspace categories
-#A
-#B
-#C
-#CTR
-#D
-#DANGER
-#E
-#F
-#G
-#GLIDING
-#OTH #Use for uncommon or unknown airspace category
-#RESTRICTED
-#TMA
-#TMZ
-#WAVE
-#PROHIBITED
-#FIR
-#UIR
-#RMZ
-
-# TODO: use fl as unit where meaningful
-for i,feature in enumerate(collection):
-    poly = ",".join([" ".join([str(x) for x in pair]) for pair in feature['geometry_ll']])
-    aipdata = {
-            'id': i,
-            'category': feature['properties']['class'],
-            'name': feature['properties']['name'],
-            'alt_from_unit': 'F',
-            'alt_to_unit': 'F',
-            'alt_from': feature['properties']['from (ft amsl)'],
-            'alt_to': feature['properties']['to (ft amsl)'],
-            'polygon': poly
-        }
-    out.write(u"""<ASP CATEGORY="{category}">
-<VERSION>367810a0f94887bf79cd9432d2a01142b0426795</VERSION>
-<ID>{id}</ID>
-<COUNTRY>NO</COUNTRY>
-<NAME>{name}</NAME>
-<ALTLIMIT_TOP REFERENCE="MSL">
-<ALT UNIT="{alt_to_unit}">{alt_to}</ALT>
-</ALTLIMIT_TOP>
-<ALTLIMIT_BOTTOM REFERENCE="MSL">
-<ALT UNIT="{alt_from_unit}">{alt_from}</ALT>
-</ALTLIMIT_BOTTOM>
-<GEOMETRY>
-<POLYGON>{polygon}</POLYGON>
-</GEOMETRY>
-</ASP>""".format(**aipdata))
-
-out.write("""</AIRSPACES>
-</OPENAIP>
-""")
-out.close()
+# Output file formats
+geojson.dumps(logger, "result/luftrom", collection)
+openaip.dumps(logger, "result/luftrom", collection)
+openair.dumps(logger, "result/luftrom", collection)
+xcontest.dumps(logger, "result/xcontest", collection)
