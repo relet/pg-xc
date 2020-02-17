@@ -6,3 +6,4 @@ import/sources/avinor
 import/changes
 import/result
 import/log
+*__pycache__*

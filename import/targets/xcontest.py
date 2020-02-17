@@ -89,8 +89,8 @@ def dumps (logger, filename, features):
           ahtype  = 'FL'
           ahh     = to_fl
         elif to_ft >= 999999:
-          ahtype  = 'UNL'
-          ahh     = None
+          ahtype  = 'MAX'
+          ahh     = 40000
         else:
           ahtype  = 'AMSL'
           ahh     = to_ft
