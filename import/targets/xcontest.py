@@ -37,7 +37,7 @@ def dumps (logger, filename, features):
         if geom[0]!=geom[-1]:
             geom.append(geom[0])
         # reverse coordinates
-        geom = [(y,x) for (x,y) in geom]
+        geom = [(round(y,5),round(x,5)) for (x,y) in geom]
 
 
         class_     = p.get('class')
@@ -47,6 +47,7 @@ def dumps (logger, filename, features):
         name       = p.get('name')
         source     = p.get('source_href')
         notam_only = p.get('notam_only')
+        temporary  = p.get('temporary')
 
         airautoid     = None
         if notam_only:
@@ -94,6 +95,19 @@ def dumps (logger, filename, features):
         else:
           ahtype  = 'AMSL'
           ahh     = to_ft
+        
+        info = info_no = ''
+        if class_ == 'W':
+            info = 'Air sport box. Must be activated before entering.\n' + \
+                   'Contact your local club before flying or keep to regular airspace limits.\n' 
+            info_no = 'Luftsportboks. Må aktiveres før bruk.\n' + \
+                      'Ta kontakt med din lokale klubb før flyging eller hold deg innenfor fri høyde i øvrig luftrom.\n'
+        if notam_only:
+            info = 'Only active if NOTAM is sent. Please check NOTAM for updated altitude limits.\n'
+            info_no = 'Bare aktivt hvis NOTAM er sendt. Sjekk NOTAM for oppdaterte høydebegrensninger.\n'
+        if temporary:
+            info = 'Only active in periods: '+str(temporary)+'\n'
+            info = 'Tidsbegrenset: '+str(temporary)+'\n'
 
         data = {
             'airpen': airpen,
@@ -101,7 +115,8 @@ def dumps (logger, filename, features):
             'airparams': {},    
             'airautoid': airautoid,
             'descriptions': {
-                'en': 'Source: ' + source
+                'en': info + 'Source: ' + source,
+                'no': info_no + 'Kilde: ' + source
                 },
             'aircatpg': aircatpg,   
             'airclass': class_,
