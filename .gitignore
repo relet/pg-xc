@@ -3,7 +3,9 @@ import/sources/pdf
 import/sources/zip
 import/sources/lfv
 import/sources/avinor
+import/sources/log
 import/changes
 import/result
 import/log
 *__pycache__*
+.*swp
