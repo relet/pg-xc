@@ -155,6 +155,10 @@ def dumps (logger, filename, features):
             airpen = pens['purple']
             airbrush = brushes['purple']
 
+        # make temporary dashed
+        if temporary:
+            airpen[0] = 1
+
         data = {
             'airpen': airpen,
             #'airendtime': None,   
