@@ -28,6 +28,8 @@ brushes = {
         "gray": [ 63, 63, 63 ],
     }
 
+def reverse_date(s):
+    return " ".join(reversed(s.split(" ")))
 
 def dumps (logger, filename, features):
     fc = {}
@@ -116,9 +118,16 @@ def dumps (logger, filename, features):
 
         airacttime = None
         if temporary:
+            datefrom  = p.get('Date from')
+            dateuntil = p.get('Date until')
+            timefrom  = p.get('Time from (UTC)','0000')
+            timeuntil = p.get('Time until (UTC)','2359')
+            temporary = '\n'.join([reverse_date(datefrom[i]) + " - " + reverse_date(dateuntil[i]) + " " + timefrom + "-" + timeuntil for i,day in enumerate(datefrom)])
+
             info = 'Only active in periods: '+str(temporary)+'\n'
             info = 'Tidsbegrenset: '+str(temporary)+'\n'
-            airacttime = str(temporary) # TODO: formatting
+            logger.debug("TEMPORARY is "+str(temporary))
+            airacttime = str(temporary) 
 
         airpen = None
         airbrush = None
@@ -149,7 +158,7 @@ def dumps (logger, filename, features):
         data = {
             'airpen': airpen,
             #'airendtime': None,   
-            'airparams': {},    
+            #'airparams': {},    
             'airautoid': airautoid,
             'descriptions': {
                 'en': info + 'Source: ' + source,
@@ -174,6 +183,10 @@ def dumps (logger, filename, features):
             #'notamid': None,       
             #'airemail': None    
         }
+        for key,value in list(data.items()):
+            if value is None:
+                del data[key]
+                 
         airspaces.append(data)
 
 
