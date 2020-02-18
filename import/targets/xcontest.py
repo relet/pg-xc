@@ -4,20 +4,28 @@ import datetime
 import json
 from geojson import Feature, FeatureCollection, Polygon, load
 
+M_TO_FT = 3.28084
+
 pens = {
-        "C": [ 0, 2, 0, 0, 255 ],
-        "D": [ 0, 2, 0, 0, 255 ],
-        "G": [ 0, 2, 0, 0, 255 ],
-        "R": [ 0, 2, 0, 0, 255 ],
-        "W": [ 0, 2, 0, 255, 0 ],
+        "red": [ 0, 2, 192, 0, 0 ],
+        "orange": [ 0, 2, 192, 63, 0 ],
+        "yellow": [ 0, 2, 192, 192, 0 ],
+        "green": [ 0, 2, 0, 192, 0 ],  
+        "blue": [ 0, 2, 0, 0, 192 ],
+        "white": [ 0, 1, 255, 255, 255 ],
+        "gray": [ 0, 2, 63, 63, 63 ],
+        "purple": [ 0, 3, 192, 63, 192 ],
     }
 
 brushes = {        
-        "C": [ -1, -1, -1 ],
-        "D": [ -1, -1, -1 ],
-        "G": [ -1, -1, -1 ],
-        "R": [ -1, -1, -1 ],
-        "W": [ 0, 255, 0 ],
+        "none": [ -1, -1, -1 ],
+        "red": [ 192, 0, 0 ],
+        "orange": [ 192, 63 , 0 ],
+        "yellow": [ 192, 192, 0 ],
+        "green": [ 0, 192, 0 ],
+        "purple": [ 192, 63, 192 ],
+        "white": [ 255, 255, 255 ],
+        "gray": [ 63, 63, 63 ],
     }
 
 
@@ -41,8 +49,10 @@ def dumps (logger, filename, features):
 
 
         class_     = p.get('class')
+        luftsport  = False
         if class_ == 'Luftsport': 
             class_ = 'W'
+            luftsport = True
 
         name       = p.get('name')
         source     = p.get('source_href')
@@ -52,13 +62,15 @@ def dumps (logger, filename, features):
         airautoid     = None
         if notam_only:
             if 'EN R' in name or 'EN D' in name:
-                airautoid = " ".join(name.split(" ")[0:2])
+                airautoid = "".join(name.split(" ")[0:2])
             else:
                 airautoid = name
+        if luftsport:
+            airautoid = name
 
         airchecktype = None
         if class_ in ['C','D','R','G']: airchecktype = 'restrict'
-        if class_ in ['W']: airchecktype = 'inverse'
+        if luftsport: airchecktype = 'inverse'
         if class_ in ['']: airchecktype = 'ignore'
 
         from_fl = int(p.get('from (fl)',0))
@@ -71,14 +83,10 @@ def dumps (logger, filename, features):
         aircatpg = True
         if from_m >= 4200: aircatpg = False
 
-        airpen = None
-        if aircatpg:
-            airpen = pens[class_]
-            airbrush = brushes[class_]
 
         if from_fl:
           altype  = 'FL'
-          alh     = from_fl
+          alh     = from_fl * 100
         elif from_ft == 0:
           altype  = 'AGL'
           alh     = 0
@@ -88,7 +96,7 @@ def dumps (logger, filename, features):
 
         if to_fl:
           ahtype  = 'FL'
-          ahh     = to_fl
+          ahh     = to_fl * 100
         elif to_ft >= 999999:
           ahtype  = 'MAX'
           ahh     = 40000
@@ -97,7 +105,7 @@ def dumps (logger, filename, features):
           ahh     = to_ft
         
         info = info_no = ''
-        if class_ == 'W':
+        if luftsport:
             info = 'Air sport box. Must be activated before entering.\n' + \
                    'Contact your local club before flying or keep to regular airspace limits.\n' 
             info_no = 'Luftsportboks. Må aktiveres før bruk.\n' + \
@@ -105,13 +113,42 @@ def dumps (logger, filename, features):
         if notam_only:
             info = 'Only active if NOTAM is sent. Please check NOTAM for updated altitude limits.\n'
             info_no = 'Bare aktivt hvis NOTAM er sendt. Sjekk NOTAM for oppdaterte høydebegrensninger.\n'
+
+        airacttime = None
         if temporary:
             info = 'Only active in periods: '+str(temporary)+'\n'
             info = 'Tidsbegrenset: '+str(temporary)+'\n'
+            airacttime = str(temporary) # TODO: formatting
+
+        airpen = None
+        airbrush = None
+
+        if class_ in ['C', 'D', 'G', 'R']:
+            if notam_only:
+                airpen = pens['gray']
+                airbrush = brushes['gray']
+            elif alh < (500 * M_TO_FT):
+                airpen = pens['red']
+                airbrush = brushes['red']
+            elif alh < (1000 * M_TO_FT):
+                airpen = pens['orange']
+                airbrush = brushes['orange']
+            elif alh < (2000 * M_TO_FT):
+                airpen = pens['yellow']
+                airbrush = brushes['yellow']
+            elif alh < (4000 * M_TO_FT):
+                airpen = pens['green']
+                airbrush = brushes['green']
+            else:
+                airpen = pens['white']
+                airbrush = brushes['none']
+        if luftsport:
+            airpen = pens['purple']
+            airbrush = brushes['purple']
 
         data = {
             'airpen': airpen,
-            'airendtime': None,   
+            #'airendtime': None,   
             'airparams': {},    
             'airautoid': airautoid,
             'descriptions': {
@@ -126,16 +163,16 @@ def dumps (logger, filename, features):
                 'height': alh
                 },
             'airbrush': airbrush,
-            'airstarttime': None,  
-            'airacttime': None,    
+            #'airstarttime': None,  
+            'airacttime': airacttime,    
             'airupper': {
                 'type': ahtype,
                 'height': ahh
                 },
             'airname': name,
             'components': geom,
-            'notamid': None,       
-            'airemail': None    
+            #'notamid': None,       
+            #'airemail': None    
         }
         airspaces.append(data)
 
