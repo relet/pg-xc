@@ -125,7 +125,7 @@ def dumps (logger, filename, features):
             temporary = '\n'.join([reverse_date(datefrom[i]) + " - " + reverse_date(dateuntil[i]) + " " + timefrom + "-" + timeuntil for i,day in enumerate(datefrom)])
 
             info = 'Only active in periods: '+str(temporary)+'\n'
-            info = 'Tidsbegrenset: '+str(temporary)+'\n'
+            info_no = 'Tidsbegrenset: '+str(temporary)+'\n'
             logger.debug("TEMPORARY is "+str(temporary))
             airacttime = str(temporary) 
 
