@@ -5,6 +5,8 @@ import/sources/lfv
 import/sources/avinor
 import/sources/log
 import/changes
+import/takeoffs/lastid
+import/takeoffs/*.geojson
 import/result
 import/log
 *__pycache__*
