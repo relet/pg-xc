@@ -93,6 +93,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     """Complete and sanity check a feature definition"""
     global completed
     global country
+    global end_notam
 
     feature['properties']['source_href']=source
     feature['properties']['country']=country
@@ -180,6 +181,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
           feature['properties']['to (m amsl)'] = '99999'
           from_ = '0'
           to_ = '0'
+        if "EN D" in aipname and end_notam:
+          feature['properties']['notam_only'] = 'true'
         if from_ is None:
             if "en_sup_a_2018_015_en" in source:
                 feature['properties']['from (ft amsl)']='0'
@@ -614,6 +617,7 @@ for filename in os.listdir("./sources/txt"):
     column_parsing = []
     header_cont = False
     cr_areas = False
+    end_notam = False
 
     for line in data:
         if "\f" in line:
@@ -632,6 +636,9 @@ for filename in os.listdir("./sources/txt"):
                 cr_areas=True
             elif not cr_areas:
                 continue
+        if not end_notam and '3.5     Fareområder, aktive bare etter' in line:
+            logger.debug("FOLLOWING danger areas are NOTAM activated.")
+            end_notam = True
         
         if not line.strip() or (cold_resp and 'Area Name' in line):
             if column_parsing and table:
