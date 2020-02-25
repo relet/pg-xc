@@ -49,7 +49,7 @@ for id in range(0,9000):
       east = int(coo[5])+int(coo[6])/60.0+int(coo[7])/3600.0
       alt = int((alt or ['0'])[0])
 
-      p = Point((north, east, alt))
+      p = Point((east, north, alt))
       f = Feature(geometry=p)
 
       f.properties = {
@@ -73,7 +73,7 @@ for id in range(0,9000):
       print("ADDED")
 
       json = dumps(FeatureCollection(takeoffs),indent=2)
-      fd = open("takeoffs.json","w")
+      fd = open("takeoffs.geojson","w")
       fd.write(json)
       fd.close()
 
