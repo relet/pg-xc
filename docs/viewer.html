@@ -48,7 +48,7 @@
             (function() {
                 'use strict';
 
-                var luftrom='https://rawcdn.githack.com/relet/pg-xc/8a604889cdbdb77c90b36e419a447720a6afa83b/geojson/luftrom.geojson';
+                var luftrom='https://rawcdn.githack.com/relet/pg-xc/a849f966d33fb048caca7f8672db6c6f0b1db0b0/geojson/luftrom.geojson';
                 var takeoffs='https://rawcdn.githack.com/relet/pg-xc/dd53bb2f9fc2f0ae60fbcb41b9249b7788e2f85d/geojson/takeoffs.geojson';
 
                 var shorthash = function(s) {
@@ -134,7 +134,10 @@
                                    warning = '<span style="color:red">TEMPORARY:<\/span><br/>'+periods;
                                  }
                                  if (feature.properties['notam_only'] == 'true') {
-                                   warning = '<span style="color:red">ONLY ACTIVE IF NOTAM IS SENT.<\/span><br />Please check NOTAM for updated altitude limits.<br />';
+					 warning = '<span style="color:red">ONLY ACTIVE IF NOTAM IS SENT.<\/span><br />';
+			           if (feature.properties['to (m amsl)']==99999) {
+				     warning += 'Please check NOTAM for updated altitude limits.<br />';
+				   }
                                  }
                                  if (feature.properties['class'] == 'Luftsport') {
                                    warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.<\/span><br />Contact your local club before flying, or keep to regular airspace limits.<br />';
