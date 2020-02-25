@@ -13,8 +13,8 @@ wind_dirs = ['nw','w','sw','s','se','e','ne','n']
 takeoffs = {}
 
 for i in xrange(1,7600):
-    url = 'http://no.flightlog.org/fl.html?l=2&a=22&country_id=160&start_id={}'.format(i)
-    data = requests.get('http://no.flightlog.org/fl.html?l=2&a=22&country_id=160&start_id=%i' % i).text
+    url = 'http://flightlog.org/fl.html?l=2&a=22&country_id=160&start_id={}'.format(i)
+    data = requests.get('http://flightlog.org/fl.html?l=2&a=22&country_id=160&start_id=%i' % i).text
     name = re_name.search(data)
     dirs = re_winddir.search(data)
 
