@@ -49,7 +49,7 @@
                 'use strict';
 
                 var luftrom='https://rawcdn.githack.com/relet/pg-xc/a849f966d33fb048caca7f8672db6c6f0b1db0b0/geojson/luftrom.geojson';
-                var takeoffs='https://rawcdn.githack.com/relet/pg-xc/dd53bb2f9fc2f0ae60fbcb41b9249b7788e2f85d/geojson/takeoffs.geojson';
+                var takeoffs='https://rawcdn.githack.com/relet/pg-xc/eb7476bd855d6e8475b00874edae5c8e5d037338/geojson/takeoffs.geojson';
 
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
@@ -173,7 +173,7 @@
                 var onEachFeature_takeoffs = function (feature, layer) {
                         var lon=feature.geometry.coordinates[0];
                         var lat=feature.geometry.coordinates[1];
-                        layer.bindPopup('<h2>'+feature.properties['Name']+' ('+feature.geometry.coordinates[2]+'m asl)<\/h2>' +
+                        layer.bindPopup('<h2>'+feature.properties['name']+' ('+feature.geometry.coordinates[2]+'m asl)<\/h2>' +
                           'Weather forecast: <a href="http://xcmeteo.net/?p='+lon+'x'+lat+'">XCMeteo<\/a> <a href="https://www.windy.com/'+lat+'/'+lon+'?850h,'+lat+','+lon+',14">Windy</a><br /><br />' +
                                         feature.properties['description'].trim(),
                                         {maxHeight: 250});
@@ -211,7 +211,7 @@
                 var filter_takeoffs = function(winddir) {
                         return function(feature) {
                                 if ((feature.geometry.coordinates[2] < 200) ||
-                                    (feature.properties['Name'].indexOf('PPG') > -1)) {
+                                    (feature.properties['name'].indexOf('PPG') > -1)) {
                                         return false;
                                 }
                                 if (!winddir) {
