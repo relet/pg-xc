@@ -29,7 +29,7 @@ process() {
 
   echo "Processing $FILENAME."
   if [ $LAYOUT = 2 ]; then
-      cp "./pdf/$FILENAME" "./pdf/$FILENAME.html"
+      cat "./pdf/$FILENAME" | sed -e 's|<span class="..Params[^/]*/span>||g' > "./pdf/$FILENAME.html"
       lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
   elif [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
@@ -110,7 +110,7 @@ while read p; do
           process $FILENAME $LAYOUT
       fi
   elif [ ! -e "./pdf/$FILENAME" ]; then
-      wget -O "./pdf/$FILENAME" "$URLNAME"
+      curl -b cookies -L --output "./pdf/$FILENAME" "$URLNAME"
       process $FILENAME $LAYOUT
   else
       process $FILENAME $LAYOUT
