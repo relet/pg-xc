@@ -28,8 +28,11 @@ process() {
   LAYOUT=$2
 
   echo "Processing $FILENAME."
-  if [ $LAYOUT = 2 ]; then
-      cat "./pdf/$FILENAME" | sed -e 's|<span class="..Params[^/]*/span>||g' > "./pdf/$FILENAME.html"
+  if [ $LAYOUT = 3 ]; then
+      cat "./pdf/$FILENAME" | sed -e 's|<span[^/]*class="..Params[^/]*/span>||g' > "./pdf/$FILENAME.html"
+      html2text -width 999 "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
+  elif [ $LAYOUT = 2 ]; then
+      cat "./pdf/$FILENAME" | sed -e 's|<span[^/]*class="..Params[^/]*/span>||g' > "./pdf/$FILENAME.html"
       lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
   elif [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
@@ -77,7 +80,10 @@ while read p; do
   fi
 
   # otherwise, locate and parse a html
-  if [[ $p =~ ^\+ ]]; then
+  if [[ $p =~ ^T ]]; then  # with tables
+      LAYOUT=3
+      SKIP=1
+  elif [[ $p =~ ^\+ ]]; then  # without tables
       LAYOUT=2
       SKIP=1
   # or pdf

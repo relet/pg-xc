@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*$")
+re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5})")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
@@ -36,7 +36,7 @@ re_class  = re.compile("Class (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
 
 # Coordinates format, possibly in brackets
-RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]+)N(?: N)?(?:\s+|-)(?P<e>[\d\.]+)[E\)]+)'
+RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]{5,10})N(?: N)?(?:\s+|-)(?P<e>[\d\.]+)[E\)]+)'
 RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile("(?:" + RE_NE + " - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
@@ -53,6 +53,8 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 #TODO: along the latitude ...
 
 # Lines containing these are box ceilings and floors
+re_vertl_upper = re.compile("Upper limit:\s+(FL\s(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL)($|\s{5})")
+re_vertl_lower = re.compile("ower limit:\s+(FL\s(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL|(?P<msl>MSL))($|\s{5})")
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl_td  = re.compile(u"(?:(?:(?:FL\s?)?(?P<flfrom>\d+))|(?:(?P<ftamsl>\d+) ?FT)) [–-] FL\s?(?P<flto>\d+).*")
 re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
@@ -125,7 +127,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
       or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname \
       or 'Sector' in aipname:
         feature['properties']['class']='C'
-    elif '5_5' in source or "Hareid" in aipname:
+    elif '5.5' in source or "Hareid" in aipname:
         if "Nidaros" in aipname:
             #skip old Nidaros airspace
             return {"properties":{}}, []
@@ -226,12 +228,12 @@ for filename in os.listdir("./sources/txt"):
 
     data = open("./sources/txt/"+filename,"r","utf-8").readlines()
 
-    ad_aip       = "_AD_" in filename
-    cta_aip      = "ENR_2_1" in filename
-    tia_aip      = "ENR_2_2" in filename
-    restrict_aip = "ENR_5_1" in filename
-    military_aip = "ENR_5_2" in filename
-    airsport_aip = "ENR_5_5" in filename
+    ad_aip       = "-AD-" in filename or "_AD_" in filename
+    cta_aip      = "ENR-2.1" in filename
+    tia_aip      = "ENR-2.2" in filename
+    restrict_aip = "ENR-5.1" in filename
+    military_aip = "ENR-5.2" in filename
+    airsport_aip = "ENR-5.5" in filename
     aip_sup      = "en_sup" in filename
     es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
     cold_resp    = "en_sup_a_2020" in filename
@@ -484,7 +486,7 @@ for filename in os.listdir("./sources/txt"):
             return
 
         # IDENTIFY altitude limits
-        vertl = re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+        vertl = re_vertl_upper.search(line) or re_vertl_lower.search(line) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
 
         if vertl:
             vertl = vertl.groupdict()
@@ -506,7 +508,12 @@ for filename in os.listdir("./sources/txt"):
             if flto is not None:
                 logger.debug("CHECK 5 read FL")
                 toamsl   = int(flto) * 100
-                fromamsl = v or (int(flfrom) * 100)
+                if flfrom:
+                    fromamsl = v or (int(flfrom) * 100)
+                    fl = fl or flfrom
+            elif flfrom is not None:
+                logger.debug("CHECK 6 read FL")
+                fromamsl = int(flfrom) * 100
                 fl = fl or flfrom
             elif v is not None:
                 if lastv is None:
@@ -516,8 +523,9 @@ for filename in os.listdir("./sources/txt"):
                 else:
                     fromamsl = v
             else:
-                fromamsl = vertl.get('gnd',vertl.get('from'))
+                fromamsl = vertl.get('msl',vertl.get('gnd',vertl.get('from')))
                 if fromamsl == "GND": fromamsl = 0
+                if fromamsl == "MSL": fromamsl = 0
                 toamsl = vertl.get('unl',vertl.get('to'))
                 if toamsl == "UNL": toamsl = 999999
 
@@ -526,7 +534,7 @@ for filename in os.listdir("./sources/txt"):
                 currentv = feature['properties'].get('to (ft amsl)')
                 if currentv is not None and currentv != toamsl:
                     logger.warning("attempt to overwrite vertl_to %s with %s." % (currentv, toamsl))
-                    if currentv > toamsl:
+                    if int(currentv) > int(toamsl):
                         logger.warning("skipping.")
                         return
                     logger.warning("ok.")
@@ -539,7 +547,7 @@ for filename in os.listdir("./sources/txt"):
                 currentv = feature['properties'].get('from (ft amsl)')
                 if currentv is not None and currentv != fromamsl:
                     logger.warning("attempt to overwrite vertl_from %s with %s." % (currentv, fromamsl))
-                    if currentv < fromamsl:
+                    if int(currentv) < int(fromamsl):
                         logger.warning("skipping.")
                         return
                     logger.warning("ok.")
@@ -593,24 +601,35 @@ for filename in os.listdir("./sources/txt"):
             if "EN D" in name and len(name)<8:
                 name_cont=True
 
+            if restrict_aip:
+                if feature['properties'].get('from (ft amsl)') is not None and (feature['properties'].get('to (ft amsl)') or "Romerike" in aipname or "Oslo" in aipname): 
+                    logger.debug("RESTRICT + name and vertl complete")
+                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    lastv = None
+                else:
+                    logger.debug("NOPE")
+
             aipname = name
             logger.debug("Found name '%s' in line: %s", aipname, line)
             return
 
-        # FIXME: document this sectiono
+        # The airsport document doesn't have recognizable airspace names
+        # so we just assume every line that isn't otherwise parsed is the name of the next box.
         if airsport_aip and line.strip():
             logger.debug("Unhandled line in airsport_aip: %s", line)
             if wstrip(line)=="1":
+                logger.debug("Starting airsport_aip table")
                 airsport_intable = True
-            elif wstrip(line)=="Avinor":
-                airsport_intable = False
-            elif wstrip(line) != "2" and airsport_intable:
-                to_amsl = feature['properties'].get('to (ft amsl)')
-                logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
+        #    elif wstrip(line)=="Avinor":
+        #        airsport_intable = False
+            elif wstrip(line)[0] != "2" and airsport_intable:
+        #        to_amsl = feature['properties'].get('to (ft amsl)')
+                logger.debug("Considering as new aipname: '%s'", line)
+        #        logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                if to_amsl:
-                    feature['properties']['to (ft amsl)']=to_amsl
-                    feature['properties']['to (m amsl)']=ft2m(to_amsl)
+        #        if to_amsl:
+        #            feature['properties']['to (ft amsl)']=to_amsl
+        #            feature['properties']['to (m amsl)']=ft2m(to_amsl)
                 aipname = wstrip(line)
 
     table = []
@@ -691,7 +710,7 @@ for filename in os.listdir("./sources/txt"):
         if airsport_aip:
             if "Vertical limits" in line:
                 vcut = line.index("Vertical limits")
-                vend = vcut+16
+                vend = vcut+28
             else:
                 parse(line[:vcut],1)
                 parse(line[vcut:vend],2)

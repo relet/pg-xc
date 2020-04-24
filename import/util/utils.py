@@ -5,6 +5,7 @@ import math
 import re
 import shapely.geometry as shgeo
 import shapely.ops as shops
+from sys import exit
 
 CIRCLE_APPROX_POINTS = 64
 
@@ -22,6 +23,10 @@ def printj(s):
     return json.dumps(s)
 
 def c2ll(c):
+    if len(c[0])<5 or len(c[1])<5:
+        print("WARNING: MISFORMATTED COORDINATE ",c)
+        #exit(1)
+        return None
     """DegMinSec to decimal degrees"""
     ndeg = float(c[0][0:2])
     edeg = float(c[1][0:3])
