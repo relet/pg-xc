@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* (TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5})")
+re_name   = re.compile("^\s*(?P<name>[^\s]* ((Centre|West|North|South|East) )?(TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5})")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
@@ -32,7 +32,7 @@ re_name_cr  = re.compile("^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
 re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
 
 # Lines containing these are usually recognized as airspace class
-re_class  = re.compile("Class (?P<class>.)")
+re_class  = re.compile("Class:? (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
 
 # Coordinates format, possibly in brackets
@@ -68,7 +68,7 @@ re_period2 = re.compile("^(?P<pto>\d+ "+RE_MONTH+") (?P<ptimeto>\d+)")
 re_period3 = re.compile("Established for (?P<pfrom>\d+ "+RE_MONTH+") - (?P<pto>\d+ "+RE_MONTH+")")
 
 # COLUMN PARSING:
-rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(ATC unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
+rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(C unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
                            for mult in reversed(range(3,8))]
 
 LINEBREAK = '--linebreak--'
@@ -314,6 +314,8 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Found class in line: %s", line)
             class_=class_.groupdict()
             feature['properties']['class']=class_.get('class')
+            if tia_aip:
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
         # SPECIAL CASE temporary workaround KRAMFORS
@@ -354,8 +356,10 @@ for filename in os.listdir("./sources/txt"):
 
             if coords:
                 coords  = coords.groupdict()
-                n = coords.get('n') or coords.get('cn')
-                e = coords.get('e') or coords.get('ce')
+                n = coords.get('cn') or coords.get('n')
+                e = coords.get('ce') or coords.get('e')
+                #n = coords.get('n') or coords.get('cn')
+                #e = coords.get('e') or coords.get('ce')
                 rad = coords.get('rad')
                 if not rad:
                     rad_m = coords.get('rad_m')
@@ -367,8 +371,9 @@ for filename in os.listdir("./sources/txt"):
                     logger.debug("Continuing line after incomplete circle: %s", coords_wrap)
                     return
                 lastn, laste = n, e
+                logger.debug("Circle center is %s %s %s %s", coords.get('n'), coords.get('e'), coords.get('cn'), coords.get('ce'))
+                logger.debug("COORDS is %s", json.dumps(coords))
                 c_gen = gen_circle(n, e, rad)
-
                 obj = merge_poly(obj, c_gen)
 
             elif coords2:
@@ -437,6 +442,7 @@ for filename in os.listdir("./sources/txt"):
 
                     if rad and cn and ce:
                         c_gen = gen_circle(cn, ce, rad)
+                        logger.debug("Merging circle using cn, ce.")
                         obj = merge_poly(obj, c_gen)
                     if n and e:
                         lastn, laste = n, e
@@ -601,9 +607,9 @@ for filename in os.listdir("./sources/txt"):
             if "EN D" in name and len(name)<8:
                 name_cont=True
 
-            if restrict_aip:
+            if restrict_aip or military_aip:
                 if feature['properties'].get('from (ft amsl)') is not None and (feature['properties'].get('to (ft amsl)') or "Romerike" in aipname or "Oslo" in aipname): 
-                    logger.debug("RESTRICT + name and vertl complete")
+                    logger.debug("RESTRICT/MILITARY + name and vertl complete")
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                     lastv = None
                 else:

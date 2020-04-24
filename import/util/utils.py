@@ -154,6 +154,9 @@ def merge_poly(p1, p2):
 
 def wstrip(s):
     """Remove double whitespaces, and strip"""
+    """also skip trailing sections"""
+    if "      " in s:
+        s = s.split("      ")[0]
     return re.sub('\s+',' ',s.strip())
 
 def fill_along(from_, to_, border, clockwise=None):
