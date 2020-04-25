@@ -144,23 +144,27 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
 
     if len(obj)>3:
         logger.debug("Finalizing polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
-        features.append(feature)
 
-        # SANITY CHECK
         name   = feature['properties'].get('name')
         source = feature['properties'].get('source_href')
         from_  = feature['properties'].get('from (ft amsl)')
         to_    = feature['properties'].get('to (ft amsl)')
         class_ = feature['properties'].get('class')
+
+
+        if name in completed:
+            logger.info("ERROR Duplicate feature name: #%i %s", index, name)
+            return {"properties":{}}, []
+            #sys.exit(1)
+        else:
+            features.append(feature)
+
+        # SANITY CHECK
         if name is None:
             logger.error("Feature without name: #%i", index)
             sys.exit(1)
         if "None" in name:
             logger.error("Feature without name: #%i", index)
-            sys.exit(1)
-        if name in completed:
-            logger.info("ERROR Duplicate feature name: #%i %s", index, name)
-            return {"properties":{}}, []
             sys.exit(1)
         completed[name]=True
         if source is None:
@@ -183,7 +187,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
           feature['properties']['to (m amsl)'] = '99999'
           from_ = '0'
           to_ = '0'
-        if "EN D" in aipname and end_notam:
+        if ("EN D" in aipname or "END" in aipname) and end_notam:
           feature['properties']['notam_only'] = 'true'
         if from_ is None:
             if "en_sup_a_2018_015_en" in source:
@@ -354,7 +358,7 @@ for filename in os.listdir("./sources/txt"):
                 line = nline
                 coords_wrap = ""
 
-            if coords:
+            if coords and not ("Lyng" in aipname or "Halten" in aipname):
                 coords  = coords.groupdict()
                 n = coords.get('cn') or coords.get('n')
                 e = coords.get('ce') or coords.get('e')
@@ -374,7 +378,9 @@ for filename in os.listdir("./sources/txt"):
                 logger.debug("Circle center is %s %s %s %s", coords.get('n'), coords.get('e'), coords.get('cn'), coords.get('ce'))
                 logger.debug("COORDS is %s", json.dumps(coords))
                 c_gen = gen_circle(n, e, rad)
+                logger.debug("LENS %s %s", len(obj), len(c_gen))
                 obj = merge_poly(obj, c_gen)
+                logger.debug("LENS %s %s", len(obj), len(c_gen))
 
             elif coords2:
                 coords  = coords2.groupdict()
@@ -661,7 +667,7 @@ for filename in os.listdir("./sources/txt"):
                 cr_areas=True
             elif not cr_areas:
                 continue
-        if not end_notam and '3.5     Fareområder, aktive bare etter' in line:
+        if not end_notam and 'active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
             end_notam = True
         
