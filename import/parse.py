@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* ((Centre|West|North|South|East) )?(TRIDENT|ADS|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5})")
+re_name   = re.compile("^\s*(?P<name>[^\s]* ((Centre|West|North|South|East) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5})")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
@@ -105,7 +105,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         aipname = 'EN D476 R og B 1'
     if aipname == 'EN D477':
         aipname = 'EN D477 R og B 2'
-    for ignore in ['ACC','ADS','AOR','FAB','FIR']:
+    for ignore in ['ACC','ADS','AOR','FAB','FIR','HTZ']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
@@ -298,6 +298,7 @@ for filename in os.listdir("./sources/txt"):
             coords_wrap = ""
             lastv = None
             return
+
 
         if ad_aip:
             if not ats_chapter:
@@ -632,16 +633,9 @@ for filename in os.listdir("./sources/txt"):
             if wstrip(line)=="1":
                 logger.debug("Starting airsport_aip table")
                 airsport_intable = True
-        #    elif wstrip(line)=="Avinor":
-        #        airsport_intable = False
             elif wstrip(line)[0] != "2" and airsport_intable:
-        #        to_amsl = feature['properties'].get('to (ft amsl)')
                 logger.debug("Considering as new aipname: '%s'", line)
-        #        logger.debug("Considering as new aipname, wrapping to_amsl (just in case): %s, %s", line, to_amsl)
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-        #        if to_amsl:
-        #            feature['properties']['to (ft amsl)']=to_amsl
-        #            feature['properties']['to (m amsl)']=ft2m(to_amsl)
                 aipname = wstrip(line)
 
     table = []
@@ -649,11 +643,18 @@ for filename in os.listdir("./sources/txt"):
     header_cont = False
     cr_areas = False
     end_notam = False
+    skip_tia = False
+    tia_aip_acc = False
 
     for line in data:
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
             column_parsing = []
+        if tia_aip:
+            if "ADS areas" in line:
+                skip_tia = True
+            if skip_tia:
+                continue
         if aip_sup and ("Luftromsklasse" in line):
             logger.debug("Skipping end of SUP")
             break
@@ -744,7 +745,7 @@ for filename in os.listdir("./sources/txt"):
             else:
                 parse(line[:vcut],1)
         elif tia_aip:
-            if "Unit providing" in line:
+            if "Unit providing" in line and not tia_aip_acc:
                 vcut = line.index("Unit providing")
             else:
                 parse(line[:vcut],1)
