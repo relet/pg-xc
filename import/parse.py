@@ -28,6 +28,7 @@ re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
 re_name5  = re.compile("^(?P<name>Sector .*)$")
+re_name6  = re.compile("^(?P<name>Norway ACC .*)$")
 re_name_cr  = re.compile("^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
 re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
 
@@ -67,6 +68,9 @@ re_period = re.compile("Active from (?P<pfrom>\d+ "+RE_MONTH+") (?P<ptimefrom>\d
 re_period2 = re.compile("^(?P<pto>\d+ "+RE_MONTH+") (?P<ptimeto>\d+)")
 re_period3 = re.compile("Established for (?P<pfrom>\d+ "+RE_MONTH+") - (?P<pto>\d+ "+RE_MONTH+")")
 
+# FREQUENCIES
+re_freq = re.compile('(?P<freq>\d+\.\d+ MHZ)')
+
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(C unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
                            for mult in reversed(range(3,8))]
@@ -90,6 +94,7 @@ borders = {
 collection = []
 completed = {}
 names = {} 
+accsectors = []
 
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
@@ -105,16 +110,23 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         aipname = 'EN D476 R og B 1'
     if aipname == 'EN D477':
         aipname = 'EN D477 R og B 2'
-    for ignore in ['ACC','ADS','AOR','FAB','FIR','HTZ']:
+
+    if 'ACC' in aipname and country=="ES":
+        return {"properties":{}}, []
+    for ignore in ['ADS','AOR','FAB',' FIR','HTZ']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
     feature['properties']['name']=aipname
-    if cta_aip or aip_sup or tia_aip:
+    if cta_aip or aip_sup or tia_aip or 'ACC' in aipname:
         recount = len([f for f in features if aipname in f['properties']['name']])
+        recount = recount or len([f for f in accsectors if aipname in f['properties']['name']])
         if recount>0:
-            logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + " " + str(recount+1))                    
-            feature['properties']['name']=aipname + " " + str(recount+1)
+            separator = " " 
+            if re.search('\d$', aipname): 
+                separator="-"
+            logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))                    
+            feature['properties']['name']=aipname + separator + str(recount+1)
     if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
     elif 'CTR' in aipname or 'TRIDENT' in aipname:
@@ -157,7 +169,11 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
             return {"properties":{}}, []
             #sys.exit(1)
         else:
-            features.append(feature)
+            if 'ACC' in aipname:
+                logger.debug("Writing ACC sector to separate file: %s", aipname)
+                accsectors.append(feature)
+            else:
+                features.append(feature)
 
         # SANITY CHECK
         if name is None:
@@ -498,6 +514,13 @@ for filename in os.listdir("./sources/txt"):
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
+        # IDENTIFY frequencies
+        freq = re_freq.search(line)
+        if freq:
+            freq = freq.groupdict()
+            logger.debug("Found FREQUENCY: %s", freq['freq'])
+            feature['properties']['frequency'] = freq.get('freq')
+
         # IDENTIFY altitude limits
         vertl = re_vertl_upper.search(line) or re_vertl_lower.search(line) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
 
@@ -570,7 +593,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip) and finalcoord) or country != 'EN') and not cold_resp:
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip) and (finalcoord or tia_aip_acc)) or country != 'EN') and not cold_resp:
                     logger.debug("Finalizing poly: Vertl complete. "+str(cold_resp))
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
@@ -587,7 +610,7 @@ for filename in os.listdir("./sources/txt"):
 
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
-               re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line)
+               re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line)
         if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line
             logger.debug("Continuing name as "+aipname)
@@ -596,13 +619,16 @@ for filename in os.listdir("./sources/txt"):
 
         if name:
             named=name.groupdict()
-
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 lastv = None
 
             name=named.get('name')
+
+            if name[:6]=="Sector" and "ACC" in aipname:
+               return 
+
             if named.get('name_cont'):
                 name += ' '+named.get('name_cont')
                 name_cont=True
@@ -651,6 +677,17 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Stop column parsing, \f found")
             column_parsing = []
         if tia_aip:
+            if "Norway ACC sectorization" in line:
+                logger.debug("SECTORIZATION START")
+                tia_aip_acc = True
+                skip_tia = False
+            if "Functional Airspace block" in line:
+                break
+            if tia_aip_acc and "1     " in line:
+                logger.debug("VCUT LINE? %s", line)
+                vcuts = [m.start() for m in re.finditer('[^\s]', line)]
+                vcuts=[(x and (x-2)) for x in vcuts] # HACK around annoying column shift
+                logger.debug("vcuts %s", vcuts)
             if "ADS areas" in line:
                 skip_tia = True
             if skip_tia:
@@ -720,7 +757,11 @@ for filename in os.listdir("./sources/txt"):
 
         # parse columns separately for table formatted files
         # use header fields to detect the vcut character limit
-        if airsport_aip:
+        if tia_aip_acc:
+            for i in range(len(vcuts)-1):
+                parse(line[vcuts[i]:vcuts[i+1]])
+            parse(line[vcuts[len(vcuts)-1]:])
+        elif airsport_aip:
             if "Vertical limits" in line:
                 vcut = line.index("Vertical limits")
                 vend = vcut+28
@@ -744,8 +785,8 @@ for filename in os.listdir("./sources/txt"):
                 vcut = line.index("Tjenesteenhet")
             else:
                 parse(line[:vcut],1)
-        elif tia_aip:
-            if "Unit providing" in line and not tia_aip_acc:
+        elif tia_aip and not tia_aip_acc:
+            if "Unit providing" in line:
                 vcut = line.index("Unit providing")
             else:
                 parse(line[:vcut],1)
@@ -768,7 +809,7 @@ logger.info("%i Features", len(collection))
 
 # Add LonLat conversion to each feature
 
-for feature in collection:
+def geoll(feature):
     geom = feature['geometry']
     geo_ll=[c2ll(c) for c in geom]
     feature['geometry_ll']=geo_ll
@@ -778,6 +819,11 @@ for feature in collection:
     if feature['properties']['name']=='EN R 405 CR MAIN':
         logger.debug("COLD RESPONSE ORDER HACK applied")
         feature['area']=feature['area']-0.1
+
+for feature in collection:
+    geoll(feature)
+for feature in accsectors:
+    geoll(feature)
 
 # Apply filter by index or name
 
@@ -798,3 +844,6 @@ geojson.dumps(logger, "result/luftrom", collection)
 openaip.dumps(logger, "result/luftrom", collection)
 openair.dumps(logger, "result/luftrom", collection)
 xcontest.dumps(logger, "result/xcontest", collection)
+
+# output ACC sectors into a separate file
+geojson.dumps(logger, "result/accsectors", accsectors)
