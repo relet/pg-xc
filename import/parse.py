@@ -593,7 +593,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip) and (finalcoord or tia_aip_acc)) or country != 'EN') and not cold_resp:
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN') and not cold_resp:
                     logger.debug("Finalizing poly: Vertl complete. "+str(cold_resp))
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
