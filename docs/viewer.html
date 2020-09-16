@@ -297,10 +297,12 @@
       return L.circle(latlng, radius, {})
     }
 
+		 <!--
                 //TODO: Use geojsonLayer.refilter for filtered layers.
+                //"<b>NOTAM<\/b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
+                //" - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow, style: style_notam_shadow }),
+		-->
                 var overLayers = {
-                  "<b>NOTAM<\/b>": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam, onEachFeature: onEachFeature_notam }),
-                  " - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow, style: style_notam_shadow }),
                   "<b>Norwegian/Swedish airspace<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
@@ -323,7 +325,7 @@
                 }
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
-                overLayers[" - indicated only"].addTo(map);
+<!--overLayers[" - indicated only"].addTo(map);-->
                 overLayers["<b>Norwegian/Swedish airspace<\/b>"].addTo(map);
 
                 map.on('overlayadd', function() {
