@@ -671,6 +671,7 @@ for filename in os.listdir("./sources/txt"):
     end_notam = False
     skip_tia = False
     tia_aip_acc = False
+    vcuts = None
 
     for line in data:
         if "\f" in line:
@@ -683,7 +684,7 @@ for filename in os.listdir("./sources/txt"):
                 skip_tia = False
             if "Functional Airspace block" in line:
                 break
-            if tia_aip_acc and "1     " in line:
+            if tia_aip_acc and ("1     " in line):
                 logger.debug("VCUT LINE? %s", line)
                 vcuts = [m.start() for m in re.finditer('[^\s]', line)]
                 vcuts=[(x and (x-2)) for x in vcuts] # HACK around annoying column shift
@@ -757,7 +758,7 @@ for filename in os.listdir("./sources/txt"):
 
         # parse columns separately for table formatted files
         # use header fields to detect the vcut character limit
-        if tia_aip_acc:
+        if tia_aip_acc and vcuts:
             for i in range(len(vcuts)-1):
                 parse(line[vcuts[i]:vcuts[i+1]])
             parse(line[vcuts[len(vcuts)-1]:])
