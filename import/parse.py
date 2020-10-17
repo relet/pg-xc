@@ -816,11 +816,6 @@ def geoll(feature):
     feature['geometry_ll']=geo_ll
     feature['area']=shgeo.Polygon(geo_ll).area
     
-    #HACK: decrease area of 'EN R 405 CR MAIN'
-    if feature['properties']['name']=='EN R 405 CR MAIN':
-        logger.debug("COLD RESPONSE ORDER HACK applied")
-        feature['area']=feature['area']-0.1
-
 for feature in collection:
     geoll(feature)
 for feature in accsectors:
