@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* ((Centre|West|North|South|East) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5})")
+re_name   = re.compile("^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|CTR/TIZ|TIZ/RMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
 re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
@@ -611,6 +611,7 @@ for filename in os.listdir("./sources/txt"):
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
                re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line)
+
         if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line
             logger.debug("Continuing name as "+aipname)
@@ -625,6 +626,9 @@ for filename in os.listdir("./sources/txt"):
                 lastv = None
 
             name=named.get('name')
+            if 'polaris' in name.lower() and 'norway' in name.lower():
+                pos = name.lower().index('norway')
+                name = name[:pos]
 
             if name[:6]=="Sector" and "ACC" in aipname:
                return 
