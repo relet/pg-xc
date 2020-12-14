@@ -54,8 +54,8 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 #TODO: along the latitude ...
 
 # Lines containing these are box ceilings and floors
-re_vertl_upper = re.compile("Upper limit:\s+(FL\s(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL)($|\s{5})")
-re_vertl_lower = re.compile("ower limit:\s+(FL\s(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL|(?P<msl>MSL))($|\s{5})")
+re_vertl_upper = re.compile("Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL)($|\s{5})")
+re_vertl_lower = re.compile("ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL|(?P<msl>MSL))($|\s{5})")
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl_td  = re.compile(u"(?:(?:(?:FL\s?)?(?P<flfrom>\d+))|(?:(?P<ftamsl>\d+) ?FT)) [–-] FL\s?(?P<flto>\d+).*")
 re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
@@ -650,7 +650,7 @@ for filename in os.listdir("./sources/txt"):
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                     lastv = None
                 else:
-                    logger.debug("NOPE")
+                    logger.debug("RESTRICT/MILITARY + name and vertl NOT complete")
 
             aipname = name
             logger.debug("Found name '%s' in line: %s", aipname, line)

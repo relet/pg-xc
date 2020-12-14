@@ -29,10 +29,20 @@ process() {
 
   echo "Processing $FILENAME."
   if [ $LAYOUT = 3 ]; then
-      cat "./pdf/$FILENAME" | sed -e 's|<span[^/]*class="..Params[^/]*/span>||g' > "./pdf/$FILENAME.html"
+      cat "./pdf/$FILENAME" > /tmp/pgxc
+      hxprune -c "AmdtDeletedAIRAC" /tmp/pgxc > /tmp/pgxc2
+      hxprune -c "acParams" /tmp/pgxc2 > /tmp/pgxc
+      hxprune -c "sdParams" /tmp/pgxc > /tmp/pgxc2
+      mv /tmp/pgxc2 "./pdf/$FILENAME.html"
+      rm /tmp/pgxc
       html2text -width 999 "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
   elif [ $LAYOUT = 2 ]; then
-      cat "./pdf/$FILENAME" | sed -e 's|<span[^/]*class="..Params[^/]*/span>||g' > "./pdf/$FILENAME.html"
+      cat "./pdf/$FILENAME" > /tmp/pgxc
+      hxprune -c "AmdtDeletedAIRAC" /tmp/pgxc > /tmp/pgxc2
+      hxprune -c "acParams" /tmp/pgxc2 > /tmp/pgxc
+      hxprune -c "sdParams" /tmp/pgxc > /tmp/pgxc2
+      mv /tmp/pgxc2 "./pdf/$FILENAME.html"
+      rm /tmp/pgxc
       lynx -dump "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
   elif [ $LAYOUT = 1 ]; then
       pdftotext -layout "./pdf/$FILENAME" "./txt/$FILENAME.txt"
