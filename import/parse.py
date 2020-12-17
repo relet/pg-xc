@@ -5,15 +5,15 @@
 
 
 from codecs import open
-from geojson import load
 from copy import deepcopy
+from geojson import load
 import os
 import re
 import sys
 import urllib
 import logging
 
-import shapely.geometry as shgeo
+from shapely.geometry import Polygon
 
 from targets import geojson, openaip, openair, xcontest
 from util.utils import *
@@ -459,6 +459,9 @@ for filename in os.listdir("./sources/txt"):
                         fill = fill_along(alonging, (n,e), border)
                         alonging = False
                         lastn, laste = None, None
+                        #HACK matching point in the wrong direction - FIXME don't select closest but next point in correct direction
+                        if "Sälen TMA b" in aipname:
+                            fill=fill[1:]
                         for bpair in fill:
                             bn, be = ll2c(bpair)
                             obj.insert(0,(bn,be))
@@ -815,15 +818,37 @@ logger.info("%i Features", len(collection))
 # Add LonLat conversion to each feature
 
 def geoll(feature):
+    name=feature['properties']['name']
+
     geom = feature['geometry']
     geo_ll=[c2ll(c) for c in geom]
     feature['geometry_ll']=geo_ll
-    feature['area']=shgeo.Polygon(geo_ll).area
+
+    #print("POSTPROCESSING POLYGON",name)
+    sh_geo = Polygon(geo_ll)
+
+    if not sh_geo.is_valid:
+        print("INVALID POLYGON",name)
+        if 'RAVLUNDA' in name:
+            # this is hard to fix and far away
+            sh_geo = sh_geo.convex_hull
+        else:
+            sh_geo = sh_geo.buffer(0)
+
+        if not sh_geo.is_valid:
+            print("ERROR: POLYGON REMAINS INVALID")
+            print(sh_geo.is_valid)
+            sys.exit(1)
+        feature['geometry_ll']=list(sh_geo.exterior.coords)
+    feature['area']=Polygon(geo_ll).area
     
 for feature in collection:
     geoll(feature)
 for feature in accsectors:
     geoll(feature)
+
+# TEST: intersect all polygons to remove overlaps
+# dissection = dissect(collection)
 
 # Apply filter by index or name
 

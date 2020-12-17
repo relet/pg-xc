@@ -1,11 +1,13 @@
 # utility methods for conversion
 
 import json
+import geojson as gj
 import math
 import re
 import sys
-import shapely.geometry as shgeo
-import shapely.ops as shops
+from shapely.geometry import Polygon
+from shapely.ops import cascaded_union
+from shapely.strtree import STRtree
 from sys import exit
 
 CIRCLE_APPROX_POINTS = 64
@@ -130,7 +132,7 @@ def gen_sector(n, e, secfrom, secto, radfrom, radto):
 
 def simplify_poly(p, target):
     """Simplify a polygon to target point count"""
-    poly = shgeo.Polygon([c2ll(c) for c in p])
+    poly = Polygon([c2ll(c) for c in p])
     tolerance = 0.001
     while len(poly.exterior.coords)>target:
         poly = poly.simplify(tolerance)
@@ -143,9 +145,9 @@ def merge_poly(p1, p2):
     if not p1:
         return p2
     logger.debug("Merging %s and %s", p1, p2)
-    poly1 = shgeo.Polygon([c2ll(c) for c in p1])
-    poly2 = shgeo.Polygon([c2ll(c) for c in p2])
-    union = shops.cascaded_union([poly1, poly2])
+    poly1 = Polygon([c2ll(c) for c in p1])
+    poly2 = Polygon([c2ll(c) for c in p2])
+    union = cascaded_union([poly1, poly2])
     try:
       return [ll2c(ll) for ll in union.exterior.coords]
     except:
@@ -209,6 +211,75 @@ def fill_along(from_, to_, border, clockwise=None):
     logger.debug("Resulting in a polygon with %i points.", len(result))
     return result
 
+def dissect(collection):
+    return
 
+    #TBD intersect all overlapping polygons and return merged results
 
+    index = {}
+    geometries = []
+    results = []
+
+    for feature in collection:
+        geom = Polygon(feature['geometry_ll'])
+        geometries.append(geom)
+        index[geom.wkt]=feature
+    tree = STRtree(geometries)
+
+    for geom in geometries:
+        feature = index[geom.wkt]
+        overlaps = tree.query(geom)
+
+        for match in overlaps:
+            match_feat = index[match.wkt]
+            if not match.is_valid:
+                match=match.buffer(0)
+
+            if not match.is_valid:
+                print("INVALID POLYGON")
+                print(match_feat)
+                print()
+                print(gj.dumps(gj.Feature(geometry=match, properties={})))
+                sys.exit(1)
+                
+
+            print("---")
+            gname = feature['properties']['name']
+            xname = match_feat['properties']['name']
+            print("A ",gname, geom.is_valid)
+            print("B ",xname, match.is_valid)
+            if match.contains(geom):
+                # The two features fully overlap/contain each other, we can just mention each other
+                print ("CONTAINED")
+                feature['properties']['cover'] = feature['properties'].get('cover',[]) + [match_feat['properties']]
+                print("A (B)")
+                index[geom.wkt] = feature # needed?
+            elif geom.contains(match):
+                print ("CONTAINS")
+                sys.exit(1)
+            elif geom.touches(match):
+                print ("TOUCHES")
+                sys.exit(1)
+            elif geom.overlaps(match):
+                print ("OVERLAPS")
+                g1 = geom.difference(match)
+                g2 = match.difference(geom)
+                gu = geom.intersection(match)
+
+                #TBD: name A-B, B-A, AuB and adjust the properties.
+                print(gname," - ",xname)
+                print(gname," x ",xname)
+                print(xname," - ",gname)
+
+                #print (gj.Feature(gj.Polygon(geom)))
+                #sys.exit(1)
+            elif geom.intersects(match):
+                print ("INTERSECTS")
+                sys.exit(1)
+
+        results.append(feature)
+        print("APPENDED")
+
+        
+    
 

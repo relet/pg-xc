@@ -238,6 +238,7 @@
                                        'weight': 4,
                                        'fillOpacity': 0.4
                                      });
+				     // highlight affected areas of a NOTAM
                                      feature.properties['affected'].forEach(function(s) {
                                        var f = findFeature(s);
                                        if (f) {
