@@ -460,7 +460,7 @@ for filename in os.listdir("./sources/txt"):
                         alonging = False
                         lastn, laste = None, None
                         #HACK matching point in the wrong direction - FIXME don't select closest but next point in correct direction
-                        if "Sälen TMA b" in aipname:
+                        if "Sälen TMA b" in aipname or "SÄLEN CTR Sector b" in aipname:
                             fill=fill[1:]
                         for bpair in fill:
                             bn, be = ll2c(bpair)
