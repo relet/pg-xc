@@ -127,12 +127,14 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
                 separator="-"
             logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))                    
             feature['properties']['name']=aipname + separator + str(recount+1)
-    if 'TIZ' in aipname or 'TIA' in aipname:
+    if 'TIZ' in aipname or 'TIA' in aipname or 'CTR' in aipname:
         feature['properties']['class']='G'
-    elif 'CTR' in aipname or 'TRIDENT' in aipname:
+    elif 'TRIDENT' in aipname \
+        or 'EN D' in aipname or 'END' in aipname \
+        or 'ES D' in aipname:
         feature['properties']['class']='D'
-    elif 'EN R' in aipname or 'EN D' in aipname or 'END' in aipname   \
-      or 'ES R' in aipname or 'ES D' in aipname or 'ESTRA' in aipname \
+    elif 'EN R' in aipname \
+      or 'ES R' in aipname or 'ESTRA' in aipname \
       or 'EUCBA' in aipname or 'RPAS' in aipname:
         feature['properties']['class']='R'
     elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname \

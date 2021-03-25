@@ -769,7 +769,7 @@ DP 66:57:00 N  013:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D478 R og B 3
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -1221,7 +1221,7 @@ DP 62:00:00 N  006:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D367 Halten I
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -1788,7 +1788,7 @@ DP 62:00:00 N  005:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D184 BOTHNIA NORTH
 AL 9500ft AMSL
 AH 66000ft AMSL
@@ -1853,7 +1853,7 @@ DP 70:44:00 N  024:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D368 Halten II
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -2191,7 +2191,7 @@ DP 67:25:00 N  013:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D477 R og B 2
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -2659,7 +2659,7 @@ DP 59:29:04 N  004:31:44 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D475 Nordmela
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -2842,7 +2842,7 @@ DP 58:04:42 N  018:40:31 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D409 Sveinsgrunnen
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -3067,7 +3067,7 @@ DP 55:49:37 N  013:36:36 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D472 Andøya 1
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -3427,7 +3427,7 @@ DP 61:00:00 N  005:29:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D456 Skomvær
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -3564,7 +3564,7 @@ DP 62:11:54 N  011:44:57 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D451 Andfjorden
 AL 0ft AMSL
 AH 61000ft AMSL
@@ -3642,7 +3642,7 @@ DP 64:47:56 N  016:17:56 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN Andøya CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -3755,7 +3755,7 @@ DP 62:41:03 N  017:57:54 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D352 Halten
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -3797,7 +3797,7 @@ DP 61:28:41 N  012:48:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN Banak CTR
 AL 0ft AMSL
 AH 3500ft AMSL
@@ -4132,7 +4132,7 @@ DP 58:03:51 N  014:19:18 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN Ørland CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -4146,7 +4146,7 @@ DP 64:00:00 N  009:25:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENOL-en-GB.html
 *
 *
-AC D
+AC G
 AN Tromsø CTR
 AL 0ft AMSL
 AH 4500ft AMSL
@@ -4333,7 +4333,7 @@ DP 70:05:00 N  021:50:36 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D253 Utsira
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -4389,7 +4389,7 @@ DP 63:06:09 N  006:36:19 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D153 Skagerrak
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -4509,7 +4509,7 @@ DP 59:38:16 N  005:09:33 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC G
 AN ARLANDA CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -4539,7 +4539,7 @@ DP 59:48:58 N  017:46:48 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESSA/ES_AD_2_ESSA_en.pdf
 *
 *
-AC D
+AC G
 AN Kirkenes CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -4767,7 +4767,7 @@ DP 64:39:30 N  012:11:30 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENNM-en-GB.html
 *
 *
-AC D
+AC G
 AN Alta CTR
 AL 0ft AMSL
 AH 3500ft AMSL
@@ -4859,7 +4859,7 @@ DP 60:02:07 N  019:18:49 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN Bardufoss CTR
 AL 0ft AMSL
 AH 4500ft AMSL
@@ -4940,7 +4940,7 @@ DP 66:01:15 N  015:03:22 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D207 Marstein Sør
 AL 0ft AMSL
 AH 61000ft AMSL
@@ -4952,7 +4952,7 @@ DP 59:55:00 N  004:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES R204 ÅLLEBERG EXTENDED
 AL 3000ft AMSL
 AH 19500ft AMSL
@@ -5039,7 +5039,7 @@ DP 63:32:33 N  019:10:19 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D473 Andøya 2
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -5091,7 +5091,7 @@ DP 63:20:49 N  018:15:17 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D256 Vigdel I
 AL 0ft AMSL
 AH 27000ft AMSL
@@ -5473,7 +5473,7 @@ DP 68:16:55 N  015:40:26 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D185 BOTHNIA SOUTH
 AL 9500ft AMSL
 AH 66000ft AMSL
@@ -5556,7 +5556,7 @@ DP 70:48:27 N  029:52:42 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENBS-en-GB.html
 *
 *
-AC D
+AC G
 AN Kvernberget CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -5645,7 +5645,7 @@ DP 62:14:28 N  017:54:31 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D205 Marstein Nord
 AL 0ft AMSL
 AH 61000ft AMSL
@@ -5677,7 +5677,7 @@ DP 59:15:00 N  009:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC G
 AN Evenes CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -5705,7 +5705,7 @@ DP 60:26:53 N  012:55:32 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D138 BORNHOLM NORTH
 AL 0ft AMSL
 AH 20000ft AMSL
@@ -5995,7 +5995,7 @@ DP 60:37:00 N  004:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC G
 AN Karmøy CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -6010,7 +6010,7 @@ DP 59:27:00 N  004:40:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENHD-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D139 BORNHOLM EAST
 AL 0ft AMSL
 AH 50000ft AMSL
@@ -6104,7 +6104,7 @@ DP 61:28:13 N  012:42:44 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC G
 AN SÅTENÄS CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -6166,7 +6166,7 @@ DP 60:52:30 N  011:49:45 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC G
 AN Bodø CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -6179,7 +6179,7 @@ DP 67:25:30 N  014:18:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENBO-en-GB.html
 *
 *
-AC D
+AC G
 AN KIRUNA CTR
 AL 0ft AMSL
 AH 3100ft AMSL
@@ -6228,7 +6228,7 @@ DP 66:22:00 N  013:44:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENRA-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D410 Andfjorden/Skrolsvik
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -6329,7 +6329,7 @@ DP 59:06:02 N  014:29:37 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN Vigra CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -6400,7 +6400,7 @@ DP 59:47:12 N  014:12:05 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN UMEÅ CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -6459,7 +6459,7 @@ DP 70:02:30 N  020:54:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENSR-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D175S KOPPARSTENARNA
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -6472,7 +6472,7 @@ DP 58:40:23 N  018:30:24 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D165 HANÖ WEST
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -6485,7 +6485,7 @@ DP 55:58:10 N  014:48:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D175E KOPPARSTENARNA
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -6565,7 +6565,7 @@ DP 59:03:45 N  017:21:48 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN ARVIDSJAUR CTR,
 AL 0ft AMSL
 AH 3200ft AMSL
@@ -6607,7 +6607,7 @@ DP 68:18:30 N  014:36:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENSH-en-GB.html
 *
 *
-AC D
+AC G
 AN VIDSEL CTR
 AL 0ft AMSL
 AH 2300ft AMSL
@@ -6714,7 +6714,7 @@ DP 61:49:17 N  006:50:25 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D166 HANÖ EAST
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -6738,7 +6738,7 @@ DP 69:56:08 N  020:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC G
 AN Flesland CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -6807,7 +6807,7 @@ DP 65:56:03 N  015:03:08 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESUT/ES_AD_2_ESUT_en.pdf
 *
 *
-AC D
+AC G
 AN SUNDSVALL CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -6821,7 +6821,7 @@ DP 62:41:57 N  017:25:37 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESNN/ES_AD_2_ESNN_en.pdf
 *
 *
-AC D
+AC G
 AN KALLAX CTR
 AL 0ft AMSL
 AH 1200ft AMSL
@@ -6835,7 +6835,7 @@ DP 65:43:21 N  021:53:14 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESPA/ES_AD_2_ESPA_en.pdf
 *
 *
-AC R
+AC D
 AN EN D469 Senja II
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -6861,7 +6861,7 @@ DP 67:14:42 N  020:25:57 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESNG/ES_AD_2_ESNG_en.pdf
 *
 *
-AC R
+AC D
 AN EN D468 Senja I
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -6965,7 +6965,7 @@ DP 66:45:27 N  019:13:06 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN Gardermoen CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -6996,7 +6996,7 @@ DP 67:41:50 N  012:38:50 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-3.ENVR-en-GB.html
 *
 *
-AC D
+AC G
 AN BORLÄNGE CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -7095,7 +7095,7 @@ DP 57:28:54 N  014:51:34 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN RONNEBY CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -7123,7 +7123,7 @@ DP 56:08:00 N  014:01:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESMK/ES_AD_2_ESMK_en.pdf
 *
 *
-AC D
+AC G
 AN Værnes CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -7181,7 +7181,7 @@ DP 63:19:00 N  010:10:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC G
 AN Sola CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -7195,7 +7195,7 @@ DP 59:05:00 N  005:33:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENZV-en-GB.html
 *
 *
-AC D
+AC G
 AN KARLSTAD CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -7239,7 +7239,7 @@ DP 59:24:58 N  019:00:47 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN SKELLEFTEÅ CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -7253,7 +7253,7 @@ DP 64:43:18 N  021:04:45 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESNS/ES_AD_2_ESNS_en.pdf
 *
 *
-AC D
+AC G
 AN KUNGSÄNGEN CTR
 AL 0ft AMSL
 AH 1600ft AMSL
@@ -7267,7 +7267,7 @@ DP 58:40:28 N  016:15:49 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESSP/ES_AD_2_ESSP_en.pdf
 *
 *
-AC D
+AC G
 AN SKAVSTA CTR
 AL 0ft AMSL
 AH 1600ft AMSL
@@ -7281,7 +7281,7 @@ DP 58:53:33 N  016:54:18 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESKN/ES_AD_2_ESKN_en.pdf
 *
 *
-AC D
+AC G
 AN Torp CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -7322,7 +7322,7 @@ DP 60:17:58 N  018:12:47 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC D
+AC G
 AN ÖREBRO CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -7426,7 +7426,7 @@ DP 57:25:58 N  017:59:47 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN VÄSTERÅS CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -7500,7 +7500,7 @@ DP 62:39:05 N  012:04:46 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC G
 AN ÄNGELHOLM CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -7515,7 +7515,7 @@ DP 56:27:21 N  012:40:21 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESTA/ES_AD_2_ESTA_en.pdf
 *
 *
-AC D
+AC G
 AN JÖNKÖPING CTR
 AL 0ft AMSL
 AH 2200ft AMSL
@@ -7531,7 +7531,7 @@ DP 57:56:47 N  014:04:56 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESGJ/ES_AD_2_ESGJ_en.pdf
 *
 *
-AC D
+AC G
 AN Rygge CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -7547,7 +7547,7 @@ DP 59:30:00 N  010:33:50 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-AD-2.ENRY-en-GB.html
 *
 *
-AC D
+AC G
 AN Kjevik CTR
 AL 0ft AMSL
 AH 2500ft AMSL
@@ -7641,7 +7641,7 @@ DP 60:11:00 N  009:49:10 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC G
 AN ÖSTERSUND CTR
 AL 0ft AMSL
 AH 3050ft AMSL
@@ -7656,7 +7656,7 @@ DP 63:17:16 N  014:14:49 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESNZ/ES_AD_2_ESNZ_en.pdf
 *
 *
-AC D
+AC G
 AN VISBY CTR
 AL 0ft AMSL
 AH 1100ft AMSL
@@ -7763,7 +7763,7 @@ DP 55:56:23 N  014:22:28 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN LANDVETTER CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -7777,7 +7777,7 @@ DP 57:49:59 N  012:19:51 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESGG/ES_AD_2_ESGG_en.pdf
 *
 *
-AC D
+AC G
 AN KRONOBERG CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -7791,7 +7791,7 @@ DP 57:06:57 N  014:43:12 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESMX/ES_AD_2_ESMX_en.pdf
 *
 *
-AC D
+AC G
 AN KARLSBORG CTR
 AL 0ft AMSL
 AH 1700ft AMSL
@@ -7805,7 +7805,7 @@ DP 58:37:23 N  014:39:13 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESIA/ES_AD_2_ESIA_en.pdf
 *
 *
-AC D
+AC G
 AN ÖRNSKÖLDSVIK CTR
 AL 0ft AMSL
 AH 2400ft AMSL
@@ -7832,7 +7832,7 @@ DP 56:45:35 N  013:14:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D164 HANÖ NORTH
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -7860,7 +7860,7 @@ DP 60:43:45 N  010:06:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC G
 AN HALMSTAD CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -7876,7 +7876,7 @@ DP 56:54:51 N  012:44:11 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESMT/ES_AD_2_ESMT_en.pdf
 *
 *
-AC R
+AC D
 AN EN D476 R og B 1
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -7950,7 +7950,7 @@ DP 69:17:19 N  016:01:33 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC G
 AN UPPSALA CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -7964,7 +7964,7 @@ DP 60:02:58 N  017:39:48 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESCM/ES_AD_2_ESCM_en.pdf
 *
 *
-AC D
+AC G
 AN TROLLHÄTTAN CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -8081,7 +8081,7 @@ DP 60:08:16 N  018:50:39 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN SÄVE CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -8120,7 +8120,7 @@ DP 65:03:25 N  021:42:44 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN KALMAR CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -8134,7 +8134,7 @@ DP 56:52:21 N  016:12:28 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESMQ/ES_AD_2_ESMQ_en.pdf
 *
 *
-AC R
+AC D
 AN EN D452 Lyngvær
 AL 0ft AMSL
 AH 30000ft AMSL
@@ -8295,7 +8295,7 @@ DP 58:54:58 N  018:07:24 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN BROMMA CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -8384,7 +8384,7 @@ DP 59:30:45 N  016:45:11 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESSU/ES_AD_2_ESSU_en.pdf
 *
 *
-AC D
+AC G
 AN STURUP CTR
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -8463,7 +8463,7 @@ DP 58:45:40 N  018:18:27 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D362 Røros RPAS West
 AL 0ft AMSL
 AH 9500ft AMSL
@@ -8476,7 +8476,7 @@ DP 62:41:00 N  010:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D404 Setermoen
 AL 0ft AMSL
 AH 25000ft AMSL
@@ -8533,7 +8533,7 @@ DP 59:31:12 N  009:00:23 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D462 Vågsfjorden
 AL 0ft AMSL
 AH 21000ft AMSL
@@ -8546,7 +8546,7 @@ DP 68:57:00 N  016:46:12 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D460 Andfjorden/Grøtavær
 AL 0ft AMSL
 AH 46000ft AMSL
@@ -8604,7 +8604,7 @@ DP 59:48:58 N  017:46:48 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D140 BORNHOLM WEST
 AL 0ft AMSL
 AH 50000ft AMSL
@@ -8701,7 +8701,7 @@ DP 65:45:43 N  020:52:00 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN SÄLEN CTR Sector a
 AL 0ft AMSL
 AH 4200ft AMSL
@@ -8771,7 +8771,7 @@ DP 60:40:30 N  010:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC G
 AN SAAB CTR Sector a
 AL 0ft AMSL
 AH 1600ft AMSL
@@ -8885,7 +8885,7 @@ DP 59:06:54 N  011:20:21 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D465 Indre Vestfjorden
 AL 0ft AMSL
 AH 29000ft AMSL
@@ -8897,7 +8897,7 @@ DP 68:23:00 N  015:51:54 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D366 Halten Dronekorridor
 AL 0ft AMSL
 AH 10000ft AMSL
@@ -8994,7 +8994,7 @@ DP 63:40:50 N  010:02:40 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D160 SKAGEN
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -9090,7 +9090,7 @@ DP 58:13:21 N  013:35:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D408 Porsangermoen
 AL 0ft AMSL
 AH 27000ft AMSL
@@ -9103,7 +9103,7 @@ DP 69:55:50 N  024:56:25 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC G
 AN LJUNGBYHED CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -9167,7 +9167,7 @@ DP 65:32:25 N  022:19:43 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D208 Slåtterøy
 AL 0ft AMSL
 AH 61000ft AMSL
@@ -9193,7 +9193,7 @@ DP 59:52:43 N  019:06:35 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D406 Blåtind
 AL 0ft AMSL
 AH 36000ft AMSL
@@ -9226,7 +9226,7 @@ DP 59:26:34 N  014:54:13 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D459 Andenes
 AL 0ft AMSL
 AH 36000ft AMSL
@@ -9419,7 +9419,7 @@ DP 56:43:29 N  013:06:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC D
+AC G
 AN SAAB CTR Sector b
 AL 0ft AMSL
 AH 1600ft AMSL
@@ -9443,7 +9443,7 @@ DP 65:41:22 N  021:34:43 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 2/ES_ENR_2_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D361 Hjerkinn
 AL 0ft AMSL
 AH 9000ft AMSL
@@ -9484,7 +9484,7 @@ DP 63:40:50 N  010:02:40 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D158 Regionfelt Østlandet 3
 AL 0ft AMSL
 AH 36000ft AMSL
@@ -9641,7 +9641,7 @@ DP 58:30:21 N  014:37:08 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D363 Røros RPAS East 1
 AL 0ft AMSL
 AH 9500ft AMSL
@@ -9653,7 +9653,7 @@ DP 62:46:00 N  011:33:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC G
 AN MALMEN CTR
 AL 0ft AMSL
 AH 1600ft AMSL
@@ -9665,7 +9665,7 @@ DP 58:25:44 N  015:18:59 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESCF/ES_AD_2_ESCF_en.pdf
 *
 *
-AC R
+AC D
 AN EN D355 Vågan
 AL 0ft AMSL
 AH 36000ft AMSL
@@ -9739,7 +9739,7 @@ DP 63:49:42 N  009:38:12 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D110 Regionfelt Østlandet 1
 AL 0ft AMSL
 AH 21000ft AMSL
@@ -9757,7 +9757,7 @@ DP 61:12:27 N  011:33:57 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D157 Regionfelt Østlandet 2
 AL 0ft AMSL
 AH 29000ft AMSL
@@ -9790,7 +9790,7 @@ DP 59:40:38 N  009:32:54 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC G
 AN SÄLEN CTR Sector b
 AL 0ft AMSL
 AH 4200ft AMSL
@@ -9822,7 +9822,7 @@ DP 60:16:40 N  012:56:53 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/AD/AD 2/ESST/ES_AD_2_ESST_en.pdf
 *
 *
-AC R
+AC D
 AN EN D206 Stolmen
 AL 0ft AMSL
 AH 61000ft AMSL
@@ -9834,7 +9834,7 @@ DP 60:08:00 N  004:52:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D255 Mjølfjell
 AL 0ft AMSL
 AH 25000ft AMSL
@@ -9847,7 +9847,7 @@ DP 60:49:43 N  006:39:54 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D171 HÄRNÖN EAST
 AL 0ft AMSL
 AH 40500ft AMSL
@@ -9901,7 +9901,7 @@ DP 59:26:05 N  009:11:35 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D105 Rena
 AL 0ft AMSL
 AH 13000ft AMSL
@@ -9990,7 +9990,7 @@ DP 56:45:59 N  012:33:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D356 Tarva
 AL 0ft AMSL
 AH 27000ft AMSL
@@ -10058,7 +10058,7 @@ DP 56:04:16 N  015:23:49 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D464 Mjelde
 AL 0ft AMSL
 AH 36000ft AMSL
@@ -10495,7 +10495,7 @@ DP 63:32:30 N  011:33:21 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D102 Østre Æra
 AL 0ft AMSL
 AH 16500ft AMSL
@@ -10663,7 +10663,7 @@ DP 63:40:56 N  020:50:45 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D474 Andøya 3
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -10674,7 +10674,7 @@ DP 68:48:50 N  015:40:10 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D421 Alomar Nv Upper
 AL 10500ft AMSL
 AH 999999ft AMSL
@@ -10697,7 +10697,7 @@ DP 69:17:40 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D423 Alomar Sø Upper
 AL 10500ft AMSL
 AH 999999ft AMSL
@@ -10731,7 +10731,7 @@ DP 58:53:28 N  017:42:02 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D365 Giskås
 AL 0ft AMSL
 AH 13000ft AMSL
@@ -10743,7 +10743,7 @@ DP 64:03:00 N  011:55:00 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D364 Røros RPAS East 2
 AL 0ft AMSL
 AH 9500ft AMSL
@@ -10769,7 +10769,7 @@ DP 63:56:46 N  020:18:15 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D471 Falkefjell
 AL 0ft AMSL
 AH 20000ft AMSL
@@ -10846,7 +10846,7 @@ DP 62:17:22.9 N  005:57:35.7 E
 * Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
 *
 *
-AC R
+AC D
 AN EN D407 Mauken
 AL 0ft AMSL
 AH 30000ft AMSL
@@ -11400,7 +11400,7 @@ DP 57:42:33 N  014:53:34 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D106 Terningmoen
 AL 0ft AMSL
 AH 7000ft AMSL
@@ -11544,7 +11544,7 @@ DP 56:10:04 N  014:50:48 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D180 KAUNISVAARA
 AL 0ft AMSL
 AH 4500ft AMSL
@@ -11569,7 +11569,7 @@ DP 63:15:56 N  014:44:08 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D354 Leksdalen
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -11582,7 +11582,7 @@ DP 63:24:56 N  011:00:21 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D353 Halten
 AL 0ft AMSL
 AH 8000ft AMSL
@@ -11702,7 +11702,7 @@ DP 59:36:04 N  017:41:58 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN ES D155 AITIK
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -11714,7 +11714,7 @@ DP 67:05:41 N  020:58:25 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D458 Andenes
 AL 0ft AMSL
 AH 10000ft AMSL
@@ -11811,7 +11811,7 @@ DP 59:49:27 N  017:17:47 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D210 Tellenes
 AL 0ft AMSL
 AH 6000ft AMSL
@@ -11883,7 +11883,7 @@ DP 58:21:09 N  006:25:30 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D201 Ulven
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -11955,7 +11955,7 @@ DP 60:12:42 N  005:25:24 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D182 SATTAVAARA
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -12171,7 +12171,7 @@ DP 69:04:20 N  018:32:25 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D177 KÅGE
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -12315,7 +12315,7 @@ DP 68:30:19 N  016:40:42 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D181 MERTAINEN-KIRUNA
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -12699,7 +12699,7 @@ DP 57:57:11 N  011:43:06 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D470 Ramnes
 AL 0ft AMSL
 AH 5000ft AMSL
@@ -13875,7 +13875,7 @@ DP 60:49:44 N  005:01:30 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D104 Bradalsmyra
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -14764,7 +14764,7 @@ DP 56:44:59 N  012:46:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D257 Awes Lista
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -14778,7 +14778,7 @@ DP 58:07:04 N  006:35:34 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D156 Hengsvatn
 AL 0ft AMSL
 AH 16000ft AMSL
@@ -14790,7 +14790,7 @@ DP 59:38:46 N  009:22:35 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D179 GRUVBERGET/ SVAPPAVAARA
 AL 0ft AMSL
 AH 3000ft AMSL
@@ -14824,7 +14824,7 @@ DP 59:33:59 N  017:47:50 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D463 Elvegårdsmoen
 AL 0ft AMSL
 AH 25000ft AMSL
@@ -15021,7 +15021,7 @@ DP 59:16:50 N  005:31:28 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D420 Alomar Nv Lower
 AL 0ft AMSL
 AH 10500ft AMSL
@@ -15095,7 +15095,7 @@ DP 69:16:42 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D422 Alomar Sø Lower
 AL 0ft AMSL
 AH 10500ft AMSL
@@ -15169,7 +15169,7 @@ DP 69:16:42 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D183 BOLIDEN
 AL 0ft AMSL
 AH 4000ft AMSL
@@ -15241,7 +15241,7 @@ DP 64:52:09 N  020:18:21 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D305 Akselberg
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -15673,7 +15673,7 @@ DP 60:33:17 N  004:50:19 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN EN D425 Forsvaret Eggemoen
 AL 0ft AMSL
 AH 4500ft AMSL
@@ -16190,7 +16190,7 @@ DP 59:35:39 N  017:45:11 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D424 Makani Karmøy
 AL 0ft AMSL
 AH 2000ft AMSL
@@ -16262,7 +16262,7 @@ DP 59:09:32 N  005:02:22 E
 * Source: https://ais.avinor.no/no/AIP/View/100/2021-01-28-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC R
+AC D
 AN ES D178 SALA
 AL 0ft AMSL
 AH 4500ft AMSL
@@ -16346,7 +16346,7 @@ DP 56:08:54 N  015:39:20 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
 *
 *
-AC R
+AC D
 AN EN D209 Risavika
 AL 0ft AMSL
 AH 700ft AMSL
