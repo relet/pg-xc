@@ -210,7 +210,7 @@
                 };
                 var filter_takeoffs = function(winddir) {
                         return function(feature) {
-                                if ((feature.geometry.coordinates[2] < 200) ||
+                                if ((feature.geometry.coordinates[2] < 100) ||
                                     (feature.properties['name'].indexOf('PPG') > -1)) {
                                         return false;
                                 }
