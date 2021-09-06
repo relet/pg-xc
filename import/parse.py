@@ -259,6 +259,7 @@ for filename in os.listdir("./sources/txt"):
     aip_sup      = "en_sup" in filename
     es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
     cold_resp    = "en_sup_a_2020" in filename
+    valldal      = "valldal" in filename
 
     # TODO: merge the cases
     es_enr_2_1 = "ES_ENR_2_1" in filename
@@ -353,6 +354,13 @@ for filename in os.listdir("./sources/txt"):
                 aipname = "SÄLEN CTR "+line
             else:
                 aipname = "SAAB CTR "+line
+        # SPECIAL CASE check for Valldal AIP names
+        if valldal and 'Valldal' in line:
+            aipname=" ".join(line.strip().split()[0:2])
+            logger.debug("Valldal aipname: '%s'", aipname)
+            feature['properties']['class']='Luftsport'
+            feature['properties']['from (ft amsl)']=0
+            feature['properties']['from (m amsl)'] =0
 
         # IDENTIFY coordinates
         coords = re_coord.search(line)
@@ -490,7 +498,8 @@ for filename in os.listdir("./sources/txt"):
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                             lastv = None
 
-            return
+            if not valldal:
+                return
 
         # IDENTIFY temporary restrictions
         period = re_period.search(line) or re_period2.search(line) or re_period3.search(line)
@@ -584,6 +593,9 @@ for filename in os.listdir("./sources/txt"):
                     feature['properties']['to (fl)']=flto
                 feature['properties']['to (ft amsl)']=toamsl
                 feature['properties']['to (m amsl)'] = ft2m(toamsl)
+                if valldal:
+                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    lastv = None
             if fromamsl is not None:
                 currentv = feature['properties'].get('from (ft amsl)')
                 if currentv is not None and currentv != fromamsl:
@@ -673,6 +685,9 @@ for filename in os.listdir("./sources/txt"):
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 aipname = wstrip(line)
 
+    # end def parse
+
+    # IDENTIFY document types
     table = []
     column_parsing = []
     header_cont = False
@@ -681,11 +696,22 @@ for filename in os.listdir("./sources/txt"):
     skip_tia = False
     tia_aip_acc = False
     vcuts = None
+    skip_valldal = True
 
     for line in data:
+
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
             column_parsing = []
+
+        if valldal:
+            if line.strip() == 'Valldal Midt':
+                skip_valldal = False
+            if 'Varsling av aktivitet' in line:
+                break
+            if skip_valldal:
+                continue
+
         if tia_aip:
             if "Norway ACC sectorization" in line:
                 logger.debug("SECTORIZATION START")
@@ -702,12 +728,15 @@ for filename in os.listdir("./sources/txt"):
                 skip_tia = True
             if skip_tia:
                 continue
+
         if aip_sup and ("Luftromsklasse" in line):
             logger.debug("Skipping end of SUP")
             break
+
         if country == 'ES' and 'Vinschning av sk' in line:
             logger.debug("Skipping end of document")
             break
+
         if cold_resp: 
             if '3. AMC and Danger' in line:
                 break
@@ -715,6 +744,7 @@ for filename in os.listdir("./sources/txt"):
                 cr_areas=True
             elif not cr_areas:
                 continue
+
         if not end_notam and 'active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
             end_notam = True
