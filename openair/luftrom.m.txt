@@ -10362,6 +10362,17 @@ DP 59:32:24 N  009:46:11 E
 * Source: https://ais.avinor.no/no/AIP/View/108/2021-08-12-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
+AC W
+AN Stranda sør 2
+AL 0 MSL
+AH 2133 MSL
+DP 62:14:24.1 N  006:49:30.2 E
+DP 62:04:55.7 N  006:50:54.2 E
+DP 62:08:34.0 N  006:59:55.1 E
+DP 62:14:58.9 N  006:58:10.5 E
+* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
+*
+*
 AC R
 AN ES R18B BOFORS, VILLINGSBERG
 AL 0 MSL
@@ -10812,6 +10823,18 @@ DP 64:03:00 N  011:55:00 E
 * Source: https://ais.avinor.no/no/AIP/View/108/2021-08-12-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
+AC W
+AN Stranda Midt
+AL 0 MSL
+AH 1524 MSL
+DP 62:18:24.4 N  006:36:44.7 E
+DP 62:16:55.9 N  006:38:45.7 E
+DP 62:16:40.0 N  006:46:57.7 E
+DP 62:19:06.7 N  006:56:49.2 E
+DP 62:21:03.7 N  006:47:42.7 E
+* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
+*
+*
 AC D
 AN EN D364 Røros RPAS East 2
 AL 0 MSL
@@ -10821,6 +10844,17 @@ DP 62:35:00 N  011:38:00 E
 DP 62:37:00 N  011:53:00 E
 DP 62:43:00 N  011:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/108/2021-08-12-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC W
+AN Stranda Nord
+AL 0 MSL
+AH 1524 MSL
+DP 62:21:36.0 N  006:33:55.3 E
+DP 62:18:24.4 N  006:36:44.6 E
+DP 62:21:03.7 N  006:47:42.9 E
+DP 62:25:14.2 N  006:38:13.8 E
+* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
 *
 *
 AC R
@@ -10901,6 +10935,18 @@ DP 59:16:56 N  014:41:33 E
 DP 59:17:42 N  014:40:36 E
 DP 59:19:37 N  014:34:49 E
 * Source: https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip#AIP/ENR/ENR 5/ES_ENR_5_1_en.pdf
+*
+*
+AC W
+AN Stranda sør
+AL 0 MSL
+AH 1828 MSL
+DP 62:18:53.9 N  006:50:23.6 E
+DP 62:18:15.4 N  006:48:49.8 E
+DP 62:14:24.1 N  006:49:30.2 E
+DP 62:14:58.9 N  006:58:10.5 E
+DP 62:19:06.0 N  006:56:48.0 E
+* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
 *
 *
 AC W
