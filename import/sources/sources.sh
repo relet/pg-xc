@@ -49,6 +49,11 @@ process() {
   else
       pdftotext "./pdf/$FILENAME" "./txt/$FILENAME.txt"
   fi
+
+  # manual overrides
+  if [ -e ./manual/$FILENAME.txt ]; then
+      cp ./manual/$FILENAME.txt ./txt/$FILENAME.txt
+  fi
 }
 
 fromzip() {
@@ -126,7 +131,7 @@ while read p; do
           process $FILENAME $LAYOUT
       fi
   elif [ ! -e "./pdf/$FILENAME" ]; then
-      curl -b cookies -L --output "./pdf/$FILENAME" "$URLNAME"
+      curl -k -b cookies -L --output "./pdf/$FILENAME" "$URLNAME"
       process $FILENAME $LAYOUT
   else
       process $FILENAME $LAYOUT

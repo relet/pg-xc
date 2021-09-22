@@ -31,10 +31,12 @@ re_name5  = re.compile("^(?P<name>Sector .*)$")
 re_name6  = re.compile("^(?P<name>Norway ACC .*)$")
 re_name_cr  = re.compile("^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
 re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
+re_name_openair  = re.compile("^AN (?P<name>.*)$")
 
 # Lines containing these are usually recognized as airspace class
 re_class  = re.compile("Class:? (?P<class>.)")
 re_class2 = re.compile("^(?P<class>[CDG])$")
+re_class_openair = re.compile("^AC (?P<class>.*)$")
 
 # Coordinates format, possibly in brackets
 RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s+|-)+(?P<e>[\d\.]+)[E\)]+)'
@@ -57,8 +59,6 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 re_vertl_upper = re.compile("Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL)($|\s{5})")
 re_vertl_lower = re.compile("ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL|(?P<msl>MSL))($|\s{5})")
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
-re_vertl_td  = re.compile(u"(?:(?:(?:FL\s?)?(?P<flfrom>\d+))|(?:(?P<ftamsl>\d+) ?FT)) [–-] FL\s?(?P<flto>\d+).*")
-re_vertl_td2  = re.compile("(?P<ftamsl>\d+) ?FT")
 re_vertl2 = re.compile("((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
@@ -335,7 +335,7 @@ for filename in os.listdir("./sources/txt"):
                     logger.debug("End chapter 2.71")
                     ats_chapter=False
 
-        class_=re_class.search(line) or re_class2.search(line)
+        class_=re_class.search(line) or re_class2.search(line) or re_class_openair.search(line)
         if class_:
             logger.debug("Found class in line: %s", line)
             class_=class_.groupdict()
@@ -649,7 +649,8 @@ for filename in os.listdir("./sources/txt"):
 
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
-               re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line)
+               re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line) or \
+               re_name_openair.search(line)
 
         if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line

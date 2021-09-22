@@ -5478,6 +5478,18 @@ DP 68:16:55 N  015:40:26 E
 * Source: https://ais.avinor.no/no/AIP/View/108/2021-08-12-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
+AC W
+AN Tynset
+AL 7500ft AMSL
+AH FL115
+DP 62:24:00 N  010:39:50 E
+DP 62:00:00 N  010:39:00 E
+DP 62:00:00 N  011:14:00 E
+DP 62:15:40 N  011:17:45 E
+DP 62:24:00 N  010:39:50 E
+* Source: http://nlf.no/sites/default/files/forbund/dokument/avtale_omrade_tynset.pdf
+*
+*
 AC D
 AN ES D185 BOTHNIA SOUTH
 AL FL95
