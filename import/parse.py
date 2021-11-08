@@ -897,7 +897,13 @@ def geoll(feature):
             print("ERROR: POLYGON REMAINS INVALID")
             print(sh_geo.is_valid)
             sys.exit(1)
-        feature['geometry_ll']=list(sh_geo.exterior.coords)
+
+        if hasattr(sh_geo,'exterior'):
+            feature['geometry_ll']=list(sh_geo.exterior.coords)
+        else:
+            logger.error("INVALID OBJECT: %s is not a simple polygon", name )
+            #sys.exit(1)
+            feature['area']=0
     feature['area']=Polygon(geo_ll).area
     
 for feature in collection:
