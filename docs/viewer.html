@@ -48,9 +48,8 @@
             (function() {
                 'use strict';
 
-                //var luftrom='https://raw.githack.com/relet/pg-xc/master/geojson/luftrom.geojson'; // -- for development
-                var luftrom='https://raw.githubusercontent.com/relet/pg-xc/master/geojson/luftrom.geojson';
-                var takeoffs='https://raw.githubusercontent.com/relet/pg-xc/master/geojson/takeoffs.geojson';
+                var luftrom='https://luftrom.info/json/luftrom.geojson';
+                var takeoffs='https://luftrom.info/json/takeoffs.geojson';
 
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
