@@ -62,7 +62,7 @@ re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,
 re_vertl2 = re.compile("((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
 
-# temporary airspace 
+# temporary airspace
 RE_MONTH = "(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 re_period = re.compile("Active from (?P<pfrom>\d+ "+RE_MONTH+") (?P<ptimefrom>\d+)")
 re_period2 = re.compile("^(?P<pto>\d+ "+RE_MONTH+") (?P<ptimeto>\d+)")
@@ -93,7 +93,7 @@ borders = {
 
 collection = []
 completed = {}
-names = {} 
+names = {}
 accsectors = []
 
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
@@ -122,10 +122,10 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         recount = len([f for f in features if aipname in f['properties']['name']])
         recount = recount or len([f for f in accsectors if aipname in f['properties']['name']])
         if recount>0:
-            separator = " " 
-            if re.search('\d$', aipname): 
+            separator = " "
+            if re.search('\d$', aipname):
                 separator="-"
-            logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))                    
+            logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))
             feature['properties']['name']=aipname + separator + str(recount+1)
     if 'TIZ' in aipname or 'TIA' in aipname or 'CTR' in aipname:
         feature['properties']['class']='G'
@@ -235,8 +235,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
 
     names[aipname]=True
-    logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'), 
-                                                                     len(obj), 
+    logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'),
+                                                                     len(obj),
                                                                      feature['properties'].get('from (ft amsl)'),
                                                                      feature['properties'].get('to (ft amsl)'))
     return {"properties":{}}, []
@@ -244,7 +244,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
 
 for filename in os.listdir("./sources/txt"):
     source = urllib.parse.unquote(filename.split(".txt")[0])
-    if ".swp" in filename: 
+    if ".swp" in filename:
         continue
     logger.info("Reading %s", "./sources/txt/"+filename)
 
@@ -258,7 +258,7 @@ for filename in os.listdir("./sources/txt"):
     airsport_aip = "ENR-5.5" in filename
     aip_sup      = "en_sup" in filename
     es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
-    cold_resp    = "en_sup_a_2020" in filename
+    cold_resp    = "en_sup_a_2022_003" in filename
     valldal      = "valldal" in filename
     stranda      = "gingli" in filename
 
@@ -307,7 +307,7 @@ for filename in os.listdir("./sources/txt"):
 
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
-        global border, re_coord3, country 
+        global border, re_coord3, country
         global sectors, name_cont, stranda_cont, cold_resp
 
         if line==LINEBREAK:
@@ -513,7 +513,7 @@ for filename in os.listdir("./sources/txt"):
                         logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if (airsport_aip or aip_sup or military_aip or cold_resp) and finalcoord:
+                    if (airsport_aip or aip_sup or military_aip) and finalcoord:
                         if feature['properties'].get('from (ft amsl)') is not None:
                             logger.debug("Finalizing: finalcoord.")
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
@@ -525,29 +525,14 @@ for filename in os.listdir("./sources/txt"):
         # IDENTIFY temporary restrictions
         period = re_period.search(line) or re_period2.search(line) or re_period3.search(line)
 
-        if cold_resp and period:
-            period = period.groupdict()
-            logger.debug("Found period in line: %s", period)
+        if cold_resp and not feature.get('properties',{}).get('temporary'):
+            logger.debug("Adding temporary restriction to cold response airspace.")
             feature['properties']['temporary'] = True
             feature['properties']['dashArray'] = "5 5"
-            pfrom = period.get('pfrom')
-            if pfrom is not None:
-                ppfrom = feature['properties'].get('Date from',[])
-                feature['properties']['Date from'] = ppfrom + [pfrom]
-            pto = period.get('pto')
-            if pto is not None:
-                ppto = feature['properties'].get('Date until',[])
-                feature['properties']['Date until'] = ppto + [pto]
-            ptimefrom = period.get('ptimefrom')
-            if ptimefrom is not None:
-                feature['properties']['Time from (UTC)'] = ptimefrom
-            ptimeto = period.get('ptimeto')
-            if ptimeto is not None:
-                feature['properties']['Time to (UTC)'] = ptimeto
-            if pto is not None:
-                logger.debug("Finalizing COLD_RESP polygon with time to")
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-            return
+            feature['properties']['Date from'] = "2022-03-14"
+            feature['properties']['Date until'] = "2022-03-22"
+            feature['properties']['Time from (UTC)'] = "00:00"
+            feature['properties']['Time to (UTC)'] = "24:00"
 
         # IDENTIFY frequencies
         freq = re_freq.search(line)
@@ -626,8 +611,8 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN') and not cold_resp or stranda:
-                    logger.debug("Finalizing poly: Vertl complete. "+str(cold_resp))
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN') and not stranda:
+                    logger.debug("Finalizing poly: Vertl complete.")
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
                             aipname_,  obj_ = x
@@ -655,7 +640,7 @@ for filename in os.listdir("./sources/txt"):
         if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line
             logger.debug("Continuing name as "+aipname)
-            if line == '' or 'EN D' in aipname or cold_resp:
+            if line == '' or 'EN D' in aipname:
                 name_cont = False
 
         if name:
@@ -671,7 +656,7 @@ for filename in os.listdir("./sources/txt"):
                 name = name[:pos]
 
             if name[:6]=="Sector" and "ACC" in aipname:
-               return 
+               return
 
             if named.get('name_cont'):
                 name += ' '+named.get('name_cont')
@@ -685,7 +670,7 @@ for filename in os.listdir("./sources/txt"):
                 name_cont=True
 
             if restrict_aip or military_aip:
-                if feature['properties'].get('from (ft amsl)') is not None and (feature['properties'].get('to (ft amsl)') or "Romerike" in aipname or "Oslo" in aipname): 
+                if feature['properties'].get('from (ft amsl)') is not None and (feature['properties'].get('to (ft amsl)') or "Romerike" in aipname or "Oslo" in aipname):
                     logger.debug("RESTRICT/MILITARY + name and vertl complete")
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                     lastv = None
@@ -760,19 +745,11 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Skipping end of document")
             break
 
-        if cold_resp: 
-            if '3. AMC and Danger' in line:
-                break
-            if 'Restricted areas established' in line:
-                cr_areas=True
-            elif not cr_areas:
-                continue
-
         if not end_notam and 'active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
             end_notam = True
-        
-        if not line.strip() or (cold_resp and 'Area Name' in line) or (stranda and 'Stranda' in line):
+
+        if not line.strip() or (stranda and 'Stranda' in line):
             if column_parsing and table:
                 # parse rows first, then cols
                 for col in range(0,len(table[0])):
@@ -793,7 +770,7 @@ for filename in os.listdir("./sources/txt"):
                 row.append(lcut)
             table.append(row)
             continue
-        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2 or cold_resp:
+        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2:
             if line.strip()=='Vertical limits': # hack around ES_ENR_2_2 malformatting
                 headers = 'Vertical'
                 header_cont = True
@@ -806,9 +783,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Parsed header line as %s.", headers)
             logger.debug("line=%s.", line)
             vcuts = []
-            if cold_resp:
-                vcuts = [0, 44, 65, 110]
-            elif es_aip_sup:
+            if es_aip_sup:
                vcuts = [0, 45, 110]
             elif stranda:
                vcuts = [0, 25, 70, 110]
@@ -905,7 +880,7 @@ def geoll(feature):
             #sys.exit(1)
             feature['area']=0
     feature['area']=Polygon(geo_ll).area
-    
+
 for feature in collection:
     geoll(feature)
 for feature in accsectors:

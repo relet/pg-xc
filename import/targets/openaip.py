@@ -32,10 +32,13 @@ def dumps(logger, filename, features):
 
     # TODO: use fl as unit where meaningful
     for i,feature in enumerate(features):
+        if feature['properties']['class'] != "Luftsport": 
+            continue
         poly = ",".join([" ".join([str(x) for x in pair]) for pair in feature['geometry_ll']])
         aipdata = {
                 'id': i,
-                'category': feature['properties']['class'],
+                #'category': feature['properties']['class'],
+                'category': 'WAVE',
                 'name': feature['properties']['name'],
                 'alt_from_unit': 'F',
                 'alt_to_unit': 'F',
