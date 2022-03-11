@@ -529,8 +529,8 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Adding temporary restriction to cold response airspace.")
             feature['properties']['temporary'] = True
             feature['properties']['dashArray'] = "5 5"
-            feature['properties']['Date from'] = ["2022-03-14"]
-            feature['properties']['Date until'] = ["2022-03-22"]
+            feature['properties']['Date from'] = ["14 MAR"]
+            feature['properties']['Date until'] = ["31 MAR"]
             feature['properties']['Time from (UTC)'] = "0000"
             feature['properties']['Time to (UTC)'] = "2359"
 
