@@ -529,10 +529,10 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Adding temporary restriction to cold response airspace.")
             feature['properties']['temporary'] = True
             feature['properties']['dashArray'] = "5 5"
-            feature['properties']['Date from'] = "2022-03-14"
-            feature['properties']['Date until'] = "2022-03-22"
-            feature['properties']['Time from (UTC)'] = "00:00"
-            feature['properties']['Time to (UTC)'] = "24:00"
+            feature['properties']['Date from'] = ["2022-03-14"]
+            feature['properties']['Date until'] = ["2022-03-22"]
+            feature['properties']['Time from (UTC)'] = "0000"
+            feature['properties']['Time to (UTC)'] = "2359"
 
         # IDENTIFY frequencies
         freq = re_freq.search(line)
