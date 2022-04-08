@@ -78,7 +78,9 @@ while read p; do
   STOP=0
   # skip comment lines
   if [[ $p =~ ^# ]]; then continue; fi
-  # skip empty lines
+  if [[ $p =~ ^= ]]; then continue; fi
+  if [[ $p =~ ^T ]]; then continue; fi
+  # skip empty lines and sites handled by selenium
   if [ -z "$p" ]; then continue; fi
   # if a line starts with Z, download and unpack a zip archive
   if [[ $p =~ ^Z ]]; then
@@ -96,10 +98,10 @@ while read p; do
   fi
 
   # otherwise, locate and parse a html
-  if [[ $p =~ ^T ]]; then  # with tables
-      LAYOUT=3
-      SKIP=1
-  elif [[ $p =~ ^\+ ]]; then  # without tables
+  #if [[ $p =~ ^T ]]; then  # with tables
+  #    LAYOUT=3
+  #    SKIP=1
+  if [[ $p =~ ^\+ ]]; then  # without tables
       LAYOUT=2
       SKIP=1
   # or pdf
@@ -139,3 +141,5 @@ while read p; do
   fi
 
 done < sources.list
+
+./scrape.py
