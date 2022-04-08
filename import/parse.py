@@ -260,7 +260,6 @@ for filename in os.listdir("./sources/txt"):
     es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
     cold_resp    = "en_sup_a_2022_003" in filename
     valldal      = "valldal" in filename
-    stranda      = "gingli" in filename
 
     # TODO: merge the cases
     es_enr_2_1 = "ES_ENR_2_1" in filename
@@ -292,7 +291,6 @@ for filename in os.listdir("./sources/txt"):
     coords_wrap = ""
     sectors = []
     name_cont = False
-    stranda_cont = False
 
     feature = {"properties":{}}
     obj = []
@@ -308,7 +306,7 @@ for filename in os.listdir("./sources/txt"):
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
         global border, re_coord3, country
-        global sectors, name_cont, stranda_cont, cold_resp
+        global sectors, name_cont, cold_resp
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -363,26 +361,6 @@ for filename in os.listdir("./sources/txt"):
             feature['properties']['class']='Luftsport'
             feature['properties']['from (ft amsl)']=0
             feature['properties']['from (m amsl)'] =0
-
-        # IDENTIFY coordinates
-        if stranda:
-            line = line.replace('?','7').replace('S0r','sør')
-            if stranda_cont:
-                aipname=stranda_cont.strip()+' '+line
-                feature['properties']['class']='Luftsport'
-                logger.debug("STRANDA aipname "+aipname)
-            stranda_cont=False
-            if 'Stranda' in line:
-                stranda_cont=line
-            #hacking around the half-defined airspace stranda soer - 7000 ft
-            if len(obj)>=4 and not line:
-                feature['properties']['class']='Luftsport'
-                feature['properties']['from (ft amsl)']=0
-                feature['properties']['from (m amsl)'] =0
-                feature['properties']['to (ft amsl)']=7000
-                feature['properties']['to (m amsl)'] = ft2m(7000)
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-
 
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
@@ -611,7 +589,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN') and not stranda:
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN'):
                     logger.debug("Finalizing poly: Vertl complete.")
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
@@ -622,12 +600,7 @@ for filename in os.listdir("./sources/txt"):
                             finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip)
                         sectors = []
                         logger.debug("Finalizing last poly as ."+aipname)
-                    if stranda and 'sør' in aipname:
-                        feature['properties']['to (ft amsl)']=6000
-                        feature['properties']['to (m amsl)'] = ft2m(6000)
                     feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                    if stranda and 'sør' in aipname:
-                        aipname += " 2"
 
             logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
             return
@@ -693,6 +666,9 @@ for filename in os.listdir("./sources/txt"):
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 aipname = wstrip(line)
 
+        if line.strip()=="-+-":
+            feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+
     # end def parse
 
     # IDENTIFY document types
@@ -749,7 +725,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
             end_notam = True
 
-        if not line.strip() or (stranda and 'Stranda' in line):
+        if not line.strip():
             if column_parsing and table:
                 # parse rows first, then cols
                 for col in range(0,len(table[0])):
@@ -777,7 +753,7 @@ for filename in os.listdir("./sources/txt"):
             for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
                 header_cont = False
-        elif es_aip_sup or stranda and not vcuts:
+        elif es_aip_sup and not vcuts:
             headers = True
         if headers:
             logger.debug("Parsed header line as %s.", headers)
@@ -785,8 +761,6 @@ for filename in os.listdir("./sources/txt"):
             vcuts = []
             if es_aip_sup:
                vcuts = [0, 45, 110]
-            elif stranda:
-               vcuts = [0, 25, 70, 110]
             else:
                 for header in headers[0]:
                     if header:

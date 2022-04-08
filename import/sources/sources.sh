@@ -52,6 +52,7 @@ process() {
 
   # manual overrides
   if [ -e ./manual/$FILENAME.txt ]; then
+      echo "MANUAL OVERRIDE for $FILENAME"
       cp ./manual/$FILENAME.txt ./txt/$FILENAME.txt
   fi
 }
