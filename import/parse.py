@@ -118,7 +118,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
             logger.debug("Ignoring: %s", aipname)
             return {"properties":{}}, []
     feature['properties']['name']=aipname
-    if cta_aip or aip_sup or tia_aip or 'ACC' in aipname or 'Notodden' in aipname:
+    if cta_aip or aip_sup or tia_aip or 'ACC' in aipname:
         recount = len([f for f in features if aipname in f['properties']['name']])
         recount = recount or len([f for f in accsectors if aipname in f['properties']['name']])
         if recount>0:
@@ -318,8 +318,8 @@ for filename in os.listdir("./sources/txt"):
             lastv = None
             return
 
-
-        if ad_aip:
+ 
+        if ad_aip and not "ENNO" in filename:
             if not ats_chapter:
                 # skip to chapter 2.71
                 if "ATS airspace" in line or "ATS AIRSPACE" in line:
