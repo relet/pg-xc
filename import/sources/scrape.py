@@ -3,6 +3,7 @@
 LOAD_TIME=0.8
 
 import os
+import chromedriver_binary
 from selenium import webdriver
 import sys
 import time
