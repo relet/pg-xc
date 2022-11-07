@@ -116,21 +116,21 @@ ovenfor.
 * 2019-12-07: Oppdatert lenker til AIP 71, lagt inn Sälen TMA
 * 2020-01-03: Oppdatert lenker til AIP 72, fjernet Hamnerabben TIZ
 * 2020-02-03: Oppdatert lenker til AIP 73, gjenopprettet Hamnerabben TIZ,
-fjernet luftsportsområde Hemsedal, endret geometri Vernes
+              fjernet luftsportsområde Hemsedal, endret geometri Vernes
 * 2020-02-06: Oppdatert Svensk AIP, lagt in Sälen, Eggemoen (ingen luftrom)
 * 2020-02-10: Lagt inn ENR og END for Cold Response
 * 2020-03-28: Oppdatert lenker til AIP 77, ingen endringer
 * 2020-04-03: fjernet cold response
 * 2020-04-24: ny HTML-basert import, AIP 85 / 2020-04-23-AIRAC
-	      ny Norway CTA 37 over Lofoten
+               ny Norway CTA 37 over Lofoten
 * 2020-05-21: oppdatert til AIP 87 / 2020-05-21-AIRAC, ingen endringer
 * 2020-07-20: oppdatert til AIP 91 / 2020-06-18-AIRAC, ingen endringer
 * 2020-08-15: oppdatert til AIP 92 / 2020-08-13-AIRAC, ingen endringer
 * 2020-09-16: oppdatert til AIP 93 / 2020-09-10-AIRAC, ingen endringer
 * 2020-10-17: oppdatert til AIP 94 / 2020-10-08-AIRAC, ingen endringer
 * 2020-11-08: oppdatert til AIP 95 / 2020-11-05-AIRAC, Norway CTA endret navn
-til Polaris, endret størrelse Finnmark TIA og Valan TIZ,
-korrupsjon i kilden til CTA 23-24 må fikses
+              til Polaris, endret størrelse Finnmark TIA og Valan TIZ,
+              korrupsjon i kilden til CTA 23-24 må fikses
 * 2020-12-14: oppdatert til AIP 98 / 2020-12-03-AIRAC, Polaris til Polaris
 * 2021-01-20: oppdatert til AIP 100 / 2021-01-28-AIRAC
 * 2021-03-25: oppdatert til AIP 102 / 2021-03-25-AIRAC, endringer i Bodo og
@@ -149,5 +149,7 @@ korrupsjon i kilden til CTA 23-24 må fikses
 * 2022-06-21: oppdatert til AIP 115, betydelige endringer rundt Notodden TIZ
 * 2022-07-26: oppdatert til AIP 116, ingen endringer
 * 2022-08-23: oppdatert til AIP 118, endringer i innflyging rundt Flesland TMA, Sogn og Svea TIZ
-Farris TMA og Polaris CTA. Små justeringer i Orland og END517Z.
+              Farris TMA og Polaris CTA. Små justeringer i Orland og END517Z.
 * 2022-10-06: oppdatert til AIP 120, ingen endringer
+* 2022-11-07: oppdatert til AIP 121, changed Værnes TMA shape towards Orkanger, Orland TMA
+              added R117 Taralrud 
