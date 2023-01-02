@@ -154,3 +154,4 @@ ovenfor.
 * 2022-11-07: oppdatert til AIP 121, changed Værnes TMA shape towards Orkanger, Orland TMA
               added R117 Taralrud 
 * 2022-12-06: updated to AIP 122, added EN-D167 Regionfelt østlandet 4 and EN-R405 Vardø 
+* 2023-01-01: fix naming of Bodo oceanic FIR, ignored again for PG purposes
