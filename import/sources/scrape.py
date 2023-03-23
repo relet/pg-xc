@@ -1,17 +1,23 @@
 #!/usr/bin/env python3
 
 LOAD_TIME=0.8
+HEADLESS=False
 
 import os
 import chromedriver_binary
 from selenium import webdriver
+from selenium.webdriver.support import ui
+from selenium.webdriver.common.keys import Keys
 import sys
 import time
 import urllib.parse
 
+options = webdriver.chrome.options.Options()
+if HEADLESS:
+  options.add_argument('--headless')
 
 from webdriver_manager.chrome import ChromeDriverManager
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get('https://avinor.no/en/ais/aipnorway/')
 
