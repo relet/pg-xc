@@ -82,14 +82,14 @@ http://nlf.no/sites/default/files/forbund/dokument/avtale_omrade_tynset.pdf
 
 # SWEDEN is now using advanced ZIP technology, let's benefit from that.
 #
-Z https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip
+#Z https://aro.lfv.se/Content/Files/AIP_OFFLINE%2020020610.zip
 
 # SWEDEN ENR
-.!ES_ENR_2_1_en
-.!ES_ENR_2_2_en
-.!ES_ENR_5_1_en
-.!ES_ENR_5_2_en
-.!ES_ENR_5_5_en
+#.!ES_ENR_2_1_en
+#.!ES_ENR_2_2_en
+#.!ES_ENR_5_1_en
+#.!ES_ENR_5_2_en
+#.!ES_ENR_5_5_en
 
 # SWEDEN AD - use wildcard
-.ES_AD_2_ES*
+#.ES_AD_2_ES*

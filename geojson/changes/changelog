@@ -157,3 +157,4 @@ ovenfor.
 * 2023-01-01: fix naming of Bodo oceanic FIR, ignored again for PG purposes
 * 2023-02-06: updated to AIP 123, no changes
 * 2023-03-23: updated to AIP 124, small reorg in the far North, Polaris + Longyear TIZ
+* 2023-04-13: removed Swedish airspace, as the import routines are outdated
