@@ -125,6 +125,12 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
             separator = " "
             if re.search('\d$', aipname):
                 separator="-"
+            # special handling Farris TMA skipping counters
+            if "Farris" in aipname:
+                if recount > 4:
+                    recount += 2
+                else:
+                    recount += 1
             logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))
             feature['properties']['name']=aipname + separator + str(recount+1)
     if 'TIZ' in aipname or 'TIA' in aipname or 'CTR' in aipname:

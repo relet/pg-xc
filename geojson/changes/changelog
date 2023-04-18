@@ -158,3 +158,4 @@ ovenfor.
 * 2023-02-06: updated to AIP 123, no changes
 * 2023-03-23: updated to AIP 124, small reorg in the far North, Polaris + Longyear TIZ
 * 2023-04-13: removed Swedish airspace, as the import routines are outdated
+* 2023-04-18: renumbered sectors of FARRIS TMA to match IPCC.no instead of the document order
