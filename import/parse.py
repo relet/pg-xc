@@ -838,10 +838,12 @@ def geoll(feature):
     feature['geometry_ll']=geo_ll
 
     #print("POSTPROCESSING POLYGON",name)
-    sh_geo = Polygon(geo_ll)
+    sh_geo = Polygon(geo_ll).buffer(0)
 
     if not sh_geo.is_valid:
         print("INVALID POLYGON",name)
+        sys.exit(1)
+        
         if 'RAVLUNDA' in name:
             # this is hard to fix and far away
             sh_geo = sh_geo.convex_hull

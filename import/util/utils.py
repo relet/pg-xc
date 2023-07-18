@@ -138,7 +138,7 @@ def simplify_poly(p, target):
         poly = poly.simplify(tolerance)
         logger.debug("Simplified to %i points using tolerance %d", len(poly.exterior.coords), tolerance)
         tolerance += 0.0002
-    return [ll2c(ll) for ll in poly.exterior.coords]
+    return [ll2c(ll) for ll in poly.buffer(0).exterior.coords]
 
 def merge_poly(p1, p2):
     """Merge two polygons using shapely ops"""
@@ -196,18 +196,18 @@ def fill_along(from_, to_, border, clockwise=None):
         logger.debug("Filling fwd from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
         if toindex < fromindex:
             logger.debug("Filling fwd, wraparound")
-            result = border[fromindex:]+border[:toindex+1]
+            result = border[fromindex+1:]+border[:toindex]
         else:
             logger.debug("Filling fwd")
-            result = border[fromindex:toindex+1]
+            result = border[fromindex+1:toindex]
     else:
         logger.debug("Filling bkw from index %i to %i (%i points, %i reverse)", fromindex, toindex, blen, revlen)
         if toindex > fromindex:
             logger.debug("Filling bkw, wraparound")
-            result = border[fromindex::-1]+border[:toindex+1:-1]
+            result = border[fromindex-1::-1]+border[:toindex+1:-1]
         else:
             logger.debug("Filling bkw")
-            result = border[fromindex+1:toindex:-1]
+            result = border[fromindex-1:toindex+1:-1]
     logger.debug("Resulting in a polygon with %i points.", len(result))
     return result
 
@@ -241,7 +241,7 @@ def dissect(collection):
                 print()
                 print(gj.dumps(gj.Feature(geometry=match, properties={})))
                 sys.exit(1)
-                
+
 
             print("---")
             gname = feature['properties']['name']
@@ -280,6 +280,6 @@ def dissect(collection):
         results.append(feature)
         print("APPENDED")
 
-        
-    
+
+
 
