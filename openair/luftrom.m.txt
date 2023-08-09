@@ -2499,7 +2499,7 @@ DP 69:41:45 N  016:08:34 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Andøya CTR
 AL 0 MSL
 AH 762 MSL
@@ -2524,7 +2524,7 @@ DP 64:51:00 N  009:48:54 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Banak CTR
 AL 0 MSL
 AH 1066 MSL
@@ -2676,7 +2676,7 @@ DP 60:00:09 N  004:23:52 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Ørland CTR
 AL 0 MSL
 AH 762 MSL
@@ -2690,7 +2690,7 @@ DP 64:00:00 N  009:25:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-AD-2.ENOL-en-GB.html
 *
 *
-AC G
+AC D
 AN Tromsø CTR
 AL 0 MSL
 AH 1371 MSL
@@ -2905,7 +2905,7 @@ DP 67:40:00 N  013:55:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Kirkenes CTR
 AL 0 MSL
 AH 762 MSL
@@ -2969,7 +2969,7 @@ DP 63:02:58 N  010:04:46 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Alta CTR
 AL 0 MSL
 AH 1066 MSL
@@ -3172,7 +3172,7 @@ DP 60:22:00 N  011:56:15 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Bardufoss CTR
 AL 0 MSL
 AH 1371 MSL
@@ -3530,7 +3530,7 @@ DP 70:48:27 N  029:52:42 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-AD-2.ENBS-en-GB.html
 *
 *
-AC G
+AC D
 AN Kvernberget CTR
 AL 0 MSL
 AH 762 MSL
@@ -3639,7 +3639,7 @@ DP 59:15:00 N  009:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Evenes CTR
 AL 0 MSL
 AH 762 MSL
@@ -3778,7 +3778,7 @@ DP 61:00:00 N  004:30:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Karmøy CTR
 AL 0 MSL
 AH 457 MSL
@@ -3876,7 +3876,7 @@ DP 60:52:30 N  011:49:45 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Bodø CTR
 AL 0 MSL
 AH 457 MSL
@@ -3983,7 +3983,7 @@ DP 60:39:07 N  005:16:54 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Vigra CTR
 AL 0 MSL
 AH 762 MSL
@@ -4155,7 +4155,7 @@ DP 69:56:08 N  020:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC G
+AC D
 AN Flesland CTR
 AL 0 MSL
 AH 609 MSL
@@ -4280,7 +4280,7 @@ DP 60:50:00 N  004:34:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Gardermoen CTR
 AL 0 MSL
 AH 762 MSL
@@ -4323,7 +4323,7 @@ DP 63:50:00 N  011:28:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC G
+AC D
 AN Værnes CTR
 AL 0 MSL
 AH 762 MSL
@@ -4353,7 +4353,7 @@ DP 63:19:00 N  010:10:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC G
+AC D
 AN Sola CTR
 AL 0 MSL
 AH 457 MSL
@@ -4367,7 +4367,7 @@ DP 59:05:00 N  005:33:00 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-AD-2.ENZV-en-GB.html
 *
 *
-AC G
+AC D
 AN Torp CTR
 AL 0 MSL
 AH 762 MSL
@@ -4448,7 +4448,7 @@ DP 62:39:05 N  012:04:46 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
+AC D
 AN Rygge CTR
 AL 0 MSL
 AH 762 MSL
@@ -4464,7 +4464,7 @@ DP 59:30:00 N  010:33:50 E
 * Source: https://ais.avinor.no/no/AIP/View/126/2023-06-15-AIRAC/html/eAIP/EN-AD-2.ENRY-en-GB.html
 *
 *
-AC G
+AC D
 AN Kjevik CTR
 AL 0 MSL
 AH 762 MSL

@@ -133,8 +133,10 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
                     recount += 1
             logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))
             feature['properties']['name']=aipname + separator + str(recount+1)
-    if 'TIZ' in aipname or 'TIA' in aipname or 'CTR' in aipname:
+    if 'TIZ' in aipname or 'TIA' in aipname:
         feature['properties']['class']='G'
+    elif 'CTR' in aipname:
+        feature['properties']['class']='D'
     elif 'TRIDENT' in aipname \
         or 'EN D' in aipname or 'END' in aipname \
         or 'ES D' in aipname:
@@ -324,7 +326,7 @@ for filename in os.listdir("./sources/txt"):
             lastv = None
             return
 
- 
+
         if ad_aip and not "ENNO" in filename:
             if not ats_chapter:
                 # skip to chapter 2.71
@@ -843,7 +845,7 @@ def geoll(feature):
     if not sh_geo.is_valid:
         print("INVALID POLYGON",name)
         sys.exit(1)
-        
+
         if 'RAVLUNDA' in name:
             # this is hard to fix and far away
             sh_geo = sh_geo.convex_hull
