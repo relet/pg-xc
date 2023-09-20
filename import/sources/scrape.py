@@ -4,26 +4,33 @@ LOAD_TIME=0.8
 HEADLESS=False
 
 import os
-import chromedriver_binary
 from selenium import webdriver
-from selenium.webdriver.support import ui
-from selenium.webdriver.common.keys import Keys
-import sys
 import time
 import urllib.parse
+import chromedriver_binary
+from selenium.webdriver.support import ui
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import sys
+
 
 options = webdriver.chrome.options.Options()
 if HEADLESS:
   options.add_argument('--headless')
 
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-driver = webdriver.Chrome(ChromeDriverManager().install())
+
+# fix chrome version until updates are available
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install()))
+#driver = webdriver.Chrome(ChromeDriverManager().install())
+
 
 driver.get('https://avinor.no/en/ais/aipnorway/')
 
 time.sleep(LOAD_TIME)
 
-buttons = driver.find_elements_by_xpath('//button')
+buttons = driver.find_elements(By.XPATH, '//button')
 for x in buttons:
     if x.text == "Accept":
         x.click()
@@ -31,7 +38,7 @@ for x in buttons:
 
 time.sleep(LOAD_TIME)
 
-links = driver.find_elements_by_xpath('//a')
+links = driver.find_elements(By.XPATH, '//a')
 for x in links:
     if x.text == "Open AIP Norway":
         x.click()
