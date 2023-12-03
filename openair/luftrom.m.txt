@@ -3450,18 +3450,6 @@ DP 68:16:55 N  015:40:26 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC W
-AN Tynset
-AL 2286 MSL
-AH 3505 MSL
-DP 62:24:00 N  010:39:50 E
-DP 62:00:00 N  010:39:00 E
-DP 62:00:00 N  011:14:00 E
-DP 62:15:40 N  011:17:45 E
-DP 62:24:00 N  010:39:50 E
-* Source: http://nlf.no/sites/default/files/forbund/dokument/avtale_omrade_tynset.pdf
-*
-*
 AC C
 AN Farris TMA 3
 AL 1066 MSL
@@ -4235,21 +4223,6 @@ DP 61:57:30 N  006:26:00 E
 DP 61:54:00 N  006:06:00 E
 DP 61:59:00 N  005:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-AD-2.ENSD-en-GB.html
-*
-*
-AC W
-AN Nidaros
-AL 0 MSL
-AH 1066 MSL
-DP 63:18:48 N  010:09:49 E
-DP 63:07:31 N  010:00:03 E
-DP 63:00:00 N  010:08:00 E
-DP 63:00:00 N  010:32:40 E
-DP 63:03:35 N  010:33:32 E
-DP 63:07:30 N  010:24:44 E
-DP 63:19:01 N  010:24:44 E
-DP 63:18:48 N  010:09:49 E
-* Source: http://nlf.no/sites/default/files/hangglidingparagliding/dokument/avtale_mellom_avinor_flysikring_og_nidaros_luftsportsklubb.pdf
 *
 *
 AC C
@@ -5651,20 +5624,6 @@ DP 63:49:42 N  009:38:12 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC W
-AN Valldal Midt
-AL 0 MSL
-AH 2133 MSL
-DP 62:15:52.0 N  007:18:05.4 E
-DP 62:20:39.0 N  007:30:04.9 E
-DP 62:22:23.0 N  007:23:50.0 E
-DP 62:24:30.1 N  007:21:41.6 E
-DP 62:23:40.7 N  007:15:08.7 E
-DP 62:22:30.1 N  007:10:23.7 E
-DP 62:18:30.0 N  007:03:48.0 E
-* Source: https://apgk.no/nytt-luftrom-over-valldalen/
-*
-*
 AC D
 AN EN D110 Regionfelt Østlandet 1
 AL 0 MSL
@@ -6044,17 +6003,6 @@ DP 59:32:24 N  009:46:11 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC W
-AN Stranda Sør 2
-AL 0 MSL
-AH 2133 MSL
-DP 62:14:24.1 N  006:49:30.2 E
-DP 62:04:55.7 N  006:50:54.2 E
-DP 62:08:34.0 N  006:59:55.1 E
-DP 62:14:58.9 N  006:58:10.5 E
-* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
-*
-*
 AC R
 AN EN R109 Romerike 1
 AL 0 MSL
@@ -6220,33 +6168,6 @@ DP 61:17:58 N  011:39:55 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC W
-AN Valldal Øst
-AL 0 MSL
-AH 1676 MSL
-DP 62:26:42.6 N  007:38:31.8 E
-DP 62:24:08.4 N  007:38:54.0 E
-DP 62:20:39.0 N  007:30:04.9 E
-DP 62:22:23.0 N  007:23:50.0 E
-DP 62:24:30.1 N  007:21:41.6 E
-* Source: https://apgk.no/nytt-luftrom-over-valldalen/
-*
-*
-AC W
-AN Hareid Nord*
-AL 0 MSL
-AH 762 MSL
-DP 62:21:57.4 N  006:02:55.0 E
-DP 62:25:14.4 N  006:00:02.3 E
-DP 62:25:27.8 N  005:57:10.5 E
-DP 62:25:11.7 N  005:53:40.0 E
-DP 62:24:18.1 N  005:50:57.8 E
-DP 62:22:35.2 N  005:48:56.2 E
-DP 62:21:01.2 N  005:49:15.5 E
-DP 62:19:35.0 N  005:51:45.1 E
-* Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
-*
-*
 AC D
 AN EN D474 Andøya 3
 AL 0 MSL
@@ -6304,17 +6225,6 @@ DP 69:15:42 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC W
-AN Valldal Sør
-AL 0 MSL
-AH 2133 MSL
-DP 62:10:09.8 N  007:03:54.6 E
-DP 62:15:18.6 N  007:04:09.6 E
-DP 62:17:39.4 N  007:08:23.9 E
-DP 62:15:52.0 N  007:18:05.4 E
-* Source: https://apgk.no/nytt-luftrom-over-valldalen/
-*
-*
 AC D
 AN EN D365 Giskås
 AL 0 MSL
@@ -6327,18 +6237,6 @@ DP 64:03:00 N  011:55:00 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC W
-AN Stranda Midt
-AL 0 MSL
-AH 1524 MSL
-DP 62:18:24.4 N  006:36:44.7 E
-DP 62:16:55.9 N  006:38:45.7 E
-DP 62:16:40.0 N  006:46:57.7 E
-DP 62:19:06.7 N  006:56:49.2 E
-DP 62:21:03.7 N  006:47:42.7 E
-* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
-*
-*
 AC D
 AN EN D364 Røros RPAS East 2
 AL 0 MSL
@@ -6348,17 +6246,6 @@ DP 62:35:00 N  011:38:00 E
 DP 62:37:00 N  011:53:00 E
 DP 62:43:00 N  011:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
-*
-*
-AC W
-AN Stranda Nord
-AL 0 MSL
-AH 1524 MSL
-DP 62:21:36.0 N  006:33:55.3 E
-DP 62:18:24.4 N  006:36:44.6 E
-DP 62:21:03.7 N  006:47:42.9 E
-DP 62:25:14.2 N  006:38:13.8 E
-* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
 *
 *
 AC D
@@ -6383,30 +6270,6 @@ DP 59:59:00 N  010:47:00 E
 DP 60:00:34 N  010:42:42 E
 DP 59:59:45 N  010:27:30 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
-*
-*
-AC W
-AN Stranda Sør 1
-AL 0 MSL
-AH 1828 MSL
-DP 62:18:53.9 N  006:50:23.6 E
-DP 62:18:15.4 N  006:48:49.8 E
-DP 62:14:24.1 N  006:49:30.2 E
-DP 62:14:58.9 N  006:58:10.5 E
-DP 62:19:06.0 N  006:56:48.0 E
-* Source: http://gingliders.no/wp-content/uploads/2021/09/avtale-signert-av-SFL.pdf
-*
-*
-AC W
-AN Hareid Sør
-AL 0 MSL
-AH 1066 MSL
-DP 62:13:33.9 N  006:07:45.4 E
-DP 62:17:50.0 N  006:04:49.0 E
-DP 62:19:38.4 N  006:10:54.9 E
-DP 62:20:52.7 N  006:06:37.3 E
-DP 62:17:22.9 N  005:57:35.7 E
-* Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
 *
 *
 AC G
@@ -6445,17 +6308,6 @@ DP 60:46:17 N  009:51:29 E
 DP 60:47:15 N  009:53:30 E
 DP 60:52:56 N  009:42:32 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
-*
-*
-AC W
-AN Hareid Midt
-AL 0 MSL
-AH 1066 MSL
-DP 62:17:22.9 N  005:57:35.7 E
-DP 62:20:52.7 N  006:06:37.3 E
-DP 62:21:57.4 N  006:02:55.0 E
-DP 62:19:35.0 N  005:51:45.1 E
-* Source: https://www.stratuspg.no/flystader/bokshareid#avtalen
 *
 *
 AC R
@@ -6533,17 +6385,6 @@ DP 59:57:32 N  010:48:14 E
 *
 *
 AC W
-AN Valldal Vest
-AL 0 MSL
-AH 1828 MSL
-DP 62:16:18.8 N  006:57:43.8 E
-DP 62:18:30.0 N  007:03:48.0 E
-DP 62:22:30.1 N  007:10:23.7 E
-DP 62:19:06.0 N  006:56:48.0 E
-* Source: https://apgk.no/nytt-luftrom-over-valldalen/
-*
-*
-AC W
 AN Kopparen - Område 2
 AL 0 MSL
 AH 1676 MSL
@@ -6554,17 +6395,6 @@ DP 63:48:38 N  009:51:37 E
 DP 63:50:11 N  009:48:41 E
 DP 63:48:33 N  009:40:55 E
 * Source: https://ais.avinor.no/no/AIP/View/128/2023-11-30-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
-*
-*
-AC W
-AN Valldal Nord
-AL 0 MSL
-AH 1828 MSL
-DP 62:23:40.7 N  007:15:08.7 E
-DP 62:24:30.1 N  007:21:41.6 E
-DP 62:27:10.7 N  007:11:49.4 E
-DP 62:22:30.1 N  007:10:23.7 E
-* Source: https://apgk.no/nytt-luftrom-over-valldalen/
 *
 *
 AC W
