@@ -304,7 +304,7 @@
                 //" - indicated only": new L.GeoJSON.AJAX("https://relet.net/notam", { pointToLayer: ptl_notam_shadow, style: style_notam_shadow }),
 		-->
                 var overLayers = {
-                  "<b>Norwegian/Swedish airspace<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all }),
+                  "<b>Norwegian airspace<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
@@ -327,7 +327,7 @@
 
                 baseLayers['Europe: Kartverket Light'].addTo(map);
 <!--overLayers[" - indicated only"].addTo(map);-->
-                overLayers["<b>Norwegian/Swedish airspace<\/b>"].addTo(map);
+                overLayers["<b>Norwegian airspace<\/b>"].addTo(map);
 
                 map.on('overlayadd', function() {
                   overLayers[' - indicated only'].bringToFront();

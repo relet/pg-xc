@@ -19,11 +19,9 @@ if HEADLESS:
   options.add_argument('--headless')
 
 from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 
 # fix chrome version until updates are available
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install()))
-#driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=ChromeService('/usr/bin/chromedriver'))
 
 
 driver.get('https://avinor.no/en/ais/aipnorway/')
