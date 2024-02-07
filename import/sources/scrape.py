@@ -23,7 +23,6 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 # fix chrome version until updates are available
 driver = webdriver.Chrome(service=ChromeService('/usr/bin/chromedriver'))
 
-
 driver.get('https://avinor.no/en/ais/aipnorway/')
 
 time.sleep(LOAD_TIME)
