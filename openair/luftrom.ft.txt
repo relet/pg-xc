@@ -1771,6 +1771,21 @@ DP 70:53:30 N  026:00:00 E
 *
 *
 AC D
+AN EN D357 Oppdal
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 62:50:00 N  009:04:59 E
+DP 62:40:20 N  008:39:09 E
+DP 62:25:00 N  008:39:09 E
+DP 62:25:00 N  009:13:54 E
+DP 62:00:00 N  009:41:38 E
+DP 62:00:00 N  010:10:00 E
+DP 62:50:00 N  010:10:00 E
+DP 62:50:00 N  009:04:59 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC D
 AN EN D477 R og B 2
 AL 0ft AMSL
 AH 999999ft AMSL
@@ -2010,6 +2025,21 @@ DP 66:52:23 N  015:59:37 E
 DP 66:54:51 N  016:02:35 E
 DP 66:50:00 N  014:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+*
+*
+AC D
+AN EN D163 Vågå
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 61:53:55 N  008:25:43 E
+DP 61:50:45 N  008:19:59 E
+DP 61:20:10 N  009:23:20 E
+DP 61:20:10 N  009:57:35 E
+DP 61:38:04 N  010:00:49 E
+DP 62:00:00 N  009:41:38 E
+DP 62:00:00 N  008:49:33 E
+DP 61:53:55 N  008:25:43 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -3142,6 +3172,18 @@ DP 59:38:16 N  005:09:33 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
+AC D
+AN EN D166 Jotunheimen
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 61:50:45 N  008:19:59 E
+DP 61:31:18 N  008:07:04 E
+DP 61:20:10 N  008:29:48 E
+DP 61:20:10 N  009:23:20 E
+DP 61:50:45 N  008:19:59 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
 AC C
 AN Bodø TMA 6
 AL 3500ft AMSL
@@ -3319,6 +3361,18 @@ DP 62:10:00 N  006:20:00 E
 DP 62:05:00 N  006:00:00 E
 DP 62:00:00 N  005:40:06 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+*
+*
+AC D
+AN EN D358 Dovre
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 62:25:00 N  008:39:09 E
+DP 62:00:00 N  008:54:15 E
+DP 62:00:00 N  009:41:38 E
+DP 62:25:00 N  009:13:54 E
+DP 62:25:00 N  008:39:09 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -3634,6 +3688,20 @@ DP 69:25:00 N  015:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
+AC D
+AN EN D360 Bjorli
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 62:25:00 N  007:59:34 E
+DP 62:08:40 N  007:45:25 E
+DP 62:00:00 N  008:00:20 E
+DP 61:50:45 N  008:19:59 E
+DP 61:53:55 N  008:25:43 E
+DP 62:25:00 N  008:14:50 E
+DP 62:25:00 N  007:59:34 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
 AC C
 AN Møre TMA 3
 AL 4500ft AMSL
@@ -3657,6 +3725,19 @@ DP 64:35:56 N  010:58:17 E
 DP 64:56:16 N  011:41:13 E
 DP 65:04:19 N  011:19:03 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENRM-en-GB.html
+*
+*
+AC D
+AN EN D359 Lesja
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 62:25:00 N  008:14:50 E
+DP 61:53:55 N  008:25:43 E
+DP 62:00:00 N  008:49:33 E
+DP 62:00:00 N  008:54:15 E
+DP 62:25:00 N  008:39:09 E
+DP 62:25:00 N  008:14:50 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -4003,6 +4084,19 @@ DP 61:00:00 N  004:30:00 E
 *
 *
 AC D
+AN EN D162 Rondane
+AL 14999ft AMSL
+AH 22500ft AMSL
+DP 62:00:00 N  009:41:38 E
+DP 61:38:04 N  010:00:49 E
+DP 61:41:25 N  010:01:25 E
+DP 61:44:06 N  010:22:40 E
+DP 62:00:00 N  010:24:00 E
+DP 62:00:00 N  009:41:38 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC D
 AN Karmøy CTR
 AL 0ft AMSL
 AH 1500ft AMSL
@@ -4272,6 +4366,18 @@ DP 69:45:00 N  021:10:00 E
 DP 70:00:30 N  021:24:00 E
 DP 70:02:30 N  020:54:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENSR-en-GB.html
+*
+*
+AC D
+AN EN D161 Ringebu
+AL 14999ft AMSL
+AH 18500ft AMSL
+DP 61:41:25 N  010:01:25 E
+DP 61:20:10 N  009:57:35 E
+DP 61:20:10 N  010:19:58 E
+DP 61:44:06 N  010:22:40 E
+DP 61:41:25 N  010:01:25 E
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
