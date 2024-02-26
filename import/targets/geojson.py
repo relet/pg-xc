@@ -51,7 +51,8 @@ def dumps (logger, filename, features):
             logger.debug("Missing color scheme for: %s, %s", class_, from_)
         if geom[0]!=geom[-1]:
             geom.append(geom[0])
-        if from_ < 4200:
+        name = f.properties.get('name')
+        if from_ < 4200 or (("Lesja" in name) | ("Rondane" in name) | ("Jotunheimen" in name) | ("Oppdal" in name) | ("Dovre" in name) | ("Bjorli" in name) | ("Ringebu" in name) | ("Vågå" in name)):
             f.geometry = Polygon([geom])
             fc.append(f)
     
