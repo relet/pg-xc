@@ -24,7 +24,7 @@ def dumps (logger, filename, features):
         to_m    = int(properties.get('to (m amsl)'))
 
         if from_m > 3500 and not "CTA" in name:
-            # allow Ringebu, Rondane, Vågå, Jotunheimen, Oppdal, Dovre, Lesja, Bjorli. (bølgeflyområder)
+            # explicitly allow Ringebu, Rondane, Vågå, Jotunheimen, Oppdal, Dovre, Lesja, Bjorli. (bølgeflyområder)
             if not (("Lesja" in name) | ("Rondane" in name) | ("Jotunheimen" in name) | ("Oppdal" in name) | ("Dovre" in name) | ("Bjorli" in name) | ("Ringebu" in name) | ("Vågå" in name)):
                 continue
 

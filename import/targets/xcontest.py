@@ -85,7 +85,6 @@ def dumps (logger, filename, features):
         aircatpg = True
         if from_m >= 4200: aircatpg = False
 
-
         if from_fl:
           altype  = 'FL'
           alh     = from_fl * 100
@@ -112,9 +111,12 @@ def dumps (logger, filename, features):
                    'Contact your local club before flying or keep to regular airspace limits.\n' 
             info_no = 'Luftsportboks. Må aktiveres før bruk.\n' + \
                       'Ta kontakt med din lokale klubb før flyging eller hold deg innenfor fri høyde i øvrig luftrom.\n'
-        if notam_only:
+        if notam_only:            
             info = 'Only active if NOTAM is sent. Please check NOTAM for updated altitude limits.\n'
             info_no = 'Bare aktivt hvis NOTAM er sendt. Sjekk NOTAM for oppdaterte høydebegrensninger.\n'
+            if from_m == 4114:
+                info += 'Lower limit is the lower limit of controlled airspace.\n'
+                info_no += 'Nedre grense er nedre grense for kontrollert luftrom.\n'
 
         airacttime = None
         if temporary:

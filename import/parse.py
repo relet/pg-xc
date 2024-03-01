@@ -542,7 +542,7 @@ for filename in os.listdir("./sources/txt"):
             rmk = vertl.get('rmk')
 
             if rmk is not None:
-                v = 14999 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
+                v = 13499 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
             if fl is not None:
                 v = int(fl) * 100
 
