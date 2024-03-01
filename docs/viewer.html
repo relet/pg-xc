@@ -48,7 +48,7 @@
             (function() {
                 'use strict';
 
-                var luftrom='https://rawcdn.githack.com/relet/pg-xc/e6fe80eaacb5fd76ddea881742886e9b895abf5e/geojson/luftrom.geojson';
+                var luftrom='https://rawcdn.githack.com/relet/pg-xc/0812c8d9559ab7add01ddfaf1761c5fcf6e04601/geojson/luftrom.geojson';
                 var takeoffs='https://rawcdn.githack.com/relet/pg-xc/d1ae085186641a78295956fbf2dad26345af8c2f/geojson/takeoffs.geojson';
 
                 var shorthash = function(s) {
@@ -118,6 +118,7 @@
                                      })})
 
                                  var source=feature.properties['source_href'];
+                                 var floor = feature.properties['from (m amsl)']+'m above MSL';
                                  var warning=''
                                  if (feature.properties['temporary'] == true) {
                                    var periods = ''
@@ -134,19 +135,25 @@
                                    warning = '<span style="color:red">TEMPORARY:<\/span><br/>'+periods;
                                  }
                                  if (feature.properties['notam_only'] == 'true') {
-					 warning = '<span style="color:red">ONLY ACTIVE IF NOTAM IS SENT.<\/span><br />';
-			           if (feature.properties['to (m amsl)']==99999) {
-				     warning += 'Please check NOTAM for updated altitude limits.<br />';
-				   }
+					                          warning = '<span style="color:red">ONLY ACTIVE IF NOTAM IS SENT.<\/span><br />';
+			                              if (feature.properties['to (m amsl)']==99999) {
+				                                warning += 'Please check NOTAM for updated altitude limits.<br />';
+				                            }
+                                    if (floor == '4114m above MSL') { // magic number
+                                        warning += '<b>Floor: Lower limits of controlled airspace</b><br />'
+                                    }
                                  }
                                  if (feature.properties['class'] == 'Luftsport') {
                                    warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.<\/span><br />Contact your local club before flying, or keep to regular airspace limits.<br />';
+                                 }
+                                 if (floor == '4114m above MSL') { // magic number
+                                   floor = 'Controlled airspace';
                                  }
                                  layer.bindPopup(
                                      '<h2>'+feature.properties['name']+'<\/h2><br />'+warning+
                                      'Class: '+feature.properties['class']+'<br />'+
                                      'Ceiling: '+feature.properties['to (m amsl)']+'m above MSL<br />'+
-                                     'Floor: '+feature.properties['from (m amsl)']+'m above MSL<br />'+
+                                     'Floor: '+floor+'<br />'+
                                      '<a href="'+source+'">Reference<\/a><br />'
                                  );
                 };
