@@ -47,6 +47,7 @@ def dumps (logger, filename, features):
                 "D":"D",
                 "R":"R",
                 "P":"P",
+                "Q":"Q",
                 "G":"G",
                 "Luftsport": "W"
         }

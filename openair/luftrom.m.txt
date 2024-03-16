@@ -603,7 +603,7 @@ DP 66:57:00 N  013:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D478 R og B 3
 AL 0 MSL
 AH 304799 MSL
@@ -615,7 +615,7 @@ DP 70:58:00 N  016:32:49 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END705Z A15Z
 AL 0 MSL
 AH 20116 MSL
@@ -980,7 +980,7 @@ DP 65:45:00 N  013:52:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END705 A15
 AL 0 MSL
 AH 20116 MSL
@@ -995,7 +995,7 @@ DP 70:51:02 N  020:43:25 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN END516Z B16Z
 AL 0 MSL
 AH 20116 MSL
@@ -1012,7 +1012,7 @@ DP 70:19:46 N  016:18:28 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN END702Z A12Z
 AL 0 MSL
 AH 20116 MSL
@@ -1027,7 +1027,7 @@ DP 71:26:00 N  027:41:08 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D367 Halten I
 AL 0 MSL
 AH 304799 MSL
@@ -1057,7 +1057,7 @@ DP 77:59:57 N  012:46:09 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN END703Z A13Z
 AL 0 MSL
 AH 20116 MSL
@@ -1090,7 +1090,7 @@ DP 62:00:00 N  005:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END517Z B24Z
 AL 0 MSL
 AH 20116 MSL
@@ -1228,7 +1228,7 @@ DP 65:20:37 N  011:35:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END513Z B15Z
 AL 0 MSL
 AH 20116 MSL
@@ -1314,7 +1314,7 @@ DP 58:44:48 N  007:53:28 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END702 A12
 AL 0 MSL
 AH 20116 MSL
@@ -1458,7 +1458,7 @@ DP 69:53:13 N  028:19:45 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END718Z B13Z
 AL 0 MSL
 AH 20116 MSL
@@ -1472,7 +1472,7 @@ DP 70:45:38 N  019:10:25 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN END516 B16
 AL 0 MSL
 AH 20116 MSL
@@ -1537,7 +1537,7 @@ DP 70:44:00 N  024:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D368 Halten II
 AL 0 MSL
 AH 304799 MSL
@@ -1602,7 +1602,7 @@ DP 69:20:00 N  017:10:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END719Z B14Z
 AL 0 MSL
 AH 20116 MSL
@@ -1616,7 +1616,7 @@ DP 70:33:48 N  017:49:08 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN END703 A13
 AL 0 MSL
 AH 20116 MSL
@@ -1691,7 +1691,7 @@ DP 69:25:00 N  015:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END517 B24
 AL 0 MSL
 AH 20116 MSL
@@ -1707,7 +1707,7 @@ DP 69:40:00 N  016:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN END513 B15
 AL 0 MSL
 AH 20116 MSL
@@ -1770,7 +1770,7 @@ DP 70:53:30 N  026:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D357 Oppdal
 AL 4114 MSL
 AH 6858 MSL
@@ -1785,7 +1785,7 @@ DP 62:50:00 N  009:04:59 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D477 R og B 2
 AL 0 MSL
 AH 304799 MSL
@@ -1941,7 +1941,7 @@ DP 62:30:00 N  005:05:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END530 C10
 AL 0 MSL
 AH 20116 MSL
@@ -2027,7 +2027,7 @@ DP 66:50:00 N  014:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D163 Vågå
 AL 4114 MSL
 AH 6858 MSL
@@ -2080,7 +2080,7 @@ DP 63:43:00 N  010:08:55 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END718 B13
 AL 0 MSL
 AH 20116 MSL
@@ -2163,7 +2163,7 @@ DP 59:29:04 N  004:31:44 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D475 Nordmela
 AL 0 MSL
 AH 304799 MSL
@@ -2313,7 +2313,7 @@ DP 67:35:00 N  014:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D409 Sveinsgrunnen
 AL 0 MSL
 AH 14020 MSL
@@ -2502,7 +2502,7 @@ DP 63:01:48 N  009:29:33 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN END719 B14
 AL 0 MSL
 AH 20116 MSL
@@ -2516,7 +2516,7 @@ DP 70:29:25 N  018:05:21 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D472 Andøya 1
 AL 0 MSL
 AH 304799 MSL
@@ -2656,7 +2656,7 @@ DP 61:00:00 N  005:29:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D456 Skomvær
 AL 0 MSL
 AH 14020 MSL
@@ -2761,7 +2761,7 @@ DP 67:30:47 N  013:20:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D451 Andfjorden
 AL 0 MSL
 AH 18592 MSL
@@ -2793,7 +2793,7 @@ DP 69:35:00 N  016:00:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENAN-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D352 Halten
 AL 0 MSL
 AH 14020 MSL
@@ -3029,7 +3029,7 @@ DP 70:05:00 N  021:50:36 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D263 Klepp
 AL 0 MSL
 AH 3962 MSL
@@ -3043,7 +3043,7 @@ DP 58:42:22 N  005:15:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D253 Utsira
 AL 0 MSL
 AH 14020 MSL
@@ -3095,7 +3095,7 @@ DP 63:06:09 N  006:36:19 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D153 Skagerrak
 AL 0 MSL
 AH 14020 MSL
@@ -3172,7 +3172,7 @@ DP 59:38:16 N  005:09:33 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D166 Jotunheimen
 AL 4114 MSL
 AH 6858 MSL
@@ -3363,7 +3363,7 @@ DP 62:00:00 N  005:40:06 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D358 Dovre
 AL 4114 MSL
 AH 6858 MSL
@@ -3517,7 +3517,7 @@ DP 57:48:00 N  007:15:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D207 Marstein Sør
 AL 0 MSL
 AH 18592 MSL
@@ -3573,7 +3573,7 @@ DP 60:30:00 N  011:57:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D473 Andøya 2
 AL 0 MSL
 AH 304799 MSL
@@ -3587,7 +3587,7 @@ DP 69:17:19 N  016:01:33 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D256 Vigdel I
 AL 0 MSL
 AH 8229 MSL
@@ -3688,7 +3688,7 @@ DP 69:25:00 N  015:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D360 Bjorli
 AL 4114 MSL
 AH 6858 MSL
@@ -3727,7 +3727,7 @@ DP 65:04:19 N  011:19:03 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENRM-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D359 Lesja
 AL 4114 MSL
 AH 6858 MSL
@@ -3912,7 +3912,7 @@ DP 67:16:00 N  013:55:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D205 Marstein Nord
 AL 0 MSL
 AH 18592 MSL
@@ -4083,7 +4083,7 @@ DP 61:00:00 N  004:30:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D162 Rondane
 AL 4114 MSL
 AH 6858 MSL
@@ -4221,7 +4221,7 @@ DP 59:36:38 N  009:26:59 E
 DP 59:41:12 N  009:06:25 E
 DP 59:43:12 N  009:03:38 E
 DP 59:46:31 N  008:48:53 E
-* Source: entz
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
 *
 *
 AC G
@@ -4236,7 +4236,7 @@ DP 66:22:00 N  013:44:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENRA-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D410 Andfjorden/Skrolsvik
 AL 0 MSL
 AH 14020 MSL
@@ -4368,7 +4368,7 @@ DP 70:02:30 N  020:54:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENSR-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D161 Ringebu
 AL 4114 MSL
 AH 5638 MSL
@@ -4529,7 +4529,7 @@ DP 61:25:00 N  005:21:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENBL-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D469 Senja II
 AL 0 MSL
 AH 14020 MSL
@@ -4541,7 +4541,7 @@ DP 69:47:12 N  017:09:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D468 Senja I
 AL 0 MSL
 AH 14020 MSL
@@ -4904,7 +4904,7 @@ DP 60:43:45 N  010:06:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D476 R og B 1
 AL 0 MSL
 AH 304799 MSL
@@ -5042,7 +5042,7 @@ DP 63:40:50 N  010:02:40 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D452 Lyngvær
 AL 0 MSL
 AH 9144 MSL
@@ -5261,7 +5261,7 @@ DP 63:18:48 N  010:09:49 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D362 Røros RPAS West
 AL 0 MSL
 AH 2895 MSL
@@ -5274,7 +5274,7 @@ DP 62:41:00 N  010:48:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D404 Setermoen
 AL 0 MSL
 AH 7620 MSL
@@ -5316,7 +5316,7 @@ DP 59:31:12 N  009:00:23 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D462 Vågsfjorden
 AL 0 MSL
 AH 6400 MSL
@@ -5329,7 +5329,7 @@ DP 68:57:00 N  016:46:12 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D460 Andfjorden/Grøtavær
 AL 0 MSL
 AH 14020 MSL
@@ -5342,7 +5342,7 @@ DP 69:01:42 N  015:52:24 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D167 Regionfelt Østlandet 4
 AL 0 MSL
 AH 20116 MSL
@@ -5486,7 +5486,7 @@ DP 59:06:54 N  011:20:21 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D465 Indre Vestfjorden
 AL 0 MSL
 AH 8839 MSL
@@ -5498,7 +5498,7 @@ DP 68:23:00 N  015:51:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D366 Halten Dronekorridor
 AL 0 MSL
 AH 3048 MSL
@@ -5576,7 +5576,7 @@ DP 62:00:00 N  006:30:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D408 Porsangermoen
 AL 0 MSL
 AH 8229 MSL
@@ -5602,7 +5602,7 @@ DP 62:00:00 N  006:20:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D208 Slåtterøy
 AL 0 MSL
 AH 18592 MSL
@@ -5614,7 +5614,7 @@ DP 59:55:00 N  004:52:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D406 Blåtind
 AL 0 MSL
 AH 10972 MSL
@@ -5629,7 +5629,7 @@ DP 69:12:00 N  018:37:25 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D459 Andenes
 AL 0 MSL
 AH 10972 MSL
@@ -5779,10 +5779,10 @@ DP 59:26:33 N  009:12:12 E
 DP 59:22:55 N  009:19:23 E
 DP 59:29:53 N  009:35:42 E
 DP 59:36:38 N  009:26:59 E
-* Source: entz
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D361 Hjerkinn
 AL 0 MSL
 AH 2743 MSL
@@ -5797,7 +5797,7 @@ DP 62:16:59 N  009:15:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D158 Regionfelt Østlandet 3
 AL 0 MSL
 AH 10972 MSL
@@ -5893,7 +5893,7 @@ DP 63:02:58 N  010:04:46 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D363 Røros RPAS East 1
 AL 0 MSL
 AH 2895 MSL
@@ -5905,7 +5905,7 @@ DP 62:46:00 N  011:33:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D355 Vågan
 AL 0 MSL
 AH 10972 MSL
@@ -5979,7 +5979,7 @@ DP 63:49:42 N  009:38:12 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D110 Regionfelt Østlandet 1
 AL 0 MSL
 AH 6400 MSL
@@ -5997,7 +5997,7 @@ DP 61:12:27 N  011:33:57 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D157 Regionfelt Østlandet 2
 AL 0 MSL
 AH 8839 MSL
@@ -6030,7 +6030,7 @@ DP 59:40:38 N  009:32:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D206 Stolmen
 AL 0 MSL
 AH 18592 MSL
@@ -6042,7 +6042,7 @@ DP 60:08:00 N  004:52:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D255 Mjølfjell
 AL 0 MSL
 AH 7620 MSL
@@ -6082,7 +6082,7 @@ DP 59:26:05 N  009:11:35 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D105 Rena
 AL 0 MSL
 AH 3962 MSL
@@ -6154,7 +6154,7 @@ DP 61:14:59 N  011:22:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D356 Tarva
 AL 0 MSL
 AH 8229 MSL
@@ -6195,7 +6195,7 @@ DP 62:17:48 N  006:04:48 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D464 Mjelde
 AL 0 MSL
 AH 10972 MSL
@@ -6422,7 +6422,7 @@ DP 59:22:55 N  009:19:23 E
 DP 59:21:12 N  009:27:31 E
 DP 59:24:26 N  009:35:24 E
 DP 59:29:53 N  009:35:42 E
-* Source: entz
+* Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
 *
 *
 AC R
@@ -6451,7 +6451,7 @@ DP 63:32:30 N  011:33:21 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D168 Østre Æra
 AL 0 MSL
 AH 2895 MSL
@@ -6523,7 +6523,7 @@ DP 61:17:58 N  011:39:55 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D474 Andøya 3
 AL 0 MSL
 AH 304799 MSL
@@ -6534,7 +6534,7 @@ DP 68:48:50 N  015:40:10 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D421 Alomar Nv Upper
 AL 3200 MSL
 AH 304799 MSL
@@ -6557,7 +6557,7 @@ DP 69:17:40 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D423 Alomar Sø Upper
 AL 3200 MSL
 AH 304799 MSL
@@ -6580,7 +6580,7 @@ DP 69:15:42 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D365 Giskås
 AL 0 MSL
 AH 3962 MSL
@@ -6592,7 +6592,7 @@ DP 64:03:00 N  011:55:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D364 Røros RPAS East 2
 AL 0 MSL
 AH 2895 MSL
@@ -6603,7 +6603,7 @@ DP 62:43:00 N  011:50:00 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D471 Falkefjell
 AL 0 MSL
 AH 6096 MSL
@@ -6639,7 +6639,7 @@ DP 62:00:00 N  006:34:24 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D407 Mauken
 AL 0 MSL
 AH 9144 MSL
@@ -6800,7 +6800,7 @@ DP 59:55:55 N  010:59:35 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D106 Terningmoen
 AL 0 MSL
 AH 2133 MSL
@@ -6872,7 +6872,7 @@ DP 60:53:28 N  011:30:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D354 Leksdalen
 AL 0 MSL
 AH 1219 MSL
@@ -6885,7 +6885,7 @@ DP 63:24:56 N  011:00:21 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D353 Halten
 AL 0 MSL
 AH 2438 MSL
@@ -6959,7 +6959,7 @@ DP 64:51:00 N  009:48:54 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D458 Andenes
 AL 0 MSL
 AH 3048 MSL
@@ -7044,7 +7044,7 @@ DP 61:14:04 N  007:42:58 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D210 Tellenes
 AL 0 MSL
 AH 1828 MSL
@@ -7116,7 +7116,7 @@ DP 58:21:09 N  006:25:30 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D201 Ulven
 AL 0 MSL
 AH 609 MSL
@@ -7620,7 +7620,7 @@ DP 67:06:59 N  015:24:47 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D470 Ramnes
 AL 0 MSL
 AH 1524 MSL
@@ -8280,7 +8280,7 @@ DP 60:49:44 N  005:01:30 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D104 Bradalsmyra
 AL 0 MSL
 AH 1219 MSL
@@ -8928,7 +8928,7 @@ DP 58:13:13 N  008:05:06 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D257 Awes Lista
 AL 0 MSL
 AH 1219 MSL
@@ -8942,7 +8942,7 @@ DP 58:07:04 N  006:35:34 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D156 Hengsvatn
 AL 0 MSL
 AH 4876 MSL
@@ -8954,7 +8954,7 @@ DP 59:38:46 N  009:22:35 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D463 Elvegårdsmoen
 AL 0 MSL
 AH 7620 MSL
@@ -9234,7 +9234,7 @@ DP 70:22:26 N  031:07:42 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D420 Alomar Nv Lower
 AL 0 MSL
 AH 3200 MSL
@@ -9308,7 +9308,7 @@ DP 69:16:42 N  016:00:31 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D422 Alomar Sø Lower
 AL 0 MSL
 AH 3200 MSL
@@ -9394,7 +9394,7 @@ DP 61:53:10 N  006:49:40 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D305 Akselberg
 AL 0 MSL
 AH 609 MSL
@@ -9623,7 +9623,7 @@ DP 60:30:29 N  005:22:20 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D111 Forsvaret Eggemoen
 AL 0 MSL
 AH 1371 MSL
@@ -10223,7 +10223,7 @@ DP 58:28:01 N  008:45:58 E
 * Source: https://ais.avinor.no/no/AIP/View/129/2024-01-25-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
-AC D
+AC Q
 AN EN D209 Risavika
 AL 0 MSL
 AH 213 MSL

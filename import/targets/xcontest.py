@@ -71,7 +71,7 @@ def dumps (logger, filename, features):
             airautoid = name
 
         airchecktype = None
-        if class_ in ['C','D','R','G']: airchecktype = 'restrict'
+        if class_ in ['C','D','R','G','Q']: airchecktype = 'restrict'
         if luftsport: airchecktype = 'inverse'
         if class_ in ['']: airchecktype = 'ignore'
 
@@ -134,7 +134,7 @@ def dumps (logger, filename, features):
         airpen = None
         airbrush = None
 
-        if class_ in ['C', 'D', 'G', 'R']:
+        if class_ in ['C', 'D', 'G', 'R', 'Q']:
             if notam_only:
                 airpen = pens['gray']
                 airbrush = brushes['gray']

@@ -18,7 +18,7 @@ def dumps (logger, filename, features):
         class_=f.properties.get('class')
         from_ =int(f.properties.get('from (m amsl)'))
         to_ =int(f.properties.get('to (m amsl)'))
-        if class_ in ['C', 'D', 'G', 'R']:
+        if class_ in ['C', 'D', 'G', 'R', 'Q']:
             if f.properties.get('notam_only'):
                 f.properties.update({'fillColor':'#c0c0c0',
                                      'color':'#606060',

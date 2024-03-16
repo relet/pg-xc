@@ -140,7 +140,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     elif 'TRIDENT' in aipname \
         or 'EN D' in aipname or 'END' in aipname \
         or 'ES D' in aipname:
-        feature['properties']['class']='D'
+        feature['properties']['class']='Q'
     elif 'EN R' in aipname \
       or 'ES R' in aipname or 'ESTRA' in aipname \
       or 'EUCBA' in aipname or 'RPAS' in aipname:

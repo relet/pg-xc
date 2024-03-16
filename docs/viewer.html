@@ -315,7 +315,7 @@
                   " - CTA (<4200m)": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
-                  " - Danger/Restricted": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R']) }),
+                  " - Danger/Restricted": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['R', 'Q']) }),
                   " - Air sport": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('class',['Luftsport']) }),
                   "<b>Takeoffs<\/b>": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs(false), pointToLayer: pointToLayer_takeoffs}),
                   " - towards S": new L.GeoJSON.AJAX(takeoffs, { onEachFeature: onEachFeature_takeoffs, style: style_takeoffs , filter: filter_takeoffs('s'), pointToLayer: pointToLayer_takeoffs}),
