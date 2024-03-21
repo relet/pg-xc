@@ -56,8 +56,8 @@ re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\
 #TODO: along the latitude ...
 
 # Lines containing these are box ceilings and floors
-re_vertl_upper = re.compile("Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL)($|\s{5})")
-re_vertl_lower = re.compile("ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+AMSL|(?P<msl>MSL))($|\s{5})")
+re_vertl_upper = re.compile("Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL)?)")
+re_vertl_lower = re.compile("ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL|SFC)|(?P<msl>MSL))") # note: this is on the safe side, we cannot calculate FT SFC
 re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 re_vertl2 = re.compile("((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")

@@ -142,4 +142,4 @@ while read p; do
 
 done < sources.list
 
-./scrape.py
+#./scrape.py
