@@ -146,7 +146,10 @@
                                  if (feature.properties['class'] == 'Luftsport') {
                                    warning = '<span style="color:red">AIR SPORT BOX - must be activated before flying.<\/span><br />Contact your local club before flying, or keep to regular airspace limits.<br />';
                                  }
-                                 if (floor == '4114m above MSL') { // magic number
+                                 if (feature.properties['class'] == 'Q') {
+                                    warning = '<span style="color:orange">DANGER or AIR SPORT<\/span><br />For air sport boxes, contact your local club before flying, or keep to regular airspace limits.<br />';
+                                 }
+                                 if (floor == '4114m above MSL' && feature.properties['name'] != 'Polaris CTA 11') { // magic
                                    floor = 'Controlled airspace';
                                  }
                                  layer.bindPopup(
@@ -160,7 +163,10 @@
 
                 var style_all = function(feature) {
                     if (feature.properties['class'] == 'Luftsport') {
-                        feature.properties['color'] = '#9966ff';
+                        feature.properties['color'] = '#cc66ff';
+                    }
+                    if (feature.properties['class'] == 'Q') {
+                        feature.properties['color'] = '#8855dd';
                     }
                     return feature.properties;
 
