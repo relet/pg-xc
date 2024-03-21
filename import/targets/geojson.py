@@ -18,7 +18,7 @@ def dumps (logger, filename, features):
         class_=f.properties.get('class')
         from_ =int(f.properties.get('from (m amsl)'))
         to_ =int(f.properties.get('to (m amsl)'))
-        if class_ in ['C', 'D', 'G', 'R', 'Q']:
+        if class_ in ['C', 'D', 'G', 'R']:
             if f.properties.get('notam_only'):
                 f.properties.update({'fillColor':'#c0c0c0',
                                      'color':'#606060',
@@ -40,7 +40,7 @@ def dumps (logger, filename, features):
                 f.properties.update({'fillOpacity':0.0,
                                      'opacity':0.0,
                                      'color':'#ffffff'})
-        elif class_ in ['Luftsport']:
+        elif class_ in ['Luftsport', 'Q']:
             if to_ < 2000:
                 f.properties.update({'fillColor':'#c0c040',
                                      'color':'#c0c040'})
