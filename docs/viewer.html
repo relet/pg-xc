@@ -48,8 +48,8 @@
             (function() {
                 'use strict';
 
-                var luftrom='https://rawcdn.githack.com/relet/pg-xc/3c3b862ccb57ca083c1986a4145be08c17489f34/geojson/luftrom.geojson';
-                var takeoffs='https://rawcdn.githack.com/relet/pg-xc/d1ae085186641a78295956fbf2dad26345af8c2f/geojson/takeoffs.geojson';
+                var luftrom='https://rawcdn.githack.com/relet/pg-xc/7b05b403206d516a2d0a7ed37934fe011b7ebfd5/geojson/luftrom.geojson?min=1';
+                var takeoffs='https://rawcdn.githack.com/relet/pg-xc/d1ae085186641a78295956fbf2dad26345af8c2f/geojson/takeoffs.geojson?min=1';
 
                 var shorthash = function(s) {
                     return Math.abs((s+"_salt").split("").reduce(function(a,b){a=(a*33)^b.charCodeAt(0);return a},0)).toString(36);
