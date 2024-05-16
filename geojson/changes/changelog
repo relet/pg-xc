@@ -167,4 +167,5 @@ ovenfor.
 * 2023-12-03: removing all special agreements until valid source documents can be found
 * 2024-02-26: remove filter on EN-D wave areas, they are now included
 * 2024-03-16: fix danger areas to class Q
-* 2024-03-21: Update to AIP 130: several airsport boxes move to class Q/Danger area
+* 2024-03-21: update to AIP 130: several airsport boxes move to class Q/Danger area
+* 2024-05-16: add AIP-SUP for Oslo RMZ/TMZ
