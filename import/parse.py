@@ -346,7 +346,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Found class in line: %s", line)
             class_=class_.groupdict()
             feature['properties']['class']=class_.get('class')
-            if tia_aip:
+            if tia_aip or "RMZ" in aipname:
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
