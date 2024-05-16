@@ -149,6 +149,9 @@
                                  if (feature.properties['class'] == 'Q') {
                                     warning = '<span style="color:orange">DANGER or AIR SPORT<\/span><br />For air sport boxes, contact your local club before flying, or keep to regular airspace limits.<br />';
                                  }
+                                 if (feature.properties['name'].indexOf('RMZ')>-1) {
+                                    warning = '<span style="color:green">Exceptions to RMZ/TMZ for paraglider and unmanned aircraft.</span><br />';
+                                 }
                                  if (floor == '4114m above MSL' && feature.properties['name'] != 'Polaris CTA 11') { // magic
                                    floor = 'Controlled airspace';
                                  }
