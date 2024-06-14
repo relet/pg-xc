@@ -1,0 +1,104 @@
+      TEL:.........+47 67 03 00 00                                                                      AIP AIRAC SUP
+      E-mail:.....aim@avinor.no
+                                                           NORWAY                                              15/2024
+                                                   AERONAUTICAL INFORMATION
+                                                                                                           EFF 13 JUN 2024
+                                                         MANAGEMENT
+                                                           P.O. BOX 150
+                                                      NO-2061 GARDERMOEN                              Publication date: 16 MAY 2024
+
+
+
+
+Oslo og Kjeller RMZ/TMZ etablert                                       Oslo and Kjeller RMZ/TMZ established
+
+Radio- og transponderpåbudssone etablert over Oslo og Kjeller          Radio and transponder mandatory zone established over Oslo og Kjeller
+
+
+
+ Navn, Lateral                Tjenesteyter / Unit           Kallesignal / Callsign      FREQ                         RMK
+ utstrekning, Vertikal        providing service
+ utstrekning,
+ Luftromsklasse /
+ Name, Lateral limits,
+ Vertical limits, Class
+ of airspace
+
+ Oslo RMZ/TMZ                 NIL                           Oslo Traffic                122.000 MHZ                  ACFT shall transmit
+ 600300N 0105300E                                                                                                    callsign, ACFT type,
+ 600002N 0102724E                                                                                                    PSN, intentions before
+ 595707N 0102238E                                                                                                    entering Oslo RMZ/
+ 594842N 0101603E                                                                                                    TMZ. Use of
+ 593649N 0102433E                                                                                                    transponder
+ 593223N 0104421E                                                                                                    mandatory.
+ 593939N 0105958E
+ 595100N 0111100E
+ 595415N 0105350E
+ (600300N 0105300E)
+ Upper limit: 3000 ft AMSL
+ Lower limit: GND
+ Class: G
+
+ Kjeller RMZ/TMZ              NIL                           Kjeller Traffic             119.100 MHZ                  ACFT shall transmit
+ 600300N 0105300E                                                                                                    callsign, ACFT type,
+ 595415N 0105350E                                                                                                    PSN, intentions before
+ 595100N 0111100E                                                                                                    entering Kjeller RMZ/
+ 595400N 0111800E                                                                                                    TMZ. Use of
+ 600000N 0111300E                                                                                                    transponder
+ (600300N 0105300E)                                                                                                  mandatory.
+ Upper limit: 3000 ft AMSL
+ lower limit of
+ controlled airspace
+ Lower limit: GND
+ Class: G
+Publication date 16 MAY 2024                                                                            AIP AIRAC SUP 15/2024
+
+
+
+
+    Nye meldepunkter etablert                              New reporting points established
+
+
+         Nittedal                                           600300N 0105300E
+
+         Aurevann                                           600002N 0102724E
+
+         Sollihoegda                                        595707N 0102238E
+
+         Tranby                                             594842N 0101603E
+
+         Svelvik                                            593649N 0102433E
+
+         Hoelen                                             593223N 0104421E
+
+         Tomter                                             593939N 0105958E
+
+         Midtoey                                            595100N 0111100E
+
+         Kukollen                                           595400N 0111800E
+
+         Soerum                                             600000N 0111300E
+
+         Haukaasen                                          595415N 0105350E
+
+    Melding skal også gjøres ved passering i nærheten av   Transmissions shall also be made when passing in vicinity of
+    meldepunkter.                                          reporting points.
+
+                                - Vedlegg -                                          - Attachment -
+
+
+
+
+Avinor                                                                                                             13 JUN 2024
+Publication date 16 MAY 2024               AIP AIRAC SUP 15/2024
+
+
+
+
+                               - SLUTT -
+
+
+
+
+Avinor                                               13 JUN 2024
+
