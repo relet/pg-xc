@@ -23,56 +23,56 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile("^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|OCEANIC FIR|CTR/TIZ|TIZ/RMZ|RMZ/TMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
-re_name2  = re.compile("^\s*(?P<name>E[NS] [RD].*)\s*$")
-re_name3  = re.compile("^\s*(?P<name>E[NS]D\d.*)\s*$")
-re_name4  = re.compile("Navn og utstrekning /\s+(?P<name>.*)$")
-re_name5  = re.compile("^(?P<name>Sector .*)$")
-re_name6  = re.compile("^(?P<name>Norway ACC .*)$")
-re_name_cr  = re.compile("^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
-re_miscnames  = re.compile("^(?P<name>Hareid .*)$")
-re_name_openair  = re.compile("^AN (?P<name>.*)$")
+re_name   = re.compile(r"^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|OCEANIC FIR|CTR/TIZ|TIZ/RMZ|RMZ/TMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
+re_name2  = re.compile(r"^\s*(?P<name>E[NS] [RD].*)\s*$")
+re_name3  = re.compile(r"^\s*(?P<name>E[NS]D\d.*)\s*$")
+re_name4  = re.compile(r"Navn og utstrekning /\s+(?P<name>.*)$")
+re_name5  = re.compile(r"^(?P<name>Sector .*)$")
+re_name6  = re.compile(r"^(?P<name>Norway ACC .*)$")
+re_name_cr  = re.compile(r"^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
+re_miscnames  = re.compile(r"^(?P<name>Hareid .*)$")
+re_name_openair  = re.compile(r"^AN (?P<name>.*)$")
 
 # Lines containing these are usually recognized as airspace class
-re_class  = re.compile("Class:? (?P<class>.)")
-re_class2 = re.compile("^(?P<class>[CDG])$")
-re_class_openair = re.compile("^AC (?P<class>.*)$")
+re_class  = re.compile(r"Class:? (?P<class>.)")
+re_class2 = re.compile(r"^(?P<class>[CDG])$")
+re_class_openair = re.compile(r"^AC (?P<class>.*)$")
 
 # Coordinates format, possibly in brackets
-RE_NE     = '(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s+|-)+(?P<e>[\d\.]+)[E\)]+)'
-RE_NE2    = '(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
+RE_NE     = r'(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s+|-)+(?P<e>[\d\.]+)[E\)]+)'
+RE_NE2    = r'(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
-re_coord  = re.compile("(?:" + RE_NE + " - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
+re_coord  = re.compile(r"(?:" + RE_NE + r" - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
 # Match sector definitions, see log file for examples
-RE_SECTOR = u'('+RE_NE + u' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
+RE_SECTOR = u'('+RE_NE + r' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
 re_coord2 = re.compile(RE_SECTOR)
 # Match all other formats in a coordinate list, including "along border" syntax
-RE_CIRCLE = 'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-re_coord3_no = re.compile(RE_NE+"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE)
-re_coord3_se = re.compile(RE_NE+"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE+"|(?P<circle>A circle)|(?:radius)")
+RE_CIRCLE = r'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
+re_coord3_no = re.compile(RE_NE+r"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE)
+re_coord3_se = re.compile(RE_NE+r"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE+r"|(?P<circle>A circle)|(?:radius)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
-re_arc = re.compile('(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
+re_arc = re.compile(r'(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+r'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
 
 #TODO: along the latitude ...
 
 # Lines containing these are box ceilings and floors
-re_vertl_upper = re.compile("Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL)?)")
-re_vertl_lower = re.compile("ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL|SFC)|(?P<msl>MSL))") # note: this is on the safe side, we cannot calculate FT SFC
-re_vertl  = re.compile("(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
-re_vertl2 = re.compile("((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
-re_vertl3 = re.compile("((?P<ftamsl>\d+) FT$)")
+re_vertl_upper = re.compile(r"Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL)?)")
+re_vertl_lower = re.compile(r"ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL|SFC)|(?P<msl>MSL))") # note: this is on the safe side, we cannot calculate FT SFC
+re_vertl  = re.compile(r"(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
+re_vertl2 = re.compile(r"((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
+re_vertl3 = re.compile(r"((?P<ftamsl>\d+) FT$)")
 
 # temporary airspace
-RE_MONTH = "(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
-re_period = re.compile("Active from (?P<pfrom>\d+ "+RE_MONTH+") (?P<ptimefrom>\d+)")
-re_period2 = re.compile("^(?P<pto>\d+ "+RE_MONTH+") (?P<ptimeto>\d+)")
-re_period3 = re.compile("Established for (?P<pfrom>\d+ "+RE_MONTH+") - (?P<pto>\d+ "+RE_MONTH+")")
+RE_MONTH = r"(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+re_period = re.compile(r"Active from (?P<pfrom>\d+ "+RE_MONTH+r") (?P<ptimefrom>\d+)")
+re_period2 = re.compile(r"^(?P<pto>\d+ "+RE_MONTH+r") (?P<ptimeto>\d+)")
+re_period3 = re.compile(r"Established for (?P<pfrom>\d+ "+RE_MONTH+r") - (?P<pto>\d+ "+RE_MONTH+")")
 
 # FREQUENCIES
-re_freq = re.compile('(?P<freq>\d+\.\d+ MHZ)')
+re_freq = re.compile(r'(?P<freq>\d+\.\d+ MHZ)')
 
 # COLUMN PARSING:
-rexes_header_es_enr = [re.compile("(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(C unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
+rexes_header_es_enr = [re.compile(r"(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(C unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
                            for mult in reversed(range(3,8))]
 
 LINEBREAK = '--linebreak--'
@@ -123,7 +123,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         recount = recount or len([f for f in accsectors if aipname in f['properties']['name']])
         if recount>0:
             separator = " "
-            if re.search('\d$', aipname):
+            if re.search(r'\d$', aipname):
                 separator="-"
             # special handling Farris TMA skipping counters
             if "Farris" in aipname:
@@ -713,7 +713,7 @@ for filename in os.listdir("./sources/txt"):
                 break
             if tia_aip_acc and ("1     " in line):
                 logger.debug("VCUT LINE? %s", line)
-                vcuts = [m.start() for m in re.finditer('[^\s]', line)]
+                vcuts = [m.start() for m in re.finditer(r'[^\s]', line)]
                 vcuts=[(x and (x-2)) for x in vcuts] # HACK around annoying column shift
                 logger.debug("vcuts %s", vcuts)
             if "ADS areas" in line:

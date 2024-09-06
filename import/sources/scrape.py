@@ -7,7 +7,7 @@ import os
 from selenium import webdriver
 import time
 import urllib.parse
-import chromedriver_binary
+#import chromedriver_binary
 from selenium.webdriver.support import ui
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
