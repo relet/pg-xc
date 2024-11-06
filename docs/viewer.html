@@ -64,11 +64,25 @@
                 }
                 var baseLayers = {
                 }
+
                 var l_osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
                 });
                 baseLayers["World: OpenStreetMap"] = l_osm;
                 allMapLayers["osm"] = l_osm;
+
+                var l_topo = L.tileLayer('https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png', {
+                    attribution: '&copy; <a href="http://kartverket.no/">Kartverket</a>',
+                });
+                baseLayers["Norway: Topography"] = l_topo;
+                allMapLayers["topo"] = l_topo;
+
+                var l_grey = L.tileLayer('https://cache.kartverket.no/v1/wmts/1.0.0/topograatone/default/webmercator/{z}/{y}/{x}.png', {
+                    attribution: '&copy; <a href="http://kartverket.no/">Kartverket</a>',
+                });
+                baseLayers["Norway: Topography (grey)"] = l_grey;
+                allMapLayers["grey"] = l_grey;
+
 
                 var plugify = function(text) {
                   text = text.toLowerCase();
