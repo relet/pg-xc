@@ -729,7 +729,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Skipping end of document")
             break
 
-        if not end_notam and 'Danger areas active only as notified by NOTAM' in line:
+        if 'Danger Areas active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
             end_notam = True
 
