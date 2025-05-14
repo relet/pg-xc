@@ -215,6 +215,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
           to_ = '0'
         if ("EN D" in aipname or "END" in aipname) and end_notam:
           feature['properties']['notam_only'] = 'true'
+        if ("EN D" in aipname or "END" in aipname) and (military_aip or ("Klepp" in aipname)):
+          feature['properties']['amc_only'] = 'true'
         if from_ is None:
             if "en_sup_a_2018_015_en" in source:
                 feature['properties']['from (ft amsl)']='0'

@@ -59,10 +59,11 @@ def dumps (logger, filename, features):
         name       = p.get('name')
         source     = p.get('source_href')
         notam_only = p.get('notam_only')
+        amc_only   = p.get('amc_only')
         temporary  = p.get('temporary')
 
         airautoid     = None
-        if notam_only:
+        if notam_only or amc_only:
             if 'EN R' in name or 'EN D' or 'END ' in name:
                 airautoid = "".join(name.split(" ")[0:2])
             else:
