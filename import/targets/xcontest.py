@@ -64,7 +64,7 @@ def dumps (logger, filename, features):
 
         airautoid     = None
         if notam_only or amc_only:
-            if 'EN R' in name or 'EN D' or 'END ' in name:
+            if 'EN R' in name or 'EN D' or 'END ' in name or '121' in name:
                 airautoid = "".join(name.split(" ")[0:2])
             else:
                 airautoid = name

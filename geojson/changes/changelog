@@ -184,3 +184,4 @@ ovenfor.
               AMC manageable - check https://luftfartstilsynet.no/globalassets/dokumenter/flysikring/prosedyre-fleksibel-bruk-av-luftrommet/procedure-on-use-of-amc-manageable-areas-7.0.pdf
 * 2025-04-27: update sources from ais to aim-prod
 * 2025-05-09: restore notam_only/airautoid tag on NOTAM activated END (not yet real-time activated)
+* 2025-06-08: update to AIP 141, add Reitan and Novika ENR, some reordering in Polaris to be double checked.
