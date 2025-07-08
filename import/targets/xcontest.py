@@ -63,14 +63,16 @@ def dumps (logger, filename, features):
         temporary  = p.get('temporary')
 
         airautoid     = None
-        if notam_only or amc_only:
-            if 'EN R' in name or 'EN D' or 'END ' in name or '121' in name:
+        if notam_only or amc_only or ('EN R121' in name):
+            if 'ENR' in name or 'END' in name:
+                airautoid = "".join(name.split(" ")[0:2])
+            elif 'EN R' in name or 'EN D' in name:
                 airautoid = "".join(name.split(" ")[0:2])
             else:
                 airautoid = name
-        if luftsport:
+        elif luftsport:
             airautoid = name
-
+        
         airchecktype = None
         if class_ in ['C','D','R','G','Q']: airchecktype = 'restrict'
         if luftsport: airchecktype = 'inverse'
