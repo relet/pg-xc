@@ -210,7 +210,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
             sys.exit(1)
         if class_ is None:
             logger.error("Feature without class (boo)")
-            class_ = "R"
+            feature['properties']['class'] = "R"
         #    sys.exit(1)
         # SPECIAL CASE NOTAM reserved ENR in Oslo area
         if "EN R" in aipname and "Kongsvinger" in aipname:
