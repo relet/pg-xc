@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# FIXME: Swedish files list all relevant airspace for each airport, ignore duplicates
-
 
 from codecs import open
 from copy import deepcopy
@@ -11,6 +9,7 @@ import os
 import re
 import sys
 import urllib
+import urllib.parse
 import logging
 
 from shapely.geometry import Polygon
@@ -22,6 +21,12 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 init_utils(logger)
 
+LISTDIR="./sources/txt"
+
+if sys.argv and len(sys.argv)>1:
+    print ("Using directory from command line:", sys.argv[1])
+    LISTDIR=sys.argv[1]
+
 # Lines containing these are usually recognized as names
 re_name   = re.compile(r"^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|OCEANIC FIR|CTR/TIZ|TIZ/RMZ|RMZ/TMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
 re_name2  = re.compile(r"^\s*(?P<name>E[NS] [RD].*)\s*$")
@@ -29,6 +34,7 @@ re_name3  = re.compile(r"^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile(r"Navn og utstrekning /\s+(?P<name>.*)$")
 re_name5  = re.compile(r"^(?P<name>Sector .*)$")
 re_name6  = re.compile(r"^(?P<name>Norway ACC .*)$")
+re_name7  = re.compile(r"^Områdets koordinater (?P<name>.*?)\:?$")
 re_name_cr  = re.compile(r"^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
 re_miscnames  = re.compile(r"^(?P<name>Hareid .*)$")
 re_name_openair  = re.compile(r"^AN (?P<name>.*)$")
@@ -41,6 +47,7 @@ re_class_openair = re.compile(r"^AC (?P<class>.*)$")
 # Coordinates format, possibly in brackets
 RE_NE     = r'(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s+|-)+(?P<e>[\d\.]+)[E\)]+)'
 RE_NE2    = r'(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
+RE_NE3    = r'(?P<ne>\(?N(?P<n>\d+)\s+E(?P<e>\d+)\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile(r"(?:" + RE_NE + r" - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
 # Match sector definitions, see log file for examples
@@ -52,6 +59,7 @@ re_coord3_no = re.compile(RE_NE+r"|(?P<along>along)|(?P<arc>(?:counter)?clockwis
 re_coord3_se = re.compile(RE_NE+r"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE+r"|(?P<circle>A circle)|(?:radius)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
 re_arc = re.compile(r'(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+r'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
+re_coord4 = re.compile(RE_NE3)
 
 #TODO: along the latitude ...
 
@@ -188,7 +196,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         # SANITY CHECK
         if name is None:
             logger.error("Feature without name: #%i", index)
-            sys.exit(1)
+            #sys.exit(1)
         if "None" in name:
             logger.error("Feature without name: #%i", index)
             sys.exit(1)
@@ -201,7 +209,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
             sys.exit(1)
         if class_ is None:
             logger.error("Feature without class (boo): #%i (%s)", index, source)
-            sys.exit(1)
+        #    sys.exit(1)
         # SPECIAL CASE NOTAM reserved ENR in Oslo area
         if "EN R" in aipname and "Kongsvinger" in aipname:
           feature['properties']['notam_only'] = 'true'
@@ -224,7 +232,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
                 from_ = '0'
             else:
                 logger.error("Feature without lower limit: #%i (%s)", index, source)
-                sys.exit(1)
+                #sys.exit(1)
         if to_ is None:
             if "en_sup_a_2018_015_en" in source:
                 feature['properties']['to (ft amsl)']='99999'
@@ -232,15 +240,15 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
                 to_ = '99999'
             else:
                 logger.error("Feature without upper limit: #%i (%s)", index, source)
-                sys.exit(1)
-        if int(from_) >= int(to_):
-            # SPECIAL CASE NOTAM reserved ENR in Oslo area
-            if "en_sup_a_2018_015_en" in source or "Romerike" in aipname or "Oslo" in aipname:
-                feature['properties']['from (ft amsl)']=to_
-                feature['properties']['to (ft amsl)']=from_
-            else:
-                logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source)
-                sys.exit(1)
+                #sys.exit(1)
+        #if int(from_) >= int(to_):
+        #    # SPECIAL CASE NOTAM reserved ENR in Oslo area
+        #    if "en_sup_a_2018_015_en" in source or "Romerike" in aipname or "Oslo" in aipname:
+        #        feature['properties']['from (ft amsl)']=to_
+        #        feature['properties']['to (ft amsl)']=from_
+        #    else:
+        #        logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source)
+        #        sys.exit(1)
     elif len(obj)>0:
         logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
 
@@ -252,19 +260,20 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     return {"properties":{}}, []
 
 
-for filename in os.listdir("./sources/txt"):
+for filename in os.listdir(LISTDIR):
     source = urllib.parse.unquote(filename.split(".txt")[0])
     if ".swp" in filename:
         continue
-    logger.info("Reading %s", "./sources/txt/"+filename)
+    logger.info("Reading %s", LISTDIR+"/"+filename)
 
-    data = open("./sources/txt/"+filename,"r","utf-8").readlines()
+    data = open(LISTDIR+"/"+filename,"r","utf-8").readlines()
 
     ad_aip       = "-AD-" in filename or "_AD_" in filename
     cta_aip      = "ENR-2.1" in filename
     tia_aip      = "ENR-2.2" in filename
     restrict_aip = "ENR-5.1" in filename
     military_aip = "ENR-5.2" in filename
+    soknad       = "soknad" in filename
     airsport_aip = "ENR-5.5" in filename
     aip_sup      = "en_sup" in filename
     es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
@@ -375,6 +384,10 @@ for filename in os.listdir("./sources/txt"):
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
         coords3 = re_coord3.findall(line)
+        coords4 = re_coord4.findall(line)
+        if coords4:
+            logger.debug("Matched RE_NE3: %s", printj(coords4))
+            coords3 = coords4
 
         if (coords or coords2 or coords3):
 
@@ -435,8 +448,12 @@ for filename in os.listdir("./sources/txt"):
             else:
                 skip_next = 0
                 for blob in coords3:
-                    ne,n,e,along,arc,rad,cn,ce = blob[:8]
-                    circle = blob[8] if len(blob)==9 else None
+                    along,arc,rad,cn,ce,circle = None,None,None,None,None,None
+                    if len(blob) < 8:
+                        ne,n,e = blob[:3]
+                    else:
+                        ne,n,e,along,arc,rad,cn,ce = blob[:8]
+                        circle = blob[8] if len(blob)==9 else None
                     logger.debug("Coords: %s", (n,e,ne,along,arc,rad,cn,ce,circle))
                     if skip_next > 0 and n:
                         logger.debug("Skipped.")
@@ -501,8 +518,8 @@ for filename in os.listdir("./sources/txt"):
                         logger.debug("Found final coord.")
                     else:
                         finalcoord = False
-                    if (airsport_aip or aip_sup or military_aip) and finalcoord:
-                        if feature['properties'].get('from (ft amsl)') is not None:
+                    if (airsport_aip or aip_sup or military_aip or soknad) and finalcoord:
+                        #if feature['properties'].get('from (ft amsl)') is not None:
                             logger.debug("Finalizing: finalcoord.")
                             feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                             lastv = None
@@ -618,7 +635,7 @@ for filename in os.listdir("./sources/txt"):
         # IDENTIFY airspace naming
         name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
                re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line) or \
-               re_name_openair.search(line)
+               re_name7.search(line) or re_name_openair.search(line)
 
         if name_cont and not 'Real time' in line:
             aipname = aipname + " " + line
@@ -841,7 +858,7 @@ def geoll(feature):
     geo_ll=[c2ll(c) for c in geom]
     feature['geometry_ll']=geo_ll
 
-    #print("POSTPROCESSING POLYGON",name)
+    print("POSTPROCESSING POLYGON",name)
     sh_geo = Polygon(geo_ll).buffer(0)
 
     if not sh_geo.is_valid:
@@ -877,13 +894,13 @@ for feature in accsectors:
 
 # Apply filter by index or name
 
-if len(sys.argv)>1:
-    try:
-        x = int(sys.argv[1])
-        collection = [collection[x]]
-    except:
-        filt = sys.argv[1]
-        collection = [x for x in collection if x.get('properties',{}).get('name') is not None and filt in x.get('properties').get('name','')]
+#if len(sys.argv)>1:
+#    try:
+#        x = int(sys.argv[1])
+#        collection = [collection[x]]
+#    except:
+#        filt = sys.argv[1]
+#        collection = [x for x in collection if x.get('properties',{}).get('name') is not None and filt in x.get('properties').get('name','')]
 
 
 ## Sort dataset by size, so that smallest geometries are shown on top:
@@ -891,9 +908,9 @@ collection.sort(key=lambda f:f['area'], reverse=True)
 
 # Output file formats
 geojson.dumps(logger, "result/luftrom", collection)
-openaip.dumps(logger, "result/luftrom", collection)
-openair.dumps(logger, "result/luftrom", collection)
-xcontest.dumps(logger, "result/xcontest", collection)
+#openaip.dumps(logger, "result/luftrom", collection)
+#openair.dumps(logger, "result/luftrom", collection)
+#xcontest.dumps(logger, "result/xcontest", collection)
 
 # output ACC sectors into a separate file
-geojson.dumps(logger, "result/accsectors", accsectors)
+#geojson.dumps(logger, "result/accsectors", accsectors)

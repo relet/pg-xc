@@ -32,11 +32,15 @@ def c2ll(c):
         return None
     """DegMinSec to decimal degrees"""
     ndeg = float(c[0][0:2])
-    edeg = float(c[1][0:3])
     nmin = float(c[0][2:4])
-    emin = float(c[1][3:5])
     nsec = float(c[0][4:])
+    edeg = float(c[1][0:3])
+    emin = float(c[1][3:5])
     esec = float(c[1][5:])
+    if len(c[1])==6: # east is only 2 digits here
+        edeg = float(c[1][0:2])
+        emin = float(c[1][2:4])
+        esec = float(c[1][4:])
     coo = (edeg + emin / 60.0 + esec / 3600.0,
            ndeg + nmin / 60.0 + nsec / 3600.0)
     return coo

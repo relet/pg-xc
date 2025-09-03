@@ -3,6 +3,7 @@
 from geojson import Feature, FeatureCollection, Polygon, load
 
 def dumps (logger, filename, features):
+    print("Writing", filename+".geojson with", len(features), "features")
     fc = []
     
     for feature in features:
@@ -16,8 +17,8 @@ def dumps (logger, filename, features):
               'fillOpacity':0.15,
             })
         class_=f.properties.get('class')
-        from_ =int(f.properties.get('from (m amsl)'))
-        to_ =int(f.properties.get('to (m amsl)'))
+        from_ =int(f.properties.get('from (m amsl)', 0))
+        to_ =int(f.properties.get('to (m amsl)', 0))
         if class_ in ['C', 'D', 'G', 'R']:
             if f.properties.get('notam_only'):
                 f.properties.update({'fillColor':'#c0c0c0',

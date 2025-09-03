@@ -1,0 +1,250 @@
+LUFTFORSVARET
+Joint Air Operation Centre
+1 av 6
+Vår saksbehandler
+
+Vår dato
+2024-05-02
+
+Vår referanse
+
+Tidligere dato Tidligere referanse
+
+Til
+
+Kopi til
+
+Luftfartstilsynet
+Postboks 243
+8001 BODØ
+
+Søknad om opprettelse av restriksjonsområde i Østerdalen.
+1 Bakgrunn
+Forsvaret ønsker med dette å søke om etablering av permanente restriksjonsområder i området
+Østerdalen som kan aktiveres og deaktiveres etter fastsatte vilkår i tråd med prinsippene om fleksibel
+bruk av luftrommet (FUA).
+2 Drøfting
+1) Søknad
+Forsvaret har behov for å etablere restriksjonsområder i område Østerdalen for å gjennomføre
+rutinemessig trening og øving med UAS. Vi ønsker å imøtekomme utviklingen ved bruk av avanserte
+systemer med lang rekkevidde, høy operasjonstid og større opperasjonshøyde. Området vil bli delt
+opp i ti mindre områder, og flere av grensene til disse områdene samsvarer med allerede
+eksisterende FUA områder I2, I3, I4, IC1, IC2 og IC3.
+Områdene er også delt opp på 62° med tanke på SID og STAR til ENRO, men også å gjøre
+koordinering opp mot supervisor Bodø og Røyken lettere.
+Det er ønskelig at området skal være AMC styrt. De skal kunne bestilles dagen før planlagt aktivitet,
+og aktiveres 30 minutter før aktiviteten skal forekomme. I lys av den raske utviklingen i verden med
+tanke på UAS, og Forsvarets fremtidige anskaffelser av større UAS, ønsker Forsvaret at disse
+områdene skal kunne aktiveres opp til FL150 og FL110. Områdene vil imidlertid bare bestilles i det
+høydesjiktet Forsvaret faktisk har behov for. Bestilling og aktivering av områdene vil bli gjort i
+samsvar med FUA avtalen.
+Etablering av restriksjonsområder vil sikre en reell segregering mellom militære UAS operasjoner og
+sivil luftfart. Ved å etablere permanente områder, vil områdenes utstrekning bli mer synlig for alle
+luftromsbrukere og koordineringsrutiner vil bli mer fastlagt. Ved å følge prinsippene for fleksibel
+Postadresse
+Besøksadresse
+Postboks 800 Postmottak Reitan
+2617 Lillehammer
+8058 TVERLANDET
+
+Sivil telefon/telefaks
+/
+
+Epost/ Internett
+postmottak@mil.no
+www.forsvaret.no
+
+Militær telefon/telefaks
+Organisasjonsnummer
+NO 986 105 174 MVA
+
+Vedlegg
+
+2 av 6
+
+bruk av luftrommet, der områdene aktiveres 30 min før de er tiltenkt brukt, vil sannsynligvis
+Forsvaret legge mindre beslag på luftrommet enn hva som er tilfelle i dag.
+Ved bruk av større UAS er det ikke nødvendig å aktivisere områdene fra GND og opp til
+operasjonshøyde. Man kan for eksempel bruke EN D105 RENA for å klatre opp i ønsket
+operasjonshøyde, for så å fly inn i områdene rundt fra for eksempel FL100-FL130.
+a) angi hvilken tidsperiode søknaden gjelder
+Det søkes om AMC styrt permanent restriksjonsområde.
+b) angi hvilke restriksjoner det er behov for
+All flyvning med sivile luftfartøy skal være forbudt når restriksjonsområder er aktivert med
+mindre man får tillatelse fra JAOC. Dette gjelder både kommersielle og private aktører.
+c) beskrive hvilke farefulle aktiviteter som vil foregå
+Militær aktivitet.
+d) gi en detaljert beskrivelse av eventuelle planlagte flyaktiviteter i området
+Primært Militær UAS flyging VLOS og BVLOS dag og natt.
+e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
+områdets høyde og bredde med nødvendige sikkerhetsmarginer
+Områdets koordinater South Center
+N610800 E0110600
+N611104 E0112222
+N611000 E0113353
+N605230 E0114945
+N604750 E0114144
+N605016 E0112308
+(N610800 E0110600)
+Områdets koordinater South Main
+N611000 E0113353
+N605230 E0114945
+N610600 E0120600
+(N611000 E0113353)
+Områdets koordinater South East
+N612813 E0124244
+-Southwards along the border between Norway and Sweden to N610252 E0123451
+N611721 E0121422
+N612218 E0122002
+N612747 E0123659
+(N612813 E0124244)
+Områdets koordinater Center Corridor
+N611104 E0112222
+N611728 E0112659
+N613000 E0111529
+N613630 E0111020
+N614407 E0102240
+
+GND – FL110
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+3 av 6
+
+N611956 E0102009
+N610800 E0110600
+(N611104 E0112222)
+
+Områdets koordinater Center Main
+N611104 E0112222
+N611728 E0112659
+N613000 E0111529
+N613630 E0111020
+N613503 E0120745
+N610600 E0120600
+N611000 E0113353
+(N611104 E0112222)
+Områdets koordinater East Main
+N614325 E0120815
+-Southwards along the border
+between Norway and Sweden to N612813 E0124244
+N612747 E0123659
+N612218 E0122002
+N611721 E0121422
+N610252 E0123451
+-Westwards along the border
+between Norway and Sweden to N610046 E0121321
+N605845 E0115716
+N610600 E0120600
+(N614325 E0120815)
+
+Områdets koordinater North Corridor
+N613630 E0111020
+N620000 E0111400
+N620000 E0102400
+N614407 E0102240
+(N613630 E0111020)
+
+GND – FL150
+
+GND – FL150
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+4 av 6
+
+Områdets koordinater North Main
+N613630 E0111020
+N613503 E0120745
+N614325 E0120815
+-Northwards along the border
+between Norway and Sweden toN620000 E0121312
+N620000 E0111400
+(N613630 E0111020)
+
+Områdets koordinater North Main Extended
+N621000 E0111624
+N621000 E0113000
+N621559 E0121755
+-Southwards along the border
+between Norway and Sweden toN620000 E0121312
+N620000 E0111400
+(N621000 E0111624)
+Områdets koordinater North Corridor Extended
+N620000 E0102400
+N621000 E0103625
+N621000 E0111624
+N620000 E0111400
+(N620000 E0102400)
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+GND – FL150
+
+Merknad:
+Faktisk høyde i henhold til behov
+
+5 av 6
+
+f) dokumentere at lufttrafikktjenesten og berørte flyplassoperatører er konsultert
+Det har vært mailutveksling og møter med lufttrafikktjenesten tidligere, og områders
+utstrekning og høyder er justert etter innspill fra Avinor.
+g) foreslå hvordan lufttrafikken som berøres av området, kan håndteres, og oppgi
+en kontaktperson for trafikkhåndteringen
+Lufttrafikken rutes utenom angitte restriksjonsområder. I de tilfeller annen lufttrafikk MÅ entre
+områdene, eksempelvis søk eller redning inne i området, kan JAOC kontaktes for å stanse
+militær aktivitet. Det kan søkes pr e-post til JAOC@mil.no. For oppdukkende hendelser vil
+kontaktnummer til JAOC være +47 7789 4206.
+
+6 av 6
+
+h) foreslå prosedyrer for kontakt med lufttrafikktjenesten og luftfartsoperatører
+etter at området er opprettet
+I henhold til AMC avtalen.
+Hvis behov, opprettes det en prosedyre mellom lufttrafikktjenesten og JAOC for å stanse militær
+aktivitet i området. JAOC vil være ansvarlig for å etablere interne prosedyrer slik at militær
+aktivitet kan avsluttes hurtig.
+i) oppgi en eller flere kontaktpersoner for søknaden
+Kontaktpunkt for denne søknaden er NOR JAOC, Reitan. JAOC@mil.no. +47 7553 6930.
+3 Konklusjon
+Forsvaret søker med dette om å opprette restriksjonsområder i Østerdalen.
+
+Gjert
+Tron Gregus Strand
+Brigader
+Sjef JAOC
+
+
