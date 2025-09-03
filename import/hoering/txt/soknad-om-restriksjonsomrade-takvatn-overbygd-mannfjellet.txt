@@ -78,7 +78,8 @@ Områdets koordinater Takvatn
 691440N 0185800E
 690715N 0185709E
 690500N 0191500E
-690937N 0192505E
+GND – FL 105
+(690937N 0192505E)
 
 GND – FL 105
 
@@ -105,17 +106,16 @@ GND – FL 105
 Merknad:
 Faktisk høyde i henhold til behov
 
-Områdets koordinater Øverbygd
-sør
+Områdets koordinater Øverbygd sør
 685755N 0201301E
 -Southwards along the border between
 Norway and Sweden to684805N 0202004E
 685500N 0190500E
 690142N 0191142E
-685755N 0201301E
+GND – FL 105
+(685755N 0201301E)
 
-Områdets koordinater Øverbygd
-nord
+Områdets koordinater Øverbygd nord
 690142N 0191142E
 685755N 0201301E
 -Northwards along the border between
@@ -123,37 +123,36 @@ Norway and Sweden to690246N 0200329E
 690300N 0200000E
 690937N 0192505E
 690500N 0191500E
-690142N 0191142E
+GND – FL 105
+(690142N 0191142E)
 
-Områdets koordinater
-Mannfjellet
-
+Områdets koordinater Mannfjellet
+GND – FL 105
 690937N 0192505E
 692155N 0194939E
 690338N 0203307E
 -Westwards along the border between
 Norway and Sweden to690246N 0200329E
 690300N 0200000E
-690937N 0192505E
+(690937N 0192505E)
 
 Områdets koordinater Skibotn
+GND – FL 105
 692155N 0194939E
 692700N 0200000E
 692928N 0204156E
 690338N 0203307E
-692155N 0194939E
+(692155N 0194939E)
 
 3 av 4
 
-Områdets koordinater
-Helligskogen
-
+Områdets koordinater Helligskogen
+GND – FL 105
 692928N 0204156E
 693200N 0212700E
 691840N 0211729E
--Southwards along the border between
-Norway and Sweden to690338N 0203307E
-692928N 0204156E
+-Southwards along the border between Norway and Sweden to 690338N 0203307E
+(692928N 0204156E)
 
 GND – FL 105
 
