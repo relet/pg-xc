@@ -72,33 +72,33 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 Områdets koordinater Rauer Sør:
+GND – 2500ft AMSL
 N591224 E0104058
 N591224 E0104730
 N590832 E0105130
 N590832 E0104311
 (N591224 E0104058)
 Områdets koordinater Rauer Midt:
+GND – 2500ft AMSL
 N591529 E0103911
 N591529 E0104413
 N591224 E0104730
 N591224 E0104058
 (N591529 E0103911)
 Områdets koordinater Rauer Nord:
+GND – 2500ft AMSL
 N591831 E0103717
 N591831 E0104102
 N591529 E0104413
 N591529 E0103911
 (N591831 E0103717)
 
-GND – 2500ft AMSL
 
 Merknad:
 
-GND – 2500ft AMSL
 
 Merknad:
 
-GND – 2500ft AMSL
 
 Merknad:
 
