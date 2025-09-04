@@ -78,18 +78,15 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 
-Områdets koordinater Store
-Bogøyna
-
+Områdets koordinater Store Bogøyna
 GND – 250 FT AMSL
-
 Merknad:
 Faktisk høyde i henhold til behov,
-
 N601958 E0051340
 Radius: 0.35 Nautical Miles
 
 Områdets koordinater Hanøyna
+GND – 1000 FT AMSL
 N602800 E0050100
 N602800 E0050900 4.0NM/90°
 N602500 E0050900 3.0NM/180°
@@ -97,6 +94,7 @@ N602500 E0050100 4.0NM/270°
 (N602800 E0050100) 3.0NM/0°
 
 Områdets koordinater Korsneset
+GND – 1000 FT AMSL
 N601302 E0051607
 Radius: 1.00 Nautical Miles
 

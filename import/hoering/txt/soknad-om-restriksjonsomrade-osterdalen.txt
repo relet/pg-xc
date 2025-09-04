@@ -79,6 +79,7 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 Områdets koordinater South Center
+GND – FL110
 N610800 E0110600
 N611104 E0112222
 N611000 E0113353
@@ -87,11 +88,13 @@ N604750 E0114144
 N605016 E0112308
 (N610800 E0110600)
 Områdets koordinater South Main
+GND – FL150
 N611000 E0113353
 N605230 E0114945
 N610600 E0120600
 (N611000 E0113353)
 Områdets koordinater South East
+GND – FL150
 N612813 E0124244
 -Southwards along the border between Norway and Sweden to 
 N610252 E0123451
@@ -100,11 +103,15 @@ N612218 E0122002
 N612747 E0123659
 (N612813 E0124244)
 Områdets koordinater Center Corridor
+GND – FL150
 N611104 E0112222
 N611728 E0112659
 N613000 E0111529
 N613630 E0111020
 N614407 E0102240
+N611956 E0102009
+N610800 E0110600
+(N611104 E0112222)
 
 GND – FL110
 
@@ -128,11 +135,9 @@ Faktisk høyde i henhold til behov
 
 3 av 6
 
-N611956 E0102009
-N610800 E0110600
-(N611104 E0112222)
 
 Områdets koordinater Center Main
+GND – FL150
 N611104 E0112222
 N611728 E0112659
 N613000 E0111529
@@ -142,6 +147,7 @@ N610600 E0120600
 N611000 E0113353
 (N611104 E0112222)
 Områdets koordinater East Main
+GND – FL150
 N614325 E0120815
 -Southwards along the border
 between Norway and Sweden to N612813 E0124244
@@ -156,6 +162,7 @@ N610600 E0120600
 (N614325 E0120815)
 
 Områdets koordinater North Corridor
+GND – FL150
 N613630 E0111020
 N620000 E0111400
 N620000 E0102400
@@ -180,6 +187,7 @@ Faktisk høyde i henhold til behov
 4 av 6
 
 Områdets koordinater North Main
+GND – FL150
 N613630 E0111020
 N613503 E0120745
 N614325 E0120815
@@ -189,6 +197,7 @@ N620000 E0111400
 (N613630 E0111020)
 
 Områdets koordinater North Main Extended
+GND – FL150
 N621000 E0111624
 N621000 E0113000
 N621559 E0121755
@@ -197,6 +206,7 @@ between Norway and Sweden toN620000 E0121312
 N620000 E0111400
 (N621000 E0111624)
 Områdets koordinater North Corridor Extended
+GND – FL150
 N620000 E0102400
 N621000 E0103625
 N621000 E0111624
