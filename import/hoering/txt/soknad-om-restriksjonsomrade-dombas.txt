@@ -77,8 +77,8 @@ d) gi en detaljert beskrivelse av eventuelle planlagte flyaktiviteter i området
 Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
-Områdets koordinater Dombås
-NORD:
+Områdets koordinater Dombås NORD:
+GND – FL150
 620342N 0085203E
 621500N 0084515E
 621500N 0091505E
@@ -91,8 +91,8 @@ NORD:
 620419N 0091209E
 620336N 0091151E
 (620342N 0085203E)
-Områdets koordinater Dombås
-SØR:
+Områdets koordinater Dombås SØR:
+GND – FL150
 620342N 0085203E
 620336N 0091151E
 620312N 0091140E
@@ -112,7 +112,6 @@ SØR:
 615306N 0085840E
 (620342N 0085203E)
 
-GND – FL150
 
 GND – FL150
 

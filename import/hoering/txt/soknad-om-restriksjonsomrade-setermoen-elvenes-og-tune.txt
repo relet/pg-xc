@@ -71,8 +71,8 @@ d) gi en detaljert beskrivelse av eventuelle planlagte flyaktiviteter i området
 Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
-Områdets koordinater Elvenes
-vest
+Områdets koordinater Elvenes vest
+GND – FL 105
 N685336 E0180603
 N684737 E0175711
 N685140 E0174332
@@ -105,6 +105,7 @@ Merknad:
 Faktisk høyde i henhold til behov
 
 Områdets koordinater Elvenes øst
+GND – FL 105
 N685200 E0181655
 N684900 E0181055
 N684507 E0180735
@@ -113,12 +114,14 @@ N685336 E0180603
 (N685200 E0181655)
 
 Områdets koordinater Setermoen
+GND – FL 105
 N685200 E0181655
 N685005 E0182901
 N685235 E0182555
 (N685200 E0181655)
 
 Områdets koordinater Tune sør
+GND – FL 105
 N685235 E0182555
 N685200 E0181655
 N685640 E0182410
@@ -126,6 +129,7 @@ N685525 E0183041
 (N685235 E0182555)
 
 Områdets koordinater Tune nord
+GND – FL 105
 N685640 E0182410
 N685525 E0183041
 N685833 E0183529

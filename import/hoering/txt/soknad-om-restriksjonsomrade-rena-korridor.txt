@@ -71,8 +71,8 @@ d) gi en detaljert beskrivelse av eventuelle planlagte flyaktiviteter i området
 Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
-Områdets koordinater Rena
-korridor
+Områdets koordinater Rena korridor
+GND – FL095
 611624N 0113041E
 611224N 0113357E
 611157N 0113451E

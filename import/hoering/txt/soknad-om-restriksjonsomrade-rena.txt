@@ -78,10 +78,8 @@ e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 
 Områdets koordinater Rena
-611100N 0112200E
-Radius 6.5 NM
-
 GND – FL150
+A circle radius 6.5 NM centered on 611100N 0112200E
 
 Merknad:
 Faktisk høyde i henhold til behov

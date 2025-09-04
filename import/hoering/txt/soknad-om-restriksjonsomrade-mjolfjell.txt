@@ -74,9 +74,10 @@ e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 
 Områdets koordinater Mjølfjell
-N604454 E0064729
 GND – FL250
 Radius 6.0NM
+Note:
+A circle radius 6 NM centered on 604454N 0064729E
 
 Merknad:
 Faktisk høyde i henhold til behov,

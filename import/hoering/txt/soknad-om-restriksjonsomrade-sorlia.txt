@@ -70,6 +70,7 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 Områdets koordinater Sørlia:
+GND – 4500ft AMSL
 N684729 E0162937
 N684140 E0162607
 N684144 E0161828

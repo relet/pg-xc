@@ -82,8 +82,7 @@ Områdets koordinater Store Bogøyna
 GND – 250 FT AMSL
 Merknad:
 Faktisk høyde i henhold til behov,
-N601958 E0051340
-Radius: 0.35 Nautical Miles
+A circle radius 0.35 NM centered on 601958N 0051340E
 
 Områdets koordinater Hanøyna
 GND – 1000 FT AMSL
@@ -95,8 +94,7 @@ N602500 E0050100 4.0NM/270°
 
 Områdets koordinater Korsneset
 GND – 1000 FT AMSL
-N601302 E0051607
-Radius: 1.00 Nautical Miles
+A circle radius 1.0 NM centered on 601302N 0051607E
 
 GND – 1000 FT AMSL
 
