@@ -659,6 +659,9 @@ for filename in os.listdir(LISTDIR):
                 logger.debug("RESTRICT/HAREID")
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 lastv = None
+            if "Områdets koordinater" in line:
+                logger.debug("Finalizing previous area")
+                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
 
             name=named.get('name')
             if 'polaris' in name.lower() and 'norway' in name.lower():
