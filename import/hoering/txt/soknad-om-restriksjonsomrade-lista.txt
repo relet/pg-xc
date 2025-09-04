@@ -69,13 +69,13 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 Områdets koordinater Lista
+GND – FL250
 N580504 E0064114
 N574921 E0061337
 N581000 E0053451
 N581520 E0061915
 (N580504 E0064114)
 
-GND – FL250
 
 Merknad:
 Faktisk høyde i henhold til behov,

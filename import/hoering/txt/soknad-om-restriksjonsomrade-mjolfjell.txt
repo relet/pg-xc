@@ -75,9 +75,8 @@ områdets høyde og bredde med nødvendige sikkerhetsmarginer
 
 Områdets koordinater Mjølfjell
 N604454 E0064729
-Radius 6.0NM
-
 GND – FL250
+Radius 6.0NM
 
 Merknad:
 Faktisk høyde i henhold til behov,

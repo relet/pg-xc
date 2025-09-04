@@ -76,18 +76,21 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 Områdets koordinater Kirkestinden:
+GND – FL150
 N685319 E0183752
 N684124 E0183234
 N684202 E0191504
 N684610 E0193811
 (N685319 E0183752)
 Områdets koordinater Gråfjellet:
+GND – FL150
 N685319 E0183752
 N685500 E0190501
 N685000 E0200000
 N684610 E0193811
 (N685319 E0183752)
 Områdets koordinater Øvre Dividal:
+GND – FL150
 N685000 E0200000
 N684202 E0191504
 N683329 E0195617
@@ -96,19 +99,16 @@ N683959 E0201212
 N684807 E0202007
 (N685000 E0200000)
 
-GND – FL150
 
 Merknad:
 Faktisk høyde i henhold til behov,
 normalt sett opp til 4500ft AMSL
 
-GND – FL150
 
 Merknad:
 Faktisk høyde i henhold til behov,
 normalt sett opp til 4500ft AMSL
 
-GND – FL150
 
 Merknad:
 Faktisk høyde i henhold til behov,

@@ -81,6 +81,7 @@ områdets høyde og bredde med nødvendige sikkerhetsmarginer
 NAVN
 Koordinater
 Områdets koordinater Hengsvann:
+GND – FL120
 594546N 0091004E
 594124N 0091920E
 593841N 0091748E
@@ -92,6 +93,7 @@ Områdets koordinater Hengsvann:
 594722N 0085710E
 (594546N 0091004E)
 Områdets koordinater Flesberg:
+GND – FL120
 601001N 0090831E
 595756N 0094242E
 594235N 0093544E
@@ -101,7 +103,6 @@ Områdets koordinater Flesberg:
 
 Høyder
 
-GND – FL120
 
 GND – FL120
 
@@ -118,6 +119,7 @@ normalt sett opp til 4500ft AMSL
 3 av 4
 
 Områdets koordinater Rjukan
+GND – FL150
 600000N 0081744E
 600000N 0090223E
 595349N 0090000E
@@ -125,6 +127,7 @@ Områdets koordinater Rjukan
 594810N 0081747E
 (600000N 0081744E)
 Områdets koordinater Tessungdalen
+GND – FL150
 601410N 0091105E
 601001N 0090831E
 600000N 0090223E

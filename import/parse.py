@@ -71,7 +71,7 @@ re_coord4 = re.compile(RE_NE3+r"(.*(?P<along>langs grensa.*til))?")
 # Lines containing these are box ceilings and floors
 re_vertl_upper = re.compile(r"Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL)?)")
 re_vertl_lower = re.compile(r"ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL|SFC)|(?P<msl>MSL))") # note: this is on the safe side, we cannot calculate FT SFC
-re_vertl  = re.compile(r"(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
+re_vertl  = re.compile(r"(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-|–) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
 #re_vertl2 = re.compile(r"((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
 re_vertl2 = re.compile(r"(?P<gnd>GND) – ((?P<ftamsl>\d+)ft AMSL)|(FL(?P<flto>\d+))")
 re_vertl3 = re.compile(r"((?P<ftamsl>\d+) FT$)")

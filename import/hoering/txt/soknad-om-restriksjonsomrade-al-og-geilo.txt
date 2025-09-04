@@ -72,12 +72,14 @@ Primært Militær UAS flyging VLOS og BVLOS dag og natt.
 e) angi skriftlig og ved anmerking på kart hvilket område søknaden gjelder og
 områdets høyde og bredde med nødvendige sikkerhetsmarginer
 Områdets koordinater Ål nord
+GND – FL 100
 N603513 E0082408
 N604134 E0080432
 N604609 E0082116
 N604011 E0083515
 (N603513 E0082408)
 Områdets koordinater Ål Sør
+GND – FL 100
 N602946 E0083909
 N603435 E0082743
 N603812 E0083654
@@ -85,6 +87,7 @@ N603853 E0084307
 N603520 E0085140
 (N602946 E0083909)
 Områdets koordinater Geilo nord
+GND – FL 100
 N603229 E0081049
 N603524 E0081947
 N603658 E0081205
