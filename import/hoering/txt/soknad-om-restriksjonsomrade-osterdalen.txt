@@ -93,7 +93,8 @@ N610600 E0120600
 (N611000 E0113353)
 Områdets koordinater South East
 N612813 E0124244
--Southwards along the border between Norway and Sweden to N610252 E0123451
+-Southwards along the border between Norway and Sweden to 
+N610252 E0123451
 N611721 E0121422
 N612218 E0122002
 N612747 E0123659
