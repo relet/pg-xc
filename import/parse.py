@@ -47,7 +47,6 @@ re_class_openair = re.compile(r"^AC (?P<class>.*)$")
 # Coordinates format, possibly in brackets
 RE_NE     = r'(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s+|-)+(?P<e>[\d\.]+)[E\)]+)'
 RE_NE2    = r'(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
-RE_NE3    = r'(?P<ne>\(?N(?P<n>\d+)\s+E(?P<e>\d+)\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile(r"(?:" + RE_NE + r" - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
 # Match sector definitions, see log file for examples
@@ -59,7 +58,13 @@ re_coord3_no = re.compile(RE_NE+r"|(?P<along>along)|(?P<arc>(?:counter)?clockwis
 re_coord3_se = re.compile(RE_NE+r"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE+r"|(?P<circle>A circle)|(?:radius)")
 # clockwise along an arc of 16.2 NM radius centred on 550404N 0144448E - 545500N 0142127E
 re_arc = re.compile(r'(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+r'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
-re_coord4 = re.compile(RE_NE3)
+
+# coordinate format in the hoering document: N690000 E220611
+RE_NE3    = r'(?P<ne>\(?N(?P<n>\d+)\s+E(?P<e>\d+)\)?)'
+# formulations in the hoering documents:
+# Southwards along the border between Norway and Sweden to N610252 E0123451
+# N690000 E220611 langs grensa til
+re_coord4 = re.compile(RE_NE3+r"(.*(?P<along>langs grensa.*til))?")
 
 #TODO: along the latitude ...
 
@@ -388,7 +393,7 @@ for filename in os.listdir(LISTDIR):
         coords3 = re_coord3.findall(line)
         coords4 = re_coord4.findall(line)
         if coords4:
-            logger.debug("Matched RE_NE3: %s", printj(coords4))
+            logger.debug("Matched hoering: %s", coords4)
             coords3 = coords4
 
         if (coords or coords2 or coords3):
@@ -451,8 +456,10 @@ for filename in os.listdir(LISTDIR):
                 skip_next = 0
                 for blob in coords3:
                     along,arc,rad,cn,ce,circle = None,None,None,None,None,None
-                    if len(blob) < 8:
+                    if len(blob) == 3:
                         ne,n,e = blob[:3]
+                    elif len(blob) == 5:
+                        ne,n,e,_,along = blob[:5]
                     else:
                         ne,n,e,along,arc,rad,cn,ce = blob[:8]
                         circle = blob[8] if len(blob)==9 else None
@@ -512,6 +519,7 @@ for filename in os.listdir(LISTDIR):
                         lastn, laste = n, e
                         obj.insert(0,(n,e))
                     if along:
+                        logger.debug("Found along.")
                         if not n and not e:
                             n, e = lastn, laste
                         alonging = (n,e)
