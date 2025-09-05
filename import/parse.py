@@ -11,6 +11,7 @@ import os
 import re
 import sys
 import urllib
+import urllib.parse
 import logging
 
 from shapely.geometry import Polygon

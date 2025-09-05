@@ -7,3 +7,4 @@ hxprune -c "sdParams" /tmp/pgxc > /tmp/pgxc2
 mv /tmp/pgxc2 "./pdf/$FILENAME.html"
 rm /tmp/pgxc
 html2text -width 999 "./pdf/$FILENAME.html" > "./txt/$FILENAME.txt"
+sed 's/.✓//g' -i ./txt/$FILENAME.txt

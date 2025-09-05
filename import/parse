@@ -4,6 +4,6 @@ rm log
 rm result/*
 rm changes/*
 
-python3 ./parse.py 2>&1 | tee log &&
-  python3 ./compare.py ../geojson/luftrom.geojson result/luftrom.geojson
+./parse.py 2>&1 | tee log &&
+  ./compare.py ../geojson/luftrom.geojson result/luftrom.geojson
 
