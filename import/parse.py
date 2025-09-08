@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# FIXME: Swedish files list all relevant airspace for each airport, ignore duplicates
-
-
 from codecs import open
 from copy import deepcopy
 from geojson import load
@@ -275,7 +272,6 @@ for filename in os.listdir("./sources/txt"):
     airsport_aip = "ENR-5.5" in filename
     aip_sup      = "en_sup" in filename
     es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
-    cold_resp    = "en_sup_a_2022_003" in filename
     valldal      = "valldal" in filename
 
     # TODO: merge the cases
@@ -322,8 +318,8 @@ for filename in os.listdir("./sources/txt"):
 
         global aipname, alonging, ats_chapter, coords_wrap, obj, feature
         global features, finalcoord, lastn, laste, lastv, airsport_intable
-        global border, re_coord3, country
-        global sectors, name_cont, cold_resp
+        global border, re_coord3, country, sanntid
+        global sectors, name_cont
 
         if line==LINEBREAK:
             # drop current feature, if we don't have vertl by now,
@@ -349,6 +345,10 @@ for filename in os.listdir("./sources/txt"):
                 #if "ATS komm" in line or "Kallesignal" in line:
                     logger.debug("End chapter 2.71")
                     ats_chapter=False
+
+        if 'Sanntidsaktivering' in line:
+            logger.debug("Activating AMC/Sanntidsaktivering for this feature.")
+            sanntid = True
 
         class_=re_class.search(line) or re_class2.search(line) or re_class_openair.search(line)
         if class_:
@@ -519,15 +519,6 @@ for filename in os.listdir("./sources/txt"):
 
         # IDENTIFY temporary restrictions
         period = re_period.search(line) or re_period2.search(line) or re_period3.search(line)
-
-        if cold_resp and not feature.get('properties',{}).get('temporary'):
-            logger.debug("Adding temporary restriction to cold response airspace.")
-            feature['properties']['temporary'] = True
-            feature['properties']['dashArray'] = "5 5"
-            feature['properties']['Date from'] = ["14 MAR"]
-            feature['properties']['Date until'] = ["31 MAR"]
-            feature['properties']['Time from (UTC)'] = "0000"
-            feature['properties']['Time to (UTC)'] = "2359"
 
         # IDENTIFY frequencies
         freq = re_freq.search(line)
@@ -738,10 +729,6 @@ for filename in os.listdir("./sources/txt"):
         if country == 'ES' and 'Vinschning av sk' in line:
             logger.debug("Skipping end of document")
             break
-
-        if 'Sanntidsaktivering' in line:
-            logger.debug("Activating AMC/Sanntidsaktivering for this feature.")
-            sanntid = True
 
         if 'Danger Areas active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")

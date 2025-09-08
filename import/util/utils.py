@@ -6,7 +6,7 @@ import math
 import re
 import sys
 from shapely.geometry import Polygon
-from shapely.ops import cascaded_union
+from shapely.ops import unary_union
 from shapely.strtree import STRtree
 from sys import exit
 
@@ -147,7 +147,7 @@ def merge_poly(p1, p2):
     logger.debug("Merging %s and %s", p1, p2)
     poly1 = Polygon([c2ll(c) for c in p1])
     poly2 = Polygon([c2ll(c) for c in p2])
-    union = cascaded_union([poly1, poly2])
+    union = unary_union([poly1, poly2])
     try:
       return [ll2c(ll) for ll in union.exterior.coords]
     except:
