@@ -63,16 +63,28 @@ def dumps (logger, filename, features):
         temporary  = p.get('temporary')
 
         airautoid     = None
+        inum = 0
         if notam_only or amc_only or ('EN R121' in name):
             if 'ENR' in name or 'END' in name:
                 airautoid = "".join(name.split(" ")[0:2])
-            elif 'EN R' in name or 'EN D' in name:
-                airautoid = "".join(name.split(" ")[0:2])
+            elif 'EN R' in name:
+                airautoid = "".join(name.split(" ")[0:2])   
+            elif 'EN D' in name:
+                num = name[name.find("D")+1:].strip().split(" ")[0]
+                inum = int(num)
+                if inum < 200 and inum != 110 and inum > 106:
+                    airautoid = "".join(name.split(" ")[0:2])
+                    luftsport = True
             else:
                 airautoid = name
         elif luftsport:
             airautoid = name
         
+        #if airautoid:
+        #    print("AutoID SET:",airautoid,"=",name,"inum=",inum)
+        #else:
+        #    print("NO autoid for",name, "inum=",inum)
+
         airchecktype = None
         if class_ in ['C','D','R','G','Q']: airchecktype = 'restrict'
         if luftsport: airchecktype = 'inverse'

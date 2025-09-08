@@ -102,6 +102,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     global completed
     global country
     global end_notam
+    global sanntid
 
     feature['properties']['source_href']=source
     feature['properties']['country']=country
@@ -214,8 +215,13 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
           feature['properties']['to (m amsl)'] = '99999'
           from_ = '0'
           to_ = '0'
-        if ("EN D" in aipname or "END" in aipname) and end_notam:
+        if ("EN D" in aipname or "END" in aipname) and (end_notam or sanntid):
+          logger.addFilter(logging.Filter("notam_only"))
           feature['properties']['notam_only'] = 'true'
+          if sanntid:
+              logger.debug("Classifying %s as AMC/Sanntidsaktivering", aipname)
+              feature['properties']['amc_only'] = 'true'
+              sanntid = False
         if ("EN D" in aipname or "END" in aipname) and (military_aip or ("Klepp" in aipname)):
           feature['properties']['amc_only'] = 'true'
         if from_ is None:
@@ -688,6 +694,7 @@ for filename in os.listdir("./sources/txt"):
     header_cont = False
     cr_areas = False
     end_notam = False
+    sanntid = False
     skip_tia = False
     tia_aip_acc = False
     vcuts = None
@@ -731,6 +738,10 @@ for filename in os.listdir("./sources/txt"):
         if country == 'ES' and 'Vinschning av sk' in line:
             logger.debug("Skipping end of document")
             break
+
+        if 'Sanntidsaktivering' in line:
+            logger.debug("Activating AMC/Sanntidsaktivering for this feature.")
+            sanntid = True
 
         if 'Danger Areas active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
