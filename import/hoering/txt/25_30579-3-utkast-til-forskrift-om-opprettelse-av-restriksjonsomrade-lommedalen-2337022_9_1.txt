@@ -1,0 +1,42 @@
+Forskrift om opprettelse av et midlertidig restriksjonsområde over Lommedalen, Bærum kommune
+Fastsatt av Luftfartstilsynet DD.MMMM.ÅÅÅÅ med hjemmel i lov 11. juni 1993 om luftfart§ 9-1a og
+13a-5, jf. forskrift 14. desember 2021 nr. 3530, jf. Samferdselsdepartementets delegeringsvedtak 14.
+august 2017 nr. 1639.
+§ 1. Formål
+Formålet med forskriften er å opprette et midlertidig restriksjonsområde over Lommedalen i
+Bærum kommune, for å ivareta sikkerheten i luftrommet under utprøving av obligatoriske tjenester i
+et U-Space luftrom.
+§ 2. Stedlig virkeområde og tidsrom
+Den horisontale utstrekningen til restriksjonsområdet «EN RXXX – Lommedalen» er
+begrenset av rette linjer mellom følgende koordinater oppgitt i grader, minutter og sekunder i
+WGS84:
+Områdets koordinater EN RXXX – Lommedalen
+GND - 500 ft AGL
+595617N 103009E
+595714N 103109E
+595824N 103122E
+595933N 103047E
+600000N 102957E
+595949N 102655E
+595905N 102634E
+595753N 102646E
+595616N 102852E
+(595617N 103009E)
+Den vertikale utstrekningen til restriksjonsområdet er fra bakken/vannet opp til 500 fot AGL.
+Restriksjonsområdet er aktivt fra xx.xx.2025 til xx.xx 2026, kl. 07:00 til kl. 19:00 lokal tid alle
+dager.
+§ 3. Luftromsrestriksjoner
+All flyging restriksjonsområdet er forbudt, foruten trafikk med særskilt tillatelse fra AirDodge
+eller Luftfartstilsynet.
+Forbudet gjelder all flyging for alle luftfartøy, inkludert ubemannet luftfartøy og modellfly.
+Forbudet gjelder ikke flyging i forbindelse med militær-, politi-, ambulanse-, brann-, søke- og
+redningsoppdrag. Disse aktørene bør, hvis mulig ta kontakt med AirDodge før området entres slik at
+trafikk i områdes kan settes på bakken.
+Forbudet gjelder heller ikke flygning etter Avtalen om det åpne luftrom.
+§ 4. Overtredelsesgebyr
+Luftfartstilsynet kan gi pålegg om et overtredelsesgebyr etter luftfartsloven § 13a-5 nr. 6, for
+overtredelse av luftromsrestriksjonene i § 3, jf. § 2.
+§ 5. Ikrafttredelse og opphør
+Forskriften trer i kraft DD.MMMM.ÅÅÅÅ, og opphører [dato].
+
+
