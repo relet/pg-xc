@@ -34,9 +34,16 @@ def c2ll(c):
     ndeg = float(c[0][0:2])
     nmin = float(c[0][2:4])
     nsec = float(c[0][4:])
+    print(c[0][4])
+    if c[0][4] == '.':
+        nmin = float(c[0][2:])
+        nsec = 0.0
     edeg = float(c[1][0:3])
     emin = float(c[1][3:5])
     esec = float(c[1][5:])
+    if c[1][5] == '.':
+        emin = float(c[1][3:])
+        esec = 0.0
     if len(c[1])==6: # east is only 2 digits here
         edeg = float(c[1][0:2])
         emin = float(c[1][2:4])
