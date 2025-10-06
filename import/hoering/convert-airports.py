@@ -1,3 +1,5 @@
+import csv 
+
 def main():
     # create GeoJSON object
     geojson = {
@@ -6,8 +8,9 @@ def main():
     }
 
     # open airports.csv
-    for line in open('airports.csv'):
-        data = line.strip().split(",")
+    with open('airports.csv', 'r', encoding='utf-8') as f:
+      reader = csv.reader(f, delimiter=',', quotechar='"')
+      for data in reader:
         id_, ident, type_, name, latitude_deg, longitude_deg, elevation_ft, continent, iso_country = data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[8], data[8]
         iso_region, municipality, scheduled_service, icao_code, iata_code, gps_code, local_code, home_link, wikipedia_link, keywords = data[9], data[10], data[11], data[12], data[13], data[14], data[15], data[16], data[17], data[18]
         

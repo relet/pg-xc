@@ -48,14 +48,130 @@
                 "gps_code": "ENAH",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%85l_Heliport",
-                "keywords": "_Medical_Center"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%85l_Heliport,_Medical_Center",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     8.566951,
                     60.62995
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2564",
+                "ident": "ENAL",
+                "type": "medium_airport",
+                "name": "\u00c5lesund Airport, Vigra",
+                "elevation_ft": "69",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "\u00c5lesund",
+                "scheduled_service": "yes",
+                "icao_code": "ENAL",
+                "iata_code": "AES",
+                "gps_code": "ENAL",
+                "local_code": "",
+                "home_link": "http://www.avinor.no/lufthavn/alesund",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%85lesund_Airport%2C_Vigra",
+                "keywords": "Vigra"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.1197,
+                    62.5625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2565",
+                "ident": "ENAN",
+                "type": "medium_airport",
+                "name": "And\u00f8ya Airport, Andenes",
+                "elevation_ft": "43",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Andenes",
+                "scheduled_service": "yes",
+                "icao_code": "ENAN",
+                "iata_code": "ANX",
+                "gps_code": "ENAN",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/andoya-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/And%C3%B8ya_Airport%2C_Andenes",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.144199,
+                    69.292503
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319092",
+                "ident": "ENAR",
+                "type": "heliport",
+                "name": "Arendal Heliport, Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-42",
+                "municipality": "Arendal",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENAR",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Arendal_Heliport,_Hospital",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.754001,
+                    58.467493
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "31004",
+                "ident": "ENAS",
+                "type": "small_airport",
+                "name": "Ny-\u00c5lesund Airport, Hamnerabben",
+                "elevation_ft": "50",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-21",
+                "municipality": "Ny-\u00c5lesund",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENAS",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Ny-%C3%85lesund_Airport,_Hamnerabben",
+                "keywords": "Br\u00f8ggerhalv\u00f8ya Airport"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.8743,
+                    78.927498
                 ]
             }
         },
@@ -85,6 +201,64 @@
                 "coordinates": [
                     23.3717,
                     69.976097
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319091",
+                "ident": "ENAX",
+                "type": "heliport",
+                "name": "\u00c5lesund Heliport, Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "\u00c5lesund",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENAX",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%85lesund_Heliport,_Hospital",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.312435,
+                    62.462942
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319093",
+                "ident": "ENBA",
+                "type": "heliport",
+                "name": "Barentsburg Heliport, Heerodden",
+                "elevation_ft": "92",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-21",
+                "municipality": "Barentsburg",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENBA",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Barentsburg_Heliport,_Heerodden",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.205777,
+                    78.101098
                 ]
             }
         },
@@ -135,8 +309,8 @@
                 "gps_code": "ENBG",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Bergen_Heliport",
-                "keywords": "_Gr%C3%B8nneviks%C3%B8ren"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Bergen_Heliport,_Gr%C3%B8nneviks%C3%B8ren",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -178,6 +352,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "29254",
+                "ident": "ENBL",
+                "type": "small_airport",
+                "name": "F\u00f8rde Airport, Bringeland",
+                "elevation_ft": "1046",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "F\u00f8rde",
+                "scheduled_service": "yes",
+                "icao_code": "ENBL",
+                "iata_code": "FDE",
+                "gps_code": "ENBL",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/forde-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/F%C3%B8rde_Airport%2C_Bringeland",
+                "keywords": "bringeland"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.75694,
+                    61.391102
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "2567",
                 "ident": "ENBM",
                 "type": "small_airport",
@@ -193,14 +396,43 @@
                 "gps_code": "ENBM",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Voss_Airport",
-                "keywords": "_B%C3%B8moen"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Voss_Airport,_B%C3%B8moen",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     6.499786,
                     60.638098
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2568",
+                "ident": "ENBN",
+                "type": "medium_airport",
+                "name": "Br\u00f8nn\u00f8ysund Airport, Br\u00f8nn\u00f8y",
+                "elevation_ft": "25",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Br\u00f8nn\u00f8y",
+                "scheduled_service": "yes",
+                "icao_code": "ENBN",
+                "iata_code": "BNN",
+                "gps_code": "ENBN",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/bronnoysund-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Br%C3%B8nn%C3%B8ysund_Airport%2C_Br%C3%B8nn%C3%B8y",
+                "keywords": "Bronnoy"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.2175,
+                    65.461098
                 ]
             }
         },
@@ -223,13 +455,42 @@
                 "local_code": "",
                 "home_link": "http://www.avinor.no/en/airport/bodo/frontpage",
                 "wikipedia_link": "https://en.wikipedia.org/wiki/Bod%C3%B8_Airport",
-                "keywords": "Bod\u00f8 Air Force Base"
+                "keywords": "Bod\u00f8 Air Force Base, Bod\u00f8 Main Air Station"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     14.3653,
                     67.269203
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2570",
+                "ident": "ENBR",
+                "type": "large_airport",
+                "name": "Bergen Airport, Flesland",
+                "elevation_ft": "170",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Bergen",
+                "scheduled_service": "yes",
+                "icao_code": "ENBR",
+                "iata_code": "BGO",
+                "gps_code": "ENBR",
+                "local_code": "",
+                "home_link": "http://www.avinor.no/en/airport/bergen",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Bergen_Airport%2C_Flesland",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.21814,
+                    60.2934
                 ]
             }
         },
@@ -288,6 +549,64 @@
                 "coordinates": [
                     29.034097,
                     70.871517
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2572",
+                "ident": "ENCN",
+                "type": "medium_airport",
+                "name": "Kristiansand Airport, Kjevik",
+                "elevation_ft": "57",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-42",
+                "municipality": "Kjevik",
+                "scheduled_service": "yes",
+                "icao_code": "ENCN",
+                "iata_code": "KRS",
+                "gps_code": "ENCN",
+                "local_code": "",
+                "home_link": "http://www.avinor.no/en/airport/kristiansand",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Kristiansand_Airport%2C_Kjevik",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.08537,
+                    58.204201
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319089",
+                "ident": "ENDB",
+                "type": "heliport",
+                "name": "Domb\u00e5s Heliport, Brunshaugen",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-34",
+                "municipality": "Domb\u00e5s",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENDB",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Domb%C3%A5s_Heliport,_Brunshaugen",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.121084,
+                    62.068943
                 ]
             }
         },
@@ -367,8 +686,8 @@
                 "gps_code": "ENDO",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Dokka_flyplass",
-                "keywords": "_Tomlevold"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Dokka_flyplass,_Tomlevold",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -468,6 +787,64 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "29257",
+                "ident": "ENEG",
+                "type": "small_airport",
+                "name": "H\u00f8nefoss Airfield, Eggemoen",
+                "elevation_ft": "656",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-33",
+                "municipality": "H\u00f8nefoss",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENEG",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/H%C3%B8nefoss_Airport,_Eggemoen",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.318737,
+                    60.214672
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319097",
+                "ident": "ENEL",
+                "type": "heliport",
+                "name": "Elverum Heliport, Innlandet Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-34",
+                "municipality": "Elverum",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENEL",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.569628,
+                    60.876961
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "324008",
                 "ident": "ENEN",
                 "type": "small_airport",
@@ -483,14 +860,43 @@
                 "gps_code": "ENEN",
                 "local_code": "",
                 "home_link": "http://www.engeloyflyplass.no",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Engel%C3%B8y_Airport",
-                "keywords": "_Gr%C3%A5dussan"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Engel%C3%B8y_Airport,_Gr%C3%A5dussan",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     14.9925,
                     67.967222
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2575",
+                "ident": "ENEV",
+                "type": "medium_airport",
+                "name": "Harstad/Narvik Airport, Evenes",
+                "elevation_ft": "84",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Evenes",
+                "scheduled_service": "yes",
+                "icao_code": "ENEV",
+                "iata_code": "EVE",
+                "gps_code": "ENEV",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/harstadnarvik-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Harstad/Narvik_Airport%2C_Evenes",
+                "keywords": "Harstad/Narvik lufthavn, Evenes"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.678100585938,
+                    68.491302490234
                 ]
             }
         },
@@ -512,8 +918,8 @@
                 "gps_code": "ENFA",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Fr%C3%B8ya_flyplass",
-                "keywords": "_Flatval"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Fr%C3%B8ya_flyplass,_Flatval",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -570,14 +976,72 @@
                 "gps_code": "ENFD",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/F%C3%B8rde_Heliport",
-                "keywords": "_Central_Hospital"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/F%C3%B8rde_Heliport,_Central_Hospital",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     5.890432,
                     61.456302
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2576",
+                "ident": "ENFG",
+                "type": "small_airport",
+                "name": "Fagernes Airport, Leirin",
+                "elevation_ft": "2697",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-34",
+                "municipality": "Fagernes",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/fagernes-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Fagernes_Airport%2C_Leirin",
+                "keywords": "VDB, ENFG"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.28806,
+                    61.015598
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319098",
+                "ident": "ENFJ",
+                "type": "heliport",
+                "name": "Fedje Heliport, H\u00f8gden",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Fedje",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENFJ",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Fedje_Heliport,_H%C3%B8gden",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.733014,
+                    60.765738
                 ]
             }
         },
@@ -700,6 +1164,64 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "29927",
+                "ident": "ENGK",
+                "type": "small_airport",
+                "name": "Arendal Airfield, Gullknapp",
+                "elevation_ft": "390",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-42",
+                "municipality": "",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENGK",
+                "local_code": "",
+                "home_link": "https://www.gullknapp.no/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Arendal_Airport,_Gullknapp",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.7,
+                    58.516701
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2578",
+                "ident": "ENGM",
+                "type": "large_airport",
+                "name": "Oslo Airport, Gardermoen",
+                "elevation_ft": "681",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-32",
+                "municipality": "Oslo (Gardermoen)",
+                "scheduled_service": "yes",
+                "icao_code": "ENGM",
+                "iata_code": "OSL",
+                "gps_code": "ENGM",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/oslo-airport",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Oslo_Airport,_Gardermoen",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.1004,
+                    60.193901
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "29872",
                 "ident": "ENGN",
                 "type": "small_airport",
@@ -744,14 +1266,72 @@
                 "gps_code": "ENGS",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Gr%C3%B8n%C3%B8ra_flyplass",
-                "keywords": "_Sn%C3%A5sa"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Gr%C3%B8n%C3%B8ra_flyplass,_Sn%C3%A5sa",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     12.171478,
                     64.183586
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "29260",
+                "ident": "ENHA",
+                "type": "small_airport",
+                "name": "Hamar Lufthavn, Stavsberg",
+                "elevation_ft": "729",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-34",
+                "municipality": "Hamar",
+                "scheduled_service": "no",
+                "icao_code": "ENHA",
+                "iata_code": "HMR",
+                "gps_code": "ENHA",
+                "local_code": "",
+                "home_link": "https://hamarlufthavn.no/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Hamar_Airport%2C_Stafsberg",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.068,
+                    60.8181
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2579",
+                "ident": "ENHD",
+                "type": "medium_airport",
+                "name": "Haugesund Airport, Karm\u00f8y",
+                "elevation_ft": "86",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-11",
+                "municipality": "Karm\u00f8y",
+                "scheduled_service": "yes",
+                "icao_code": "ENHD",
+                "iata_code": "HAU",
+                "gps_code": "ENHD",
+                "local_code": "",
+                "home_link": "https://flyhau.no/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Haugesund_Airport%2C_Karm%C3%B8y",
+                "keywords": "Karmoy"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.20836,
+                    59.345299
                 ]
             }
         },
@@ -918,8 +1498,8 @@
                 "gps_code": "ENSM",
                 "local_code": "",
                 "home_link": "https://www.efk.no/site/",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Starmoen_flyplass",
-                "keywords": "_Elverum"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Starmoen_flyplass,_Elverum",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -1019,6 +1599,64 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "29261",
+                "ident": "ENHV",
+                "type": "medium_airport",
+                "name": "Honningsv\u00e5g Airport, Valan",
+                "elevation_ft": "44",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-56",
+                "municipality": "Honningsv\u00e5g",
+                "scheduled_service": "yes",
+                "icao_code": "ENHV",
+                "iata_code": "HVG",
+                "gps_code": "ENHV",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/honningsvag-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Valan_Airport",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.983601,
+                    71.009697
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319103",
+                "ident": "ENHX",
+                "type": "heliport",
+                "name": "Haugesund Heliport, Haugesund Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-11",
+                "municipality": "Haugesund",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENHX",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.279548,
+                    59.408763
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "301115",
                 "ident": "ENJA",
                 "type": "small_airport",
@@ -1063,8 +1701,8 @@
                 "gps_code": "ENJB",
                 "local_code": "",
                 "home_link": "https://www.jarlsbergluftsportssenter.no/",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/T%C3%B8nsberg_Airport",
-                "keywords": "_Jarlsberg"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/T%C3%B8nsberg_Airport,_Jarlsberg",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -1135,6 +1773,64 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "2581",
+                "ident": "ENKB",
+                "type": "medium_airport",
+                "name": "Kristiansund Airport, Kvernberget",
+                "elevation_ft": "204",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "Kvernberget",
+                "scheduled_service": "yes",
+                "icao_code": "ENKB",
+                "iata_code": "KSU",
+                "gps_code": "ENKB",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/kristiansund-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Kristiansund_Airport%2C_Kvernberget",
+                "keywords": "Kristiansund lufthavn, Kvernberget"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.82452,
+                    63.111801
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2582",
+                "ident": "ENKJ",
+                "type": "small_airport",
+                "name": "Lillestr\u00f8m Airfield, Kjeller",
+                "elevation_ft": "354",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-32",
+                "municipality": "Kjeller",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENKJ",
+                "local_code": "",
+                "home_link": "http://www.kjellerflyplass.no/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Kjeller_Airfield",
+                "keywords": "Lillestr\u00f8m"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.040482,
+                    59.969089
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "30032",
                 "ident": "ENKL",
                 "type": "small_airport",
@@ -1150,14 +1846,43 @@
                 "gps_code": "ENKL",
                 "local_code": "",
                 "home_link": "http://hallingdalflyklubb.no/wordpress/",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Gol_Airport",
-                "keywords": "_Klanten"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Gol_Airport,_Klanten",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     9.048672,
                     60.791066
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2583",
+                "ident": "ENKR",
+                "type": "medium_airport",
+                "name": "Kirkenes Airport, H\u00f8ybuktmoen",
+                "elevation_ft": "283",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-56",
+                "municipality": "Kirkenes",
+                "scheduled_service": "yes",
+                "icao_code": "ENKR",
+                "iata_code": "KKN",
+                "gps_code": "ENKR",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/kirkenes-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Kirkenes_Airport%2C_H%C3%B8ybuktmoen",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.8913,
+                    69.7258
                 ]
             }
         },
@@ -1222,6 +1947,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319109",
+                "ident": "ENLH",
+                "type": "heliport",
+                "name": "Lillehammer Heliport, Innlandet Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-34",
+                "municipality": "Lillehammer",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENLH",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.472165,
+                    61.11325
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "2584",
                 "ident": "ENLI",
                 "type": "small_airport",
@@ -1237,8 +1991,8 @@
                 "gps_code": "ENLI",
                 "local_code": "",
                 "home_link": "http://www.listalufthavn.no/",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Farsund_Airport",
-                "keywords": "_Lista"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Farsund_Airport,_Lista",
+                "keywords": "Farsund lufthavn, Lista"
             },
             "geometry": {
                 "type": "Point",
@@ -1309,6 +2063,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319110",
+                "ident": "ENLX",
+                "type": "heliport",
+                "name": "L\u00f8renskog Heliport, Ahus",
+                "elevation_ft": "555",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-32",
+                "municipality": "L\u00f8renskog",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENLX",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/L%C3%B8renskog_Heliport,_Ahus",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.986877,
+                    59.932138
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "29265",
                 "ident": "ENMH",
                 "type": "medium_airport",
@@ -1332,6 +2115,93 @@
                 "coordinates": [
                     27.8267,
                     71.029701
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2585",
+                "ident": "ENML",
+                "type": "medium_airport",
+                "name": "Molde Airport, \u00c5r\u00f8",
+                "elevation_ft": "10",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "\u00c5r\u00f8",
+                "scheduled_service": "yes",
+                "icao_code": "ENML",
+                "iata_code": "MOL",
+                "gps_code": "ENML",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/molde-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Molde_Airport%2C_%C3%85r%C3%B8",
+                "keywords": "Aro"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.2625,
+                    62.744701
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2586",
+                "ident": "ENMS",
+                "type": "medium_airport",
+                "name": "Mosj\u00f8en Airport, Kj\u00e6rstad",
+                "elevation_ft": "237",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Mosj\u00f8en",
+                "scheduled_service": "yes",
+                "icao_code": "ENMS",
+                "iata_code": "MJF",
+                "gps_code": "ENMS",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/mosjoen-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Mosj%C3%B8en_Airport%2C_Kj%C3%A6rstad",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.2149,
+                    65.783997
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2587",
+                "ident": "ENNA",
+                "type": "medium_airport",
+                "name": "Lakselv Airport, Banak",
+                "elevation_ft": "25",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-56",
+                "municipality": "Lakselv",
+                "scheduled_service": "yes",
+                "icao_code": "ENNA",
+                "iata_code": "LKL",
+                "gps_code": "ENNA",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/lakselv-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Lakselv_Airport%2C_Banak",
+                "keywords": "North Cape Airport"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.973499,
+                    70.068802
                 ]
             }
         },
@@ -1367,6 +2237,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319142",
+                "ident": "ENNH",
+                "type": "heliport",
+                "name": "Namsos Heliport, Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-50",
+                "municipality": "Namsos",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENNH",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.504007,
+                    64.469981
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "29267",
                 "ident": "ENNM",
                 "type": "small_airport",
@@ -1383,7 +2282,7 @@
                 "local_code": "",
                 "home_link": "https://avinor.no/en/airport/namsos-airport/",
                 "wikipedia_link": "https://en.wikipedia.org/wiki/Namsos_Airport%2C_H%C3%B8knes%C3%B8ra",
-                "keywords": "Namsos lufthavn"
+                "keywords": "Namsos lufthavn, H\u00f8knes\u00f8ra"
             },
             "geometry": {
                 "type": "Point",
@@ -1527,14 +2426,43 @@
                 "gps_code": "ENOP",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Oppdal_Airport",
-                "keywords": "_Fagerhaug"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Oppdal_Airport,_Fagerhaug",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     9.851646,
                     62.651323
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "28114",
+                "ident": "ENOV",
+                "type": "medium_airport",
+                "name": "\u00d8rsta-Volda Airport, Hovden",
+                "elevation_ft": "243",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "\u00d8rsta",
+                "scheduled_service": "yes",
+                "icao_code": "ENOV",
+                "iata_code": "HOV",
+                "gps_code": "ENOV",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/orsta-volda-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%98rsta-Volda_Airport%2C_Hovden",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.0741000175476,
+                    62.180000305176
                 ]
             }
         },
@@ -2005,6 +2933,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "29277",
+                "ident": "ENRA",
+                "type": "medium_airport",
+                "name": "Mo i Rana Airport, R\u00f8ssvoll",
+                "elevation_ft": "229",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Mo i Rana",
+                "scheduled_service": "yes",
+                "icao_code": "ENRA",
+                "iata_code": "MQN",
+                "gps_code": "ENRA",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/mo-i-rana-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Mo_i_Rana_Airport%2C_R%C3%B8ssvoll",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.301400184631,
+                    66.363899230957
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "30346",
                 "ident": "ENRG",
                 "type": "small_airport",
@@ -2028,6 +2985,35 @@
                 "coordinates": [
                     15.4111,
                     67.098297
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319143",
+                "ident": "ENRH",
+                "type": "heliport",
+                "name": "Oslo Heliport, Rikshospitalet",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-03",
+                "municipality": "Oslo",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENRH",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.716144,
+                    59.948467
                 ]
             }
         },
@@ -2078,14 +3064,43 @@
                 "gps_code": "ENRK",
                 "local_code": "",
                 "home_link": "http://enrk.net/",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Rakkestad_Airport",
-                "keywords": "_%C3%85storp"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Rakkestad_Airport,_%C3%85storp",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     11.3469,
                     59.397499
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "29278",
+                "ident": "ENRM",
+                "type": "medium_airport",
+                "name": "R\u00f8rvik Airport, Ryum",
+                "elevation_ft": "14",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-50",
+                "municipality": "R\u00f8rvik",
+                "scheduled_service": "yes",
+                "icao_code": "ENRM",
+                "iata_code": "RVK",
+                "gps_code": "ENRM",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/rorvik-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/R%C3%B8rvik_Airport%2C_Ryum",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.14610004425,
+                    64.838302612305
                 ]
             }
         },
@@ -2150,6 +3165,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319152",
+                "ident": "ENRT",
+                "type": "heliport",
+                "name": "Trondheim Heliport, Rosten",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-50",
+                "municipality": "Trondheim",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENRT",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Trondheim_Heliport,_Rosten",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.374015,
+                    63.368133
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "30330",
                 "ident": "ENRV",
                 "type": "small_airport",
@@ -2202,6 +3246,93 @@
                 "coordinates": [
                     10.25521,
                     60.14908
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2592",
+                "ident": "ENRY",
+                "type": "medium_airport",
+                "name": "Moss Airport, Rygge",
+                "elevation_ft": "174",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-31",
+                "municipality": "Oslo",
+                "scheduled_service": "no",
+                "icao_code": "ENRY",
+                "iata_code": "",
+                "gps_code": "ENRY",
+                "local_code": "",
+                "home_link": "http://www.en.ryg.no/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Moss_Airport%2C_Rygge",
+                "keywords": "Moss lufthavn Rygge, Rygge Air Station, RYG"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.785439,
+                    59.378817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2593",
+                "ident": "ENSB",
+                "type": "medium_airport",
+                "name": "Svalbard Airport, Longyear",
+                "elevation_ft": "88",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-21",
+                "municipality": "Longyearbyen",
+                "scheduled_service": "yes",
+                "icao_code": "ENSB",
+                "iata_code": "LYR",
+                "gps_code": "ENSB",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/svalbard-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Svalbard_Airport%2C_Longyear",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.465600013733,
+                    78.246101379395
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "29280",
+                "ident": "ENSD",
+                "type": "small_airport",
+                "name": "Sandane Airport, Anda",
+                "elevation_ft": "196",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Sandane",
+                "scheduled_service": "yes",
+                "icao_code": "ENSD",
+                "iata_code": "SDN",
+                "gps_code": "ENSD",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/sandane-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Sandane_Airport%2C_Anda",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.10583,
+                    61.830002
                 ]
             }
         },
@@ -2266,6 +3397,64 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "28116",
+                "ident": "ENSG",
+                "type": "small_airport",
+                "name": "Sogndal Airport, Hauk\u00e5sen",
+                "elevation_ft": "1633",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Sogndal",
+                "scheduled_service": "yes",
+                "icao_code": "ENSG",
+                "iata_code": "SOG",
+                "gps_code": "ENSG",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/sogndal-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Sogndal_Airport,_Hauk%C3%A5sen",
+                "keywords": "Hauk\u00e5sen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.13778,
+                    61.156101
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "29281",
+                "ident": "ENSH",
+                "type": "medium_airport",
+                "name": "Svolv\u00e6r Airport, Helle",
+                "elevation_ft": "27",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Svolv\u00e6r",
+                "scheduled_service": "yes",
+                "icao_code": "ENSH",
+                "iata_code": "SVJ",
+                "gps_code": "ENSH",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/svolvar-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Svolv%C3%A6r_Airport%2C_Helle",
+                "keywords": "Svolv\u00e6r lufthavn, Helle"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.6692,
+                    68.243301
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "44897",
                 "ident": "ENSI",
                 "type": "small_airport",
@@ -2281,14 +3470,43 @@
                 "gps_code": "ENSI",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Ski_flyplass",
-                "keywords": "_S%C3%B8ndre_Ski_G%C3%A5rd"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Ski_flyplass,_S%C3%B8ndre_Ski_G%C3%A5rd",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     10.881665,
                     59.706972
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "29282",
+                "ident": "ENSK",
+                "type": "medium_airport",
+                "name": "Stokmarknes Airport, Skagen",
+                "elevation_ft": "11",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Hadsel",
+                "scheduled_service": "yes",
+                "icao_code": "ENSK",
+                "iata_code": "SKN",
+                "gps_code": "ENSK",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/stokmarknes-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Stokmarknes_Airport%2C_Skagen",
+                "keywords": "Stokmarknes lufthavn, Skagen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.033417,
+                    68.578827
                 ]
             }
         },
@@ -2353,6 +3571,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "2595",
+                "ident": "ENSO",
+                "type": "medium_airport",
+                "name": "Stord Airport, S\u00f8rstokken",
+                "elevation_ft": "160",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Leirvik",
+                "scheduled_service": "yes",
+                "icao_code": "ENSO",
+                "iata_code": "SRP",
+                "gps_code": "ENSO",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Stord_Airport%2C_S%C3%B8rstokken",
+                "keywords": "Sorstokken, S\u00f8rstokken"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.34085,
+                    59.791901
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "2596",
                 "ident": "ENSR",
                 "type": "medium_airport",
@@ -2376,6 +3623,64 @@
                 "coordinates": [
                     20.9594,
                     69.786797
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2597",
+                "ident": "ENSS",
+                "type": "medium_airport",
+                "name": "Vard\u00f8 Airport, Svartnes",
+                "elevation_ft": "42",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-56",
+                "municipality": "Vard\u00f8",
+                "scheduled_service": "yes",
+                "icao_code": "ENSS",
+                "iata_code": "VAW",
+                "gps_code": "ENSS",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/vardo-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Vard%C3%B8_Airport%2C_Svartnes",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.044901,
+                    70.3554
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2598",
+                "ident": "ENST",
+                "type": "medium_airport",
+                "name": "Sandnessj\u00f8en Airport, Stokka",
+                "elevation_ft": "56",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Alstahaug",
+                "scheduled_service": "yes",
+                "icao_code": "ENST",
+                "iata_code": "SSJ",
+                "gps_code": "ENST",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/sandnessjoen-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Sandnessj%C3%B8en_Airport%2C_Stokka",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4689,
+                    65.956802
                 ]
             }
         },
@@ -2411,6 +3716,64 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319147",
+                "ident": "ENSX",
+                "type": "heliport",
+                "name": "Stavanger Heliport, University Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-11",
+                "municipality": "Stavanger",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENSX",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Stavanger_Heliport,_University_Hospital",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.730924,
+                    58.9521
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2599",
+                "ident": "ENTC",
+                "type": "large_airport",
+                "name": "Troms\u00f8 Airport, Langnes",
+                "elevation_ft": "31",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-55",
+                "municipality": "Troms\u00f8",
+                "scheduled_service": "yes",
+                "icao_code": "ENTC",
+                "iata_code": "TOS",
+                "gps_code": "ENTC",
+                "local_code": "",
+                "home_link": "http://www.avinor.no/en/airport/tromso",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Troms%C3%B8_Airport",
+                "keywords": "Langnes, Troms\u00f8ya, Tromso"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.9189,
+                    69.683296
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "329178",
                 "ident": "ENTE",
                 "type": "heliport",
@@ -2434,6 +3797,35 @@
                 "coordinates": [
                     9.593279,
                     59.190744
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "2600",
+                "ident": "ENTO",
+                "type": "medium_airport",
+                "name": "Sandefjord Airport, Torp",
+                "elevation_ft": "286",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-39",
+                "municipality": "Torp",
+                "scheduled_service": "yes",
+                "icao_code": "ENTO",
+                "iata_code": "TRF",
+                "gps_code": "ENTO",
+                "local_code": "",
+                "home_link": "https://torp.no/en/welcome-to-torp-sandefjord-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Sandefjord_Airport%2C_Torp",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.2586,
+                    59.186699
                 ]
             }
         },
@@ -2601,7 +3993,7 @@
                 "local_code": "ENUC",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "Aasgard"
+                "keywords": "Aasgard, Oil&Gas"
             },
             "geometry": {
                 "type": "Point",
@@ -2701,6 +4093,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319144",
+                "ident": "ENUH",
+                "type": "heliport",
+                "name": "Oslo Heliport, Ullevaal",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-03",
+                "municipality": "Oslo",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENUH",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.736541,
+                    59.936215
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "526577",
                 "ident": "ENUK",
                 "type": "heliport",
@@ -2745,8 +4166,8 @@
                 "gps_code": "ENUL",
                 "local_code": "",
                 "home_link": "http://www.osaeroklubb.no/?page_id=51",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Os_flyplass",
-                "keywords": "_Vaksinen"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Os_flyplass,_Vaksinen",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -2846,6 +4267,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "2601",
+                "ident": "ENVA",
+                "type": "large_airport",
+                "name": "Trondheim Airport, V\u00e6rnes",
+                "elevation_ft": "56",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-50",
+                "municipality": "Trondheim",
+                "scheduled_service": "yes",
+                "icao_code": "ENVA",
+                "iata_code": "TRD",
+                "gps_code": "ENVA",
+                "local_code": "",
+                "home_link": "https://avinor.no/en/airport/trondheim-airport/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Trondheim_Airport%2C_V%C3%A6rnes",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.924,
+                    63.457802
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "29284",
                 "ident": "ENVD",
                 "type": "medium_airport",
@@ -2890,8 +4340,8 @@
                 "gps_code": "ENVE",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "http://no.wikipedia.org/wiki/Valle_flyplass",
-                "keywords": "_\u00c5raks\u00f8yne"
+                "wikipedia_link": "http://no.wikipedia.org/wiki/Valle_flyplass,_\u00c5raks\u00f8yne",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -3600,6 +5050,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "2602",
+                "ident": "ENZV",
+                "type": "large_airport",
+                "name": "Stavanger Airport, Sola",
+                "elevation_ft": "29",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-11",
+                "municipality": "Stavanger",
+                "scheduled_service": "yes",
+                "icao_code": "ENZV",
+                "iata_code": "SVG",
+                "gps_code": "ENZV",
+                "local_code": "",
+                "home_link": "http://www.avinor.no/en/airport/stavanger/",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Stavanger_Airport,_Sola",
+                "keywords": "Sola Air Station, Stavanger lufthavn, Sola"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.63778,
+                    58.876701
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "41541",
                 "ident": "NO-0001",
                 "type": "small_airport",
@@ -3760,8 +5239,8 @@
                 "gps_code": "",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Stavanger_Airport",
-                "keywords": "_Forus"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Stavanger_Airport,_Forus",
+                "keywords": "Stavanger lufthavn, Forus"
             },
             "geometry": {
                 "type": "Point",
@@ -3790,7 +5269,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "winter only"
+                "keywords": "winter only, frozen lake"
             },
             "geometry": {
                 "type": "Point",
@@ -3818,8 +5297,8 @@
                 "gps_code": "ENLV",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Salangen_Airport",
-                "keywords": "_Elvenes"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Salangen_Airport,_Elvenes",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -4137,8 +5616,8 @@
                 "gps_code": "ENLB",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Lesja_flyplass",
-                "keywords": "_Bjorli"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Lesja_flyplass,_Bjorli",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -4544,7 +6023,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "Vingnesvika"
+                "keywords": "Vingnesvika, Mj\u00f8sa, Mj\u00f8sisen"
             },
             "geometry": {
                 "type": "Point",
@@ -4638,6 +6117,35 @@
                 "coordinates": [
                     12.7570594,
                     61.3561484
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "316518",
+                "ident": "NO-0037",
+                "type": "heliport",
+                "name": "Sandnessj\u00f8en Heliport, Hospital",
+                "elevation_ft": "86",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-18",
+                "municipality": "Sandnessj\u00f8en",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENSJ",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.615999,
+                    66.01786
                 ]
             }
         },
@@ -4905,6 +6413,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319094",
+                "ident": "NO-0047",
+                "type": "heliport",
+                "name": "Bykle Heliport, Hovden",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-42",
+                "municipality": "Bykle",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.368471,
+                    59.52691
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "319100",
                 "ident": "NO-0048",
                 "type": "heliport",
@@ -4957,6 +6494,122 @@
                 "coordinates": [
                     16.525347,
                     68.795716
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319106",
+                "ident": "NO-0050",
+                "type": "heliport",
+                "name": "Kinsarvik Heliport, Husemoen",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Kinsarvik",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.740877,
+                    60.361583
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319107",
+                "ident": "NO-0051",
+                "type": "heliport",
+                "name": "Kristiansand Heliport, Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-42",
+                "municipality": "Kristiansand",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.981816,
+                    58.164124
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319108",
+                "ident": "NO-0052",
+                "type": "heliport",
+                "name": "Kristiansund Heliport, Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "Kristiansund",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.723485,
+                    63.107631
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "319111",
+                "ident": "NO-0053",
+                "type": "heliport",
+                "name": "Molde Heliport, Hospital",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-15",
+                "municipality": "Molde",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.135475,
+                    62.737088
                 ]
             }
         },
@@ -5050,6 +6703,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "319150",
+                "ident": "NO-0057",
+                "type": "heliport",
+                "name": "T\u00f8nsberg Heliport, Hospital",
+                "elevation_ft": "130",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-39",
+                "municipality": "T\u00f8nsberg",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "ENTH",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.41618,
+                    59.273235
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "319151",
                 "ident": "NO-0058",
                 "type": "heliport",
@@ -5065,8 +6747,8 @@
                 "gps_code": "ENTU",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/Troms%C3%B8_Heliport",
-                "keywords": "_University_Hospital"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Troms%C3%B8_Heliport,_University_Hospital",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -5334,6 +7016,64 @@
                 "coordinates": [
                     4.960047,
                     60.578382
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "322797",
+                "ident": "NO-0068",
+                "type": "seaplane_base",
+                "name": "Bergen Seaplane Base, Sandviken",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Bergen",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Bergen_Airport,_Sandviken",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.319931,
+                    60.408154
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "322798",
+                "ident": "NO-0069",
+                "type": "heliport",
+                "name": "Bergen Heliport, Sandviken",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-46",
+                "municipality": "Bergen",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Bergen_Airport,_Sandviken",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.317071,
+                    60.409302
                 ]
             }
         },
@@ -6094,6 +7834,35 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "346542",
+                "ident": "NO-0096",
+                "type": "seaplane_base",
+                "name": "Sola Sj\u00f8, S\u00f8mmev\u00e5gen",
+                "elevation_ft": "",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-11",
+                "municipality": "",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "",
+                "keywords": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.63323,
+                    58.89914
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "346800",
                 "ident": "NO-0097",
                 "type": "small_airport",
@@ -6138,14 +7907,43 @@
                 "gps_code": "",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%85lesund_Airport",
-                "keywords": "_S%C3%B8rneset"
+                "wikipedia_link": "https://en.wikipedia.org/wiki/%C3%85lesund_Airport,_S%C3%B8rneset",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     6.2264,
                     62.46868
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "28117",
+                "ident": "NO-0099",
+                "type": "closed",
+                "name": "Oslo, Fornebu Airport",
+                "elevation_ft": "56",
+                "continent": "NO",
+                "iso_country": "NO",
+                "iso_region": "NO-32",
+                "municipality": "Oslo",
+                "scheduled_service": "no",
+                "icao_code": "",
+                "iata_code": "",
+                "gps_code": "",
+                "local_code": "",
+                "home_link": "",
+                "wikipedia_link": "https://en.wikipedia.org/wiki/Oslo_Airport%2C_Fornebu",
+                "keywords": "ENFB, FBU"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.6172,
+                    59.895802
                 ]
             }
         },
@@ -6168,7 +7966,7 @@
                 "local_code": "",
                 "home_link": "https://www.facebook.com/groups/608370225975537",
                 "wikipedia_link": "",
-                "keywords": "winter"
+                "keywords": "winter, ice"
             },
             "geometry": {
                 "type": "Point",
@@ -6254,8 +8052,8 @@
                 "gps_code": "",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Bykle_sj%C3%B8flyplass",
-                "keywords": "_Hovden"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Bykle_sj%C3%B8flyplass,_Hovden",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -6312,8 +8110,8 @@
                 "gps_code": "",
                 "local_code": "",
                 "home_link": "",
-                "wikipedia_link": "https://no.wikipedia.org/wiki/Fagernes_flyplass",
-                "keywords": "_Strandefjorden"
+                "wikipedia_link": "https://no.wikipedia.org/wiki/Fagernes_flyplass,_Strandefjorden",
+                "keywords": ""
             },
             "geometry": {
                 "type": "Point",
@@ -6334,9 +8132,9 @@
                 "continent": "NO",
                 "iso_country": "NO",
                 "iso_region": "NO-46",
-                "municipality": "Lo",
-                "scheduled_service": " Borgund",
-                "icao_code": "no",
+                "municipality": "Lo, Borgund",
+                "scheduled_service": "no",
+                "icao_code": "",
                 "iata_code": "",
                 "gps_code": "",
                 "local_code": "",
@@ -6458,7 +8256,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENFR"
+                "keywords": "ENFR, ENFR"
             },
             "geometry": {
                 "type": "Point",
@@ -6487,7 +8285,7 @@
                 "local_code": "",
                 "home_link": "https://avinor.no/en/airport/narvik-airport/",
                 "wikipedia_link": "https://en.wikipedia.org/wiki/Narvik_Airport%2C_Framnes",
-                "keywords": "Narvik lufthavn"
+                "keywords": "Narvik lufthavn, Framnes, ENNK, NVK"
             },
             "geometry": {
                 "type": "Point",
@@ -6516,7 +8314,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENQU"
+                "keywords": "ENQU, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6545,7 +8343,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENVF"
+                "keywords": "ENVF, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6574,7 +8372,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENVH"
+                "keywords": "ENVH, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6632,7 +8430,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXE"
+                "keywords": "ENXE, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6661,7 +8459,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXF"
+                "keywords": "ENXF, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6690,7 +8488,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXG"
+                "keywords": "ENXG, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6719,7 +8517,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXN"
+                "keywords": "ENXN, Removed, 202007XX, Refurbished, Relocated"
             },
             "geometry": {
                 "type": "Point",
@@ -6748,7 +8546,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXP"
+                "keywords": "ENXP, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6777,7 +8575,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXQ"
+                "keywords": "ENXQ, ENXQ"
             },
             "geometry": {
                 "type": "Point",
@@ -6806,7 +8604,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXS"
+                "keywords": "ENXS, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6835,7 +8633,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXU"
+                "keywords": "ENXU, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6864,7 +8662,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXV"
+                "keywords": "ENXV, Removed"
             },
             "geometry": {
                 "type": "Point",
@@ -6893,7 +8691,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENOR"
+                "keywords": "ENOR, ENXX"
             },
             "geometry": {
                 "type": "Point",
@@ -6922,7 +8720,7 @@
                 "local_code": "",
                 "home_link": "",
                 "wikipedia_link": "https://en.wikipedia.org/wiki/V%C3%A6r%C3%B8y_Heliport",
-                "keywords": "ENVY"
+                "keywords": "ENVY, ENVY"
             },
             "geometry": {
                 "type": "Point",
@@ -6980,7 +8778,7 @@
                 "local_code": "ENXN",
                 "home_link": "",
                 "wikipedia_link": "",
-                "keywords": "ENXN"
+                "keywords": "ENXN, Oil&Gas"
             },
             "geometry": {
                 "type": "Point",
