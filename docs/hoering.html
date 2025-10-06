@@ -48,6 +48,7 @@
 
                 var luftrom='https://rawcdn.githack.com/relet/pg-xc/85855c179ef856fc6a718eccc0daf48d1c0509fd/geojson/luftrom.geojson?min=1';
                 var hoering='https://raw.githack.com/relet/pg-xc/hoering/geojson/hoering.geojson';
+                var airports='https://raw.githack.com/relet/pg-xc/hoering/geojson/airports_no.geojson';
                 var takeoffs='https://rawcdn.githack.com/relet/pg-xc/d1ae085186641a78295956fbf2dad26345af8c2f/geojson/takeoffs.geojson?min=1';
 
                 var shorthash = function(s) {
@@ -98,6 +99,16 @@
                     text = text.split(' ').join('');
                   }
                   return text;
+                };
+
+                var onEachFeature_airport = function (feature, layer) {
+                        var source=feature.properties['source_href'];
+                        layer.bindPopup(
+                            '<h2>'+feature.properties['name']+'<\/h2><br />'+
+                            'Type: '+feature.properties['type']+'<br />'+
+                            'Elevation: '+feature.properties['elevation_ft']+'ft<br />'+
+                            'Code: '+feature.properties['ident']+'<br />'
+                        );
                 };
 
                 var onEachFeature_all = function (feature, layer) {
@@ -320,6 +331,7 @@
                 var overLayers = {
                   "<b>Norwegian airspace<\/b>": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all }),
                   "<b>Hearing suggestions<\/b>": new L.GeoJSON.AJAX(hoering, { onEachFeature: onEachFeature_all, style: style_all }),
+                  "<b>Norwegian airports<\/b>": new L.GeoJSON.AJAX(airports, { onEachFeature: onEachFeature_airport, style: style_all }),
                   " - CTA (<4200m)": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTA']) }),
                   " - TMA": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['TMA']) }),
                   " - CTR/TIA/TIZ": new L.GeoJSON.AJAX(luftrom, { onEachFeature: onEachFeature_all, style: style_all, filter: filter_all('name',['CTR','TIA','TIZ']) }),
