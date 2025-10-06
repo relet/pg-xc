@@ -7,31 +7,48 @@ Bærum kommune for å ivareta sikkerheten ved anlegget.
 § 2 Stedlig virkeområde og tidsrom
 Restriksjonsområdets horisontale utstrekning er begrenset av rette linjer mellom følgende
 koordinater oppgitt i grader, minutter og sekunder i WGS84:
-EN RXXX – Kolsås base
+EN RXXX – Kolsås base høringsnotat
 GND - 1500 FT AMSL
 5955.2N-01030.6E
+5955.2N-01030.4E
 5955.2N-01030.4E
 5955.2N-01030.4E
 5955.2N-01030.2E
 5955.1N-01030.2E
 5955.1N-01030.1E
+5955.1N-01030.1E
+5955.0N-01030.1E
 5955.0N-01030.1E
 5955.0N-01030.2E
 5954.9N-01030.2E
+5954.9N-01030.2E
+5954.9N-01030.3E
 5954.9N-01030.3E
 5955.0N-01030.3E
 5955.0N-01030.4E
+5955.0N-01030.4E
 5955.0N-01030.5E
+5955.0N-01030.5E
+5955.0N-01030.6E
 5955.0N-01030.6E
 5955.1N-01030.6E
 5955.1N-01030.9E
+5955.1N-01030.9E
+5955.3N-01030.8E
+5955.3N-01030.8E
 5955.3N-01030.8E
 5955.4N-01030.8E
+5955.4N-01030.8E
+5955.4N-01030.7E
+5955.4N-01030.7E
 5955.4N-01030.7E
 5955.4N-01030.7E
 5955.3N-01030.7E
 5955.2N-01030.7E
+5955.2N-01030.7E
+5955.2N-01030.7E
 5955.2N-01030.6E
+
 Vertikal utstrekning er fra bakken/vannet opp til 1500 FT AMSL.
 Restriksjonsområdet er permanent, og gjelder hele døgnet, hele året.
 § 3 Luftromsrestriksjoner
