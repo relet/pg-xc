@@ -7086,6 +7086,18 @@ DP 61:12:27 N  011:33:57 E
 * Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
+AC G
+AN Geiteryggen RMZ
+AL 0ft AMSL
+AH 2500ft AMSL
+DP 59:07:12 N  009:42:00 E
+DP 59:17:12 N  009:42:48 E
+DP 59:14:17 N  009:25:31 E
+DP 59:07:00 N  009:26:06 E
+DP 59:07:12 N  009:42:00 E
+* Source: https://partner.avinor.no/siteassets/ais-portalen-forside/aip-sup/en_sup_2025_a_059_en.pdf
+*
+*
 AC Q
 AN EN D120 Hvittingfoss B
 AL 4500ft AMSL
