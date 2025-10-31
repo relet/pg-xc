@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 # Lines containing these are usually recognized as names
-re_name   = re.compile(r"^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|OCEANIC FIR|CTR/TIZ|TIZ/RMZ|RMZ/TMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
+re_name   = re.compile(r"^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|RMZ|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|OCEANIC FIR|CTR/TIZ|TIZ/RMZ|RMZ/TMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
 re_name2  = re.compile(r"^\s*(?P<name>E[NS] [RD].*)\s*$")
 re_name3  = re.compile(r"^\s*(?P<name>E[NS]D\d.*)\s*$")
 re_name4  = re.compile(r"Navn og utstrekning /\s+(?P<name>.*)$")
@@ -257,13 +257,19 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
 
 
 for filename in os.listdir("./sources/txt"):
+    logger.info("Reading %s", "./sources/txt/"+filename)
     source = urllib.parse.unquote(filename.split(".txt")[0])
     if ".swp" in filename:
+        logger.warning("Skipping swap file %s", filename)
         continue
-    logger.info("Reading %s", "./sources/txt/"+filename)
 
     data = open("./sources/txt/"+filename,"r","utf-8").readlines()
-
+    #partner = False
+    if "partner" in filename:
+    #    partner = True
+         logger = logging.getLogger("partner")
+    #    logger.error("YES WE ARE Reading %s", "./sources/txt/"+filename)
+    
     ad_aip       = "-AD-" in filename or "_AD_" in filename
     cta_aip      = "ENR-2.1" in filename
     tia_aip      = "ENR-2.2" in filename
@@ -283,7 +289,7 @@ for filename in os.listdir("./sources/txt"):
 
     airsport_intable = False
 
-    if "EN_" or "en_" in filename:
+    if "EN_" or "en_" or "_en." in filename:
         country = 'EN'
         border = borders['norway']
         re_coord3 = re_coord3_no
@@ -355,7 +361,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Found class in line: %s", line)
             class_=class_.groupdict()
             feature['properties']['class']=class_.get('class')
-            if tia_aip or "RMZ" in aipname:
+            if tia_aip or (aipname and "RMZ" in aipname):
                 feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
@@ -597,7 +603,7 @@ for filename in os.listdir("./sources/txt"):
                 feature['properties']['from (ft amsl)']=fromamsl
                 feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN'):
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN') and not ("Geiteryggen" in aipname):
                     logger.debug("Finalizing poly: Vertl complete.")
                     if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
                         for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
@@ -722,7 +728,7 @@ for filename in os.listdir("./sources/txt"):
             if skip_tia:
                 continue
 
-        if aip_sup and ("Luftromsklasse" in line):
+        if aip_sup and ("Luftromsklasse" in line) and not ("2025" in filename) or ("obligatoriske meldepunkter" in line):
             logger.debug("Skipping end of SUP")
             break
 
@@ -896,3 +902,5 @@ xcontest.dumps(logger, "result/xcontest", collection)
 
 # output ACC sectors into a separate file
 geojson.dumps(logger, "result/accsectors", accsectors)
+
+print("Completed successfully.")
