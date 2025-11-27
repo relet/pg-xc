@@ -6659,6 +6659,20 @@ DP 69:37:37 N  029:56:56 E
 * Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
+AC G
+AN Sogn TIA 5
+AL 5500ft AMSL
+AH 13500ft AMSL
+DP 61:28:00 N  007:30:00 E
+DP 61:20:08 N  007:18:21 E
+DP 61:12:00 N  007:30:00 E
+DP 61:12:06 N  007:43:57 E
+DP 61:14:04 N  007:42:58 E
+DP 61:20:06 N  007:43:57 E
+DP 61:28:00 N  007:30:00 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+*
+*
 AC Q
 AN EN D362 Røros RPAS West
 AL 0ft AMSL
@@ -7151,18 +7165,6 @@ DP 61:49:17 N  006:50:25 E
 DP 61:52:49 N  006:43:43 E
 DP 62:00:00 N  006:30:00 E
 DP 62:00:00 N  006:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
-*
-*
-AC G
-AN Sogn TIA 5
-AL 5500ft AMSL
-AH 13500ft AMSL
-DP 61:12:00 N  007:30:00 E
-DP 61:12:06 N  007:43:57 E
-DP 61:14:04 N  007:42:58 E
-DP 61:20:06 N  007:43:57 E
-DP 61:28:00 N  007:30:00 E
 * Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *

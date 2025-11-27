@@ -37,8 +37,8 @@ re_class2 = re.compile(r"^(?P<class>[CDG])$")
 re_class_openair = re.compile(r"^AC (?P<class>.*)$")
 
 # Coordinates format, possibly in brackets
-RE_NE     = r'(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s+|-)+(?P<e>[\d\.]+)[E\)]+)'
-RE_NE2    = r'(?P<ne2>\(?(?P<n2>\d+)N\s+(?P<e2>\d+)E\)?)'
+RE_NE     = r'(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s*|-)+(?P<e>[\d\.]+)[E\)]+)'
+RE_NE2    = r'(?P<ne2>\(?(?P<n2>\d+)N\s*(?P<e2>\d+)E\)?)'
 # Match circle definitions, see log file for examples
 re_coord  = re.compile(r"(?:" + RE_NE + r" - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
 # Match sector definitions, see log file for examples
@@ -213,7 +213,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
           from_ = '0'
           to_ = '0'
         if ("EN D" in aipname or "END" in aipname) and (end_notam or sanntid):
-          logger.addFilter(logging.Filter("notam_only"))
+          #logger.addFilter(logging.Filter("notam_only"))
           feature['properties']['notam_only'] = 'true'
           if sanntid:
               logger.debug("Classifying %s as AMC/Sanntidsaktivering", aipname)
@@ -264,11 +264,6 @@ for filename in os.listdir("./sources/txt"):
         continue
 
     data = open("./sources/txt/"+filename,"r","utf-8").readlines()
-    #partner = False
-    if "partner" in filename:
-    #    partner = True
-         logger = logging.getLogger("partner")
-    #    logger.error("YES WE ARE Reading %s", "./sources/txt/"+filename)
     
     ad_aip       = "-AD-" in filename or "_AD_" in filename
     cta_aip      = "ENR-2.1" in filename
