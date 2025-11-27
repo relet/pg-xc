@@ -24,8 +24,8 @@ DP 58:07:19 N  004:24:52 E
 DP 58:08:00 N  003:48:00 E
 DP 58:40:58 N  003:26:13 E
 DP 58:45:45 N  003:23:00 E
-DP 60:18:00 N  003:00:00 E
-DP 60:16:24 N  003:45:20 E
+DP 60:16:24 N  003:00:25 E
+DP 60:15:43 N  003:45:11 E
 DP 60:23:09 N  003:46:49 E
 DP 61:24:24 N  004:00:44 E
 DP 61:32:00 N  004:38:00 E
@@ -78,7 +78,7 @@ DP 70:07:45 N  018:26:51 E
 DP 70:29:28 N  018:05:18 E
 DP 70:28:32 N  017:59:17 E
 DP 70:00:00 N  015:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -185,7 +185,7 @@ DP 70:29:27 N  018:05:17 E
 DP 70:41:25 N  019:30:24 E
 DP 70:22:11 N  019:30:05 E
 DP 71:01:23 N  024:13:29 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -292,7 +292,7 @@ DP 62:44:54 N  009:47:14 E
 DP 62:45:05 N  010:22:59 E
 DP 62:46:59 N  010:48:00 E
 DP 62:52:00 N  011:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -311,7 +311,7 @@ DP 78:30:00 N  017:00:00 E
 DP 78:37:29 N  014:48:24 E
 DP 78:38:22 N  013:59:29 E
 DP 78:29:53 N  012:59:13 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC C
@@ -374,7 +374,7 @@ DP 63:35:38 N  012:09:01 E
 DP 63:56:35 N  011:59:45 E
 DP 64:06:00 N  010:51:20 E
 DP 64:26:00 N  010:12:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -400,29 +400,24 @@ DP 71:00:00 N  030:00:00 E
 DP 71:20:00 N  028:00:00 E
 DP 71:20:00 N  025:00:00 E
 DP 70:41:25 N  019:30:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
 AN Balder CTA
 AL 1500ft AMSL
 AH FL85
-DP 60:19:59 N  001:59:39 E
+DP 60:16:56 N  002:00:13 E
 DP 59:53:46 N  002:04:30 E
-DP 59:17:38 N  001:42:49 E
-DP 59:00:00 N  001:37:55 E
+DP 59:17:22 N  001:42:36 E
 DP 58:25:46 N  001:28:54 E
 DP 57:56:09 N  001:56:14 E
 DP 58:25:35 N  004:25:57 E
 DP 58:33:13 N  004:50:27 E
-DP 58:38:10 N  004:48:01 E
 DP 58:53:48 N  004:40:10 E
-DP 59:29:04 N  004:31:44 E
-DP 59:36:23 N  004:29:57 E
-DP 60:00:09 N  004:23:52 E
 DP 60:15:00 N  004:20:00 E
-DP 60:19:59 N  001:59:39 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+DP 60:16:56 N  002:00:13 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -436,7 +431,7 @@ DP 64:15:33 N  009:57:51 E
 DP 64:21:33 N  010:21:51 E
 DP 64:55:25 N  011:12:41 E
 DP 65:52:48 N  006:53:22 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -449,7 +444,7 @@ DP 64:45:27 N  010:57:06 E
 DP 65:18:48 N  011:49:18 E
 DP 65:44:10 N  011:49:32 E
 DP 66:40:49 N  008:09:40 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -477,7 +472,7 @@ DP 60:43:00 N  006:00:00 E
 DP 60:54:27 N  005:42:29 E
 DP 61:00:00 N  005:29:00 E
 DP 61:00:00 N  004:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -502,7 +497,7 @@ DP 70:33:00 N  031:08:00 E
 DP 71:00:00 N  030:00:00 E
 DP 71:20:00 N  028:00:00 E
 DP 71:20:00 N  026:21:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -518,7 +513,7 @@ DP 67:09:20 N  013:15:23 E
 DP 67:23:14 N  012:13:39 E
 DP 67:29:17 N  011:45:24 E
 DP 67:49:16 N  010:07:04 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -536,7 +531,7 @@ DP 64:43:32 N  010:37:55 E
 DP 64:45:38 N  010:41:03 E
 DP 64:53:23 N  010:52:46 E
 DP 65:45:00 N  007:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -549,7 +544,7 @@ DP 64:53:23 N  010:52:46 E
 DP 65:20:37 N  011:35:00 E
 DP 65:41:00 N  011:35:00 E
 DP 66:32:43 N  008:14:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -567,7 +562,7 @@ DP 63:57:38 N  008:59:07 E
 DP 64:07:43 N  009:31:47 E
 DP 64:13:33 N  009:32:08 E
 DP 65:03:02 N  005:54:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -590,7 +585,7 @@ DP 66:19:00 N  014:45:00 E
 DP 66:30:00 N  014:46:45 E
 DP 66:50:00 N  014:50:00 E
 DP 66:57:00 N  013:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -602,7 +597,7 @@ DP 70:09:00 N  011:54:00 E
 DP 69:30:49 N  014:17:14 E
 DP 69:53:53 N  016:40:21 E
 DP 70:58:00 N  016:32:49 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -619,7 +614,21 @@ DP 70:15:39 N  024:18:00 E
 DP 71:15:30 N  024:18:00 E
 DP 71:21:34 N  024:08:39 E
 DP 70:55:30 N  020:23:09 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+*
+*
+AC C
+AN Statfjord CTA
+AL 1500ft AMSL
+AH FL85
+DP 61:36:54 N  001:38:04 E
+DP 61:21:22 N  001:47:18 E
+DP 60:16:56 N  002:00:13 E
+DP 60:15:00 N  004:20:00 E
+DP 61:32:00 N  004:38:00 E
+DP 61:43:09 N  004:46:40 E
+DP 61:36:54 N  001:38:04 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -631,14 +640,14 @@ DP 66:31:00 N  007:53:47 E
 DP 65:32:03 N  011:41:06 E
 DP 66:18:15 N  012:32:33 E
 DP 67:14:54 N  009:06:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
 AN Polaris CTA 8
 AL FL85
 AH FL660
-DP 60:18:00 N  003:00:00 E
+DP 60:16:24 N  003:00:25 E
 DP 58:45:45 N  003:23:00 E
 DP 58:40:58 N  003:26:13 E
 DP 58:08:00 N  003:48:00 E
@@ -659,26 +668,9 @@ DP 61:00:00 N  004:30:00 E
 DP 61:32:00 N  004:38:00 E
 DP 61:24:24 N  004:00:44 E
 DP 60:23:09 N  003:46:49 E
-DP 60:16:24 N  003:45:20 E
-DP 60:18:00 N  003:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
-*
-*
-AC C
-AN Statfjord CTA
-AL 1500ft AMSL
-AH FL85
-DP 61:34:57 N  001:39:14 E
-DP 61:21:22 N  001:47:18 E
-DP 61:07:24 N  001:50:09 E
-DP 60:19:59 N  001:59:39 E
-DP 60:15:00 N  004:20:00 E
-DP 60:50:00 N  004:27:44 E
-DP 61:00:00 N  004:30:00 E
-DP 61:32:00 N  004:38:00 E
-DP 61:42:17 N  004:46:00 E
-DP 61:34:57 N  001:39:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+DP 60:15:43 N  003:45:11 E
+DP 60:16:24 N  003:00:25 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -687,17 +679,15 @@ AL 1500ft AMSL
 AH FL85
 DP 58:33:13 N  004:50:27 E
 DP 58:25:35 N  004:25:57 E
-DP 57:08:35 N  002:20:54 E
+DP 57:08:31 N  002:20:47 E
 DP 56:35:40 N  002:36:42 E
 DP 56:05:10 N  003:14:55 E
-DP 56:12:07 N  003:38:43 E
-DP 58:07:19 N  005:21:51 E
+DP 56:13:05 N  003:42:01 E
 DP 58:21:35 N  005:35:29 E
-DP 58:21:30 N  005:28:49 E
 DP 58:21:16 N  005:11:59 E
 DP 58:31:40 N  004:51:12 E
 DP 58:33:13 N  004:50:27 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -710,7 +700,7 @@ DP 61:53:43 N  004:08:28 E
 DP 62:34:01 N  005:32:06 E
 DP 63:10:43 N  004:04:58 E
 DP 63:17:19 N  001:47:05 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -742,7 +732,7 @@ DP 61:46:32 N  006:55:35 E
 DP 61:53:26 N  006:42:35 E
 DP 62:00:00 N  006:30:00 E
 DP 62:00:00 N  006:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -775,7 +765,7 @@ DP 59:18:06 N  008:44:00 E
 DP 59:20:40 N  008:26:07 E
 DP 59:32:08 N  008:11:00 E
 DP 59:24:00 N  007:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -872,7 +862,7 @@ DP 59:55:19 N  009:41:20 E
 DP 60:29:30 N  009:58:29 E
 DP 60:43:45 N  010:05:59 E
 DP 60:55:29 N  010:33:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -892,7 +882,22 @@ DP 68:16:55 N  015:40:26 E
 DP 68:55:10 N  016:10:08 E
 DP 68:49:00 N  015:41:00 E
 DP 68:50:00 N  014:56:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+*
+*
+AC C
+AN Heidrun CTA
+AL 1500ft AMSL
+AH FL85
+DP 65:37:49 N  006:51:18 E
+DP 65:03:22 N  006:10:38 E
+DP 63:19:25 N  007:15:20 E
+DP 63:34:00 N  008:00:00 E
+DP 63:46:21 N  008:00:00 E
+DP 63:48:09 N  008:05:44 E
+DP 65:16:50 N  008:04:27 E
+DP 65:37:49 N  006:51:18 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -914,26 +919,7 @@ DP 62:00:00 N  010:39:00 E
 DP 62:28:00 N  010:40:00 E
 DP 62:27:12 N  010:21:59 E
 DP 62:27:27 N  008:49:23 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
-*
-*
-AC C
-AN Heidrun CTA
-AL 1500ft AMSL
-AH FL85
-DP 65:37:06 N  006:50:26 E
-DP 65:08:00 N  006:16:00 E
-DP 64:21:42 N  006:41:45 E
-DP 64:00:00 N  006:53:19 E
-DP 63:19:25 N  007:15:20 E
-DP 63:34:00 N  008:00:00 E
-DP 63:46:21 N  008:00:00 E
-DP 63:48:09 N  008:05:44 E
-DP 64:00:00 N  008:05:34 E
-DP 64:09:36 N  008:05:26 E
-DP 65:16:02 N  008:04:28 E
-DP 65:37:06 N  006:50:26 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -949,7 +935,7 @@ DP 67:05:55 N  013:00:00 E
 DP 67:18:00 N  012:06:00 E
 DP 67:24:00 N  011:38:00 E
 DP 67:41:28 N  010:12:23 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -961,7 +947,7 @@ DP 68:04:08 N  010:34:50 E
 DP 67:40:44 N  012:26:10 E
 DP 68:33:23 N  014:35:21 E
 DP 69:05:03 N  012:35:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -977,7 +963,7 @@ DP 78:30:00 N  017:00:00 E
 DP 78:37:29 N  014:48:24 E
 DP 78:38:22 N  013:59:29 E
 DP 78:29:53 N  012:59:13 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC C
@@ -1020,7 +1006,7 @@ DP 65:00:00 N  012:22:00 E
 DP 65:15:00 N  012:26:59 E
 DP 65:15:00 N  013:24:59 E
 DP 65:45:00 N  013:52:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1036,7 +1022,7 @@ DP 63:57:42 N  008:35:47 E
 DP 64:02:32 N  008:51:14 E
 DP 64:10:27 N  009:16:49 E
 DP 64:54:56 N  006:00:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1048,7 +1034,7 @@ DP 66:32:43 N  008:14:25 E
 DP 65:41:00 N  011:35:00 E
 DP 66:16:06 N  012:13:41 E
 DP 67:06:33 N  009:10:47 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1063,7 +1049,7 @@ DP 70:18:50 N  024:00:00 E
 DP 70:30:18 N  024:00:00 E
 DP 71:13:53 N  023:59:59 E
 DP 70:51:02 N  020:43:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1077,7 +1063,7 @@ DP 68:45:49 N  015:07:55 E
 DP 69:03:32 N  015:56:06 E
 DP 69:15:42 N  015:22:27 E
 DP 69:44:12 N  014:00:26 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1094,7 +1080,7 @@ DP 69:34:00 N  016:07:25 E
 DP 69:34:00 N  017:26:52 E
 DP 69:38:48 N  017:43:20 E
 DP 70:19:46 N  016:18:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1108,7 +1094,7 @@ DP 63:17:36 N  007:32:21 E
 DP 63:31:24 N  008:14:47 E
 DP 63:37:40 N  008:13:28 E
 DP 64:17:24 N  005:03:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1123,7 +1109,7 @@ DP 71:00:00 N  030:00:00 E
 DP 71:06:59 N  030:00:00 E
 DP 71:26:00 N  028:04:24 E
 DP 71:26:00 N  027:41:08 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1138,7 +1124,7 @@ DP 64:42:42 N  010:36:00 E
 DP 64:49:12 N  010:29:00 E
 DP 65:19:06 N  010:53:54 E
 DP 65:16:00 N  008:04:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -1151,7 +1137,7 @@ DP 62:01:21 N  004:06:00 E
 DP 62:33:43 N  005:13:00 E
 DP 63:03:16 N  004:03:12 E
 DP 63:10:06 N  002:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -1166,7 +1152,7 @@ DP 78:15:05 N  018:15:49 E
 DP 78:00:00 N  017:00:00 E
 DP 78:00:00 N  015:00:00 E
 DP 77:59:57 N  012:46:09 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC C
@@ -1206,7 +1192,7 @@ DP 67:36:40 N  014:32:05 E
 DP 67:40:00 N  013:55:00 E
 DP 67:25:00 N  013:00:00 E
 DP 67:15:00 N  013:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1219,7 +1205,7 @@ DP 61:10:58 N  002:03:09 E
 DP 61:16:21 N  002:12:24 E
 DP 62:03:26 N  002:13:18 E
 DP 62:44:35 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1236,7 +1222,7 @@ DP 58:16:38 N  006:07:15 E
 DP 58:57:37 N  006:12:47 E
 DP 59:41:02 N  004:40:05 E
 DP 59:43:25 N  004:27:51 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1249,7 +1235,7 @@ DP 60:29:27 N  002:02:52 E
 DP 60:34:46 N  002:12:31 E
 DP 61:22:24 N  002:12:26 E
 DP 61:53:54 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1264,7 +1250,7 @@ DP 70:40:32 N  028:19:47 E
 DP 71:23:35 N  028:20:02 E
 DP 71:26:00 N  028:04:25 E
 DP 71:26:00 N  025:40:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1281,7 +1267,7 @@ DP 58:21:06 N  007:49:12 E
 DP 58:49:18 N  006:50:24 E
 DP 59:01:23 N  006:00:07 E
 DP 58:58:30 N  005:49:39 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1296,7 +1282,7 @@ DP 58:52:05 N  004:11:55 E
 DP 58:57:41 N  004:15:21 E
 DP 60:11:36 N  002:04:22 E
 DP 60:09:07 N  001:50:52 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -1314,7 +1300,7 @@ DP 61:00:00 N  006:30:00 E
 DP 61:30:00 N  006:20:00 E
 DP 62:00:00 N  006:20:00 E
 DP 62:00:00 N  005:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1329,7 +1315,7 @@ DP 59:13:25 N  003:34:08 E
 DP 60:15:21 N  003:39:50 E
 DP 60:21:36 N  003:37:35 E
 DP 60:44:14 N  001:58:09 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1343,7 +1329,7 @@ DP 60:10:21 N  003:27:56 E
 DP 60:14:25 N  003:38:53 E
 DP 61:12:16 N  003:42:53 E
 DP 61:25:10 N  001:57:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1361,7 +1347,7 @@ DP 69:08:16 N  016:46:37 E
 DP 69:29:31 N  017:48:40 E
 DP 69:46:00 N  017:32:17 E
 DP 69:46:00 N  015:52:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1374,7 +1360,7 @@ DP 61:52:40 N  002:00:25 E
 DP 61:57:17 N  002:13:19 E
 DP 62:34:50 N  002:13:13 E
 DP 63:23:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1386,7 +1372,7 @@ DP 68:06:05 N  010:58:10 E
 DP 67:48:18 N  012:23:08 E
 DP 68:32:29 N  014:10:34 E
 DP 68:56:41 N  012:38:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -1487,7 +1473,7 @@ DP 60:01:59 N  008:50:00 E
 DP 59:54:59 N  009:00:00 E
 DP 59:53:48 N  009:00:00 E
 DP 59:42:35 N  009:35:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -1506,7 +1492,7 @@ DP 64:30:00 N  012:27:00 E
 DP 65:00:00 N  012:22:00 E
 DP 65:00:00 N  011:35:00 E
 DP 65:20:37 N  011:35:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1519,7 +1505,7 @@ DP 69:33:54 N  017:11:00 E
 DP 69:33:59 N  017:28:30 E
 DP 70:06:26 N  018:46:56 E
 DP 70:37:30 N  018:16:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -1536,7 +1522,7 @@ DP 70:17:00 N  026:00:00 E
 DP 70:30:00 N  025:40:00 E
 DP 70:35:00 N  025:00:00 E
 DP 70:18:50 N  024:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1552,7 +1538,7 @@ DP 62:04:58 N  006:29:29 E
 DP 62:09:31 N  006:31:16 E
 DP 62:39:30 N  005:19:32 E
 DP 62:40:04 N  005:08:31 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1566,7 +1552,7 @@ DP 61:00:20 N  003:37:35 E
 DP 61:08:48 N  003:45:23 E
 DP 61:47:44 N  003:43:18 E
 DP 62:07:05 N  001:57:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -1583,7 +1569,7 @@ DP 69:12:20 N  019:10:30 E
 DP 69:27:00 N  020:00:00 E
 DP 70:05:00 N  020:00:00 E
 DP 70:05:00 N  018:50:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -1600,7 +1586,7 @@ DP 66:19:00 N  014:45:00 E
 DP 66:30:00 N  014:46:45 E
 DP 66:30:00 N  013:50:00 E
 DP 66:21:40 N  012:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -1622,7 +1608,7 @@ DP 58:24:22 N  009:10:35 E
 DP 58:43:57 N  008:34:38 E
 DP 58:48:00 N  008:06:55 E
 DP 58:44:48 N  007:53:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1637,7 +1623,7 @@ DP 60:02:16 N  002:12:07 E
 DP 60:07:14 N  002:11:59 E
 DP 61:10:54 N  000:10:01 E
 DP 61:13:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1650,7 +1636,7 @@ DP 63:10:01 N  006:47:36 E
 DP 63:22:26 N  007:24:28 E
 DP 63:34:00 N  008:00:00 E
 DP 64:09:29 N  005:10:53 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1664,7 +1650,7 @@ DP 61:36:20 N  003:33:22 E
 DP 61:59:39 N  004:20:37 E
 DP 62:05:42 N  004:16:35 E
 DP 62:39:09 N  001:58:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1677,7 +1663,7 @@ DP 70:18:38 N  029:25:20 E
 DP 70:45:00 N  030:41:47 E
 DP 71:00:00 N  030:00:00 E
 DP 71:20:00 N  028:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1689,7 +1675,7 @@ DP 61:47:12 N  000:00:00 E
 DP 61:18:42 N  002:00:00 E
 DP 62:00:00 N  002:00:00 E
 DP 62:37:28 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -1706,7 +1692,7 @@ DP 64:30:00 N  012:27:00 E
 DP 65:00:00 N  012:22:00 E
 DP 65:00:00 N  011:35:00 E
 DP 65:20:37 N  011:35:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -1720,7 +1706,7 @@ DP 60:02:08 N  004:34:34 E
 DP 61:04:34 N  004:43:14 E
 DP 61:14:29 N  003:25:12 E
 DP 61:12:10 N  003:17:29 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1734,7 +1720,7 @@ DP 68:50:00 N  014:56:00 E
 DP 69:03:32 N  015:32:30 E
 DP 69:11:26 N  015:10:33 E
 DP 69:35:09 N  014:02:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1748,7 +1734,7 @@ DP 58:39:47 N  003:28:38 E
 DP 58:45:33 N  003:31:46 E
 DP 59:52:38 N  001:39:14 E
 DP 59:51:01 N  001:28:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1765,7 +1751,7 @@ DP 63:06:49 N  007:01:18 E
 DP 63:13:30 N  007:00:36 E
 DP 63:47:06 N  004:43:23 E
 DP 63:46:51 N  004:36:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1778,7 +1764,7 @@ DP 67:16:01 N  011:43:23 E
 DP 67:36:24 N  012:16:40 E
 DP 67:49:57 N  012:48:14 E
 DP 68:13:56 N  010:53:06 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1792,7 +1778,7 @@ DP 57:06:51 N  007:43:01 E
 DP 57:40:57 N  008:49:01 E
 DP 58:24:37 N  007:41:59 E
 DP 58:23:37 N  007:30:06 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -1807,7 +1793,7 @@ DP 61:22:00 N  006:08:00 E
 DP 61:30:00 N  006:20:00 E
 DP 62:00:00 N  006:20:00 E
 DP 62:00:00 N  005:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC C
@@ -1906,7 +1892,7 @@ DP 69:49:05 N  028:24:14 E
 DP 69:50:56 N  028:19:48 E
 DP 69:52:49 N  028:20:41 E
 DP 69:53:13 N  028:19:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1920,7 +1906,7 @@ DP 70:19:07 N  021:12:30 E
 DP 70:53:11 N  021:00:23 E
 DP 70:58:13 N  020:47:44 E
 DP 70:45:38 N  019:10:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1936,7 +1922,7 @@ DP 69:40:00 N  016:00:00 E
 DP 69:40:00 N  016:40:00 E
 DP 69:40:00 N  017:20:00 E
 DP 70:12:08 N  016:12:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -1964,7 +1950,7 @@ DP 60:30:00 N  006:30:00 E
 DP 60:32:56 N  006:30:00 E
 DP 60:48:24 N  006:30:00 E
 DP 60:43:00 N  006:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -1977,7 +1963,7 @@ DP 62:22:18 N  002:03:02 E
 DP 62:33:34 N  002:18:47 E
 DP 63:16:02 N  002:13:03 E
 DP 63:23:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -1989,7 +1975,7 @@ DP 61:06:26 N  000:00:00 E
 DP 60:37:05 N  002:00:00 E
 DP 61:18:42 N  002:00:00 E
 DP 61:47:12 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2005,7 +1991,7 @@ DP 62:48:31 N  006:06:28 E
 DP 62:54:28 N  006:04:05 E
 DP 63:33:18 N  004:31:33 E
 DP 63:32:50 N  004:18:19 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2019,7 +2005,7 @@ DP 59:01:56 N  004:50:00 E
 DP 59:40:46 N  004:42:26 E
 DP 59:56:57 N  003:27:14 E
 DP 59:55:34 N  003:13:18 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2040,7 +2026,7 @@ DP 70:18:50 N  024:00:00 E
 DP 70:35:00 N  025:00:00 E
 DP 70:41:00 N  025:19:00 E
 DP 70:44:00 N  024:48:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2052,7 +2038,7 @@ DP 65:16:00 N  008:04:30 E
 DP 65:19:06 N  010:53:54 E
 DP 65:45:00 N  010:53:54 E
 DP 65:45:00 N  008:04:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -2068,7 +2054,7 @@ DP 61:35:07 N  005:39:21 E
 DP 61:42:24 N  005:43:56 E
 DP 62:06:42 N  004:12:57 E
 DP 62:07:20 N  003:58:49 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2083,7 +2069,7 @@ DP 57:57:56 N  004:29:42 E
 DP 58:18:22 N  005:20:21 E
 DP 58:24:15 N  005:21:01 E
 DP 59:03:30 N  004:04:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2100,7 +2086,7 @@ DP 69:47:30 N  022:11:42 E
 DP 70:05:00 N  021:50:36 E
 DP 70:19:20 N  021:02:54 E
 DP 70:05:00 N  020:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -2117,7 +2103,7 @@ DP 66:21:40 N  012:20:00 E
 DP 65:45:00 N  011:39:19 E
 DP 65:41:34 N  011:35:37 E
 DP 65:41:00 N  011:35:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2132,7 +2118,7 @@ DP 57:43:59 N  006:54:09 E
 DP 58:18:15 N  007:37:50 E
 DP 58:44:08 N  006:43:16 E
 DP 58:54:35 N  006:00:04 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2151,7 +2137,7 @@ DP 69:09:37 N  019:25:05 E
 DP 69:22:12 N  018:15:55 E
 DP 69:25:00 N  017:35:00 E
 DP 69:20:00 N  017:10:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2167,7 +2153,7 @@ DP 57:59:46 N  005:55:56 E
 DP 58:21:49 N  005:55:05 E
 DP 58:54:35 N  006:00:04 E
 DP 59:36:23 N  004:29:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2181,7 +2167,7 @@ DP 70:08:11 N  019:48:13 E
 DP 70:43:53 N  019:48:46 E
 DP 70:48:26 N  019:34:47 E
 DP 70:33:48 N  017:49:08 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2194,7 +2180,7 @@ DP 59:57:43 N  001:54:40 E
 DP 60:00:22 N  002:12:15 E
 DP 60:40:47 N  002:12:23 E
 DP 61:13:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2206,7 +2192,7 @@ DP 62:37:28 N  000:00:00 E
 DP 62:00:00 N  002:00:00 E
 DP 62:32:05 N  002:00:00 E
 DP 63:15:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2219,7 +2205,7 @@ DP 59:20:18 N  001:12:30 E
 DP 59:46:22 N  001:50:49 E
 DP 60:40:53 N  000:06:53 E
 DP 60:42:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2232,7 +2218,7 @@ DP 57:43:35 N  003:53:53 E
 DP 58:01:27 N  004:37:44 E
 DP 58:06:52 N  004:41:00 E
 DP 58:51:38 N  003:22:17 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2248,7 +2234,7 @@ DP 62:01:25 N  006:23:08 E
 DP 62:24:39 N  007:04:36 E
 DP 62:31:09 N  007:07:56 E
 DP 62:58:28 N  005:53:27 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2260,7 +2246,7 @@ DP 60:37:05 N  002:00:00 E
 DP 60:17:22 N  003:26:45 E
 DP 61:07:45 N  003:30:00 E
 DP 61:18:42 N  002:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2273,7 +2259,7 @@ DP 61:02:52 N  003:18:02 E
 DP 60:53:43 N  004:30:34 E
 DP 61:20:18 N  005:11:32 E
 DP 61:50:55 N  003:28:56 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2286,7 +2272,7 @@ DP 58:44:07 N  003:18:51 E
 DP 58:56:15 N  004:02:15 E
 DP 59:18:53 N  003:23:07 E
 DP 60:04:34 N  001:59:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2298,7 +2284,7 @@ DP 70:50:15 N  026:00:00 E
 DP 70:43:28 N  028:00:00 E
 DP 71:20:00 N  028:00:00 E
 DP 71:20:00 N  026:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2317,7 +2303,7 @@ DP 58:43:57 N  008:34:38 E
 DP 58:36:34 N  008:21:02 E
 DP 58:25:00 N  008:00:00 E
 DP 58:16:46 N  007:17:22 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2329,7 +2315,7 @@ DP 60:04:34 N  001:59:59 E
 DP 59:18:53 N  003:23:07 E
 DP 60:17:22 N  003:26:45 E
 DP 60:37:05 N  002:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2358,7 +2344,7 @@ DP 59:15:00 N  009:23:54 E
 DP 59:15:00 N  009:10:00 E
 DP 59:15:00 N  009:00:00 E
 DP 59:15:00 N  008:44:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2374,7 +2360,7 @@ DP 62:52:04 N  007:38:41 E
 DP 62:57:42 N  007:40:55 E
 DP 63:13:30 N  007:00:36 E
 DP 63:17:04 N  006:46:56 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2390,7 +2376,7 @@ DP 57:18:32 N  006:25:09 E
 DP 57:56:09 N  006:20:38 E
 DP 58:00:50 N  006:17:06 E
 DP 58:22:50 N  005:22:32 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2402,7 +2388,7 @@ DP 59:24:50 N  001:04:26 E
 DP 58:31:44 N  002:35:58 E
 DP 58:44:07 N  003:18:51 E
 DP 59:45:50 N  001:35:39 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2417,7 +2403,7 @@ DP 69:20:00 N  017:10:00 E
 DP 69:40:00 N  016:40:00 E
 DP 69:40:00 N  016:00:00 E
 DP 69:25:00 N  015:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2433,7 +2419,7 @@ DP 69:12:22 N  016:34:15 E
 DP 69:31:11 N  017:28:52 E
 DP 69:40:00 N  017:20:00 E
 DP 69:40:00 N  016:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2445,7 +2431,7 @@ DP 62:01:21 N  004:06:00 E
 DP 61:39:22 N  005:28:47 E
 DP 62:07:28 N  006:16:42 E
 DP 62:33:43 N  005:12:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2457,7 +2443,7 @@ DP 57:43:59 N  006:54:09 E
 DP 57:11:01 N  007:50:49 E
 DP 57:36:23 N  008:39:59 E
 DP 58:18:15 N  007:37:50 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2469,7 +2455,7 @@ DP 61:18:42 N  002:00:00 E
 DP 61:07:45 N  003:30:00 E
 DP 61:43:34 N  003:30:10 E
 DP 62:00:00 N  002:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2481,7 +2467,7 @@ DP 70:12:08 N  016:12:57 E
 DP 69:40:00 N  017:20:00 E
 DP 70:07:45 N  018:26:51 E
 DP 70:29:25 N  018:05:21 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2496,7 +2482,7 @@ DP 59:34:33 N  004:42:38 E
 DP 60:08:58 N  004:34:06 E
 DP 60:24:00 N  003:27:16 E
 DP 60:21:43 N  003:14:43 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2508,7 +2494,7 @@ DP 60:35:40 N  000:00:00 E
 DP 59:45:50 N  001:35:39 E
 DP 60:04:34 N  001:59:59 E
 DP 61:06:26 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2522,7 +2508,7 @@ DP 66:30:00 N  014:46:45 E
 DP 66:50:00 N  014:50:00 E
 DP 66:53:01 N  014:05:03 E
 DP 66:57:00 N  013:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -2547,7 +2533,7 @@ DP 62:43:20 N  008:19:47 E
 DP 62:39:05 N  008:11:39 E
 DP 62:27:00 N  007:46:00 E
 DP 62:06:59 N  006:55:48 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -2559,7 +2545,7 @@ DP 70:41:00 N  025:19:00 E
 DP 70:20:00 N  028:38:00 E
 DP 70:37:55 N  028:45:37 E
 DP 70:53:30 N  026:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -2574,7 +2560,7 @@ DP 62:00:00 N  009:41:38 E
 DP 62:00:00 N  010:10:00 E
 DP 62:50:00 N  010:10:00 E
 DP 62:50:00 N  009:04:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -2586,7 +2572,7 @@ DP 62:00:00 N  002:00:00 E
 DP 61:43:34 N  003:30:10 E
 DP 62:01:21 N  004:06:00 E
 DP 62:32:05 N  002:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2630,7 +2616,7 @@ DP 69:55:48 N  016:19:03 E
 DP 69:55:01 N  016:29:50 E
 DP 69:53:52 N  016:40:20 E
 DP 69:28:33 N  016:13:13 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -2647,7 +2633,7 @@ DP 63:45:41 N  010:16:49 E
 DP 64:17:22 N  009:39:35 E
 DP 64:02:33 N  008:51:14 E
 DP 63:57:42 N  008:35:47 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -2688,7 +2674,7 @@ DP 68:00:00 N  017:00:23 E
 DP 67:54:49 N  016:15:56 E
 DP 67:57:18 N  015:58:05 E
 DP 68:11:00 N  015:36:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -2710,7 +2696,7 @@ DP 61:46:32 N  006:55:35 E
 DP 61:49:17 N  006:50:25 E
 DP 61:44:36 N  006:42:57 E
 DP 61:30:00 N  006:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -2724,7 +2710,7 @@ DP 60:05:06 N  004:22:35 E
 DP 60:15:00 N  004:20:00 E
 DP 61:00:00 N  004:30:00 E
 DP 61:00:36 N  004:25:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2737,7 +2723,7 @@ DP 69:40:00 N  024:00:00 E
 DP 70:18:50 N  024:00:00 E
 DP 70:18:54 N  022:55:00 E
 DP 70:12:24 N  022:24:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2749,7 +2735,7 @@ DP 60:00:00 N  000:00:00 E
 DP 59:24:50 N  001:04:26 E
 DP 59:45:50 N  001:35:39 E
 DP 60:35:40 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2768,7 +2754,7 @@ DP 63:06:09 N  006:36:19 E
 DP 62:47:57 N  005:44:01 E
 DP 62:33:43 N  005:12:59 E
 DP 62:30:00 N  005:05:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2780,7 +2766,7 @@ DP 63:27:03 N  004:26:52 E
 DP 62:50:51 N  005:52:12 E
 DP 63:10:01 N  006:47:36 E
 DP 63:41:05 N  004:40:48 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2795,7 +2781,7 @@ DP 57:16:26 N  007:03:08 E
 DP 57:47:22 N  007:07:02 E
 DP 58:03:37 N  006:09:54 E
 DP 58:00:24 N  005:56:08 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2808,7 +2794,7 @@ DP 67:24:00 N  011:38:00 E
 DP 67:40:00 N  012:04:00 E
 DP 67:48:18 N  012:23:08 E
 DP 68:06:05 N  010:58:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -2881,7 +2867,7 @@ DP 66:51:31 N  015:58:27 E
 DP 66:52:23 N  015:59:37 E
 DP 66:54:51 N  016:02:35 E
 DP 66:50:00 N  014:50:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2893,7 +2879,7 @@ DP 58:31:44 N  002:35:58 E
 DP 57:48:11 N  003:46:24 E
 DP 58:05:27 N  004:27:58 E
 DP 58:44:07 N  003:18:51 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2906,7 +2892,7 @@ DP 58:56:15 N  004:02:15 E
 DP 59:05:46 N  004:37:20 E
 DP 59:36:23 N  004:29:57 E
 DP 59:50:33 N  003:24:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2919,7 +2905,7 @@ DP 57:15:28 N  004:36:42 E
 DP 57:46:01 N  005:06:32 E
 DP 57:53:20 N  005:10:22 E
 DP 58:13:40 N  004:28:40 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2934,7 +2920,7 @@ DP 61:38:04 N  010:00:49 E
 DP 62:00:00 N  009:41:38 E
 DP 62:00:00 N  008:49:33 E
 DP 61:53:55 N  008:25:43 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -2949,7 +2935,7 @@ DP 70:28:40 N  023:07:47 E
 DP 70:28:30 N  023:35:00 E
 DP 70:44:00 N  024:48:00 E
 DP 71:01:24 N  024:13:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -2972,7 +2958,7 @@ DP 63:27:00 N  012:00:00 E
 DP 63:44:22 N  011:35:56 E
 DP 63:48:17 N  010:24:29 E
 DP 63:43:00 N  010:08:55 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -2986,7 +2972,7 @@ DP 57:00:00 N  005:25:54 E
 DP 57:44:45 N  005:26:17 E
 DP 57:56:48 N  005:05:58 E
 DP 57:57:53 N  004:50:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -2999,7 +2985,7 @@ DP 62:33:43 N  005:12:59 E
 DP 62:47:57 N  005:44:01 E
 DP 62:50:51 N  005:52:12 E
 DP 63:27:03 N  004:26:52 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3012,7 +2998,7 @@ DP 70:09:45 N  020:00:00 E
 DP 70:22:03 N  020:53:38 E
 DP 70:51:02 N  020:43:25 E
 DP 70:41:25 N  019:30:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3027,7 +3013,7 @@ DP 58:31:40 N  004:51:12 E
 DP 58:41:24 N  004:31:56 E
 DP 58:51:05 N  004:12:29 E
 DP 58:56:15 N  004:02:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3054,7 +3040,7 @@ DP 60:42:51 N  011:52:08 E
 DP 60:47:50 N  011:41:45 E
 DP 60:51:13 N  011:15:40 E
 DP 60:52:40 N  011:04:20 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3069,7 +3055,7 @@ DP 57:38:15 N  005:25:16 E
 DP 58:17:46 N  005:33:11 E
 DP 58:28:27 N  005:12:39 E
 DP 58:27:39 N  005:03:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3084,7 +3070,7 @@ DP 57:47:57 N  009:03:03 E
 DP 58:17:29 N  010:03:53 E
 DP 58:40:41 N  010:02:26 E
 DP 58:41:30 N  009:36:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3105,7 +3091,7 @@ DP 68:41:00 N  018:09:00 E
 DP 68:57:00 N  017:15:00 E
 DP 69:05:00 N  016:58:00 E
 DP 68:55:10 N  016:10:08 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3117,7 +3103,7 @@ DP 61:43:34 N  003:30:10 E
 DP 61:18:35 N  004:54:01 E
 DP 61:39:22 N  005:28:47 E
 DP 62:01:21 N  004:06:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3139,7 +3125,7 @@ DP 59:10:00 N  005:23:00 E
 DP 59:09:00 N  005:12:00 E
 DP 59:25:00 N  004:40:00 E
 DP 59:29:04 N  004:31:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3152,7 +3138,7 @@ DP 68:51:23 N  015:28:08 E
 DP 69:08:14 N  016:01:48 E
 DP 69:17:19 N  016:01:33 E
 DP 69:30:49 N  014:17:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -3168,7 +3154,7 @@ DP 68:45:00 N  016:17:00 E
 DP 68:20:00 N  016:00:00 E
 DP 68:15:00 N  016:40:00 E
 DP 68:20:00 N  017:23:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3179,7 +3165,7 @@ DP 63:15:00 N  000:00:00 E
 DP 62:32:05 N  002:00:00 E
 DP 63:10:06 N  002:00:00 E
 DP 63:15:00 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3207,7 +3193,7 @@ DP 60:56:20 N  010:57:00 E
 DP 60:55:30 N  010:33:30 E
 DP 60:47:00 N  010:13:35 E
 DP 60:43:45 N  010:06:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3225,7 +3211,7 @@ DP 59:00:15 N  010:50:38 E
 DP 59:12:45 N  010:53:00 E
 DP 59:14:45 N  010:54:48 E
 DP 59:15:00 N  009:23:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3245,7 +3231,7 @@ DP 59:08:00 N  011:38:00 E
 DP 59:23:33 N  011:38:00 E
 DP 59:28:25 N  011:07:20 E
 DP 59:36:15 N  010:18:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -3275,7 +3261,7 @@ DP 62:39:05 N  012:04:46 E
 DP 62:46:52 N  011:43:56 E
 DP 62:52:00 N  011:30:00 E
 DP 62:48:56 N  011:04:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -3288,7 +3274,7 @@ DP 57:00:00 N  005:54:04 E
 DP 57:30:17 N  005:54:04 E
 DP 57:49:45 N  005:17:04 E
 DP 57:46:04 N  005:03:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3304,7 +3290,7 @@ DP 63:07:18 N  007:58:21 E
 DP 63:12:04 N  008:02:41 E
 DP 63:28:25 N  007:30:30 E
 DP 63:28:27 N  007:18:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3317,7 +3303,7 @@ DP 62:33:43 N  005:12:59 E
 DP 62:07:28 N  006:16:42 E
 DP 62:28:38 N  006:53:00 E
 DP 62:50:51 N  005:52:12 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3342,7 +3328,7 @@ DP 67:23:28 N  016:09:06 E
 DP 67:26:07 N  016:05:23 E
 DP 67:27:28 N  016:06:30 E
 DP 67:35:00 N  014:50:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3354,7 +3340,7 @@ DP 61:07:45 N  003:30:00 E
 DP 61:00:36 N  004:25:15 E
 DP 61:18:35 N  004:54:01 E
 DP 61:43:34 N  003:30:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3366,7 +3352,7 @@ DP 69:18:00 N  014:54:54 E
 DP 69:46:00 N  016:14:54 E
 DP 69:59:00 N  015:37:54 E
 DP 69:31:00 N  014:17:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -3380,7 +3366,7 @@ DP 57:06:51 N  007:43:01 E
 DP 57:15:14 N  007:58:53 E
 DP 57:50:34 N  006:58:17 E
 DP 57:48:40 N  006:43:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3393,7 +3379,7 @@ DP 69:14:39 N  022:16:14 E
 DP 69:34:49 N  024:00:00 E
 DP 69:33:49 N  022:27:45 E
 DP 69:43:07 N  022:16:53 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -3406,7 +3392,7 @@ DP 69:47:30 N  022:11:42 E
 DP 70:05:00 N  021:50:36 E
 DP 70:13:57 N  021:21:02 E
 DP 70:02:52 N  020:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC C
@@ -3423,7 +3409,7 @@ DP 63:14:00 N  008:10:00 E
 DP 63:14:00 N  007:37:00 E
 DP 63:08:00 N  007:07:00 E
 DP 63:04:41 N  006:37:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3438,7 +3424,7 @@ DP 58:24:19 N  004:54:08 E
 DP 58:30:08 N  005:03:49 E
 DP 59:11:06 N  004:47:15 E
 DP 59:11:58 N  004:35:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3471,7 +3457,7 @@ DP 63:56:35 N  011:59:45 E
 DP 64:06:00 N  010:51:20 E
 DP 63:50:00 N  010:29:35 E
 DP 63:48:17 N  010:24:29 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3500,7 +3486,7 @@ DP 60:26:35 N  011:12:00 E
 DP 60:25:13 N  011:06:25 E
 DP 60:22:27 N  011:00:33 E
 DP 60:19:09 N  010:55:43 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3512,7 +3498,7 @@ DP 62:50:51 N  005:52:12 E
 DP 62:28:38 N  006:53:00 E
 DP 62:55:11 N  007:26:17 E
 DP 63:10:01 N  006:47:36 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3523,7 +3509,7 @@ DP 61:06:26 N  000:00:00 E
 DP 60:04:34 N  001:59:59 E
 DP 60:37:05 N  002:00:00 E
 DP 61:06:26 N  000:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3537,7 +3523,7 @@ DP 57:20:55 N  006:13:02 E
 DP 57:56:39 N  006:07:54 E
 DP 57:59:46 N  005:55:56 E
 DP 58:16:01 N  005:20:42 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -3553,7 +3539,7 @@ DP 78:08:10 N  014:49:15 E
 DP 78:02:30 N  016:04:13 E
 DP 78:17:02 N  016:36:32 E
 DP 78:23:24 N  014:42:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSB-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSB-en-GB.html
 *
 *
 AC C
@@ -3576,7 +3562,7 @@ DP 59:26:33 N  009:12:12 E
 DP 59:36:38 N  009:26:59 E
 DP 59:42:35 N  009:35:44 E
 DP 59:53:49 N  009:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3594,7 +3580,7 @@ DP 60:33:01 N  006:03:28 E
 DP 60:43:00 N  006:00:00 E
 DP 60:54:27 N  005:42:29 E
 DP 60:58:39 N  005:32:20 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3609,7 +3595,7 @@ DP 62:27:12 N  010:21:59 E
 DP 62:39:03 N  009:53:19 E
 DP 62:44:54 N  009:47:15 E
 DP 63:01:48 N  009:29:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3623,7 +3609,7 @@ DP 70:15:00 N  019:15:00 E
 DP 70:13:17 N  019:30:00 E
 DP 70:41:25 N  019:30:25 E
 DP 70:29:25 N  018:05:21 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3635,7 +3621,7 @@ DP 69:17:19 N  016:01:33 E
 DP 69:11:30 N  016:45:24 E
 DP 69:37:12 N  017:28:24 E
 DP 69:48:28 N  016:34:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -3660,7 +3646,7 @@ DP 59:15:08 N  005:47:12 E
 DP 59:17:00 N  005:46:00 E
 DP 59:38:16 N  005:09:33 E
 DP 59:36:23 N  004:29:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3674,7 +3660,7 @@ DP 57:00:00 N  006:28:10 E
 DP 57:24:58 N  006:24:13 E
 DP 57:34:31 N  005:45:54 E
 DP 57:34:21 N  005:38:50 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3694,7 +3680,7 @@ DP 62:52:49 N  011:44:22 E
 DP 63:00:00 N  011:45:00 E
 DP 63:00:00 N  010:34:37 E
 DP 63:00:00 N  010:08:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3706,7 +3692,7 @@ DP 59:50:33 N  003:24:54 E
 DP 59:36:23 N  004:29:57 E
 DP 60:05:06 N  004:22:35 E
 DP 60:17:22 N  003:26:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3721,7 +3707,7 @@ DP 58:22:02 N  006:19:16 E
 DP 58:44:08 N  006:43:16 E
 DP 59:23:05 N  006:22:18 E
 DP 59:17:31 N  005:57:37 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3733,7 +3719,7 @@ DP 57:48:11 N  003:46:24 E
 DP 57:20:52 N  004:28:39 E
 DP 57:51:20 N  004:57:25 E
 DP 58:05:27 N  004:27:58 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC D
@@ -3749,7 +3735,7 @@ DP 69:45:00 N  024:40:00 E
 DP 69:45:00 N  025:20:00 E
 DP 70:20:00 N  025:20:00 E
 DP 70:20:00 N  024:40:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENNA-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENNA-en-GB.html
 *
 *
 AC C
@@ -3764,7 +3750,7 @@ DP 63:23:55 N  009:10:45 E
 DP 63:57:42 N  008:35:47 E
 DP 63:48:09 N  008:05:44 E
 DP 63:46:21 N  008:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3781,7 +3767,7 @@ DP 60:28:00 N  005:01:00 E
 DP 60:37:00 N  004:50:00 E
 DP 60:50:00 N  004:34:00 E
 DP 60:50:00 N  004:27:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3802,7 +3788,7 @@ DP 62:26:00 N  006:22:00 E
 DP 62:19:00 N  005:49:00 E
 DP 62:12:00 N  005:35:00 E
 DP 62:12:00 N  005:01:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -3817,7 +3803,7 @@ DP 61:00:00 N  006:30:00 E
 DP 61:30:00 N  006:20:00 E
 DP 61:22:00 N  006:08:00 E
 DP 61:00:00 N  005:29:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -3829,7 +3815,7 @@ DP 66:40:00 N  011:41:54 E
 DP 67:15:00 N  012:31:54 E
 DP 67:22:00 N  011:57:54 E
 DP 66:48:00 N  011:07:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -3843,7 +3829,7 @@ DP 57:00:00 N  007:04:23 E
 DP 57:18:52 N  007:03:09 E
 DP 57:23:37 N  006:58:54 E
 DP 57:28:07 N  006:11:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -3856,7 +3842,7 @@ DP 57:00:00 N  005:00:00 E
 DP 57:00:00 N  005:14:38 E
 DP 57:42:24 N  005:14:42 E
 DP 57:51:20 N  004:57:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -3880,7 +3866,7 @@ DP 63:08:00 N  008:40:00 E
 DP 62:58:00 N  008:12:00 E
 DP 62:53:00 N  007:20:00 E
 DP 62:44:04 N  006:49:02 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3894,7 +3880,7 @@ DP 64:06:00 N  010:51:20 E
 DP 64:26:00 N  010:12:00 E
 DP 64:20:32 N  009:50:10 E
 DP 64:17:22 N  009:39:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3935,7 +3921,7 @@ DP 62:13:19 N  012:17:07 E
 DP 62:14:07 N  012:17:22 E
 DP 62:15:59 N  012:17:55 E
 DP 62:11:54 N  011:44:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -3949,7 +3935,7 @@ DP 67:09:00 N  014:05:00 E
 DP 67:16:00 N  013:55:00 E
 DP 67:25:30 N  014:18:00 E
 DP 67:30:47 N  013:20:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -3968,7 +3954,7 @@ DP 68:59:30 N  016:15:54 E
 DP 69:11:30 N  016:45:24 E
 DP 69:27:15 N  016:46:24 E
 DP 69:41:45 N  016:08:34 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC D
@@ -3981,7 +3967,7 @@ DP 69:02:00 N  016:05:00 E
 DP 69:07:00 N  016:40:00 E
 DP 69:26:00 N  016:40:00 E
 DP 69:35:00 N  016:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENAN-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENAN-en-GB.html
 *
 *
 AC Q
@@ -3995,7 +3981,7 @@ DP 58:04:41 N  008:52:32 E
 DP 57:52:06 N  009:11:19 E
 DP 58:13:34 N  009:55:20 E
 DP 58:35:00 N  009:50:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC Q
@@ -4007,7 +3993,7 @@ DP 64:24:00 N  008:56:54 E
 DP 64:13:00 N  009:27:54 E
 DP 64:39:00 N  010:19:54 E
 DP 64:51:00 N  009:48:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -4027,7 +4013,7 @@ DP 63:28:54 N  009:48:33 E
 DP 63:25:47 N  009:24:45 E
 DP 63:23:55 N  009:10:45 E
 DP 63:20:57 N  008:48:41 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4041,7 +4027,7 @@ DP 57:00:00 N  007:30:00 E
 DP 57:15:14 N  007:58:53 E
 DP 57:16:12 N  007:58:27 E
 DP 57:24:47 N  006:48:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -4061,7 +4047,7 @@ DP 60:02:36 N  010:53:32 E
 DP 60:08:20 N  010:50:06 E
 DP 60:15:25 N  010:52:07 E
 DP 60:16:17 N  010:21:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -4078,7 +4064,7 @@ DP 70:52:50 N  025:44:47 E
 DP 70:51:34 N  026:11:27 E
 DP 71:07:00 N  026:33:00 E
 DP 71:13:00 N  026:10:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENHV-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENHV-en-GB.html
 *
 *
 AC C
@@ -4138,7 +4124,7 @@ DP 68:30:16 N  018:07:13 E
 DP 68:31:07 N  018:07:22 E
 DP 68:32:12 N  018:07:34 E
 DP 68:41:00 N  018:09:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -4162,7 +4148,7 @@ DP 67:04:08 N  016:23:22 E
 DP 67:05:02 N  016:23:27 E
 DP 67:06:39 N  016:23:38 E
 DP 67:00:00 N  014:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4174,7 +4160,7 @@ DP 57:20:55 N  006:13:02 E
 DP 57:18:03 N  006:51:31 E
 DP 57:43:59 N  006:54:09 E
 DP 57:56:39 N  006:07:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -4190,7 +4176,7 @@ DP 59:59:00 N  005:06:51 E
 DP 59:57:39 N  005:03:05 E
 DP 59:59:00 N  005:00:00 E
 DP 60:00:09 N  004:23:52 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -4204,7 +4190,7 @@ DP 63:28:00 N  009:38:00 E
 DP 63:33:15 N  010:05:40 E
 DP 63:47:00 N  009:52:00 E
 DP 64:00:00 N  009:25:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENOL-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENOL-en-GB.html
 *
 *
 AC D
@@ -4216,7 +4202,7 @@ DP 69:28:00 N  018:26:00 E
 DP 69:26:15 N  019:03:00 E
 DP 69:54:00 N  019:30:00 E
 DP 69:58:00 N  018:44:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENTC-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENTC-en-GB.html
 *
 *
 AC C
@@ -4232,7 +4218,7 @@ DP 63:20:00 N  011:25:00 E
 DP 63:35:00 N  011:25:00 E
 DP 63:35:00 N  010:15:00 E
 DP 63:33:26 N  010:06:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -4245,7 +4231,7 @@ DP 69:40:00 N  022:43:18 E
 DP 69:40:00 N  023:06:19 E
 DP 70:12:24 N  022:24:28 E
 DP 70:05:00 N  021:50:36 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4259,7 +4245,7 @@ DP 59:00:00 N  004:15:00 E
 DP 58:40:00 N  004:15:00 E
 DP 58:39:59 N  005:07:18 E
 DP 58:42:22 N  005:15:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -4271,7 +4257,7 @@ DP 59:32:58 N  003:16:54 E
 DP 59:17:58 N  004:29:54 E
 DP 59:31:58 N  004:40:54 E
 DP 59:46:58 N  003:26:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -4294,7 +4280,7 @@ DP 59:40:05 N  005:50:00 E
 DP 60:10:00 N  005:50:00 E
 DP 60:35:00 N  005:40:00 E
 DP 60:46:43 N  005:22:52 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -4311,7 +4297,7 @@ DP 63:23:28 N  008:21:35 E
 DP 63:34:00 N  008:00:00 E
 DP 63:19:25 N  007:15:20 E
 DP 63:06:09 N  006:36:19 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4323,7 +4309,7 @@ DP 58:01:58 N  008:39:55 E
 DP 57:49:58 N  008:57:55 E
 DP 58:18:58 N  009:52:55 E
 DP 58:29:58 N  009:31:55 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -4338,7 +4324,7 @@ DP 67:13:45 N  015:10:00 E
 DP 67:13:00 N  014:50:00 E
 DP 67:09:00 N  014:05:00 E
 DP 67:02:22 N  013:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -4355,7 +4341,7 @@ DP 60:47:58 N  008:16:50 E
 DP 61:07:44 N  008:20:33 E
 DP 61:12:09 N  007:54:30 E
 DP 61:12:06 N  007:43:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -4367,7 +4353,7 @@ DP 58:09:13 N  009:45:48 E
 DP 58:30:00 N  010:30:00 E
 DP 58:41:08 N  010:34:09 E
 DP 58:41:30 N  009:36:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -4384,7 +4370,7 @@ DP 70:09:45 N  020:00:00 E
 DP 70:13:13 N  019:30:32 E
 DP 70:15:00 N  019:15:00 E
 DP 70:15:00 N  018:45:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -4400,7 +4386,7 @@ DP 59:41:07 N  006:12:24 E
 DP 59:40:05 N  005:50:00 E
 DP 59:39:13 N  005:31:55 E
 DP 59:38:16 N  005:09:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4412,7 +4398,7 @@ DP 61:31:18 N  008:07:04 E
 DP 61:20:10 N  008:29:48 E
 DP 61:20:10 N  009:23:20 E
 DP 61:50:45 N  008:19:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -4426,7 +4412,7 @@ DP 67:19:25 N  014:48:00 E
 DP 67:19:00 N  015:10:00 E
 DP 67:35:00 N  014:50:00 E
 DP 67:40:00 N  013:55:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -4464,7 +4450,7 @@ DP 69:40:00 N  030:40:00 E
 DP 69:52:00 N  030:25:00 E
 DP 69:50:00 N  029:40:00 E
 DP 69:41:49 N  029:08:06 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENKR-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENKR-en-GB.html
 *
 *
 AC G
@@ -4477,7 +4463,7 @@ DP 70:29:05 N  021:19:53 E
 DP 70:16:11 N  022:28:23 E
 DP 70:29:11 N  022:48:55 E
 DP 70:39:30 N  021:52:09 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENHK-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENHK-en-GB.html
 *
 *
 AC C
@@ -4490,7 +4476,7 @@ DP 63:00:00 N  011:45:10 E
 DP 63:15:00 N  011:57:31 E
 DP 63:15:00 N  011:30:00 E
 DP 63:02:58 N  010:04:46 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -4507,7 +4493,7 @@ DP 69:54:00 N  023:51:00 E
 DP 70:02:00 N  023:51:00 E
 DP 70:08:00 N  023:36:00 E
 DP 70:08:00 N  023:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENAT-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENAT-en-GB.html
 *
 *
 AC Q
@@ -4520,7 +4506,7 @@ DP 57:51:20 N  004:57:25 E
 DP 57:42:24 N  005:14:42 E
 DP 58:15:57 N  005:20:46 E
 DP 58:22:02 N  005:09:05 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -4590,7 +4576,7 @@ DP 59:28:25 N  011:07:20 E
 DP 59:36:40 N  011:01:10 E
 DP 59:45:45 N  011:05:59 E
 DP 59:50:00 N  011:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -4604,7 +4590,7 @@ DP 62:29:10 N  007:37:24 E
 DP 62:10:00 N  006:20:00 E
 DP 62:05:00 N  006:00:00 E
 DP 62:00:00 N  005:40:06 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -4633,7 +4619,7 @@ DP 62:00:00 N  008:54:15 E
 DP 62:00:00 N  009:41:38 E
 DP 62:25:00 N  009:13:54 E
 DP 62:25:00 N  008:39:09 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -4646,7 +4632,7 @@ DP 68:42:00 N  019:15:00 E
 DP 68:50:00 N  020:00:00 E
 DP 68:55:00 N  019:05:00 E
 DP 68:52:00 N  018:17:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -4660,7 +4646,7 @@ DP 61:24:00 N  005:15:00 E
 DP 61:29:06 N  005:33:04 E
 DP 61:42:59 N  005:30:01 E
 DP 61:43:00 N  004:46:34 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENFL-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENFL-en-GB.html
 *
 *
 AC G
@@ -4672,7 +4658,7 @@ DP 64:29:20 N  010:51:20 E
 DP 64:18:00 N  010:59:00 E
 DP 64:28:00 N  012:18:00 E
 DP 64:39:30 N  012:11:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENNM-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENNM-en-GB.html
 *
 *
 AC Q
@@ -4684,7 +4670,7 @@ DP 57:00:00 N  005:14:38 E
 DP 57:00:00 N  005:42:51 E
 DP 57:28:11 N  005:41:53 E
 DP 57:42:24 N  005:14:42 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -4699,7 +4685,7 @@ DP 70:54:49 N  023:20:35 E
 DP 70:44:10 N  023:26:55 E
 DP 70:39:09 N  023:06:26 E
 DP 70:30:59 N  023:23:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENHF-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENHF-en-GB.html
 *
 *
 AC G
@@ -4713,7 +4699,7 @@ DP 70:45:09 N  027:51:16 E
 DP 70:51:02 N  028:09:19 E
 DP 71:11:58 N  028:11:38 E
 DP 71:12:44 N  027:32:17 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENMH-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENMH-en-GB.html
 *
 *
 AC C
@@ -4747,7 +4733,7 @@ DP 59:49:50 N  011:33:30 E
 DP 59:57:00 N  011:37:59 E
 DP 60:20:00 N  011:54:15 E
 DP 60:22:00 N  011:56:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -4759,7 +4745,7 @@ DP 69:05:00 N  017:40:00 E
 DP 68:55:00 N  019:05:00 E
 DP 69:05:00 N  019:15:00 E
 DP 69:15:00 N  017:53:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENDU-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENDU-en-GB.html
 *
 *
 AC G
@@ -4775,7 +4761,7 @@ DP 65:42:04 N  012:26:25 E
 DP 66:08:20 N  012:56:22 E
 DP 66:13:10 N  012:30:23 E
 DP 66:12:00 N  012:26:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENST-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENST-en-GB.html
 *
 *
 AC C
@@ -4787,7 +4773,7 @@ DP 57:36:32 N  007:40:20 E
 DP 57:36:00 N  008:18:00 E
 DP 57:53:00 N  008:42:00 E
 DP 57:48:00 N  007:15:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4799,7 +4785,7 @@ DP 59:38:00 N  004:00:00 E
 DP 59:38:00 N  004:52:00 E
 DP 59:55:00 N  004:52:00 E
 DP 59:55:00 N  004:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -4843,7 +4829,7 @@ DP 60:23:18 N  012:35:16 E
 DP 60:24:21 N  012:36:21 E
 DP 60:30:00 N  012:36:24 E
 DP 60:30:00 N  011:57:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -4857,7 +4843,7 @@ DP 68:48:50 N  015:40:10 E
 DP 68:55:01 N  016:09:52 E
 DP 69:11:30 N  016:45:24 E
 DP 69:17:19 N  016:01:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -4871,7 +4857,7 @@ DP 65:13:00 N  012:00:00 E
 DP 65:29:00 N  012:35:00 E
 DP 65:39:00 N  012:21:00 E
 DP 65:39:00 N  011:59:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENBN-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENBN-en-GB.html
 *
 *
 AC C
@@ -4889,7 +4875,7 @@ DP 58:48:20 N  009:18:50 E
 DP 58:57:55 N  009:03:23 E
 DP 58:57:35 N  008:46:52 E
 DP 58:43:57 N  008:34:38 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -4902,7 +4888,7 @@ DP 70:55:00 N  028:30:00 E
 DP 70:43:10 N  028:30:00 E
 DP 70:49:37 N  029:42:16 E
 DP 71:01:14 N  029:33:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENBV-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENBV-en-GB.html
 *
 *
 AC Q
@@ -4914,7 +4900,7 @@ DP 63:10:01 N  006:47:36 E
 DP 62:55:11 N  007:26:17 E
 DP 63:10:58 N  007:46:36 E
 DP 63:22:26 N  007:24:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -4930,7 +4916,7 @@ DP 62:46:25 N  007:54:02 E
 DP 62:42:00 N  007:30:00 E
 DP 62:38:48 N  007:20:03 E
 DP 62:37:29 N  007:04:01 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -4947,7 +4933,7 @@ DP 68:25:00 N  015:11:00 E
 DP 68:31:00 N  015:16:00 E
 DP 68:36:30 N  015:41:00 E
 DP 68:45:00 N  015:28:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSK-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSK-en-GB.html
 *
 *
 AC C
@@ -4958,7 +4944,7 @@ DP 69:25:00 N  015:20:00 E
 DP 68:50:00 N  014:56:00 E
 DP 68:49:00 N  015:41:00 E
 DP 69:25:00 N  015:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -4972,7 +4958,7 @@ DP 61:50:45 N  008:19:59 E
 DP 61:53:55 N  008:25:43 E
 DP 62:25:00 N  008:14:50 E
 DP 62:25:00 N  007:59:34 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -4984,7 +4970,7 @@ DP 57:00:00 N  005:42:51 E
 DP 57:00:00 N  006:16:26 E
 DP 57:20:55 N  006:13:02 E
 DP 57:28:11 N  005:41:53 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -4996,7 +4982,7 @@ DP 62:10:00 N  006:20:00 E
 DP 62:29:10 N  007:37:24 E
 DP 62:37:29 N  007:04:01 E
 DP 62:35:00 N  006:50:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -5007,7 +4993,7 @@ DP 57:43:59 N  006:54:09 E
 DP 57:18:03 N  006:51:31 E
 DP 57:11:01 N  007:50:49 E
 DP 57:43:59 N  006:54:09 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC G
@@ -5020,7 +5006,7 @@ DP 64:43:32 N  010:37:55 E
 DP 64:35:56 N  010:58:17 E
 DP 64:56:16 N  011:41:13 E
 DP 65:04:19 N  011:19:03 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENRM-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENRM-en-GB.html
 *
 *
 AC Q
@@ -5033,7 +5019,7 @@ DP 62:00:00 N  008:49:33 E
 DP 62:00:00 N  008:54:15 E
 DP 62:25:00 N  008:39:09 E
 DP 62:25:00 N  008:14:50 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -5047,7 +5033,7 @@ DP 67:35:00 N  012:33:00 E
 DP 67:44:20 N  012:27:54 E
 DP 67:45:24 N  012:21:30 E
 DP 67:40:00 N  012:04:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENRS-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENRS-en-GB.html
 *
 *
 AC G
@@ -5060,7 +5046,7 @@ DP 69:55:56 N  029:51:34 E
 DP 69:58:48 N  030:21:30 E
 DP 70:10:13 N  030:20:00 E
 DP 70:09:27 N  029:21:11 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENVD-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENVD-en-GB.html
 *
 *
 AC Q
@@ -5072,7 +5058,7 @@ DP 57:00:00 N  006:52:49 E
 DP 57:00:00 N  007:30:00 E
 DP 57:11:01 N  007:50:49 E
 DP 57:18:03 N  006:51:31 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -5087,7 +5073,7 @@ DP 68:20:00 N  017:23:00 E
 DP 68:15:00 N  016:40:00 E
 DP 68:07:00 N  016:29:00 E
 DP 68:16:55 N  015:40:26 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -5099,7 +5085,7 @@ DP 57:00:00 N  006:16:26 E
 DP 57:00:00 N  006:52:49 E
 DP 57:18:03 N  006:51:31 E
 DP 57:20:55 N  006:13:02 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -5125,7 +5111,7 @@ DP 59:01:00 N  009:24:00 E
 DP 59:11:00 N  009:19:00 E
 DP 59:15:00 N  009:23:54 E
 DP 59:15:00 N  009:10:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5138,7 +5124,7 @@ DP 70:10:30 N  031:12:00 E
 DP 70:13:00 N  031:27:00 E
 DP 70:33:00 N  031:08:00 E
 DP 70:30:00 N  030:36:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSS-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSS-en-GB.html
 *
 *
 AC G
@@ -5152,7 +5138,7 @@ DP 70:25:30 N  029:32:00 E
 DP 70:38:25 N  030:12:55 E
 DP 70:40:20 N  030:18:43 E
 DP 70:48:27 N  029:52:42 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENBS-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENBS-en-GB.html
 *
 *
 AC D
@@ -5165,7 +5151,7 @@ DP 63:05:00 N  008:10:00 E
 DP 63:14:00 N  008:10:00 E
 DP 63:14:00 N  007:37:00 E
 DP 63:08:00 N  007:07:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENKB-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENKB-en-GB.html
 *
 *
 AC G
@@ -5181,7 +5167,7 @@ DP 59:59:00 N  005:20:59 E
 DP 59:59:00 N  005:06:51 E
 DP 59:57:39 N  005:03:05 E
 DP 59:52:29 N  004:57:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSO-en-GB.html
 *
 *
 AC C
@@ -5198,7 +5184,7 @@ DP 68:03:01 N  017:10:49 E
 DP 68:17:37 N  017:17:46 E
 DP 68:00:00 N  016:40:00 E
 DP 68:11:00 N  015:36:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -5214,7 +5200,7 @@ DP 58:55:00 N  006:14:00 E
 DP 59:17:00 N  005:58:00 E
 DP 59:17:31 N  005:57:37 E
 DP 59:15:08 N  005:47:12 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -5229,7 +5215,7 @@ DP 67:19:00 N  015:10:00 E
 DP 67:19:25 N  014:48:00 E
 DP 67:25:30 N  014:18:00 E
 DP 67:16:00 N  013:55:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -5241,7 +5227,7 @@ DP 59:55:00 N  004:00:00 E
 DP 59:55:00 N  004:52:00 E
 DP 60:08:00 N  004:52:00 E
 DP 60:08:00 N  004:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -5261,7 +5247,7 @@ DP 59:02:00 N  009:10:00 E
 DP 59:05:00 N  009:10:00 E
 DP 59:15:00 N  009:10:00 E
 DP 59:15:00 N  009:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -5277,7 +5263,7 @@ DP 68:28:52 N  016:56:11 E
 DP 68:33:41 N  016:50:00 E
 DP 68:44:00 N  016:50:00 E
 DP 68:44:00 N  016:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENEV-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENEV-en-GB.html
 *
 *
 AC C
@@ -5300,7 +5286,7 @@ DP 60:39:07 N  005:16:54 E
 DP 60:40:37 N  005:13:14 E
 DP 60:40:50 N  005:02:25 E
 DP 60:37:00 N  004:50:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5313,7 +5299,7 @@ DP 62:22:00 N  011:30:00 E
 DP 62:30:00 N  011:45:00 E
 DP 62:48:00 N  011:24:00 E
 DP 62:45:08 N  011:04:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENRO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENRO-en-GB.html
 *
 *
 AC C
@@ -5328,7 +5314,7 @@ DP 69:40:00 N  024:00:00 E
 DP 69:40:00 N  023:06:19 E
 DP 69:40:00 N  022:43:18 E
 DP 69:47:30 N  022:11:42 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5342,7 +5328,7 @@ DP 68:13:00 N  013:50:00 E
 DP 68:18:52 N  013:54:07 E
 DP 68:20:00 N  013:47:00 E
 DP 68:13:00 N  013:23:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENLK-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENLK-en-GB.html
 *
 *
 AC Q
@@ -5356,7 +5342,7 @@ DP 58:31:40 N  004:51:12 E
 DP 58:53:48 N  004:40:10 E
 DP 59:05:46 N  004:37:20 E
 DP 58:56:15 N  004:02:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -5369,7 +5355,7 @@ DP 69:25:00 N  017:35:00 E
 DP 69:29:39 N  017:30:24 E
 DP 69:40:00 N  017:20:00 E
 DP 69:40:00 N  016:40:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5386,7 +5372,7 @@ DP 62:50:00 N  007:51:05 E
 DP 62:50:00 N  007:30:00 E
 DP 62:53:00 N  007:20:00 E
 DP 62:42:00 N  006:42:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENML-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENML-en-GB.html
 *
 *
 AC G
@@ -5399,7 +5385,7 @@ DP 65:33:00 N  013:30:00 E
 DP 65:33:00 N  013:07:00 E
 DP 65:49:00 N  013:00:00 E
 DP 65:57:30 N  013:13:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENMS-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENMS-en-GB.html
 *
 *
 AC C
@@ -5414,7 +5400,7 @@ DP 60:46:43 N  005:22:52 E
 DP 60:58:39 N  005:32:20 E
 DP 61:00:00 N  005:29:00 E
 DP 61:00:00 N  004:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -5427,7 +5413,7 @@ DP 61:41:25 N  010:01:25 E
 DP 61:44:06 N  010:22:40 E
 DP 62:00:00 N  010:24:00 E
 DP 62:00:00 N  009:41:38 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC D
@@ -5442,7 +5428,7 @@ DP 59:13:32 N  005:25:31 E
 DP 59:17:00 N  005:28:00 E
 DP 59:34:00 N  004:55:00 E
 DP 59:27:00 N  004:40:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENHD-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENHD-en-GB.html
 *
 *
 AC C
@@ -5495,7 +5481,7 @@ DP 61:26:48 N  012:44:38 E
 DP 61:26:49 N  012:44:37 E
 DP 61:27:16 N  012:43:58 E
 DP 61:28:13 N  012:42:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5507,7 +5493,7 @@ DP 78:50:38 N  012:31:03 E
 DP 78:56:34 N  012:27:30 E
 DP 79:08:46 N  011:17:18 E
 DP 78:57:58 N  011:19:07 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENAS-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENAS-en-GB.html
 *
 *
 AC C
@@ -5525,7 +5511,7 @@ DP 60:24:14 N  012:20:22 E
 DP 60:30:00 N  012:20:30 E
 DP 60:42:45 N  012:17:30 E
 DP 60:52:30 N  011:49:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -5538,7 +5524,7 @@ DP 67:09:00 N  014:05:00 E
 DP 67:13:00 N  014:50:00 E
 DP 67:19:25 N  014:48:00 E
 DP 67:25:30 N  014:18:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENBO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENBO-en-GB.html
 *
 *
 AC G
@@ -5555,7 +5541,7 @@ DP 59:36:38 N  009:26:59 E
 DP 59:41:12 N  009:06:25 E
 DP 59:43:12 N  009:03:38 E
 DP 59:46:31 N  008:48:53 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
 *
 *
 AC Q
@@ -5573,7 +5559,7 @@ DP 59:41:12 N  009:06:25 E
 DP 59:43:12 N  009:03:38 E
 DP 59:44:52 N  008:56:16 E
 DP 59:46:31 N  008:48:53 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -5585,7 +5571,7 @@ DP 66:11:30 N  013:48:00 E
 DP 66:16:00 N  014:38:30 E
 DP 66:27:00 N  014:30:40 E
 DP 66:22:00 N  013:44:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENRA-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENRA-en-GB.html
 *
 *
 AC Q
@@ -5598,7 +5584,7 @@ DP 69:16:00 N  016:53:54 E
 DP 69:15:00 N  016:07:54 E
 DP 69:07:54 N  016:04:00 E
 DP 69:02:36 N  016:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -5613,7 +5599,7 @@ DP 60:16:17 N  010:21:44 E
 DP 60:29:25 N  010:24:00 E
 DP 60:40:30 N  010:20:00 E
 DP 60:43:50 N  010:15:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -5628,7 +5614,7 @@ DP 58:45:00 N  005:56:00 E
 DP 58:55:00 N  006:00:00 E
 DP 59:15:08 N  005:47:12 E
 DP 59:14:18 N  005:43:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -5650,7 +5636,7 @@ DP 60:23:22 N  005:18:36 E
 DP 60:23:24 N  005:25:52 E
 DP 60:37:00 N  005:22:00 E
 DP 60:39:07 N  005:16:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -5664,7 +5650,7 @@ DP 62:24:00 N  006:01:00 E
 DP 62:30:00 N  006:11:00 E
 DP 62:34:00 N  006:30:00 E
 DP 62:43:00 N  006:22:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENAL-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENAL-en-GB.html
 *
 *
 AC C
@@ -5676,7 +5662,7 @@ DP 69:09:37 N  019:25:05 E
 DP 69:03:00 N  020:00:00 E
 DP 69:09:02 N  020:20:15 E
 DP 69:21:55 N  019:49:39 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -5688,7 +5674,7 @@ DP 58:13:34 N  009:55:20 E
 DP 58:30:00 N  010:30:00 E
 DP 58:35:00 N  010:31:45 E
 DP 58:35:00 N  009:50:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.2-en-GB.html
 *
 *
 AC C
@@ -5700,7 +5686,7 @@ DP 58:16:46 N  007:17:22 E
 DP 58:25:00 N  008:00:00 E
 DP 58:36:34 N  008:21:02 E
 DP 58:34:47 N  007:40:26 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -5715,7 +5701,7 @@ DP 59:54:40 N  010:08:50 E
 DP 60:00:00 N  010:12:00 E
 DP 60:07:30 N  010:16:30 E
 DP 60:09:45 N  009:57:20 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -5729,7 +5715,7 @@ DP 69:43:30 N  021:00:00 E
 DP 69:45:00 N  021:10:00 E
 DP 70:00:30 N  021:24:00 E
 DP 70:02:30 N  020:54:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSR-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSR-en-GB.html
 *
 *
 AC Q
@@ -5741,7 +5727,7 @@ DP 61:20:10 N  009:57:35 E
 DP 61:20:10 N  010:19:58 E
 DP 61:44:06 N  010:22:40 E
 DP 61:41:25 N  010:01:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -5755,7 +5741,7 @@ DP 61:15:06 N  007:32:11 E
 DP 61:18:02 N  007:27:59 E
 DP 61:20:00 N  007:21:00 E
 DP 61:07:30 N  006:44:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSG-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSG-en-GB.html
 *
 *
 AC C
@@ -5773,7 +5759,7 @@ DP 59:30:00 N  010:05:00 E
 DP 59:36:15 N  010:18:00 E
 DP 59:38:01 N  010:06:25 E
 DP 59:36:26 N  009:55:39 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5786,7 +5772,7 @@ DP 68:03:08 N  014:16:59 E
 DP 68:00:49 N  014:47:59 E
 DP 68:16:45 N  014:57:07 E
 DP 68:18:30 N  014:36:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSH-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSH-en-GB.html
 *
 *
 AC C
@@ -5806,7 +5792,7 @@ DP 59:38:01 N  010:06:25 E
 DP 59:39:25 N  009:57:10 E
 DP 59:41:03 N  009:46:11 E
 DP 59:42:35 N  009:35:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -5834,7 +5820,7 @@ DP 69:42:41 N  029:01:59 E
 DP 69:43:05 N  028:59:23 E
 DP 69:43:44 N  028:57:09 E
 DP 69:45:21 N  028:48:02 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -5846,7 +5832,7 @@ DP 69:43:59 N  020:00:00 E
 DP 69:44:55 N  020:30:00 E
 DP 70:02:52 N  020:30:00 E
 DP 69:56:08 N  020:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC D
@@ -5860,7 +5846,7 @@ DP 60:08:00 N  005:23:00 E
 DP 60:19:00 N  005:22:00 E
 DP 60:28:00 N  005:15:00 E
 DP 60:28:00 N  005:01:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENBR-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENBR-en-GB.html
 *
 *
 AC G
@@ -5872,7 +5858,7 @@ DP 61:15:30 N  005:26:00 E
 DP 61:22:00 N  006:08:00 E
 DP 61:32:00 N  006:01:00 E
 DP 61:25:00 N  005:21:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENBL-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENBL-en-GB.html
 *
 *
 AC Q
@@ -5884,7 +5870,7 @@ DP 69:37:12 N  017:28:24 E
 DP 69:43:48 N  017:58:54 E
 DP 69:54:00 N  017:39:54 E
 DP 69:47:12 N  017:09:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -5896,7 +5882,7 @@ DP 69:30:30 N  016:57:24 E
 DP 69:37:12 N  017:28:24 E
 DP 69:47:12 N  017:09:54 E
 DP 69:40:30 N  016:39:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -5910,7 +5896,7 @@ DP 61:48:00 N  006:32:00 E
 DP 61:57:30 N  006:26:00 E
 DP 61:54:00 N  006:06:00 E
 DP 61:59:00 N  005:48:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENSD-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENSD-en-GB.html
 *
 *
 AC C
@@ -5923,7 +5909,7 @@ DP 58:36:34 N  008:21:02 E
 DP 58:43:57 N  008:34:38 E
 DP 58:48:00 N  008:06:55 E
 DP 58:44:48 N  007:53:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -5938,7 +5924,7 @@ DP 60:39:07 N  005:16:54 E
 DP 60:46:43 N  005:22:52 E
 DP 60:50:00 N  005:18:00 E
 DP 60:50:00 N  004:34:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -5955,7 +5941,7 @@ DP 60:22:16 N  011:15:25 E
 DP 60:23:10 N  011:09:17 E
 DP 60:20:00 N  011:00:00 E
 DP 60:15:25 N  010:52:07 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENGM-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENGM-en-GB.html
 *
 *
 AC G
@@ -5969,7 +5955,7 @@ DP 67:34:35 N  013:19:03 E
 DP 67:45:40 N  013:18:16 E
 DP 67:45:20 N  012:50:00 E
 DP 67:41:50 N  012:38:50 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-3.ENVR-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-3.ENVR-en-GB.html
 *
 *
 AC D
@@ -5986,7 +5972,7 @@ DP 63:29:26 N  011:15:54 E
 DP 63:32:37 N  011:05:05 E
 DP 63:32:41 N  010:44:19 E
 DP 63:28:58 N  010:31:02 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENVA-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENVA-en-GB.html
 *
 *
 AC D
@@ -6000,7 +5986,7 @@ DP 58:45:00 N  005:42:00 E
 DP 58:51:00 N  005:50:00 E
 DP 59:02:00 N  005:43:00 E
 DP 59:05:00 N  005:33:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENZV-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENZV-en-GB.html
 *
 *
 AC D
@@ -6015,7 +6001,7 @@ DP 59:00:00 N  010:21:00 E
 DP 59:06:00 N  010:25:00 E
 DP 59:21:21 N  010:25:00 E
 DP 59:21:21 N  010:09:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENTO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENTO-en-GB.html
 *
 *
 AC C
@@ -6029,7 +6015,7 @@ DP 69:21:20 N  028:45:10 E
 DP 69:20:31 N  029:04:25 E
 DP 69:22:54 N  029:09:34 E
 DP 69:38:04 N  028:39:06 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -6047,7 +6033,7 @@ DP 62:12:00 N  005:35:00 E
 DP 62:05:03 N  006:00:13 E
 DP 62:10:00 N  006:20:00 E
 DP 62:19:00 N  005:49:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENOV-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENOV-en-GB.html
 *
 *
 AC Q
@@ -6062,7 +6048,7 @@ DP 60:24:14 N  012:20:22 E
 DP 60:30:00 N  012:20:30 E
 DP 60:42:45 N  012:17:30 E
 DP 60:40:00 N  011:58:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6096,7 +6082,7 @@ DP 62:56:51 N  012:03:53 E
 DP 62:52:49 N  011:44:22 E
 DP 62:46:52 N  011:43:56 E
 DP 62:39:05 N  012:04:46 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC D
@@ -6112,7 +6098,7 @@ DP 59:21:00 N  011:08:30 E
 DP 59:25:00 N  010:59:00 E
 DP 59:29:20 N  010:42:30 E
 DP 59:30:00 N  010:33:50 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENRY-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENRY-en-GB.html
 *
 *
 AC D
@@ -6127,7 +6113,7 @@ DP 58:02:00 N  008:01:00 E
 DP 58:10:00 N  008:14:00 E
 DP 58:18:00 N  008:23:00 E
 DP 58:23:00 N  008:12:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENCN-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENCN-en-GB.html
 *
 *
 AC Q
@@ -6142,7 +6128,7 @@ DP 60:48:10 N  010:41:30 E
 DP 60:52:40 N  011:04:20 E
 DP 60:56:20 N  010:57:00 E
 DP 60:55:30 N  010:33:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6157,7 +6143,7 @@ DP 59:45:24 N  008:44:29 E
 DP 59:48:51 N  008:51:28 E
 DP 59:52:03 N  008:46:38 E
 DP 59:47:00 N  008:09:17 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -6169,7 +6155,7 @@ DP 62:29:54 N  010:48:00 E
 DP 62:22:24 N  011:04:00 E
 DP 62:48:56 N  011:04:00 E
 DP 62:47:00 N  010:48:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC C
@@ -6181,7 +6167,7 @@ DP 63:14:45 N  008:48:58 E
 DP 63:20:39 N  009:50:44 E
 DP 63:25:47 N  009:24:45 E
 DP 63:20:57 N  008:48:41 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC G
@@ -6192,7 +6178,7 @@ DP 62:00:00 N  006:20:00 E
 DP 61:30:00 N  006:20:00 E
 DP 61:44:36 N  006:42:57 E
 DP 62:00:00 N  006:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -6207,7 +6193,7 @@ DP 59:39:25 N  009:57:10 E
 DP 59:54:15 N  009:49:40 E
 DP 60:09:45 N  009:57:20 E
 DP 60:11:00 N  009:49:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6224,7 +6210,7 @@ DP 60:18:30 N  012:21:05 E
 DP 60:18:30 N  012:18:00 E
 DP 60:19:56 N  012:09:07 E
 DP 60:22:00 N  011:56:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6236,7 +6222,7 @@ DP 58:41:45 N  008:38:44 E
 DP 58:28:37 N  009:02:52 E
 DP 58:36:21 N  009:16:26 E
 DP 58:46:10 N  009:03:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -6250,7 +6236,7 @@ DP 60:09:45 N  009:57:20 E
 DP 60:43:50 N  010:15:15 E
 DP 60:47:00 N  010:13:35 E
 DP 60:43:45 N  010:06:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6324,7 +6310,7 @@ DP 69:28:45 N  016:11:40 E
 DP 69:28:40 N  016:12:27 E
 DP 69:28:34 N  016:13:14 E
 DP 69:17:19 N  016:01:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6373,7 +6359,7 @@ DP 59:00:15 N  010:50:38 E
 DP 59:07:59 N  011:13:59 E
 DP 59:07:59 N  011:37:59 E
 DP 59:23:32 N  011:37:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -6388,7 +6374,7 @@ DP 63:26:54 N  010:02:03 E
 DP 63:31:47 N  010:06:11 E
 DP 63:43:00 N  010:08:55 E
 DP 63:40:50 N  010:02:40 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -6402,7 +6388,7 @@ DP 58:57:55 N  009:03:23 E
 DP 59:00:00 N  009:00:00 E
 DP 59:15:00 N  009:00:00 E
 DP 59:18:06 N  008:44:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6468,7 +6454,7 @@ DP 67:22:30 N  014:09:27 E
 DP 67:22:21 N  014:08:07 E
 DP 67:22:21 N  014:07:56 E
 DP 67:18:09 N  014:03:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6482,7 +6468,7 @@ DP 59:36:40 N  011:01:10 E
 DP 59:37:32 N  010:54:46 E
 DP 59:39:10 N  010:42:27 E
 DP 59:41:00 N  010:28:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -6496,7 +6482,19 @@ DP 59:36:40 N  011:01:10 E
 DP 59:37:32 N  010:54:46 E
 DP 59:39:10 N  010:42:27 E
 DP 59:41:00 N  010:28:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+*
+*
+AC R
+AN EN R409 Barents 1
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 70:50:00 N  030:28:00 E
+DP 70:48:26 N  030:22:04 E
+DP 70:21:37 N  031:33:53 E
+DP 70:22:00 N  031:43:00 E
+DP 70:50:00 N  030:28:00 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6510,7 +6508,123 @@ DP 58:57:55 N  009:03:23 E
 DP 59:00:00 N  009:00:00 E
 DP 59:15:00 N  009:00:00 E
 DP 59:15:00 N  008:44:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+*
+*
+AC R
+AN EN R417 Pasvik 4
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:37:36 N  029:56:55 E
+DP 69:39:29 N  030:05:06 E
+DP 69:38:34 N  030:05:28 E
+DP 69:38:36 N  030:08:16 E
+DP 69:37:49 N  030:08:44 E
+DP 69:37:40 N  030:08:56 E
+DP 69:36:58 N  030:09:04 E
+DP 69:36:46 N  030:09:15 E
+DP 69:36:31 N  030:09:08 E
+DP 69:36:22 N  030:09:30 E
+DP 69:35:56 N  030:09:37 E
+DP 69:35:25 N  030:10:07 E
+DP 69:35:06 N  030:10:49 E
+DP 69:34:45 N  030:10:43 E
+DP 69:34:08 N  030:11:17 E
+DP 69:33:49 N  030:11:13 E
+DP 69:33:31 N  030:10:50 E
+DP 69:33:01 N  030:11:08 E
+DP 69:32:45 N  030:10:47 E
+DP 69:32:23 N  030:10:43 E
+DP 69:32:01 N  030:10:20 E
+DP 69:31:52 N  030:08:59 E
+DP 69:31:33 N  030:08:32 E
+DP 69:31:20 N  030:07:42 E
+DP 69:30:59 N  030:07:20 E
+DP 69:30:45 N  030:07:09 E
+DP 69:29:58 N  030:06:59 E
+DP 69:29:14 N  030:07:05 E
+DP 69:28:44 N  030:06:42 E
+DP 69:28:16 N  030:07:02 E
+DP 69:28:10 N  030:07:01 E
+DP 69:27:14 N  030:04:40 E
+DP 69:26:31 N  030:03:35 E
+DP 69:25:45 N  030:02:40 E
+DP 69:25:15 N  030:01:30 E
+DP 69:24:21 N  029:58:02 E
+DP 69:24:18 N  029:56:40 E
+DP 69:24:23 N  029:56:04 E
+DP 69:24:36 N  029:55:50 E
+DP 69:24:42 N  029:55:56 E
+DP 69:24:49 N  029:55:53 E
+DP 69:25:07 N  029:54:55 E
+DP 69:25:04 N  029:54:00 E
+DP 69:25:26 N  029:52:17 E
+DP 69:25:22 N  029:51:01 E
+DP 69:24:51 N  029:49:37 E
+DP 69:24:23 N  029:47:52 E
+DP 69:24:21 N  029:47:47 E
+DP 69:24:14 N  029:47:49 E
+DP 69:23:51 N  029:47:16 E
+DP 69:23:53 N  029:46:43 E
+DP 69:23:38 N  029:46:13 E
+DP 69:23:38 N  029:45:23 E
+DP 69:23:28 N  029:44:51 E
+DP 69:23:26 N  029:43:53 E
+DP 69:23:20 N  029:43:18 E
+DP 69:23:15 N  029:43:20 E
+DP 69:23:03 N  029:42:51 E
+DP 69:22:35 N  029:42:29 E
+DP 69:22:30 N  029:42:10 E
+DP 69:22:17 N  029:41:52 E
+DP 69:22:07 N  029:41:47 E
+DP 69:21:56 N  029:41:51 E
+DP 69:21:47 N  029:41:42 E
+DP 69:21:07 N  029:39:49 E
+DP 69:20:41 N  029:38:14 E
+DP 69:20:14 N  029:37:28 E
+DP 69:19:45 N  029:35:59 E
+DP 69:19:02 N  029:34:09 E
+DP 69:18:58 N  029:32:38 E
+DP 69:19:02 N  029:32:09 E
+DP 69:19:17 N  029:31:43 E
+DP 69:19:42 N  029:31:34 E
+DP 69:19:44 N  029:31:25 E
+DP 69:19:36 N  029:30:54 E
+DP 69:19:42 N  029:30:16 E
+DP 69:19:23 N  029:29:36 E
+DP 69:23:34 N  029:25:32 E
+DP 69:29:43 N  029:58:28 E
+DP 69:37:36 N  029:56:55 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R420 Pasvik 1
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:23:34 N  029:25:33 E
+DP 69:29:04 N  029:20:10 E
+DP 69:26:59 N  029:17:42 E
+DP 69:26:31 N  029:17:01 E
+DP 69:25:48 N  029:15:59 E
+DP 69:23:51 N  029:13:09 E
+DP 69:22:13 N  029:09:29 E
+DP 69:20:51 N  029:06:27 E
+DP 69:19:31 N  029:03:28 E
+DP 69:17:46 N  028:59:34 E
+DP 69:16:05 N  028:55:51 E
+DP 69:15:02 N  028:53:27 E
+DP 69:13:27 N  028:49:53 E
+DP 69:11:23 N  028:49:50 E
+DP 69:10:18 N  028:49:49 E
+DP 69:09:36 N  028:49:31 E
+DP 69:07:22 N  028:48:36 E
+DP 69:06:40 N  028:48:19 E
+DP 69:05:32 N  028:49:55 E
+DP 69:06:40 N  029:04:22 E
+DP 69:18:55 N  029:09:00 E
+DP 69:23:34 N  029:25:33 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6530,20 +6644,19 @@ DP 62:52:49 N  011:44:22 E
 DP 62:56:51 N  012:03:53 E
 DP 63:01:09 N  012:00:20 E
 DP 63:08:28 N  012:05:27 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
-AC G
-AN Sogn TIA 5
-AL 5500ft AMSL
-AH FL135
-DP 61:20:08 N  007:18:21 E
-DP 61:12:00 N  007:30:00 E
-DP 61:12:06 N  007:43:57 E
-DP 61:14:04 N  007:42:58 E
-DP 61:20:06 N  007:43:57 E
-DP 61:28:00 N  007:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+AC R
+AN EN R418 Pasvik 3
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:37:37 N  029:56:56 E
+DP 69:29:04 N  029:20:10 E
+DP 69:23:34 N  029:25:33 E
+DP 69:29:44 N  029:58:29 E
+DP 69:37:37 N  029:56:56 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6556,7 +6669,7 @@ DP 62:26:29 N  010:55:17 E
 DP 62:34:00 N  011:10:00 E
 DP 62:41:00 N  011:10:00 E
 DP 62:41:00 N  010:48:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6569,7 +6682,176 @@ DP 68:42:00 N  018:04:55 E
 DP 68:40:00 N  018:31:55 E
 DP 68:49:00 N  018:35:55 E
 DP 68:52:00 N  018:16:55 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R419 Pasvik 2
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:23:34 N  029:25:32 E
+DP 69:19:23 N  029:29:36 E
+DP 69:19:17 N  029:29:05 E
+DP 69:19:15 N  029:26:05 E
+DP 69:19:05 N  029:24:45 E
+DP 69:19:24 N  029:23:44 E
+DP 69:19:15 N  029:23:07 E
+DP 69:19:05 N  029:22:51 E
+DP 69:18:58 N  029:22:12 E
+DP 69:18:46 N  029:21:55 E
+DP 69:18:27 N  029:20:28 E
+DP 69:18:27 N  029:20:05 E
+DP 69:18:04 N  029:19:06 E
+DP 69:17:55 N  029:17:46 E
+DP 69:17:46 N  029:17:19 E
+DP 69:17:33 N  029:17:06 E
+DP 69:16:49 N  029:16:55 E
+DP 69:16:37 N  029:16:38 E
+DP 69:16:23 N  029:16:32 E
+DP 69:15:01 N  029:16:36 E
+DP 69:14:48 N  029:16:55 E
+DP 69:14:38 N  029:17:54 E
+DP 69:14:26 N  029:18:28 E
+DP 69:14:13 N  029:18:47 E
+DP 69:14:01 N  029:18:51 E
+DP 69:13:51 N  029:18:50 E
+DP 69:13:36 N  029:18:24 E
+DP 69:13:10 N  029:18:04 E
+DP 69:12:49 N  029:18:04 E
+DP 69:12:36 N  029:18:20 E
+DP 69:12:17 N  029:17:32 E
+DP 69:11:50 N  029:17:47 E
+DP 69:11:36 N  029:17:31 E
+DP 69:11:10 N  029:17:40 E
+DP 69:10:42 N  029:17:25 E
+DP 69:10:33 N  029:17:15 E
+DP 69:10:31 N  029:16:56 E
+DP 69:10:20 N  029:16:59 E
+DP 69:10:07 N  029:17:11 E
+DP 69:09:47 N  029:15:43 E
+DP 69:09:42 N  029:14:55 E
+DP 69:09:16 N  029:15:28 E
+DP 69:08:48 N  029:14:47 E
+DP 69:08:17 N  029:14:20 E
+DP 69:07:47 N  029:14:39 E
+DP 69:07:40 N  029:14:36 E
+DP 69:07:30 N  029:14:19 E
+DP 69:07:28 N  029:13:57 E
+DP 69:07:17 N  029:13:50 E
+DP 69:07:11 N  029:14:08 E
+DP 69:06:45 N  029:14:31 E
+DP 69:04:01 N  029:09:33 E
+DP 69:03:46 N  029:08:32 E
+DP 69:02:21 N  029:05:38 E
+DP 69:00:54 N  029:03:23 E
+DP 69:00:37 N  029:02:29 E
+DP 69:01:32 N  029:01:05 E
+DP 69:03:07 N  028:55:45 E
+DP 69:04:34 N  028:51:16 E
+DP 69:05:31 N  028:49:55 E
+DP 69:06:39 N  029:04:21 E
+DP 69:18:55 N  029:08:59 E
+DP 69:23:34 N  029:25:32 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R413 Storbukt 1
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:43:38 N  030:44:16 E
+DP 69:47:40 N  030:49:03 E
+DP 69:47:15 N  030:49:17 E
+DP 69:46:55 N  030:49:47 E
+DP 69:46:39 N  030:50:34 E
+DP 69:46:34 N  030:50:21 E
+DP 69:46:20 N  030:50:22 E
+DP 69:46:10 N  030:51:10 E
+DP 69:45:56 N  030:51:00 E
+DP 69:45:49 N  030:51:15 E
+DP 69:45:39 N  030:51:00 E
+DP 69:45:36 N  030:51:16 E
+DP 69:45:45 N  030:51:18 E
+DP 69:45:48 N  030:51:34 E
+DP 69:45:30 N  030:52:01 E
+DP 69:45:20 N  030:51:43 E
+DP 69:45:08 N  030:51:41 E
+DP 69:45:11 N  030:52:02 E
+DP 69:45:23 N  030:52:02 E
+DP 69:45:20 N  030:52:20 E
+DP 69:45:11 N  030:52:09 E
+DP 69:45:00 N  030:52:38 E
+DP 69:45:04 N  030:52:04 E
+DP 69:44:39 N  030:52:24 E
+DP 69:44:30 N  030:52:20 E
+DP 69:44:27 N  030:52:46 E
+DP 69:44:14 N  030:52:44 E
+DP 69:44:22 N  030:53:10 E
+DP 69:44:14 N  030:53:25 E
+DP 69:44:07 N  030:53:17 E
+DP 69:43:58 N  030:53:28 E
+DP 69:43:49 N  030:53:05 E
+DP 69:43:45 N  030:53:36 E
+DP 69:43:30 N  030:53:14 E
+DP 69:43:10 N  030:53:24 E
+DP 69:43:07 N  030:52:39 E
+DP 69:42:54 N  030:52:24 E
+DP 69:42:45 N  030:52:50 E
+DP 69:42:23 N  030:53:09 E
+DP 69:42:13 N  030:53:56 E
+DP 69:42:11 N  030:53:26 E
+DP 69:42:01 N  030:53:30 E
+DP 69:42:01 N  030:54:29 E
+DP 69:41:52 N  030:54:32 E
+DP 69:41:39 N  030:55:11 E
+DP 69:41:26 N  030:54:59 E
+DP 69:41:28 N  030:55:24 E
+DP 69:41:04 N  030:55:47 E
+DP 69:41:13 N  030:56:12 E
+DP 69:41:07 N  030:56:05 E
+DP 69:41:01 N  030:56:36 E
+DP 69:40:54 N  030:56:32 E
+DP 69:40:39 N  030:56:47 E
+DP 69:40:34 N  030:56:28 E
+DP 69:40:26 N  030:56:46 E
+DP 69:40:35 N  030:56:02 E
+DP 69:40:26 N  030:56:09 E
+DP 69:40:29 N  030:55:41 E
+DP 69:40:12 N  030:55:24 E
+DP 69:39:50 N  030:55:31 E
+DP 69:39:45 N  030:55:54 E
+DP 69:39:26 N  030:55:46 E
+DP 69:39:14 N  030:56:04 E
+DP 69:38:52 N  030:56:01 E
+DP 69:38:19 N  030:57:05 E
+DP 69:38:06 N  030:57:03 E
+DP 69:37:56 N  030:57:14 E
+DP 69:37:07 N  030:56:55 E
+DP 69:36:52 N  030:57:10 E
+DP 69:36:28 N  030:56:51 E
+DP 69:36:05 N  030:56:57 E
+DP 69:35:47 N  030:56:17 E
+DP 69:35:26 N  030:56:50 E
+DP 69:34:53 N  030:56:33 E
+DP 69:34:33 N  030:56:47 E
+DP 69:34:17 N  030:56:17 E
+DP 69:33:39 N  030:56:20 E
+DP 69:33:11 N  030:54:50 E
+DP 69:32:58 N  030:53:24 E
+DP 69:32:14 N  030:51:42 E
+DP 69:32:05 N  030:50:19 E
+DP 69:31:42 N  030:49:03 E
+DP 69:32:26 N  030:39:53 E
+DP 69:32:24 N  030:30:56 E
+DP 69:32:52 N  030:30:27 E
+DP 69:35:22 N  030:25:03 E
+DP 69:39:11 N  030:13:25 E
+DP 69:40:09 N  030:09:03 E
+DP 69:40:06 N  030:22:19 E
+DP 69:35:09 N  030:39:33 E
+DP 69:36:31 N  030:49:09 E
+DP 69:43:38 N  030:44:16 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6582,7 +6864,7 @@ DP 68:46:18 N  016:37:00 E
 DP 68:43:54 N  016:47:54 E
 DP 68:55:24 N  017:06:54 E
 DP 68:57:00 N  016:46:12 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6595,7 +6877,7 @@ DP 68:55:00 N  016:15:30 E
 DP 69:08:06 N  016:18:00 E
 DP 69:07:54 N  016:04:00 E
 DP 69:01:42 N  015:52:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6612,7 +6894,7 @@ DP 59:39:54 N  009:31:48 E
 DP 59:44:47 N  009:28:48 E
 DP 59:53:49 N  009:00:00 E
 DP 59:52:03 N  008:46:38 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6629,7 +6911,7 @@ DP 61:25:25 N  011:30:47 E
 DP 61:24:13 N  011:25:14 E
 DP 61:22:30 N  011:25:42 E
 DP 61:12:27 N  011:33:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -6641,7 +6923,7 @@ DP 58:33:00 N  005:38:00 E
 DP 58:21:30 N  005:28:49 E
 DP 58:21:49 N  005:55:05 E
 DP 58:37:04 N  005:44:04 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -6657,7 +6939,7 @@ DP 63:31:47 N  010:06:11 E
 DP 63:33:26 N  010:06:35 E
 DP 63:43:00 N  010:08:55 E
 DP 63:40:50 N  010:02:40 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -6744,7 +7026,7 @@ DP 59:02:21 N  011:24:50 E
 DP 59:04:37 N  011:23:20 E
 DP 59:05:54 N  011:22:06 E
 DP 59:06:54 N  011:20:21 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -6756,7 +7038,7 @@ DP 68:15:00 N  015:30:54 E
 DP 68:12:06 N  015:51:54 E
 DP 68:23:12 N  016:08:54 E
 DP 68:23:00 N  015:51:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6768,7 +7050,7 @@ DP 64:03:00 N  009:55:00 E
 DP 64:04:00 N  010:00:00 E
 DP 64:22:12 N  009:54:12 E
 DP 64:17:06 N  009:38:06 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6781,7 +7063,7 @@ DP 60:40:00 N  011:58:00 E
 DP 60:42:45 N  012:17:30 E
 DP 60:52:30 N  011:49:45 E
 DP 60:47:50 N  011:41:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6794,7 +7076,7 @@ DP 59:15:00 N  009:00:00 E
 DP 59:18:06 N  009:00:00 E
 DP 59:26:33 N  009:12:12 E
 DP 59:29:55 N  008:58:47 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -6810,6 +7092,18 @@ DP 60:03:00 N  010:53:00 E
 * Source: https://avinor.no/globalassets/_microsite/ais-portal/aip-sup/aip-sup-15---2024----oslo-and-kjeller-rmz_tmz-established.pdf
 *
 *
+AC R
+AN EN R410 Barents 2
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 70:21:37 N  031:33:53 E
+DP 70:00:00 N  030:59:22 E
+DP 70:00:00 N  031:08:00 E
+DP 70:22:00 N  031:43:00 E
+DP 70:21:37 N  031:33:53 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
 AC C
 AN Tromsø TMA 3
 AL 6500ft AMSL
@@ -6818,7 +7112,7 @@ DP 69:27:00 N  020:00:00 E
 DP 69:12:20 N  019:10:30 E
 DP 69:09:37 N  019:25:05 E
 DP 69:27:00 N  020:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -6831,7 +7125,7 @@ DP 61:57:46 N  006:56:53 E
 DP 62:06:59 N  006:55:48 E
 DP 62:00:00 N  006:38:42 E
 DP 62:00:00 N  006:30:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -6844,7 +7138,7 @@ DP 69:50:13 N  025:08:36 E
 DP 69:52:52 N  025:27:53 E
 DP 69:57:52 N  025:27:25 E
 DP 69:55:50 N  024:56:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -6857,7 +7151,19 @@ DP 61:49:17 N  006:50:25 E
 DP 61:52:49 N  006:43:43 E
 DP 62:00:00 N  006:30:00 E
 DP 62:00:00 N  006:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+*
+*
+AC G
+AN Sogn TIA 5
+AL 5500ft AMSL
+AH FL135
+DP 61:12:00 N  007:30:00 E
+DP 61:12:06 N  007:43:57 E
+DP 61:14:04 N  007:42:58 E
+DP 61:20:06 N  007:43:57 E
+DP 61:28:00 N  007:30:00 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -6869,7 +7175,7 @@ DP 59:38:00 N  004:52:00 E
 DP 59:45:00 N  005:04:00 E
 DP 59:55:00 N  005:04:00 E
 DP 59:55:00 N  004:52:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6882,7 +7188,7 @@ DP 60:33:19 N  010:31:19 E
 DP 60:43:20 N  010:37:00 E
 DP 60:48:10 N  010:41:30 E
 DP 60:40:30 N  010:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6897,7 +7203,7 @@ DP 69:09:30 N  019:04:05 E
 DP 69:14:40 N  018:58:00 E
 DP 69:14:40 N  018:52:25 E
 DP 69:12:00 N  018:37:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -6971,7 +7277,7 @@ DP 69:13:23 N  016:25:51 E
 DP 69:13:12 N  016:25:27 E
 DP 69:13:02 N  016:25:03 E
 DP 69:17:54 N  016:08:46 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7037,7 +7343,7 @@ DP 59:53:26 N  012:05:56 E
 DP 59:54:58 N  012:07:08 E
 DP 60:05:50 N  012:15:40 E
 DP 60:05:50 N  012:01:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -7050,7 +7356,7 @@ DP 59:26:33 N  009:12:12 E
 DP 59:22:55 N  009:19:23 E
 DP 59:29:53 N  009:35:42 E
 DP 59:36:38 N  009:26:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
 *
 *
 AC Q
@@ -7065,7 +7371,7 @@ DP 62:13:59 N  009:31:54 E
 DP 62:15:59 N  009:34:54 E
 DP 62:17:59 N  009:23:54 E
 DP 62:16:59 N  009:15:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7083,7 +7389,7 @@ DP 61:14:12 N  011:39:50 E
 DP 61:08:36 N  011:44:10 E
 DP 61:08:08 N  011:41:48 E
 DP 61:12:27 N  011:33:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -7109,7 +7415,7 @@ DP 59:36:26 N  009:55:39 E
 DP 59:38:01 N  010:06:25 E
 DP 59:41:03 N  009:46:11 E
 DP 59:42:35 N  009:35:44 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -7124,7 +7430,7 @@ DP 62:07:12 N  006:25:42 E
 DP 62:12:24 N  006:29:54 E
 DP 62:16:24 N  006:25:24 E
 DP 62:13:36 N  006:07:48 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC Q
@@ -7136,7 +7442,7 @@ DP 62:41:00 N  011:28:00 E
 DP 62:35:00 N  011:38:00 E
 DP 62:43:00 N  011:50:00 E
 DP 62:46:00 N  011:33:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7210,7 +7516,7 @@ DP 63:56:39 N  009:45:07 E
 DP 63:56:33 N  009:45:35 E
 DP 63:56:27 N  009:46:02 E
 DP 63:49:42 N  009:38:12 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7222,7 +7528,7 @@ DP 60:47:09 N  011:16:00 E
 DP 60:42:51 N  011:52:08 E
 DP 60:47:50 N  011:41:45 E
 DP 60:51:11 N  011:16:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7240,7 +7546,7 @@ DP 61:14:12 N  011:39:50 E
 DP 61:13:36 N  011:38:48 E
 DP 61:12:46 N  011:36:59 E
 DP 61:12:27 N  011:33:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7258,7 +7564,7 @@ DP 61:14:12 N  011:39:50 E
 DP 61:13:36 N  011:38:48 E
 DP 61:12:46 N  011:36:59 E
 DP 61:12:27 N  011:33:57 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7270,7 +7576,7 @@ DP 59:05:00 N  009:00:00 E
 DP 59:05:00 N  009:10:00 E
 DP 59:15:00 N  009:10:00 E
 DP 59:18:06 N  009:00:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7282,7 +7588,7 @@ DP 59:55:00 N  004:52:00 E
 DP 59:55:00 N  005:04:00 E
 DP 60:03:00 N  005:02:00 E
 DP 60:08:00 N  004:52:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7295,7 +7601,7 @@ DP 60:41:58 N  006:51:54 E
 DP 60:44:58 N  006:54:54 E
 DP 60:49:43 N  006:54:54 E
 DP 60:49:43 N  006:39:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7308,7 +7614,7 @@ DP 60:31:00 N  012:02:00 E
 DP 60:40:00 N  011:58:00 E
 DP 60:42:51 N  011:52:08 E
 DP 60:47:50 N  011:41:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7321,7 +7627,7 @@ DP 69:39:38 N  029:39:55 E
 DP 69:37:05 N  029:46:47 E
 DP 69:44:16 N  030:01:58 E
 DP 69:46:18 N  029:56:40 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7393,7 +7699,7 @@ DP 61:14:49 N  011:19:35 E
 DP 61:14:55 N  011:20:22 E
 DP 61:14:58 N  011:21:11 E
 DP 61:14:59 N  011:22:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7410,7 +7716,7 @@ DP 63:47:30 N  009:25:00 E
 DP 63:49:00 N  009:23:00 E
 DP 63:51:00 N  009:23:00 E
 DP 63:50:00 N  009:15:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -7422,7 +7728,7 @@ DP 62:13:36 N  006:07:48 E
 DP 62:16:24 N  006:25:24 E
 DP 62:22:24 N  006:20:24 E
 DP 62:17:48 N  006:04:48 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC Q
@@ -7496,7 +7802,7 @@ DP 67:32:12 N  014:39:56 E
 DP 67:32:11 N  014:40:20 E
 DP 67:32:09 N  014:40:44 E
 DP 67:24:44 N  014:37:19 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7508,7 +7814,7 @@ DP 60:00:00 N  010:00:00 E
 DP 60:00:00 N  010:12:00 E
 DP 60:07:30 N  010:16:30 E
 DP 60:08:50 N  010:05:17 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7521,7 +7827,20 @@ DP 59:15:00 N  009:10:00 E
 DP 59:17:00 N  009:10:00 E
 DP 59:23:15 N  009:18:44 E
 DP 59:26:33 N  009:12:12 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R414 Storbukt 2
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:40:06 N  030:22:19 E
+DP 69:35:10 N  030:39:34 E
+DP 69:36:32 N  030:49:10 E
+DP 69:43:38 N  030:44:16 E
+DP 69:40:00 N  030:40:00 E
+DP 69:40:06 N  030:22:19 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7533,7 +7852,7 @@ DP 59:36:37 N  009:27:01 E
 DP 59:29:53 N  009:35:42 E
 DP 59:33:33 N  009:44:21 E
 DP 59:40:38 N  009:32:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7546,7 +7865,7 @@ DP 59:53:21 N  011:55:16 E
 DP 59:56:49 N  011:55:06 E
 DP 59:57:29 N  011:45:25 E
 DP 59:55:15 N  011:37:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -7558,7 +7877,7 @@ DP 59:48:35 N  010:18:00 E
 DP 59:53:30 N  010:31:00 E
 DP 59:56:30 N  010:39:30 E
 DP 59:59:45 N  010:27:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7572,7 +7891,7 @@ DP 60:00:00 N  010:20:00 E
 DP 60:06:00 N  010:25:00 E
 DP 60:10:00 N  010:23:00 E
 DP 60:10:00 N  010:18:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -7583,7 +7902,7 @@ DP 62:29:10 N  007:37:24 E
 DP 62:27:00 N  007:46:00 E
 DP 62:39:05 N  008:11:39 E
 DP 62:29:10 N  007:37:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC Q
@@ -7596,7 +7915,7 @@ DP 59:25:57 N  009:47:30 E
 DP 59:29:18 N  009:57:26 E
 DP 59:32:24 N  009:46:11 E
 DP 59:33:33 N  009:44:21 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7609,7 +7928,7 @@ DP 60:18:30 N  012:18:00 E
 DP 60:18:30 N  012:21:05 E
 DP 60:24:14 N  012:20:22 E
 DP 60:22:00 N  011:56:15 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7621,7 +7940,7 @@ DP 60:47:09 N  011:16:00 E
 DP 60:51:11 N  011:16:00 E
 DP 60:52:40 N  011:04:20 E
 DP 60:50:06 N  010:51:16 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7633,7 +7952,7 @@ DP 59:38:21 N  011:02:05 E
 DP 59:38:31 N  011:14:33 E
 DP 59:46:22 N  011:12:51 E
 DP 59:45:45 N  011:06:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -7650,7 +7969,7 @@ DP 60:00:00 N  011:13:00 E
 DP 60:00:47 N  011:08:04 E
 DP 60:02:40 N  010:54:53 E
 DP 60:03:00 N  010:53:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -7661,7 +7980,7 @@ DP 60:55:33 N  007:12:56 E
 DP 60:51:32 N  007:24:32 E
 DP 60:59:36 N  007:37:31 E
 DP 60:55:33 N  007:12:56 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -7674,7 +7993,7 @@ DP 59:32:24 N  009:46:11 E
 DP 59:29:18 N  009:57:26 E
 DP 59:34:00 N  010:01:00 E
 DP 59:38:01 N  010:06:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7687,7 +8006,7 @@ DP 59:41:43 N  011:37:08 E
 DP 59:45:28 N  011:47:00 E
 DP 59:49:52 N  011:37:29 E
 DP 59:48:25 N  011:32:32 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -7701,7 +8020,91 @@ DP 67:23:15 N  014:50:00 E
 DP 67:26:45 N  014:50:00 E
 DP 67:26:45 N  014:40:00 E
 DP 67:25:00 N  014:35:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+*
+*
+AC R
+AN EN R411 Barents 3
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 70:00:00 N  030:59:22 E
+DP 69:55:19 N  030:52:45 E
+DP 69:47:41 N  030:49:04 E
+DP 70:00:00 N  031:08:00 E
+DP 70:00:00 N  030:59:22 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R426 Børvågen
+AL 0ft AMSL
+AH 2500ft AMSL
+DP 69:09:42 N  015:37:55 E
+DP 69:09:42 N  015:38:39 E
+DP 69:09:39 N  015:39:23 E
+DP 69:09:35 N  015:40:07 E
+DP 69:09:30 N  015:40:49 E
+DP 69:09:23 N  015:41:29 E
+DP 69:09:15 N  015:42:07 E
+DP 69:09:06 N  015:42:43 E
+DP 69:08:55 N  015:43:16 E
+DP 69:08:43 N  015:43:46 E
+DP 69:08:30 N  015:44:13 E
+DP 69:08:17 N  015:44:35 E
+DP 69:08:02 N  015:44:54 E
+DP 69:07:47 N  015:45:09 E
+DP 69:07:32 N  015:45:20 E
+DP 69:07:16 N  015:45:27 E
+DP 69:07:00 N  015:45:29 E
+DP 69:06:44 N  015:45:26 E
+DP 69:06:29 N  015:45:20 E
+DP 69:06:13 N  015:45:09 E
+DP 69:05:58 N  015:44:54 E
+DP 69:05:44 N  015:44:35 E
+DP 69:05:30 N  015:44:12 E
+DP 69:05:18 N  015:43:45 E
+DP 69:05:06 N  015:43:15 E
+DP 69:04:55 N  015:42:42 E
+DP 69:04:46 N  015:42:06 E
+DP 69:04:38 N  015:41:28 E
+DP 69:04:31 N  015:40:48 E
+DP 69:04:26 N  015:40:06 E
+DP 69:04:22 N  015:39:23 E
+DP 69:04:19 N  015:38:39 E
+DP 69:04:19 N  015:37:55 E
+DP 69:04:19 N  015:37:10 E
+DP 69:04:22 N  015:36:26 E
+DP 69:04:26 N  015:35:43 E
+DP 69:04:31 N  015:35:01 E
+DP 69:04:38 N  015:34:21 E
+DP 69:04:46 N  015:33:43 E
+DP 69:04:55 N  015:33:07 E
+DP 69:05:06 N  015:32:34 E
+DP 69:05:18 N  015:32:04 E
+DP 69:05:30 N  015:31:37 E
+DP 69:05:44 N  015:31:14 E
+DP 69:05:58 N  015:30:55 E
+DP 69:06:13 N  015:30:40 E
+DP 69:06:29 N  015:30:29 E
+DP 69:06:44 N  015:30:23 E
+DP 69:07:00 N  015:30:20 E
+DP 69:07:16 N  015:30:22 E
+DP 69:07:32 N  015:30:29 E
+DP 69:07:47 N  015:30:40 E
+DP 69:08:02 N  015:30:55 E
+DP 69:08:17 N  015:31:14 E
+DP 69:08:30 N  015:31:36 E
+DP 69:08:43 N  015:32:03 E
+DP 69:08:55 N  015:32:33 E
+DP 69:09:06 N  015:33:06 E
+DP 69:09:15 N  015:33:42 E
+DP 69:09:23 N  015:34:20 E
+DP 69:09:30 N  015:35:00 E
+DP 69:09:35 N  015:35:42 E
+DP 69:09:39 N  015:36:26 E
+DP 69:09:42 N  015:37:10 E
+DP 69:09:42 N  015:37:55 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -7713,7 +8116,7 @@ DP 59:22:55 N  009:19:23 E
 DP 59:21:12 N  009:27:31 E
 DP 59:24:26 N  009:35:24 E
 DP 59:29:53 N  009:35:42 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-AD-2.ENNO-en-GB.html
 *
 *
 AC Q
@@ -7725,7 +8128,7 @@ DP 59:37:40 N  011:23:00 E
 DP 59:37:40 N  011:32:40 E
 DP 59:44:10 N  011:27:00 E
 DP 59:44:10 N  011:18:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -7739,7 +8142,7 @@ DP 59:52:15 N  010:43:15 E
 DP 59:54:18 N  010:53:48 E
 DP 59:57:32 N  010:48:14 E
 DP 59:59:00 N  010:47:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7811,7 +8214,7 @@ DP 61:17:51 N  011:38:06 E
 DP 61:17:55 N  011:38:41 E
 DP 61:17:58 N  011:39:18 E
 DP 61:17:58 N  011:39:55 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7822,7 +8225,7 @@ DP 68:48:50 N  015:40:10 E
 DP 68:47:04 N  015:48:56 E
 DP 68:55:01 N  016:09:52 E
 DP 68:48:50 N  015:40:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7845,7 +8248,7 @@ DP 69:21:23 N  015:55:43 E
 DP 69:21:35 N  015:57:44 E
 DP 69:21:40 N  016:00:31 E
 DP 69:17:40 N  016:00:31 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7857,7 +8260,7 @@ DP 60:43:20 N  010:37:00 E
 DP 60:33:19 N  010:31:19 E
 DP 60:38:16 N  010:40:38 E
 DP 60:48:10 N  010:41:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7880,7 +8283,7 @@ DP 69:12:04 N  016:05:53 E
 DP 69:11:47 N  016:03:15 E
 DP 69:11:42 N  016:00:31 E
 DP 69:15:42 N  016:00:31 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7892,7 +8295,7 @@ DP 60:00:00 N  010:12:00 E
 DP 60:00:00 N  010:17:00 E
 DP 60:10:00 N  010:23:00 E
 DP 60:10:00 N  010:18:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7904,7 +8307,7 @@ DP 63:50:00 N  011:56:00 E
 DP 63:52:00 N  011:59:00 E
 DP 64:04:00 N  012:00:00 E
 DP 64:03:00 N  011:55:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7915,7 +8318,19 @@ DP 62:43:00 N  011:50:00 E
 DP 62:35:00 N  011:38:00 E
 DP 62:37:00 N  011:53:00 E
 DP 62:43:00 N  011:50:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R412 Kobbholmen
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:55:19 N  030:52:45 E
+DP 69:47:58 N  030:41:12 E
+DP 69:43:38 N  030:44:16 E
+DP 69:47:41 N  030:49:04 E
+DP 69:55:19 N  030:52:45 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -7927,7 +8342,7 @@ DP 69:04:48 N  019:03:37 E
 DP 69:03:57 N  019:15:14 E
 DP 69:08:15 N  019:04:05 E
 DP 69:06:20 N  018:50:55 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -7939,7 +8354,22 @@ DP 59:56:30 N  010:39:30 E
 DP 59:59:00 N  010:47:00 E
 DP 60:00:34 N  010:42:42 E
 DP 59:59:45 N  010:27:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R415 Kirkenes 1
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:42:14 N  030:13:53 E
+DP 69:39:20 N  029:57:09 E
+DP 69:37:37 N  029:56:56 E
+DP 69:39:29 N  030:05:07 E
+DP 69:39:49 N  030:06:42 E
+DP 69:40:09 N  030:09:04 E
+DP 69:40:06 N  030:22:19 E
+DP 69:42:14 N  030:13:53 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -7951,7 +8381,7 @@ DP 62:00:00 N  006:30:00 E
 DP 61:52:49 N  006:43:43 E
 DP 61:57:05 N  006:43:03 E
 DP 62:00:00 N  006:34:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -7965,7 +8395,7 @@ DP 69:01:36 N  019:13:31 E
 DP 69:02:29 N  019:16:09 E
 DP 69:03:57 N  019:15:14 E
 DP 69:04:48 N  019:03:37 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -7977,7 +8407,7 @@ DP 60:51:26 N  009:38:30 E
 DP 60:46:17 N  009:51:29 E
 DP 60:47:15 N  009:53:30 E
 DP 60:52:56 N  009:42:32 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC C
@@ -7993,7 +8423,7 @@ DP 60:18:23 N  005:28:50 E
 DP 60:23:24 N  005:29:43 E
 DP 60:25:25 N  005:29:21 E
 DP 60:23:24 N  005:25:52 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC C
@@ -8004,7 +8434,7 @@ DP 60:37:00 N  005:22:00 E
 DP 60:23:24 N  005:25:52 E
 DP 60:25:25 N  005:29:21 E
 DP 60:37:00 N  005:22:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC R
@@ -8015,7 +8445,7 @@ DP 59:53:30 N  010:31:00 E
 DP 59:48:35 N  010:18:00 E
 DP 59:51:00 N  010:35:00 E
 DP 59:53:30 N  010:31:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -8027,7 +8457,7 @@ DP 59:54:18 N  010:53:48 E
 DP 59:55:55 N  010:59:35 E
 DP 59:58:48 N  010:53:46 E
 DP 59:57:32 N  010:48:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8039,7 +8469,19 @@ DP 59:50:00 N  011:20:00 E
 DP 59:49:54 N  011:28:00 E
 DP 59:53:00 N  011:28:00 E
 DP 59:53:00 N  011:20:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R416 Kirkenes 2
+AL 0ft AMSL
+AH 999999ft AMSL
+DP 69:43:20 N  030:09:21 E
+DP 69:40:48 N  029:57:20 E
+DP 69:39:20 N  029:57:09 E
+DP 69:42:14 N  030:13:53 E
+DP 69:43:20 N  030:09:21 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8050,7 +8492,7 @@ DP 59:46:38 N  009:37:30 E
 DP 59:42:35 N  009:35:44 E
 DP 59:41:03 N  009:46:11 E
 DP 59:46:38 N  009:37:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -8062,7 +8504,7 @@ DP 59:51:00 N  010:35:00 E
 DP 59:53:00 N  010:38:00 E
 DP 59:56:30 N  010:39:30 E
 DP 59:53:30 N  010:31:00 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC C
@@ -8074,7 +8516,7 @@ DP 60:20:29 N  005:20:51 E
 DP 60:20:31 N  005:26:42 E
 DP 60:23:24 N  005:25:52 E
 DP 60:23:22 N  005:18:36 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.1-en-GB.html
 *
 *
 AC R
@@ -8086,7 +8528,7 @@ DP 59:54:18 N  010:53:48 E
 DP 59:52:14 N  010:59:46 E
 DP 59:55:10 N  011:03:00 E
 DP 59:55:55 N  010:59:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8158,7 +8600,7 @@ DP 60:53:25 N  011:30:01 E
 DP 60:53:27 N  011:30:18 E
 DP 60:53:28 N  011:30:36 E
 DP 60:53:28 N  011:30:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8171,7 +8613,7 @@ DP 63:24:59 N  011:10:51 E
 DP 63:25:57 N  011:07:05 E
 DP 63:25:57 N  011:05:17 E
 DP 63:24:56 N  011:00:21 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8245,7 +8687,7 @@ DP 64:53:54 N  009:52:33 E
 DP 64:53:52 N  009:52:40 E
 DP 64:53:51 N  009:52:47 E
 DP 64:51:00 N  009:48:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8257,7 +8699,7 @@ DP 59:45:53 N  011:18:33 E
 DP 59:46:59 N  011:21:52 E
 DP 59:49:30 N  011:18:22 E
 DP 59:48:34 N  011:15:16 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8331,7 +8773,7 @@ DP 69:18:18 N  016:18:33 E
 DP 69:18:16 N  016:18:34 E
 DP 69:18:14 N  016:18:35 E
 DP 69:17:40 N  016:09:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC G
@@ -8342,7 +8784,7 @@ DP 61:14:04 N  007:42:58 E
 DP 61:12:06 N  007:43:57 E
 DP 61:12:09 N  007:54:30 E
 DP 61:14:04 N  007:42:58 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-2.2-en-GB.html
 *
 *
 AC Q
@@ -8414,7 +8856,7 @@ DP 58:21:06 N  006:24:46 E
 DP 58:21:08 N  006:25:01 E
 DP 58:21:09 N  006:25:15 E
 DP 58:21:09 N  006:25:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8486,7 +8928,79 @@ DP 60:12:39 N  005:24:40 E
 DP 60:12:41 N  005:24:54 E
 DP 60:12:42 N  005:25:09 E
 DP 60:12:42 N  005:25:24 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+*
+*
+AC R
+AN EN R424 Grøtsund
+AL 0ft AMSL
+AH 3000ft AMSL
+DP 69:45:45 N  019:08:17 E
+DP 69:45:45 N  019:08:34 E
+DP 69:45:44 N  019:08:51 E
+DP 69:45:43 N  019:09:08 E
+DP 69:45:41 N  019:09:24 E
+DP 69:45:38 N  019:09:39 E
+DP 69:45:35 N  019:09:54 E
+DP 69:45:32 N  019:10:07 E
+DP 69:45:28 N  019:10:20 E
+DP 69:45:24 N  019:10:31 E
+DP 69:45:19 N  019:10:42 E
+DP 69:45:14 N  019:10:50 E
+DP 69:45:08 N  019:10:58 E
+DP 69:45:03 N  019:11:03 E
+DP 69:44:57 N  019:11:07 E
+DP 69:44:51 N  019:11:10 E
+DP 69:44:45 N  019:11:11 E
+DP 69:44:40 N  019:11:10 E
+DP 69:44:34 N  019:11:07 E
+DP 69:44:28 N  019:11:03 E
+DP 69:44:23 N  019:10:57 E
+DP 69:44:17 N  019:10:50 E
+DP 69:44:12 N  019:10:41 E
+DP 69:44:07 N  019:10:31 E
+DP 69:44:03 N  019:10:20 E
+DP 69:43:59 N  019:10:07 E
+DP 69:43:56 N  019:09:54 E
+DP 69:43:53 N  019:09:39 E
+DP 69:43:50 N  019:09:24 E
+DP 69:43:48 N  019:09:08 E
+DP 69:43:47 N  019:08:51 E
+DP 69:43:46 N  019:08:34 E
+DP 69:43:46 N  019:08:17 E
+DP 69:43:46 N  019:08:01 E
+DP 69:43:47 N  019:07:44 E
+DP 69:43:48 N  019:07:27 E
+DP 69:43:50 N  019:07:11 E
+DP 69:43:53 N  019:06:56 E
+DP 69:43:56 N  019:06:41 E
+DP 69:43:59 N  019:06:28 E
+DP 69:44:03 N  019:06:15 E
+DP 69:44:07 N  019:06:04 E
+DP 69:44:12 N  019:05:54 E
+DP 69:44:17 N  019:05:45 E
+DP 69:44:23 N  019:05:38 E
+DP 69:44:28 N  019:05:32 E
+DP 69:44:34 N  019:05:28 E
+DP 69:44:40 N  019:05:25 E
+DP 69:44:45 N  019:05:24 E
+DP 69:44:51 N  019:05:25 E
+DP 69:44:57 N  019:05:28 E
+DP 69:45:03 N  019:05:32 E
+DP 69:45:08 N  019:05:37 E
+DP 69:45:14 N  019:05:45 E
+DP 69:45:19 N  019:05:53 E
+DP 69:45:24 N  019:06:04 E
+DP 69:45:28 N  019:06:15 E
+DP 69:45:32 N  019:06:28 E
+DP 69:45:35 N  019:06:41 E
+DP 69:45:38 N  019:06:56 E
+DP 69:45:41 N  019:07:11 E
+DP 69:45:43 N  019:07:27 E
+DP 69:45:44 N  019:07:44 E
+DP 69:45:45 N  019:08:01 E
+DP 69:45:45 N  019:08:17 E
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -8558,7 +9072,7 @@ DP 67:18:58 N  014:51:03 E
 DP 67:18:59 N  014:51:18 E
 DP 67:19:00 N  014:51:33 E
 DP 67:19:00 N  014:51:49 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -8630,7 +9144,7 @@ DP 67:06:57 N  015:24:02 E
 DP 67:06:58 N  015:24:16 E
 DP 67:06:59 N  015:24:31 E
 DP 67:06:59 N  015:24:47 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC R
@@ -8702,7 +9216,7 @@ DP 66:59:54 N  013:51:41 E
 DP 66:59:55 N  013:51:56 E
 DP 66:59:56 N  013:52:10 E
 DP 66:59:56 N  013:52:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -8714,7 +9228,7 @@ DP 68:28:17 N  016:34:21 E
 DP 68:28:06 N  016:29:04 E
 DP 68:26:29 N  016:29:04 E
 DP 68:27:31 N  016:35:37 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -8786,7 +9300,7 @@ DP 62:39:51 N  009:50:16 E
 DP 62:39:52 N  009:50:28 E
 DP 62:39:53 N  009:50:41 E
 DP 62:39:53 N  009:50:54 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC W
@@ -8858,7 +9372,7 @@ DP 62:15:05 N  008:14:10 E
 DP 62:15:06 N  008:14:22 E
 DP 62:15:07 N  008:14:35 E
 DP 62:15:07 N  008:14:47 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC W
@@ -8930,7 +9444,7 @@ DP 61:16:25 N  011:39:34 E
 DP 61:16:26 N  011:39:46 E
 DP 61:16:27 N  011:39:58 E
 DP 61:16:27 N  011:40:10 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC R
@@ -9002,7 +9516,7 @@ DP 60:49:42 N  005:00:54 E
 DP 60:49:43 N  005:01:06 E
 DP 60:49:44 N  005:01:17 E
 DP 60:49:44 N  005:01:30 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9074,7 +9588,7 @@ DP 60:43:30 N  010:32:12 E
 DP 60:43:31 N  010:32:24 E
 DP 60:43:32 N  010:32:35 E
 DP 60:43:32 N  010:32:48 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -9146,7 +9660,7 @@ DP 60:38:55 N  006:29:18 E
 DP 60:38:56 N  006:29:30 E
 DP 60:38:57 N  006:29:42 E
 DP 60:38:57 N  006:29:53 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC W
@@ -9218,7 +9732,7 @@ DP 60:12:27 N  005:24:49 E
 DP 60:12:28 N  005:25:01 E
 DP 60:12:29 N  005:25:13 E
 DP 60:12:29 N  005:25:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC R
@@ -9290,7 +9804,7 @@ DP 59:55:57 N  010:43:25 E
 DP 59:55:58 N  010:43:36 E
 DP 59:55:59 N  010:43:48 E
 DP 59:55:59 N  010:43:59 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9303,7 +9817,7 @@ DP 62:39:45 N  008:31:52 E
 DP 62:41:27 N  008:30:41 E
 DP 62:41:36 N  008:27:30 E
 DP 62:41:11 N  008:27:26 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9317,7 +9831,7 @@ DP 58:06:17 N  006:40:28 E
 DP 58:07:31 N  006:37:52 E
 DP 58:07:29 N  006:36:16 E
 DP 58:07:04 N  006:35:34 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9329,7 +9843,7 @@ DP 59:38:09 N  009:25:56 E
 DP 59:40:13 N  009:27:45 E
 DP 59:39:51 N  009:24:44 E
 DP 59:38:46 N  009:22:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9401,7 +9915,7 @@ DP 62:51:29 N  006:56:03 E
 DP 62:51:31 N  006:56:13 E
 DP 62:51:31 N  006:56:23 E
 DP 62:51:31 N  006:56:33 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9414,7 +9928,7 @@ DP 68:31:48 N  017:37:05 E
 DP 68:32:16 N  017:39:47 E
 DP 68:33:06 N  017:38:29 E
 DP 68:32:34 N  017:34:55 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9427,7 +9941,7 @@ DP 60:32:15 N  004:49:31 E
 DP 60:32:33 N  004:51:21 E
 DP 60:33:49 N  004:50:58 E
 DP 60:33:32 N  004:49:16 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9439,7 +9953,7 @@ DP 60:35:25 N  004:52:17 E
 DP 60:38:00 N  004:51:34 E
 DP 60:37:52 N  004:50:09 E
 DP 60:36:32 N  004:50:50 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9511,7 +10025,7 @@ DP 70:41:59 N  023:35:30 E
 DP 70:42:00 N  023:35:39 E
 DP 70:42:00 N  023:35:48 E
 DP 70:42:00 N  023:35:56 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9523,7 +10037,7 @@ DP 59:16:50 N  005:29:00 E
 DP 59:16:00 N  005:28:40 E
 DP 59:16:00 N  005:31:50 E
 DP 59:16:50 N  005:31:28 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9537,7 +10051,7 @@ DP 59:04:38 N  009:37:11 E
 DP 59:04:47 N  009:38:07 E
 DP 59:06:31 N  009:35:08 E
 DP 59:06:11 N  009:34:16 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9609,7 +10123,7 @@ DP 70:22:25 N  031:07:16 E
 DP 70:22:26 N  031:07:24 E
 DP 70:22:26 N  031:07:33 E
 DP 70:22:26 N  031:07:42 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9683,7 +10197,7 @@ DP 69:17:41 N  016:00:22 E
 DP 69:17:41 N  016:00:26 E
 DP 69:17:41 N  016:00:31 E
 DP 69:16:42 N  016:00:31 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -9757,7 +10271,7 @@ DP 69:15:42 N  016:00:39 E
 DP 69:15:42 N  016:00:35 E
 DP 69:15:42 N  016:00:31 E
 DP 69:16:42 N  016:00:31 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC W
@@ -9769,7 +10283,7 @@ DP 61:52:15 N  006:50:10 E
 DP 61:52:05 N  006:51:30 E
 DP 61:53:10 N  006:52:20 E
 DP 61:53:10 N  006:49:40 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.5-en-GB.html
 *
 *
 AC Q
@@ -9841,7 +10355,7 @@ DP 65:24:12 N  012:29:47 E
 DP 65:24:13 N  012:29:53 E
 DP 65:24:13 N  012:30:00 E
 DP 65:24:13 N  012:30:08 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9913,7 +10427,7 @@ DP 63:25:46 N  010:28:15 E
 DP 63:25:47 N  010:28:21 E
 DP 63:25:47 N  010:28:28 E
 DP 63:25:47 N  010:28:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9926,7 +10440,7 @@ DP 59:06:33 N  009:38:19 E
 DP 59:06:59 N  009:38:46 E
 DP 59:08:03 N  009:37:45 E
 DP 59:07:23 N  009:36:34 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -9998,7 +10512,7 @@ DP 60:30:28 N  005:22:03 E
 DP 60:30:29 N  005:22:09 E
 DP 60:30:29 N  005:22:15 E
 DP 60:30:29 N  005:22:20 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -10070,7 +10584,7 @@ DP 60:13:58 N  010:17:18 E
 DP 60:13:59 N  010:17:24 E
 DP 60:13:59 N  010:17:30 E
 DP 60:13:59 N  010:17:35 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10142,7 +10656,7 @@ DP 60:04:47 N  010:05:21 E
 DP 60:04:48 N  010:05:27 E
 DP 60:04:48 N  010:05:33 E
 DP 60:04:48 N  010:05:39 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10214,7 +10728,7 @@ DP 60:04:41 N  011:08:19 E
 DP 60:04:42 N  011:08:25 E
 DP 60:04:42 N  011:08:31 E
 DP 60:04:42 N  011:08:37 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10286,7 +10800,7 @@ DP 59:57:44 N  010:34:40 E
 DP 59:57:45 N  010:34:46 E
 DP 59:57:45 N  010:34:52 E
 DP 59:57:45 N  010:34:58 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10358,7 +10872,7 @@ DP 59:10:32 N  009:35:57 E
 DP 59:10:33 N  009:36:02 E
 DP 59:10:33 N  009:36:08 E
 DP 59:10:33 N  009:36:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10430,7 +10944,7 @@ DP 59:08:54 N  011:16:57 E
 DP 59:08:55 N  011:17:02 E
 DP 59:08:55 N  011:17:08 E
 DP 59:08:55 N  011:17:14 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10502,7 +11016,7 @@ DP 59:00:05 N  005:39:08 E
 DP 59:00:06 N  005:39:13 E
 DP 59:00:06 N  005:39:19 E
 DP 59:00:06 N  005:39:25 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10514,7 +11028,7 @@ DP 63:24:22 N  008:39:49 E
 DP 63:24:29 N  008:42:19 E
 DP 63:25:04 N  008:42:11 E
 DP 63:24:57 N  008:39:41 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10526,7 +11040,7 @@ DP 59:47:50 N  010:49:54 E
 DP 59:48:57 N  010:49:54 E
 DP 59:48:57 N  010:50:49 E
 DP 59:47:50 N  010:50:49 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10598,7 +11112,7 @@ DP 58:28:01 N  008:45:47 E
 DP 58:28:01 N  008:45:51 E
 DP 58:28:01 N  008:45:55 E
 DP 58:28:01 N  008:45:58 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10670,7 +11184,7 @@ DP 62:41:32 N  008:29:38 E
 DP 62:41:32 N  008:29:40 E
 DP 62:41:32 N  008:29:43 E
 DP 62:41:32 N  008:29:45 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC R
@@ -10742,7 +11256,7 @@ DP 62:39:55 N  008:31:19 E
 DP 62:39:55 N  008:31:20 E
 DP 62:39:55 N  008:31:21 E
 DP 62:39:55 N  008:31:23 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
 AC Q
@@ -10814,6 +11328,6 @@ DP 58:55:31 N  005:34:25 E
 DP 58:55:31 N  005:34:26 E
 DP 58:55:31 N  005:34:27 E
 DP 58:55:31 N  005:34:29 E
-* Source: https://aim-prod.avinor.no/no/AIP/View/Index/142/2025-09-04-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
+* Source: https://aim-prod.avinor.no/no/AIP/View/Index/147/2025-11-27-AIRAC/html/eAIP/EN-ENR-5.1-en-GB.html
 *
 *
