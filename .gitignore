@@ -12,3 +12,5 @@ import/log
 import/hoering
 *__pycache__*
 .*swp
+.github
+tests/baseline
