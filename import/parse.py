@@ -509,7 +509,19 @@ class FeatureBuilder:
 
 
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
-    """Complete and sanity check a feature definition"""
+    """Complete and sanity check a feature definition.
+    
+    Args:
+        feature: Feature dict to finalize
+        features: List to append completed features to
+        obj: Geometry coordinates
+        source: Source filename
+        aipname: Airspace name
+        cta_aip, restrict_aip, aip_sup, tia_aip: Document type flags
+
+    Returns:
+        Tuple of (empty_feature, empty_obj) for reset
+    """
     global completed
     global country
     global end_notam
