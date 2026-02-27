@@ -506,6 +506,216 @@ class BorderFollower:
         return fill
 
 
+class GeometryBuilder:
+    """Builder for airspace geometry construction.
+    
+    Consolidates geometry operations (circles, sectors, arcs, merging).
+    Provides consistent interface for building and combining airspace boundaries.
+    """
+    
+    def add_circle(self, obj, center_n, center_e, radius_nm, convert=True):
+        """Add a circle to the geometry.
+        
+        Args:
+            obj: Current object coordinate list
+            center_n: North coordinate of center
+            center_e: East coordinate of center  
+            radius_nm: Radius in nautical miles
+            convert: Whether to convert coordinates (default True)
+            
+        Returns:
+            Updated object coordinate list
+        """
+        logger.debug(f"Adding circle: center=({center_n}, {center_e}), radius={radius_nm}nm")
+        circle = gen_circle(center_n, center_e, radius_nm, convert=convert)
+        return merge_poly(obj, circle)
+    
+    def add_sector(self, obj, center_n, center_e, sec_from, sec_to, rad_from, rad_to):
+        """Add a sector (pie slice) to the geometry.
+        
+        Args:
+            obj: Current object coordinate list
+            center_n: North coordinate of center
+            center_e: East coordinate of center
+            sec_from: Starting angle in degrees
+            sec_to: Ending angle in degrees
+            rad_from: Starting radius (or None)
+            rad_to: Ending radius
+            
+        Returns:
+            Updated object coordinate list
+        """
+        logger.debug(f"Adding sector: center=({center_n}, {center_e}), angles={sec_from}°-{sec_to}°, radius={rad_from or 0}-{rad_to}nm")
+        sector = gen_sector(center_n, center_e, sec_from, sec_to, rad_from, rad_to)
+        return merge_poly(obj, sector)
+    
+    def add_arc(self, obj, center_n, center_e, radius_nm, to_n, to_e, clockwise):
+        """Add an arc segment to the geometry.
+        
+        Args:
+            obj: Current object coordinate list (must have at least one point)
+            center_n: North coordinate of arc center
+            center_e: East coordinate of arc center
+            radius_nm: Radius in nautical miles
+            to_n: North coordinate of arc endpoint
+            to_e: East coordinate of arc endpoint
+            clockwise: Direction of arc (True = clockwise)
+            
+        Returns:
+            Updated object coordinate list with arc points inserted
+        """
+        if not obj:
+            logger.warning("Cannot add arc: obj is empty")
+            return obj
+        
+        logger.debug(f"Adding arc: center=({center_n}, {center_e}), to=({to_n}, {to_e}), radius={radius_nm}nm, {'CW' if clockwise else 'CCW'}")
+        
+        # Generate circle and use fill_along to get arc segment
+        arc_circle = gen_circle(center_n, center_e, radius_nm, convert=False)
+        fill = fill_along(obj[-1], (to_n, to_e), arc_circle, clockwise)
+        
+        # Insert arc points
+        for lon, lat in fill:
+            n, e = ll2c((lon, lat))
+            obj.insert(0, (n, e))
+        
+        return obj
+
+
+class FeatureValidator:
+    """Validator for airspace features.
+    
+    Provides validation checks for feature completeness and correctness.
+    Helps identify issues with parsed airspace data before finalization.
+    """
+    
+    def validate(self, feature, obj, aipname=None):
+        """Validate a feature for completeness and consistency.
+        
+        Args:
+            feature: Feature dict to validate
+            obj: Geometry coordinate list
+            aipname: Optional airspace name for error messages
+            
+        Returns:
+            Tuple of (is_valid, error_messages)
+        """
+        errors = []
+        name_str = f" ({aipname})" if aipname else ""
+        
+        # Check for required properties
+        if not feature.get('properties'):
+            errors.append(f"Missing properties{name_str}")
+        else:
+            # Check vertical limits
+            from_amsl = feature['properties'].get('from (ft amsl)')
+            to_amsl = feature['properties'].get('to (ft amsl)')
+            
+            if from_amsl is None:
+                errors.append(f"Missing lower limit{name_str}")
+            if to_amsl is None:
+                errors.append(f"Missing upper limit{name_str}")
+            
+            # Validate vertical limit consistency
+            if from_amsl is not None and to_amsl is not None:
+                try:
+                    if int(from_amsl) >= int(to_amsl):
+                        errors.append(f"Invalid vertical limits: from={from_amsl} >= to={to_amsl}{name_str}")
+                except (ValueError, TypeError):
+                    errors.append(f"Non-numeric vertical limits{name_str}")
+        
+        # Check geometry
+        if not obj or len(obj) < 3:
+            errors.append(f"Insufficient geometry points: {len(obj) if obj else 0}{name_str}")
+        
+        return len(errors) == 0, errors
+    
+    def check_required_property(self, feature, property_name, aipname=None):
+        """Check if a required property exists.
+        
+        Args:
+            feature: Feature dict
+            property_name: Name of required property
+            aipname: Optional airspace name for logging
+            
+        Returns:
+            True if property exists and is not None
+        """
+        value = feature.get('properties', {}).get(property_name)
+        if value is None:
+            name_str = f" ({aipname})" if aipname else ""
+            logger.warning(f"Missing required property '{property_name}'{name_str}")
+            return False
+        return True
+
+
+class DocumentTypeStrategy:
+    """Strategy for determining document type and parsing behavior.
+    
+    Encapsulates the logic for identifying AIP document types (AD, ENR-2.1, etc.)
+    and their specific parsing requirements.
+    """
+    
+    def __init__(self, filename):
+        """Initialize by detecting document type from filename.
+        
+        Args:
+            filename: Path to the AIP document file
+        """
+        self.filename = filename
+        
+        # Document type flags
+        self.ad_aip = "-AD-" in filename or "_AD_" in filename
+        self.cta_aip = "ENR-2.1" in filename
+        self.tia_aip = "ENR-2.2" in filename
+        self.restrict_aip = "ENR-5.1" in filename
+        self.military_aip = "ENR-5.2" in filename
+        self.airsport_aip = "ENR-5.5" in filename
+        self.aip_sup = "en_sup" in filename
+        self.es_aip_sup = "aro.lfv.se" in filename and "editorial" in filename
+        self.valldal = "valldal" in filename
+        
+        # Country-specific document types
+        self.es_enr_2_1 = "ES_ENR_2_1" in filename
+        self.es_enr_2_2 = "ES_ENR_2_2" in filename
+        self.es_enr_5_1 = "ES_ENR_5_1" in filename
+        self.es_enr_5_2 = "ES_ENR_5_2" in filename
+        self.en_enr_5_1 = "EN_ENR_5_1" in filename
+    
+    def get_document_type(self):
+        """Get human-readable document type description.
+        
+        Returns:
+            String describing the document type
+        """
+        if self.ad_aip:
+            return "AD (Aerodrome)"
+        elif self.cta_aip:
+            return "ENR-2.1 (CTA)"
+        elif self.tia_aip:
+            return "ENR-2.2 (TIA)"
+        elif self.restrict_aip:
+            return "ENR-5.1 (Restricted)"
+        elif self.military_aip:
+            return "ENR-5.2 (Military)"
+        elif self.airsport_aip:
+            return "ENR-5.5 (Airsport)"
+        elif self.aip_sup:
+            return "SUP (Supplement)"
+        elif self.valldal:
+            return "Valldal"
+        else:
+            return "Unknown"
+    
+    def is_special_finalize_trigger(self):
+        """Check if this doc type has special finalization triggers.
+        
+        Returns:
+            True if airsport, supplement, or military (finalizes on final coord)
+        """
+        return self.airsport_aip or self.aip_sup or self.military_aip
+
+
 class FeatureBuilder:
     """Builder for airspace feature properties.
     
@@ -753,22 +963,25 @@ for filename in os.listdir("./sources/txt"):
 
     data = open("./sources/txt/"+filename,"r","utf-8").readlines()
     
-    ad_aip       = "-AD-" in filename or "_AD_" in filename
-    cta_aip      = "ENR-2.1" in filename
-    tia_aip      = "ENR-2.2" in filename
-    restrict_aip = "ENR-5.1" in filename
-    military_aip = "ENR-5.2" in filename
-    airsport_aip = "ENR-5.5" in filename
-    aip_sup      = "en_sup" in filename
-    es_aip_sup   = "aro.lfv.se" in filename and "editorial" in filename
-    valldal      = "valldal" in filename
-
-    # TODO: merge the cases
-    es_enr_2_1 = "ES_ENR_2_1" in filename
-    es_enr_2_2 = "ES_ENR_2_2" in filename
-    es_enr_5_1 = "ES_ENR_5_1" in filename
-    es_enr_5_2 = "ES_ENR_5_2" in filename
-    en_enr_5_1 = "EN_ENR_5_1" in filename
+    # Determine document type using strategy
+    doc_strategy = DocumentTypeStrategy(filename)
+    logger.debug(f"Document type: {doc_strategy.get_document_type()}")
+    
+    # Extract boolean flags for backward compatibility
+    ad_aip = doc_strategy.ad_aip
+    cta_aip = doc_strategy.cta_aip
+    tia_aip = doc_strategy.tia_aip
+    restrict_aip = doc_strategy.restrict_aip
+    military_aip = doc_strategy.military_aip
+    airsport_aip = doc_strategy.airsport_aip
+    aip_sup = doc_strategy.aip_sup
+    es_aip_sup = doc_strategy.es_aip_sup
+    valldal = doc_strategy.valldal
+    es_enr_2_1 = doc_strategy.es_enr_2_1
+    es_enr_2_2 = doc_strategy.es_enr_2_2
+    es_enr_5_1 = doc_strategy.es_enr_5_1
+    es_enr_5_2 = doc_strategy.es_enr_5_2
+    en_enr_5_1 = doc_strategy.en_enr_5_1
 
     # Initialize parsing context for this file
     ctx = ParsingContext()
@@ -777,6 +990,8 @@ for filename in os.listdir("./sources/txt"):
     vertical_parser = VerticalLimitParser(patterns)
     coord_parser = CoordinateParser(patterns)
     border_follower = BorderFollower()
+    geometry_builder = GeometryBuilder()
+    feature_validator = FeatureValidator()
     feature_builder = FeatureBuilder()
 
     if "EN_" or "en_" or "_en." in filename:
@@ -894,10 +1109,8 @@ for filename in os.listdir("./sources/txt"):
                 ctx.lastn, ctx.laste = n, e
                 logger.debug("Circle center is %s %s %s %s", coords.get('n'), coords.get('e'), coords.get('cn'), coords.get('ce'))
                 logger.debug("COORDS is %s", json.dumps(coords))
-                c_gen = gen_circle(n, e, rad)
-                logger.debug("LENS %s %s", len(ctx.obj), len(c_gen))
-                ctx.obj = merge_poly(ctx.obj, c_gen)
-                logger.debug("LENS %s %s", len(ctx.obj), len(c_gen))
+                ctx.obj = geometry_builder.add_circle(ctx.obj, n, e, rad)
+                logger.debug("LENS %s", len(ctx.obj))
 
             elif coords2:
                 coords  = coords2.groupdict()
@@ -909,9 +1122,7 @@ for filename in os.listdir("./sources/txt"):
                 secto = coords.get('secto')
                 radfrom = coords.get('radfrom')
                 radto = coords.get('rad')
-                c_gen = gen_sector(n, e, secfrom, secto, radfrom, radto)
-
-                ctx.obj = merge_poly(ctx.obj, c_gen)
+                ctx.obj = geometry_builder.add_sector(ctx.obj, n, e, secfrom, secto, radfrom, radto)
 
             else:
                 skip_next = 0
@@ -934,17 +1145,12 @@ for filename in os.listdir("./sources/txt"):
                         n = arcdata['n']
                         e = arcdata['e']
                         rad = arcdata.get('rad1') or arcdata.get('rad2')
-                        arc = gen_circle(n, e, rad, convert=False)
                         to_n = arcdata['n2']
                         to_e = arcdata['e2']
                         cw = arcdata['dir']
                         logger.debug("ARC IS "+cw)
-                        fill = fill_along(ctx.obj[-1],(to_n,to_e), arc, (cw=='clockwise'))
+                        ctx.obj = geometry_builder.add_arc(ctx.obj, n, e, rad, to_n, to_e, cw=='clockwise')
                         ctx.lastn, ctx.laste = None, None
-
-                        for apair in fill:
-                            bn, be = ll2c(apair)
-                            ctx.obj.insert(0,(bn,be))
                         skip_next = 1
                     elif circle:
                         ctx.coords_wrap += line.strip() + " "
@@ -960,9 +1166,8 @@ for filename in os.listdir("./sources/txt"):
                             ctx.obj.insert(0,(bn,be))
 
                     if rad and cn and ce:
-                        c_gen = gen_circle(cn, ce, rad)
                         logger.debug("Merging circle using cn, ce.")
-                        ctx.obj = merge_poly(ctx.obj, c_gen)
+                        ctx.obj = geometry_builder.add_circle(ctx.obj, cn, ce, rad)
                     if n and e:
                         ctx.lastn, ctx.laste = n, e
                         ctx.obj.insert(0,(n,e))
@@ -976,6 +1181,10 @@ for filename in os.listdir("./sources/txt"):
                     if (airsport_aip or aip_sup or military_aip) and ctx.finalcoord:
                         if ctx.feature['properties'].get('from (ft amsl)') is not None:
                             logger.debug("Finalizing: ctx.finalcoord.")
+                            # Optional validation logging (doesn't block finalize)
+                            is_valid, errors = feature_validator.validate(ctx.feature, ctx.obj, ctx.aipname)
+                            if not is_valid:
+                                logger.debug(f"Feature validation warnings: {', '.join(errors)}")
                             ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                             ctx.lastv = None
 
