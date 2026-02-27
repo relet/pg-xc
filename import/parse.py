@@ -803,6 +803,144 @@ class DocumentTypeStrategy:
         return self.airsport_aip or self.aip_sup or self.military_aip
 
 
+class SpecialCaseRegistry:
+    """Registry for all special cases and workarounds.
+    
+    Provides centralized checking for location-specific and format-specific
+    quirks in Norwegian AIP documents. See module docstring for full list.
+    """
+    
+    # Special case identifiers
+    OSLO_ROMERIKE_NOTAM = "oslo_romerike_notam"
+    SALEN_SAAB_SECTORS = "salen_saab_sectors"
+    KRAMFORS_WITHIN = "kramfors_within"
+    VALLDAL_FORMAT = "valldal_format"
+    FARRIS_COUNTER = "farris_counter"
+    GEITERYGGEN_SKIP = "geiteryggen_skip"
+    ROMERIKE_OSLO_ALT = "romerike_oslo_alt"
+    SEE_RMK_VERTL = "see_rmk_vertl"
+    TIA_COLUMN_SHIFT = "tia_column_shift"
+    INCOMPLETE_CIRCLE = "incomplete_circle"
+    D476_D477_NAMES = "d476_d477_names"
+    SALEN_SAAB_NAME_SKIP = "salen_saab_name_skip"
+    
+    def __init__(self):
+        """Initialize special case registry."""
+        pass
+    
+    def is_oslo_romerike_notam_area(self, aipname):
+        """Check if airspace is Oslo/Romerike NOTAM-only area.
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            True if this is a NOTAM-only restricted area
+        """
+        if "EN R" not in aipname:
+            return False
+        
+        # Specific areas that are NOTAM-activated
+        if "Kongsvinger" in aipname:
+            return True
+        if "Romerike" in aipname:
+            return True
+        if "Oslo" in aipname and "102" not in aipname:
+            return True
+        
+        return False
+    
+    def is_salen_saab_sector(self, aipname):
+        """Check if airspace is SÄLEN or SAAB CTR sector.
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            True if this is a SÄLEN or SAAB sector airspace
+        """
+        if not aipname:
+            return False
+        return "SÄLEN" in aipname or "SAAB" in aipname
+    
+    def is_kramfors(self, aipname):
+        """Check if airspace is Kramfors (has 'within' keyword issue).
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            True if this is Kramfors airspace
+        """
+        return aipname and "KRAMFORS" in aipname
+    
+    def is_farris_tma(self, aipname):
+        """Check if airspace is Farris TMA (counter skip issue).
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            True if this is Farris TMA
+        """
+        return aipname and "Farris" in aipname
+    
+    def is_geiteryggen(self, aipname):
+        """Check if airspace is Geiteryggen (skip finalization).
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            True if this is Geiteryggen
+        """
+        return aipname and "Geiteryggen" in aipname
+    
+    def is_romerike_oslo_alt(self, aipname):
+        """Check if airspace is Romerike/Oslo with altitude handling.
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            True if this requires special altitude handling
+        """
+        if not aipname:
+            return False
+        return "Romerike" in aipname or "Oslo" in aipname
+    
+    def needs_d476_d477_normalization(self, aipname):
+        """Check if name needs D476/D477 suffix normalization.
+        
+        Args:
+            aipname: Airspace name
+            
+        Returns:
+            'D476', 'D477', or None
+        """
+        if aipname == 'EN D476':
+            return 'D476'
+        elif aipname == 'EN D477':
+            return 'D477'
+        return None
+    
+    def is_sector_name_to_skip(self, name, ctx):
+        """Check if sector name should be skipped (SÄLEN/SAAB subdivisions).
+        
+        Args:
+            name: Name to check
+            ctx: ParsingContext
+            
+        Returns:
+            True if name should be skipped
+        """
+        if name == "Sector a" or name == "Sector b":
+            return True
+        if ctx.aipname and "Sector" in ctx.aipname and self.is_salen_saab_sector(ctx.aipname):
+            return True
+        return False
+
+
 class ColumnParser:
     """Parser for table-based AIP documents with column layouts.
     
@@ -1223,6 +1361,7 @@ for filename in os.listdir("./sources/txt"):
     feature_validator = FeatureValidator()
     feature_builder = FeatureBuilder()
     column_parser = ColumnParser(doc_strategy)
+    special_cases = SpecialCaseRegistry()
 
     # Norwegian AIP only (Swedish files will be skipped/ignored)
     country = 'EN'
