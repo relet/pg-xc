@@ -191,6 +191,13 @@ class GeometryGenerator:
         Returns:
             List of coordinate tuples forming sector boundary
         """
+        # Convert string parameters to numeric
+        bearing_from = float(bearing_from)
+        bearing_to = float(bearing_to)
+        if radius_inner_nm is not None:
+            radius_inner_nm = float(radius_inner_nm)
+        radius_outer_nm = float(radius_outer_nm)
+        
         logger.debug(
             f"Generating sector: center=({center_n}, {center_e}), "
             f"bearings={bearing_from}°-{bearing_to}°, "

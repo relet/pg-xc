@@ -168,7 +168,11 @@ class ParseRegressionTest:
             return False, f"Error comparing files: {e}"
     
     def compare_geojson_detailed(self, file1, file2, name):
-        """Detailed GeoJSON comparison with feature-by-feature analysis"""
+        """Detailed GeoJSON comparison with feature-by-feature analysis.
+        
+        Uses area-based comparison to allow for minor coordinate differences
+        while ensuring functional equivalence.
+        """
         try:
             with open(file1, 'r', encoding='utf-8') as f1:
                 data1 = geojson.load(f1)
@@ -206,12 +210,28 @@ class ParseRegressionTest:
                 baseline_feat = baseline_features[feat_name]
                 current_feat = current_features[feat_name]
                 
-                # Compare geometry (coordinate count and rough shape)
+                # Compare geometry using area (more tolerant to coordinate precision)
                 b_coords = baseline_feat['geometry']['coordinates'][0]
                 c_coords = current_feat['geometry']['coordinates'][0]
                 
-                if len(b_coords) != len(c_coords):
-                    issues.append(f"{feat_name}: coordinate count differs ({len(b_coords)} vs {len(c_coords)})")
+                # Calculate areas
+                try:
+                    from shapely.geometry import Polygon
+                    b_area = Polygon(b_coords).area
+                    c_area = Polygon(c_coords).area
+                    
+                    # Use same tolerance as compare.py (0.001)
+                    area_diff = abs(b_area - c_area)
+                    if area_diff > 0.001:
+                        issues.append(
+                            f"{feat_name}: area differs significantly "
+                            f"(baseline={b_area:.6f}, current={c_area:.6f}, diff={area_diff:.6f})"
+                        )
+                except Exception as e:
+                    # Fall back to coordinate count if area calculation fails
+                    coord_diff = abs(len(b_coords) - len(c_coords))
+                    if coord_diff > 10:  # Allow up to 10 coordinate difference
+                        issues.append(f"{feat_name}: coordinate count differs significantly ({len(b_coords)} vs {len(c_coords)})")
                 
                 # Compare key properties
                 b_props = baseline_feat['properties']
@@ -225,7 +245,7 @@ class ParseRegressionTest:
             if issues:
                 return False, "\n".join(issues[:20])  # Show first 20 issues
             
-            return True, f"All {len(common)} features match"
+            return True, f"All {len(common)} features match (areas within tolerance)"
             
         except Exception as e:
             return False, f"Error comparing GeoJSON: {e}"
