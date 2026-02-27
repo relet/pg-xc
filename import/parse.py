@@ -3,6 +3,9 @@
 
 from codecs import open
 from copy import deepcopy
+from dataclasses import dataclass
+from enum import Enum, auto
+from typing import Optional, List, Tuple
 from geojson import load
 import os
 import re
@@ -396,9 +399,12 @@ class ClassParser:
             match: Regex match object
             
         Returns:
-            Class string (e.g., "C", "D", "G")
+            AirspaceClass enum or string (for backward compatibility)
         """
-        return match.groupdict().get('class')
+        class_str = match.groupdict().get('class')
+        # Try to parse as enum, fall back to string for unknown classes
+        airspace_class = AirspaceClass.from_string(class_str)
+        return airspace_class.value if airspace_class else class_str
 
 
 class VerticalLimitParser:
@@ -729,6 +735,227 @@ class FeatureValidator:
         return True
 
 
+class DocumentType(Enum):
+    """Enumeration of Norwegian AIP document types.
+    
+    Each document type has specific parsing rules and column layouts.
+    Replaces the previous boolean flag approach for better type safety.
+    """
+    AD_AIP = auto()          # Aerodrome documents (AD-2.*)
+    CTA_AIP = auto()         # Control area (ENR-2.1)
+    TIA_AIP = auto()         # Traffic information area (ENR-2.2)
+    RESTRICT_AIP = auto()    # Restricted areas (ENR-5.1)
+    MILITARY_AIP = auto()    # Military areas (ENR-5.2)
+    AIRSPORT_AIP = auto()    # Airsport areas (ENR-5.5)
+    AIP_SUP = auto()         # Supplements (en_sup)
+    VALLDAL = auto()         # Custom Valldal format
+    UNKNOWN = auto()         # Unrecognized format
+    
+    @property
+    def is_column_based(self):
+        """True if document uses column-based table format."""
+        return self in (
+            DocumentType.CTA_AIP,
+            DocumentType.TIA_AIP,
+            DocumentType.RESTRICT_AIP,
+            DocumentType.MILITARY_AIP,
+            DocumentType.AIRSPORT_AIP
+        )
+    
+    @property
+    def has_special_finalize_trigger(self):
+        """True if finalizes on final coordinate instead of name."""
+        return self in (
+            DocumentType.AIRSPORT_AIP,
+            DocumentType.AIP_SUP,
+            DocumentType.MILITARY_AIP
+        )
+    
+    @property
+    def description(self):
+        """Human-readable description of document type."""
+        descriptions = {
+            DocumentType.AD_AIP: "AD (Aerodrome)",
+            DocumentType.CTA_AIP: "ENR-2.1 (CTA)",
+            DocumentType.TIA_AIP: "ENR-2.2 (TIA)",
+            DocumentType.RESTRICT_AIP: "ENR-5.1 (Restricted)",
+            DocumentType.MILITARY_AIP: "ENR-5.2 (Military)",
+            DocumentType.AIRSPORT_AIP: "ENR-5.5 (Airsport)",
+            DocumentType.AIP_SUP: "SUP (Supplement)",
+            DocumentType.VALLDAL: "Valldal",
+            DocumentType.UNKNOWN: "Unknown"
+        }
+        return descriptions.get(self, "Unknown")
+
+
+@dataclass
+class VerticalLimit:
+    """Vertical limit specification for airspace.
+    
+    Encapsulates altitude/flight level with validation and unit conversion.
+    Replaces dict-based vertical limits for type safety.
+    """
+    from_ft: Optional[int] = None    # Lower limit in feet AMSL
+    to_ft: Optional[int] = None      # Upper limit in feet AMSL
+    from_m: Optional[int] = None     # Lower limit in meters AMSL (derived)
+    to_m: Optional[int] = None       # Upper limit in meters AMSL (derived)
+    from_fl: Optional[int] = None    # Lower flight level
+    to_fl: Optional[int] = None      # Upper flight level
+    is_gnd: bool = False             # Lower limit is ground
+    is_unl: bool = False             # Upper limit is unlimited
+    
+    def __post_init__(self):
+        """Validate and convert units after initialization."""
+        # Convert meters if provided but feet not
+        if self.from_m is not None and self.from_ft is None:
+            self.from_ft = int(self.from_m * 3.28084)
+        if self.to_m is not None and self.to_ft is None:
+            self.to_ft = int(self.to_m * 3.28084)
+        
+        # Convert feet to meters if not provided
+        if self.from_ft is not None and self.from_m is None:
+            self.from_m = ft2m(self.from_ft)
+        if self.to_ft is not None and self.to_m is None:
+            self.to_m = ft2m(self.to_ft)
+        
+        # Convert flight levels to feet if provided
+        if self.from_fl is not None and self.from_ft is None:
+            self.from_ft = self.from_fl * 100
+            self.from_m = ft2m(self.from_ft)
+        if self.to_fl is not None and self.to_ft is None:
+            self.to_ft = self.to_fl * 100
+            self.to_m = ft2m(self.to_ft)
+        
+        # Set to GND if specified
+        if self.is_gnd:
+            self.from_ft = 0
+            self.from_m = 0
+    
+    def is_valid(self) -> bool:
+        """Check if vertical limits are valid and consistent.
+        
+        Returns:
+            True if limits are complete and from < to
+        """
+        if self.from_ft is None and not self.is_gnd:
+            return False
+        if self.to_ft is None and not self.is_unl:
+            return False
+        if self.from_ft is not None and self.to_ft is not None:
+            return self.from_ft < self.to_ft
+        return True
+    
+    @property
+    def is_complete(self) -> bool:
+        """True if both lower and upper limits are defined."""
+        has_lower = self.from_ft is not None or self.is_gnd
+        has_upper = self.to_ft is not None or self.is_unl
+        return has_lower and has_upper
+    
+    def to_properties(self) -> dict:
+        """Convert to GeoJSON properties dict.
+        
+        Returns:
+            Dict with 'from (ft amsl)', 'to (ft amsl)', etc.
+        """
+        props = {}
+        if self.from_ft is not None:
+            props['from (ft amsl)'] = str(self.from_ft)
+        if self.to_ft is not None:
+            props['to (ft amsl)'] = str(self.to_ft)
+        if self.from_m is not None:
+            props['from (m amsl)'] = str(self.from_m)
+        if self.to_m is not None:
+            props['to (m amsl)'] = str(self.to_m)
+        return props
+    
+    @classmethod
+    def from_properties(cls, props: dict) -> 'VerticalLimit':
+        """Create from GeoJSON properties dict.
+        
+        Args:
+            props: Properties dict with 'from (ft amsl)', etc.
+            
+        Returns:
+            VerticalLimit instance
+        """
+        from_ft = props.get('from (ft amsl)')
+        to_ft = props.get('to (ft amsl)')
+        from_m = props.get('from (m amsl)')
+        to_m = props.get('to (m amsl)')
+        
+        # Convert strings to ints
+        return cls(
+            from_ft=int(from_ft) if from_ft else None,
+            to_ft=int(to_ft) if to_ft else None,
+            from_m=int(from_m) if from_m else None,
+            to_m=int(to_m) if to_m else None
+        )
+
+
+class AirspaceClass(Enum):
+    """ICAO airspace classification.
+    
+    Represents the different classes of airspace with validation.
+    Norwegian AIP uses: A, C, D, G, Q (Danger), R (Restricted), Luftsport.
+    """
+    A = "A"  # Class A - IFR only, clearance required
+    B = "B"  # Class B - IFR/VFR, clearance required
+    C = "C"  # Class C - IFR/VFR, clearance required
+    D = "D"  # Class D - IFR/VFR, clearance required for IFR
+    E = "E"  # Class E - IFR/VFR, clearance required for IFR
+    F = "F"  # Class F - Advisory (not used in Norway)
+    G = "G"  # Class G - Uncontrolled
+    Q = "Q"  # Danger area
+    R = "R"  # Restricted area
+    LUFTSPORT = "Luftsport"  # Norwegian airsport designation
+    
+    @classmethod
+    def from_string(cls, value: str) -> Optional['AirspaceClass']:
+        """Parse airspace class from string.
+        
+        Args:
+            value: Class string (e.g. "C", "G", "Luftsport")
+            
+        Returns:
+            AirspaceClass enum or None if invalid
+        """
+        if not value:
+            return None
+        
+        # Direct match
+        try:
+            return cls(value)
+        except ValueError:
+            pass
+        
+        # Case-insensitive match
+        for member in cls:
+            if member.value.upper() == value.upper():
+                return member
+        
+        return None
+    
+    @property
+    def is_controlled(self) -> bool:
+        """True if airspace requires ATC clearance."""
+        return self in (
+            AirspaceClass.A,
+            AirspaceClass.B,
+            AirspaceClass.C,
+            AirspaceClass.D
+        )
+    
+    @property
+    def is_restricted(self) -> bool:
+        """True if airspace has entry restrictions."""
+        return self in (
+            AirspaceClass.Q,
+            AirspaceClass.R,
+            AirspaceClass.LUFTSPORT
+        )
+
+
 class DocumentTypeStrategy:
     """Strategy for determining document type and parsing behavior.
     
@@ -743,19 +970,48 @@ class DocumentTypeStrategy:
             filename: Path to the AIP document file
         """
         self.filename = filename
+        self.doc_type = self._detect_type(filename)
         
-        # Document type flags
-        self.ad_aip = "-AD-" in filename or "_AD_" in filename
-        self.cta_aip = "ENR-2.1" in filename
-        self.tia_aip = "ENR-2.2" in filename
-        self.restrict_aip = "ENR-5.1" in filename
-        self.military_aip = "ENR-5.2" in filename
-        self.airsport_aip = "ENR-5.5" in filename
-        self.aip_sup = "en_sup" in filename
-        self.valldal = "valldal" in filename
-        
-        # Norwegian-specific document types
+        # Legacy boolean flags for backward compatibility
+        # TODO: Remove once all code uses doc_type enum
+        self.ad_aip = (self.doc_type == DocumentType.AD_AIP)
+        self.cta_aip = (self.doc_type == DocumentType.CTA_AIP)
+        self.tia_aip = (self.doc_type == DocumentType.TIA_AIP)
+        self.restrict_aip = (self.doc_type == DocumentType.RESTRICT_AIP)
+        self.military_aip = (self.doc_type == DocumentType.MILITARY_AIP)
+        self.airsport_aip = (self.doc_type == DocumentType.AIRSPORT_AIP)
+        self.aip_sup = (self.doc_type == DocumentType.AIP_SUP)
+        self.valldal = (self.doc_type == DocumentType.VALLDAL)
         self.en_enr_5_1 = "EN_ENR_5_1" in filename
+    
+    def _detect_type(self, filename):
+        """Detect document type from filename patterns.
+        
+        Args:
+            filename: Document filename
+            
+        Returns:
+            DocumentType enum value
+        """
+        # Check patterns in priority order
+        if "-AD-" in filename or "_AD_" in filename:
+            return DocumentType.AD_AIP
+        elif "ENR-2.1" in filename:
+            return DocumentType.CTA_AIP
+        elif "ENR-2.2" in filename:
+            return DocumentType.TIA_AIP
+        elif "ENR-5.1" in filename:
+            return DocumentType.RESTRICT_AIP
+        elif "ENR-5.2" in filename:
+            return DocumentType.MILITARY_AIP
+        elif "ENR-5.5" in filename:
+            return DocumentType.AIRSPORT_AIP
+        elif "en_sup" in filename:
+            return DocumentType.AIP_SUP
+        elif "valldal" in filename:
+            return DocumentType.VALLDAL
+        else:
+            return DocumentType.UNKNOWN
     
     def get_document_type(self):
         """Get human-readable document type description.
@@ -763,24 +1019,7 @@ class DocumentTypeStrategy:
         Returns:
             String describing the document type
         """
-        if self.ad_aip:
-            return "AD (Aerodrome)"
-        elif self.cta_aip:
-            return "ENR-2.1 (CTA)"
-        elif self.tia_aip:
-            return "ENR-2.2 (TIA)"
-        elif self.restrict_aip:
-            return "ENR-5.1 (Restricted)"
-        elif self.military_aip:
-            return "ENR-5.2 (Military)"
-        elif self.airsport_aip:
-            return "ENR-5.5 (Airsport)"
-        elif self.aip_sup:
-            return "SUP (Supplement)"
-        elif self.valldal:
-            return "Valldal"
-        else:
-            return "Unknown"
+        return self.doc_type.description
     
     def is_special_finalize_trigger(self):
         """Check if this doc type has special finalization triggers.
@@ -788,7 +1027,22 @@ class DocumentTypeStrategy:
         Returns:
             True if airsport, supplement, or military (finalizes on final coord)
         """
-        return self.airsport_aip or self.aip_sup or self.military_aip
+        return self.doc_type.has_special_finalize_trigger
+    
+    def is_any_of(self, *doc_types):
+        """Check if current doc type matches any of the given types.
+        
+        Args:
+            *doc_types: Variable number of DocumentType enum values
+            
+        Returns:
+            True if doc_type matches any of the provided types
+            
+        Example:
+            if doc_strategy.is_any_of(DocumentType.RESTRICT_AIP, DocumentType.MILITARY_AIP):
+                # Handle restricted/military parsing
+        """
+        return self.doc_type in doc_types
 
 
 class SpecialCaseRegistry:
@@ -1142,14 +1396,16 @@ class ColumnParser:
         Returns:
             True if column positions were updated
         """
-        if self.doc_strategy.airsport_aip:
+        doc_type = self.doc_strategy.doc_type
+        
+        if doc_type == DocumentType.AIRSPORT_AIP:
             if "Vertical limits" in line:
                 self.vcut = line.index("Vertical limits")
                 self.vend = self.vcut + 28
                 logger.debug(f"Airsport vcut: {self.vcut}, vend: {self.vend}")
                 return True
         
-        elif self.doc_strategy.restrict_aip or self.doc_strategy.military_aip:
+        elif self.doc_strategy.is_any_of(DocumentType.RESTRICT_AIP, DocumentType.MILITARY_AIP):
             if "Vertikale grenser" in line:
                 self.vcut = line.index("Vertikale grenser")
                 self.vend = self.vcut + 16
@@ -1158,13 +1414,13 @@ class ColumnParser:
                 logger.debug(f"Restrict/Military vcut: {self.vcut}, vend: {self.vend}")
                 return True
         
-        elif self.doc_strategy.cta_aip:
+        elif doc_type == DocumentType.CTA_AIP:
             if "Tjenesteenhet" in line:
                 self.vcut = line.index("Tjenesteenhet")
                 logger.debug(f"CTA vcut: {self.vcut}")
                 return True
         
-        elif self.doc_strategy.tia_aip:
+        elif doc_type == DocumentType.TIA_AIP:
             if "Unit providing" in line:
                 self.vcut = line.index("Unit providing")
                 logger.debug(f"TIA vcut: {self.vcut}")
@@ -1183,6 +1439,7 @@ class ColumnParser:
             List of (column_text, column_number) tuples
         """
         columns = []
+        doc_type = self.doc_strategy.doc_type
         
         if tia_aip_acc and self.vcuts:
             # Split by detected column positions
@@ -1190,20 +1447,20 @@ class ColumnParser:
                 columns.append((line[self.vcuts[i]:self.vcuts[i+1]], i+1))
             columns.append((line[self.vcuts[-1]:], len(self.vcuts)))
         
-        elif self.doc_strategy.airsport_aip:
+        elif doc_type == DocumentType.AIRSPORT_AIP:
             # Two columns: main and vertical limits
             columns.append((line[:self.vcut], 1))
             columns.append((line[self.vcut:self.vend], 2))
         
-        elif self.doc_strategy.restrict_aip or self.doc_strategy.military_aip:
+        elif self.doc_strategy.is_any_of(DocumentType.RESTRICT_AIP, DocumentType.MILITARY_AIP):
             # Two or three columns depending on type
             columns.append((line[:self.vcut], 1))
-            if self.doc_strategy.military_aip:
+            if doc_type == DocumentType.MILITARY_AIP:
                 columns.append((line[self.vcut:self.vend], 2))
             else:
                 columns.append((line[self.vcut:], 2))
         
-        elif self.doc_strategy.cta_aip or self.doc_strategy.tia_aip:
+        elif self.doc_strategy.is_any_of(DocumentType.CTA_AIP, DocumentType.TIA_AIP):
             # Single column before vertical cut
             columns.append((line[:self.vcut], 1))
         
@@ -1223,8 +1480,26 @@ class FeatureBuilder:
     """
     
     def set_class(self, feature, airspace_class):
-        """Set the airspace class property."""
-        feature['properties']['class'] = airspace_class
+        """Set the airspace class property with validation.
+        
+        Args:
+            feature: Feature dict to update
+            airspace_class: Class value (string or AirspaceClass enum)
+        """
+        # Normalize to string if enum
+        if isinstance(airspace_class, AirspaceClass):
+            class_value = airspace_class.value
+        else:
+            # Validate if it's a string
+            parsed = AirspaceClass.from_string(airspace_class)
+            if parsed:
+                class_value = parsed.value
+            else:
+                # Unknown class, keep as-is but warn
+                logger.warning(f"Unknown airspace class: {airspace_class}")
+                class_value = airspace_class
+        
+        feature['properties']['class'] = class_value
     
     def set_vertical_limits(self, feature, from_amsl=None, to_amsl=None, from_fl=None, to_fl=None, warn=True):
         """Set vertical limit properties with optional overwrite warnings.
