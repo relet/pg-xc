@@ -54,11 +54,26 @@
                 opacity: 0.8;
             }
             .altitude-separator {
+                display: flex;
                 text-align: center;
                 color: #000;
                 font-size: 11px;
-                padding: 2px 0;
+                padding: 0;
+                margin: 0;
                 font-weight: normal;
+            }
+            .altitude-separator-left,
+            .altitude-separator-right {
+                flex: 1;
+                padding: 3px 5px;
+                border: 1px solid #999;
+            }
+            .altitude-separator-left {
+                text-align: right;
+                border-right: 1px solid #333;
+            }
+            .altitude-separator-right {
+                text-align: left;
             }
             #airspace-stack-title {
                 text-align: center;
@@ -578,15 +593,36 @@
                         // Add altitude separator (except after last one)
                         if (i < containingAirspaces.length - 1) {
                             var lowerSpace = containingAirspaces[i + 1];
-                            // Show the boundary altitude between these two airspaces
-                            var separatorAlt = space.from;
-                            if (lowerSpace.to < space.from) {
-                                // Gap between airspaces - show both altitudes
-                                html += '<div class="altitude-separator">' + formatAlt(space.from) + ' &lt;-&gt; ' + formatAlt(lowerSpace.to) + '</div>';
-                            } else {
-                                // Overlapping or touching - show single altitude
-                                html += '<div class="altitude-separator">' + formatAlt(space.from) + '</div>';
+                            
+                            // Convert colors to rgba for transparency
+                            var upperRgba = bgColor;
+                            if (bgColor.startsWith('#')) {
+                                var r = parseInt(bgColor.substr(1,2), 16);
+                                var g = parseInt(bgColor.substr(3,2), 16);
+                                var b = parseInt(bgColor.substr(5,2), 16);
+                                upperRgba = 'rgba(' + r + ',' + g + ',' + b + ',' + bgOpacity + ')';
                             }
+                            
+                            var lowerColor = lowerSpace.color;
+                            var lowerOpacity = lowerSpace.fillOpacity * 2;
+                            if (lowerOpacity > 0.8) lowerOpacity = 0.8;
+                            var lowerRgba = lowerColor;
+                            if (lowerColor.startsWith('#')) {
+                                var r2 = parseInt(lowerColor.substr(1,2), 16);
+                                var g2 = parseInt(lowerColor.substr(3,2), 16);
+                                var b2 = parseInt(lowerColor.substr(5,2), 16);
+                                lowerRgba = 'rgba(' + r2 + ',' + g2 + ',' + b2 + ',' + lowerOpacity + ')';
+                            }
+                            
+                            // Left: lower bound of upper airspace, Right: upper bound of lower airspace
+                            html += '<div class="altitude-separator">';
+                            html += '<div class="altitude-separator-left" style="background-color: ' + upperRgba + ';">';
+                            html += formatAlt(space.from);
+                            html += '</div>';
+                            html += '<div class="altitude-separator-right" style="background-color: ' + lowerRgba + ';">';
+                            html += formatAlt(lowerSpace.to);
+                            html += '</div>';
+                            html += '</div>';
                         }
                     }
                     
