@@ -1579,6 +1579,184 @@ class FeatureFinalizer:
         self.accsectors = accsectors
         self.oslo_notam_handler = oslo_notam_handler
     
+    def _normalize_name(self, aipname):
+        """Normalize airspace name with special case handling.
+        
+        Args:
+            aipname: Raw airspace name
+            
+        Returns:
+            Normalized name or None if airspace should be ignored
+        """
+        aipname = wstrip(str(aipname))
+        
+        # SPECIAL CASE #8: EN D476/D477 name normalization
+        if aipname == 'EN D476':
+            aipname = 'EN D476 R og B 1'
+        if aipname == 'EN D477':
+            aipname = 'EN D477 R og B 2'
+        
+        # Skip unwanted airspace types
+        for ignore in ['ADS', 'AOR', 'FAB', ' FIR', 'HTZ']:
+            if ignore in aipname:
+                logger.debug("Ignoring: %s", aipname)
+                return None
+        
+        return aipname
+    
+    def _add_sector_suffix(self, aipname, features, doc_flags):
+        """Add sector suffix to multi-sector airspaces.
+        
+        Args:
+            aipname: Airspace name
+            features: Current feature list
+            doc_flags: Document type flags
+            
+        Returns:
+            Name with sector number suffix if needed
+        """
+        cta_aip = doc_flags.get('cta_aip', False)
+        aip_sup = doc_flags.get('aip_sup', False)
+        tia_aip = doc_flags.get('tia_aip', False)
+        
+        # Handle ACC/TMA/CTA sector numbering
+        if cta_aip or aip_sup or tia_aip or 'ACC' in aipname:
+            recount = len([f for f in features if aipname in f['properties']['name']])
+            recount = recount or len([f for f in self.accsectors if aipname in f['properties']['name']])
+            if recount > 0:
+                separator = " "
+                if re.search(r'\d$', aipname):
+                    separator = "-"
+                # SPECIAL CASE #4: Farris TMA counter skip
+                if "Farris" in aipname:
+                    if recount > 4:
+                        recount += 2
+                    else:
+                        recount += 1
+                logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount + 1))
+                return aipname + separator + str(recount + 1)
+        
+        return aipname
+    
+    def _assign_class_by_name(self, feature, aipname, source):
+        """Assign airspace class based on name patterns.
+        
+        Args:
+            feature: Feature dict to update
+            aipname: Airspace name
+            source: Source filename
+        """
+        if 'TIZ' in aipname or 'TIA' in aipname:
+            feature['properties']['class'] = 'G'
+        elif 'CTR' in aipname:
+            feature['properties']['class'] = 'D'
+        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES D' in aipname:
+            feature['properties']['class'] = 'Q'
+        elif 'EN R' in aipname or 'ES R' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
+            feature['properties']['class'] = 'R'
+        elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname or 'Sector' in aipname:
+            feature['properties']['class'] = 'C'
+        elif '5.5' in source or "Hareid" in aipname:
+            feature['properties']['class'] = 'Luftsport'
+    
+    def _simplify_geometry(self, feature, obj):
+        """Simplify complex polygon geometries.
+        
+        Args:
+            feature: Feature dict
+            obj: Geometry coordinates
+            
+        Returns:
+            Simplified geometry if needed
+        """
+        if len(obj) > 100:
+            logger.debug("COMPLEX POLYGON %s with %i points", feature['properties'].get('name'), len(obj))
+            obj = simplify_poly(obj, 100)
+            feature['geometry'] = obj
+        return obj
+    
+    def _validate_feature(self, feature, index):
+        """Validate feature has required properties.
+        
+        Args:
+            feature: Feature to validate
+            index: Feature index for error messages
+            
+        Raises:
+            SystemExit if validation fails
+        """
+        name = feature['properties'].get('name')
+        source_href = feature['properties'].get('source_href')
+        class_ = feature['properties'].get('class')
+        
+        if name is None or "None" in name:
+            logger.error("Feature without name: #%i", index)
+            sys.exit(1)
+        if source_href is None:
+            logger.error("Feature without source: #%i", index)
+            sys.exit(1)
+        if class_ is None:
+            logger.error("Feature without class (boo): #%i (%s)", index, source_href)
+            sys.exit(1)
+    
+    def _handle_vertical_limits(self, feature, source_href, index, aipname, doc_flags):
+        """Handle and validate vertical limit properties.
+        
+        Args:
+            feature: Feature dict to update
+            source_href: Source filename
+            index: Feature index
+            aipname: Airspace name
+            doc_flags: Document type flags
+            
+        Returns:
+            Tuple of (from_amsl, to_amsl) strings
+        """
+        from_ = feature['properties'].get('from (ft amsl)')
+        to_ = feature['properties'].get('to (ft amsl)')
+        military_aip = doc_flags.get('military_aip', False)
+        
+        # SPECIAL CASE #1: Oslo/Romerike NOTAM areas altitude handling
+        if self.oslo_notam_handler.applies(aipname):
+            feature = self.oslo_notam_handler.handle(feature, None)
+            # Old code had a bug: it set local vars to '0','0' forcing a swap
+            # We need to replicate this for exact output compatibility
+            if "Romerike" in aipname or "Oslo" in aipname:
+                from_ = '0'
+                to_ = '0'
+            else:
+                from_ = feature['properties'].get('from (ft amsl)')
+                to_ = feature['properties'].get('to (ft amsl)')
+        
+        # Handle missing vertical limits
+        if from_ is None:
+            if "en_sup_a_2018_015_en" in source_href:
+                feature['properties']['from (ft amsl)'] = '0'
+                feature['properties']['from (m amsl)'] = '0'
+                from_ = '0'
+            else:
+                logger.error("Feature without lower limit: #%i (%s)", index, source_href)
+                sys.exit(1)
+        if to_ is None:
+            if "en_sup_a_2018_015_en" in source_href:
+                feature['properties']['to (ft amsl)'] = '99999'
+                feature['properties']['to (m amsl)'] = '9999'
+                to_ = '99999'
+            else:
+                logger.error("Feature without upper limit: #%i (%s)", index, source_href)
+                sys.exit(1)
+        
+        # Handle inverted vertical limits (SPECIAL CASE #1)
+        if int(from_) >= int(to_):
+            if "en_sup_a_2018_015_en" in source_href or "Romerike" in aipname or "Oslo" in aipname:
+                feature['properties']['from (ft amsl)'] = to_
+                feature['properties']['to (ft amsl)'] = from_
+            else:
+                logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source_href)
+                sys.exit(1)
+        
+        return from_, to_
+    
     def finalize(self, feature, features, obj, source, aipname, doc_flags, country, end_notam, sanntid_ref):
         """Complete and sanity check a feature definition.
         
@@ -1596,66 +1774,29 @@ class FeatureFinalizer:
         Returns:
             Tuple of (empty_feature, empty_obj) for reset
         """
-        cta_aip = doc_flags.get('cta_aip', False)
-        restrict_aip = doc_flags.get('restrict_aip', False)
-        aip_sup = doc_flags.get('aip_sup', False)
-        tia_aip = doc_flags.get('tia_aip', False)
         military_aip = doc_flags.get('military_aip', False)
-        
         sanntid = sanntid_ref[0]  # Get current value
         
+        # Normalize and validate name
+        aipname = self._normalize_name(aipname)
+        if aipname is None:
+            return {"properties": {}}, []
+        
+        # Set basic properties
         feature['properties']['source_href'] = source
         feature['properties']['country'] = country
         feature['geometry'] = obj
-        aipname = wstrip(str(aipname))
         
-        # SPECIAL CASE #11: EN D476/D477 name normalization
-        if aipname == 'EN D476':
-            aipname = 'EN D476 R og B 1'
-        if aipname == 'EN D477':
-            aipname = 'EN D477 R og B 2'
-        
-        # Skip unwanted airspace types
-        for ignore in ['ADS', 'AOR', 'FAB', ' FIR', 'HTZ']:
-            if ignore in aipname:
-                logger.debug("Ignoring: %s", aipname)
-                return {"properties": {}}, []
-        
+        # Handle sector numbering
+        aipname = self._add_sector_suffix(aipname, features, doc_flags)
         feature['properties']['name'] = aipname
         
-        # Handle ACC/TMA/CTA sector numbering
-        if cta_aip or aip_sup or tia_aip or 'ACC' in aipname:
-            recount = len([f for f in features if aipname in f['properties']['name']])
-            recount = recount or len([f for f in self.accsectors if aipname in f['properties']['name']])
-            if recount > 0:
-                separator = " "
-                if re.search(r'\d$', aipname):
-                    separator = "-"
-                # SPECIAL CASE #5: Farris TMA counter skip
-                if "Farris" in aipname:
-                    if recount > 4:
-                        recount += 2
-                    else:
-                        recount += 1
-                logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount + 1))
-                feature['properties']['name'] = aipname + separator + str(recount + 1)
+        # Assign class based on name patterns (always overwrites)
+        self._assign_class_by_name(feature, aipname, source)
         
-        # Set airspace class based on name patterns
-        if 'TIZ' in aipname or 'TIA' in aipname:
-            feature['properties']['class'] = 'G'
-        elif 'CTR' in aipname:
-            feature['properties']['class'] = 'D'
-        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES D' in aipname:
-            feature['properties']['class'] = 'Q'
-        elif 'EN R' in aipname or 'ES R' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
-            feature['properties']['class'] = 'R'
-        elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname or 'Sector' in aipname:
-            feature['properties']['class'] = 'C'
-        elif '5.5' in source or "Hareid" in aipname:
-            if "Nidaros" in aipname:
-                # Skip old Nidaros airspace
-                return {"properties": {}}, []
-            feature['properties']['class'] = 'Luftsport'
+        # Skip old Nidaros airspace
+        if "Nidaros" in aipname and '5.5' in source:
+            return {"properties": {}}, []
         
         index = len(collection) + len(features)
         
@@ -1663,60 +1804,30 @@ class FeatureFinalizer:
             logger.debug("DUPLICATE NAME: %s", aipname)
         
         # Simplify complex polygons
-        if len(obj) > 100:
-            logger.debug("COMPLEX POLYGON %s with %i points", feature['properties'].get('name'), len(obj))
-            obj = simplify_poly(obj, 100)
-            feature['geometry'] = obj
+        obj = self._simplify_geometry(feature, obj)
         
         if len(obj) > 3:
             logger.debug("Finalizing polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
             
-            name = feature['properties'].get('name')
-            source_href = feature['properties'].get('source_href')
-            from_ = feature['properties'].get('from (ft amsl)')
-            to_ = feature['properties'].get('to (ft amsl)')
-            class_ = feature['properties'].get('class')
-            
             # Check for duplicates
+            name = feature['properties'].get('name')
             if name in self.completed:
                 logger.info("ERROR Duplicate feature name: #%i %s", index, name)
                 return {"properties": {}}, []
+            
+            # Add to appropriate collection
+            if 'ACC' in aipname:
+                logger.debug("Writing ACC sector to separate file: %s", aipname)
+                self.accsectors.append(feature)
             else:
-                if 'ACC' in aipname:
-                    logger.debug("Writing ACC sector to separate file: %s", aipname)
-                    self.accsectors.append(feature)
-                else:
-                    features.append(feature)
+                features.append(feature)
             
-            # Sanity checks
-            if name is None:
-                logger.error("Feature without name: #%i", index)
-                sys.exit(1)
-            if "None" in name:
-                logger.error("Feature without name: #%i", index)
-                sys.exit(1)
+            # Validate required properties
+            self._validate_feature(feature, index)
             self.completed[name] = True
-            if source_href is None:
-                logger.error("Feature without source: #%i", index)
-                sys.exit(1)
-            if feature['properties'].get('name') is None:
-                logger.error("Feature without name: #%i (%s)", index, source_href)
-                sys.exit(1)
-            if class_ is None:
-                logger.error("Feature without class (boo): #%i (%s)", index, source_href)
-                sys.exit(1)
             
-            # SPECIAL CASE #1: Oslo/Romerike NOTAM areas
-            if self.oslo_notam_handler.applies(aipname):
-                feature = self.oslo_notam_handler.handle(feature, None)
-                # Old code had a bug: it set local vars to '0','0' forcing a swap
-                # We need to replicate this for exact output compatibility
-                if "Romerike" in aipname or "Oslo" in aipname:
-                    from_ = '0'
-                    to_ = '0'
-                else:
-                    from_ = feature['properties'].get('from (ft amsl)')
-                    to_ = feature['properties'].get('to (ft amsl)')
+            # Handle vertical limits with special cases
+            from_, to_ = self._handle_vertical_limits(feature, source, index, aipname, doc_flags)
             
             # Handle NOTAM and AMC classifications
             if ("EN D" in aipname or "END" in aipname) and (end_notam or sanntid):
@@ -1728,33 +1839,7 @@ class FeatureFinalizer:
                     sanntid_ref[0] = False  # Update reference
             if ("EN D" in aipname or "END" in aipname) and (military_aip or ("Klepp" in aipname)):
                 feature['properties']['amc_only'] = 'true'
-            
-            # Handle missing vertical limits
-            if from_ is None:
-                if "en_sup_a_2018_015_en" in source_href:
-                    feature['properties']['from (ft amsl)'] = '0'
-                    feature['properties']['from (m amsl)'] = '0'
-                    from_ = '0'
-                else:
-                    logger.error("Feature without lower limit: #%i (%s)", index, source_href)
-                    sys.exit(1)
-            if to_ is None:
-                if "en_sup_a_2018_015_en" in source_href:
-                    feature['properties']['to (ft amsl)'] = '99999'
-                    feature['properties']['to (m amsl)'] = '9999'
-                    to_ = '99999'
-                else:
-                    logger.error("Feature without upper limit: #%i (%s)", index, source_href)
-                    sys.exit(1)
-            
-            # Handle inverted vertical limits (SPECIAL CASE #1)
-            if int(from_) >= int(to_):
-                if "en_sup_a_2018_015_en" in source_href or "Romerike" in aipname or "Oslo" in aipname:
-                    feature['properties']['from (ft amsl)'] = to_
-                    feature['properties']['to (ft amsl)'] = from_
-                else:
-                    logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source_href)
-                    sys.exit(1)
+        
         elif len(obj) > 0:
             logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
         
