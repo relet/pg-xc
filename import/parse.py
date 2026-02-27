@@ -444,6 +444,68 @@ class CoordinateParser:
         return coords, coords2, coords3
 
 
+class BorderFollower:
+    """Handler for "along border" coordinate filling logic.
+    
+    Handles the special case where airspace boundaries follow national borders.
+    Finds closest points on the border and fills in the intermediate coordinates.
+    
+    The logic:
+    1. When "along" keyword is found, store the current coordinate as start point
+    2. On next coordinate, use fill_along() to insert border points between start and end
+    3. Supports both Norwegian ("along") and Swedish ("border") syntax
+    """
+    
+    def __init__(self):
+        """Initialize border follower."""
+        pass
+    
+    def start_following(self, ctx, n, e):
+        """Mark start of border following.
+        
+        Args:
+            ctx: ParsingContext
+            n: North coordinate (or None to use last)
+            e: East coordinate (or None to use last)
+        """
+        if not n and not e:
+            n, e = ctx.lastn, ctx.laste
+        ctx.alonging = (n, e)
+        logger.debug(f"Starting border following from {n}, {e}")
+    
+    def finish_following(self, ctx, n, e, special_case_name=None):
+        """Complete border following by filling coordinates.
+        
+        Args:
+            ctx: ParsingContext with alonging start point and border data
+            n: North coordinate of end point (or None to use last)
+            e: East coordinate of end point (or None to use last)
+            special_case_name: Name for special case handling (e.g., "Sälen TMA b")
+            
+        Returns:
+            List of (lon, lat) coordinate pairs along the border
+        """
+        if not ctx.alonging:
+            return []
+        
+        if not n and not e:
+            n, e = ctx.lastn, ctx.laste
+        
+        fill = fill_along(ctx.alonging, (n, e), ctx.border)
+        
+        # HACK: Special case for Sälen - matching point in wrong direction
+        # FIXME: Don't select closest but next point in correct direction
+        if special_case_name and ("Sälen TMA b" in special_case_name or "SÄLEN CTR Sector b" in special_case_name):
+            logger.debug("SÄLEN HACK: Reversing border fill direction")
+            fill = list(reversed(fill))
+        
+        ctx.alonging = False
+        ctx.lastn, ctx.laste = None, None
+        
+        logger.debug(f"Filled border with {len(fill)} points")
+        return fill
+
+
 class FeatureBuilder:
     """Builder for airspace feature properties.
     
@@ -714,6 +776,7 @@ for filename in os.listdir("./sources/txt"):
     class_parser = ClassParser(patterns)
     vertical_parser = VerticalLimitParser(patterns)
     coord_parser = CoordinateParser(patterns)
+    border_follower = BorderFollower()
     feature_builder = FeatureBuilder()
 
     if "EN_" or "en_" or "_en." in filename:
@@ -891,14 +954,7 @@ for filename in os.listdir("./sources/txt"):
 
 
                     if ctx.alonging:
-                        if not n and not e:
-                            n, e = ctx.lastn, ctx.laste
-                        fill = fill_along(ctx.alonging, (n,e), ctx.border)
-                        ctx.alonging = False
-                        ctx.lastn, ctx.laste = None, None
-                        #HACK matching point in the wrong direction - FIXME don't select closest but next point in correct direction
-                        if "Sälen TMA b" in ctx.aipname or "SÄLEN CTR Sector b" in ctx.aipname:
-                            fill=fill[1:]
+                        fill = border_follower.finish_following(ctx, n, e, ctx.aipname)
                         for bpair in fill:
                             bn, be = ll2c(bpair)
                             ctx.obj.insert(0,(bn,be))
@@ -911,9 +967,7 @@ for filename in os.listdir("./sources/txt"):
                         ctx.lastn, ctx.laste = n, e
                         ctx.obj.insert(0,(n,e))
                     if along:
-                        if not n and not e:
-                            n, e = ctx.lastn, ctx.laste
-                        ctx.alonging = (n,e)
+                        border_follower.start_following(ctx, n, e)
                     if '(' in ne:
                         ctx.finalcoord = True
                         logger.debug("Found final coord.")
