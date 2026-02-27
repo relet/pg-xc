@@ -941,6 +941,175 @@ class SpecialCaseRegistry:
         return False
 
 
+class SpecialCaseHandler:
+    """Base class for location-specific special case handlers.
+    
+    Each handler encapsulates the logic for one specific special case,
+    making the code more maintainable and testable.
+    """
+    
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if this handler applies to the current situation.
+        
+        Args:
+            aipname: Airspace name
+            line: Optional current line being parsed
+            ctx: Optional parsing context
+            
+        Returns:
+            True if this handler should be applied
+        """
+        raise NotImplementedError
+    
+    def handle(self, feature, ctx, line=None, **kwargs):
+        """Apply the special case handling.
+        
+        Args:
+            feature: Feature dict to modify
+            ctx: ParsingContext
+            line: Optional current line
+            **kwargs: Additional handler-specific parameters
+            
+        Returns:
+            Modified feature or None if feature should be skipped
+        """
+        raise NotImplementedError
+
+
+class OsloNotamHandler(SpecialCaseHandler):
+    """Handler for Oslo/Romerike NOTAM-only restricted areas.
+    
+    Special Case #1: These areas are only active when NOTAMs are issued.
+    Reference: en_sup_a_2018_015_en
+    """
+    
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if airspace is Oslo/Romerike NOTAM area."""
+        if "EN R" not in aipname:
+            return False
+        if "Kongsvinger" in aipname:
+            return True
+        if "Romerike" in aipname:
+            return True
+        if "Oslo" in aipname and "102" not in aipname:
+            return True
+        return False
+    
+    def handle(self, feature, ctx, line=None, **kwargs):
+        """Set NOTAM-only flag and handle inverted limits."""
+        feature['properties']['notam_only'] = 'true'
+        
+        # Also set lower limit to 0 for Romerike/Oslo
+        if "Romerike" in feature['properties'].get('name', '') or "Oslo" in feature['properties'].get('name', ''):
+            feature['properties']['from (ft amsl)'] = '0'
+            feature['properties']['from (m amsl)'] = '0'
+        
+        logger.debug(f"Applied Oslo/Romerike NOTAM handler to {feature['properties'].get('name')}")
+        return feature
+
+
+class SalenSaabHandler(SpecialCaseHandler):
+    """Handler for SÄLEN/SAAB CTR multi-sector airspaces.
+    
+    Special Case #2: These airspaces have multiple sectors that need special handling.
+    - Split sectors dynamically when "Sector" keyword appears
+    - First sector is union of others (skip during finalization)
+    """
+    
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if airspace is SÄLEN or SAAB CTR."""
+        if not aipname:
+            return False
+        return "SÄLEN" in aipname or "SAAB" in aipname
+    
+    def handle(self, feature, ctx, line=None, **kwargs):
+        """Handle sector splitting."""
+        mode = kwargs.get('mode', 'split')
+        
+        if mode == 'split' and line and "Sector" in line:
+            # Store current sector
+            logger.debug(f"Splitting SÄLEN/SAAB sector: {ctx.aipname}")
+            ctx.sectors.append((ctx.aipname, ctx.obj))
+            
+            # Reset for next sector
+            ctx.feature = {"properties": {}}
+            ctx.obj = []
+            
+            # Set new sector name
+            if "SÄLEN" in ctx.aipname:
+                ctx.aipname = "SÄLEN CTR " + line
+            else:
+                ctx.aipname = "SAAB CTR " + line
+        
+        return feature
+
+
+class KramforsHandler(SpecialCaseHandler):
+    """Handler for Kramfors airspace with 'within' keyword issue.
+    
+    Special Case #3: Contains "within" keyword that breaks parsing.
+    Status: Temporary workaround
+    """
+    
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if this is Kramfors with 'within' keyword."""
+        return aipname and "KRAMFORS" in aipname and line and "within" in line
+    
+    def handle(self, feature, ctx, line=None, **kwargs):
+        """Skip this line entirely."""
+        logger.debug("Kramfors 'within' workaround: skipping line")
+        return None  # Signal to skip
+
+
+class ValldolHandler(SpecialCaseHandler):
+    """Handler for Valldal custom document format.
+    
+    Special Case #4: Non-standard AIP format requiring special handling.
+    Reference: valldal.txt
+    """
+    
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if this is Valldal format."""
+        return line and 'Valldal' in line
+    
+    def handle(self, feature, ctx, line=None, **kwargs):
+        """Extract Valldal name and set defaults."""
+        # Extract name from first two words
+        ctx.aipname = " ".join(line.strip().split()[0:2])
+        logger.debug(f"Valldal name: '{ctx.aipname}'")
+        
+        # Set hardcoded class and lower limit
+        feature['properties']['class'] = 'Luftsport'
+        feature['properties']['from (ft amsl)'] = 0
+        feature['properties']['from (m amsl)'] = 0
+        
+        return feature
+
+
+class FarrisTMAHandler(SpecialCaseHandler):
+    """Handler for Farris TMA counter skip.
+    
+    Special Case #5: Counter numbering has gaps (skip 5 and 6).
+    Reference: Farris TMA naming convention
+    """
+    
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if this is Farris TMA."""
+        return aipname and "Farris" in aipname
+    
+    def handle(self, feature, ctx, line=None, **kwargs):
+        """Adjust counter for gaps."""
+        recount = kwargs.get('recount', 0)
+        
+        if recount > 4:
+            # Skip counter values 5 and 6
+            adjusted_count = recount + 2
+            logger.debug(f"Farris TMA counter: {recount} -> {adjusted_count}")
+            return adjusted_count
+        
+        return recount
+
+
 class ColumnParser:
     """Parser for table-based AIP documents with column layouts.
     
@@ -1362,6 +1531,13 @@ for filename in os.listdir("./sources/txt"):
     feature_builder = FeatureBuilder()
     column_parser = ColumnParser(doc_strategy)
     special_cases = SpecialCaseRegistry()
+    
+    # Initialize special case handlers
+    oslo_notam_handler = OsloNotamHandler()
+    salen_saab_handler = SalenSaabHandler()
+    kramfors_handler = KramforsHandler()
+    valldol_handler = ValldolHandler()
+    farris_handler = FarrisTMAHandler()
 
     # Norwegian AIP only (Swedish files will be skipped/ignored)
     country = 'EN'
@@ -1412,28 +1588,17 @@ for filename in os.listdir("./sources/txt"):
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
-        # SPECIAL CASE #3: Temporary workaround for KRAMFORS
-        # "within" keyword breaks coordinate parsing
-        if ctx.aipname and ("KRAMFORS" in ctx.aipname) and ("within" in line):
+        # SPECIAL CASE #3: Kramfors workaround (using handler)
+        if kramfors_handler.applies(ctx.aipname, line, ctx):
             return
-        # SPECIAL CASE #2: SÄLEN/SAAB CTR sectors
-        # These airspaces have multiple sectors that need to be split
-        # First sector in Swedish docs is union of others, handled during finalization
-        if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and ("Sector" in line):
-            logger.debug("TEST: Breaking up SÄLEN/SAAB, ctx.aipname=."+ctx.aipname)
-            ctx.sectors.append((ctx.aipname, ctx.obj))
-            ctx.feature, ctx.obj =  {"properties":{}}, []
-            if "SÄLEN" in ctx.aipname:
-                ctx.aipname = "SÄLEN CTR "+line
-            else:
-                ctx.aipname = "SAAB CTR "+line
-        # SPECIAL CASE #4: Valldal custom format
-        # Valldal uses non-standard AIP format requiring special handling
-        if valldal and 'Valldal' in line:
-            ctx.aipname=" ".join(line.strip().split()[0:2])
-            logger.debug("Valldal ctx.aipname: '%s'", ctx.aipname)
-            feature_builder.set_class(ctx.feature, 'Luftsport')
-            feature_builder.set_vertical_limits(ctx.feature, from_amsl=0, to_amsl=None, warn=False)
+        
+        # SPECIAL CASE #2: SÄLEN/SAAB CTR sectors (using handler)
+        if salen_saab_handler.applies(ctx.aipname, line, ctx) and "Sector" in line:
+            salen_saab_handler.handle(ctx.feature, ctx, line, mode='split')
+        
+        # SPECIAL CASE #4: Valldal custom format (using handler)
+        if valldal and valldol_handler.applies(ctx.aipname, line, ctx):
+            ctx.feature = valldol_handler.handle(ctx.feature, ctx, line)
 
         coords, coords2, coords3 = coord_parser.has_coordinates(line, ctx)
 
