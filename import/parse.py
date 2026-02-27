@@ -21,6 +21,98 @@ logger = logging.getLogger(__name__)
 init_utils(logger)
 
 
+"""
+SPECIAL CASES AND WORKAROUNDS IN PARSE.PY
+==========================================
+
+This document lists all special cases, hacks, and workarounds in the Norwegian AIP parser.
+These exist because human-written AIP documents are inconsistent and error-prone.
+
+1. OSLO/ROMERIKE NOTAM AREAS (Kongsvinger, Romerike, Oslo)
+   Location: finalize() function
+   Issue: Reserved ENR areas in Oslo region are NOTAM-activated only
+   Solution: Set notam_only='true' flag, swap vertical limits if inverted
+   Reference: en_sup_a_2018_015_en
+   Files affected: EN R areas with "Romerike" or "Oslo" (not Oslo 102)
+
+2. SÄLEN/SAAB CTR SECTORS  
+   Location: parse() line parsing, BorderFollower
+   Issue: Multi-sector airspace with incorrect border following direction
+   Solution: 
+   - Split sectors dynamically when "Sector" keyword appears
+   - Reverse border fill for "Sälen TMA b" and "SÄLEN CTR Sector b"
+   - First sector in docs is union of others, skip it during finalization
+   Reference: Swedish AIP format (legacy, now removed but code remains)
+
+3. KRAMFORS WORKAROUND
+   Location: parse() main line processing
+   Issue: Contains "within" keyword that breaks parsing
+   Solution: Skip lines containing "within" for KRAMFORS airspaces
+   Status: Temporary workaround
+
+4. VALLDAL CUSTOM FORMAT
+   Location: parse(), main file loop
+   Issue: Custom document format different from standard AIP
+   Solution:
+   - Detect by filename "valldal"
+   - Skip until "Valldal Midt" marker
+   - Extract name from first two words
+   - Hardcode class as 'Luftsport', lower limit 0
+   - Finalize after upper limit found
+   Reference: valldal.txt custom format
+
+5. FARRIS TMA COUNTER SKIP
+   Location: finalize() - duplicate handling
+   Issue: Counter numbering has gaps
+   Solution: If count > 4, add 2 to counter (skip 5 and 6)
+   Reference: Farris TMA naming convention
+
+6. GEITERYGGEN FINALIZATION SKIP
+   Location: parse() vertical limit handling
+   Issue: Should not finalize on certain conditions
+   Solution: Explicitly skip finalization if "Geiteryggen" in name
+
+7. ROMERIKE/OSLO ALTITUDE HANDLING
+   Location: parse() vertical limit finalization
+   Issue: May be missing upper limit
+   Solution: Allow finalization without upper limit for these areas
+
+8. VERTICAL LIMIT "See RMK" HACK
+   Location: VerticalLimitParser.parse_vertical_limits()
+   Issue: "See remark" used as placeholder for lower limit of controlled airspace
+   Solution: Treat "See remark" as special marker, actual limit in remarks
+
+9. COLUMN SHIFT HACK (TIA AIP ACC)
+   Location: ColumnParser.detect_columns_from_pattern()
+   Issue: Column detection off by 2 characters
+   Solution: Subtract 2 from all detected column positions
+   Reference: TIA AIP ACC format with "1     " pattern
+
+10. INCOMPLETE CIRCLE CONTINUATION
+    Location: parse() coordinate handling
+    Issue: Circle definitions sometimes span multiple lines incorrectly
+    Status: BROKEN - marked as FIXME
+    Current behavior: Attempts to concatenate lines, but incomplete
+
+11. EN D476/D477 NAME NORMALIZATION
+    Location: finalize() name processing
+    Issue: Names need sector suffixes for uniqueness
+    Solution: Append " R og B 1" for D476, " R og B 2" for D477
+
+12. SECTOR NAME SKIPPING (SÄLEN/SAAB)
+    Location: NameParser.should_skip_name()
+    Issue: Sector subdivisions "Sector a", "Sector b" should be ignored as standalone
+    Solution: Skip if name is exactly "Sector a" or "Sector b"
+    
+GENERAL NOTES:
+- Most special cases exist due to inconsistent AIP formatting
+- Many are location-specific (Oslo area, Farris, Valldal, etc.)
+- Some are format-specific (TIA ACC, airsport docs, supplements)
+- Keep these even if ugly - removing them breaks real-world parsing
+- Swedish AIP support was removed (2024) - some Swedish remnants may remain
+"""
+
+
 class RegexPatterns:
     """Centralized regex patterns for parsing AIP documents.
     
@@ -269,7 +361,8 @@ class NameParser:
         Returns:
             True if name should be skipped
         """
-        # Skip sector subdivisions of SÄLEN/SAAB
+        # SPECIAL CASE #12: Skip sector subdivisions of SÄLEN/SAAB
+        # These sector names are handled as part of parent airspace
         if (name == "Sector a" or name == "Sector b" or 
             (ctx.aipname and "Sector" in ctx.aipname and 
              ("SÄLEN" in ctx.aipname or "SAAB" in ctx.aipname))):
@@ -372,7 +465,8 @@ class VerticalLimitParser:
         fl = vertl.get('fl')
         rmk = vertl.get('rmk')
         
-        # HACK: "See remark" = lower limit of controlled airspace
+        # SPECIAL CASE #8: "See RMK" = Lower limit of controlled airspace
+        # Used as placeholder when actual limit is in remarks section
         if rmk is not None:
             v = 13499
         
@@ -490,8 +584,9 @@ class BorderFollower:
         
         fill = fill_along(ctx.alonging, (n, e), ctx.border)
         
-        # HACK: Special case for Sälen - matching point in wrong direction
-        # FIXME: Don't select closest but next point in correct direction
+        # SPECIAL CASE #2: Sälen border fill direction fix
+        # Border following goes wrong direction for these specific sectors
+        # FIXME: Should detect direction properly instead of reversing afterward
         if special_case_name and ("Sälen TMA b" in special_case_name or "SÄLEN CTR Sector b" in special_case_name):
             logger.debug("SÄLEN HACK: Reversing border fill direction")
             fill = list(reversed(fill))
@@ -761,7 +856,9 @@ class ColumnParser:
         if tia_aip_acc and ("1     " in line):
             logger.debug("VCUT LINE? %s", line)
             vcuts = [m.start() for m in re.finditer(r'[^\s]', line)]
-            vcuts = [(x and (x-2)) for x in vcuts]  # HACK: adjust for column shift
+            # SPECIAL CASE #9: Column shift hack for TIA AIP ACC format
+            # Column positions detected are off by 2 characters
+            vcuts = [(x and (x-2)) for x in vcuts]
             self.vcuts = vcuts
             logger.debug("vcuts %s", vcuts)
             return vcuts
@@ -935,6 +1032,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     feature['properties']['country']=country
     feature['geometry'] = obj
     aipname = wstrip(str(aipname))
+    # SPECIAL CASE #11: EN D476/D477 name normalization
+    # Add sector suffixes for uniqueness
     if aipname == 'EN D476':
         aipname = 'EN D476 R og B 1'
     if aipname == 'EN D477':
@@ -953,7 +1052,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
             separator = " "
             if re.search(r'\d$', aipname):
                 separator="-"
-            # special handling Farris TMA skipping counters
+            # SPECIAL CASE #5: Farris TMA counter skip
+            # Counter has gaps - skip numbers 5 and 6
             if "Farris" in aipname:
                 if recount > 4:
                     recount += 2
@@ -1030,7 +1130,9 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         if class_ is None:
             logger.error("Feature without class (boo): #%i (%s)", index, source)
             sys.exit(1)
-        # SPECIAL CASE NOTAM reserved ENR in Oslo area
+        # SPECIAL CASE #1: NOTAM reserved ENR in Oslo area
+        # These areas are only active when NOTAMs are issued
+        # See en_sup_a_2018_015_en for background
         if "EN R" in aipname and "Kongsvinger" in aipname:
           feature['properties']['notam_only'] = 'true'
         if "EN R" in aipname and ("Romerike" in aipname or ("Oslo" in aipname and not "102" in aipname)):
@@ -1067,7 +1169,8 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
                 logger.error("Feature without upper limit: #%i (%s)", index, source)
                 sys.exit(1)
         if int(from_) >= int(to_):
-            # SPECIAL CASE NOTAM reserved ENR in Oslo area
+            # SPECIAL CASE #1: NOTAM reserved ENR in Oslo area
+            # Vertical limits are sometimes inverted in source data - swap them
             if "en_sup_a_2018_015_en" in source or "Romerike" in aipname or "Oslo" in aipname:
                 feature['properties']['from (ft amsl)']=to_
                 feature['properties']['to (ft amsl)']=from_
@@ -1170,10 +1273,13 @@ for filename in os.listdir("./sources/txt"):
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
-        # SPECIAL CASE temporary workaround KRAMFORS
+        # SPECIAL CASE #3: Temporary workaround for KRAMFORS
+        # "within" keyword breaks coordinate parsing
         if ctx.aipname and ("KRAMFORS" in ctx.aipname) and ("within" in line):
             return
-        # SPECIAL CASE workaround SÄLEN/SAAB CTR ctx.sectors
+        # SPECIAL CASE #2: SÄLEN/SAAB CTR sectors
+        # These airspaces have multiple sectors that need to be split
+        # First sector in Swedish docs is union of others, handled during finalization
         if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and ("Sector" in line):
             logger.debug("TEST: Breaking up SÄLEN/SAAB, ctx.aipname=."+ctx.aipname)
             ctx.sectors.append((ctx.aipname, ctx.obj))
@@ -1182,7 +1288,8 @@ for filename in os.listdir("./sources/txt"):
                 ctx.aipname = "SÄLEN CTR "+line
             else:
                 ctx.aipname = "SAAB CTR "+line
-        # SPECIAL CASE check for Valldal AIP names
+        # SPECIAL CASE #4: Valldal custom format
+        # Valldal uses non-standard AIP format requiring special handling
         if valldal and 'Valldal' in line:
             ctx.aipname=" ".join(line.strip().split()[0:2])
             logger.debug("Valldal ctx.aipname: '%s'", ctx.aipname)
@@ -1338,11 +1445,16 @@ for filename in os.listdir("./sources/txt"):
                     ctx.lastv = None
             if fromamsl is not None:
                 ctx.lastv = None
+                # SPECIAL CASE #6/#7: Finalization conditions
+                # - Skip Geiteryggen (#6)
+                # - Allow Romerike/Oslo without upper limit (#7)
                 # Finalize if: special doc types have final coord
                 should_finalize = (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc))
                                   and not ("Geiteryggen" in ctx.aipname))
                 if should_finalize:
                     logger.debug("Finalizing poly: Vertl complete.")
+                    # SPECIAL CASE #2: SÄLEN/SAAB sector finalization
+                    # Process accumulated sectors (skip first which is union)
                     if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and len(ctx.sectors)>0:
                         for x in ctx.sectors[1:]: # skip the first sector, which is the union of the other ctx.sectors in Swedish docs
                             aipname_,  obj_ = x
@@ -1380,6 +1492,8 @@ for filename in os.listdir("./sources/txt"):
                 return
 
             if restrict_aip or military_aip:
+                # SPECIAL CASE #7: Romerike/Oslo altitude handling
+                # Allow finalization without upper limit for these specific areas
                 if ctx.feature['properties'].get('from (ft amsl)') is not None and (ctx.feature['properties'].get('to (ft amsl)') or "Romerike" in ctx.aipname or "Oslo" in ctx.aipname):
                     logger.debug("RESTRICT/MILITARY + name and vertl complete")
                     ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
