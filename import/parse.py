@@ -44,62 +44,50 @@ These exist because human-written AIP documents are inconsistent and error-prone
    - First sector in docs is union of others, skip it during finalization
    Reference: Swedish AIP format (legacy, now removed but code remains)
 
-3. KRAMFORS WORKAROUND
-   Location: parse() main line processing
-   Issue: Contains "within" keyword that breaks parsing
-   Solution: Skip lines containing "within" for KRAMFORS airspaces
-   Status: Temporary workaround
-
-4. VALLDAL CUSTOM FORMAT
+3. VALLDAL CUSTOM FORMAT
    Location: parse(), main file loop
    Issue: Custom document format different from standard AIP
    Solution:
    - Detect by filename "valldal"
-   - Skip until "Valldal Midt" marker
    - Extract name from first two words
    - Hardcode class as 'Luftsport', lower limit 0
-   - Finalize after upper limit found
    Reference: valldal.txt custom format
 
-5. FARRIS TMA COUNTER SKIP
+4. FARRIS TMA COUNTER SKIP
    Location: finalize() - duplicate handling
    Issue: Counter numbering has gaps
    Solution: If count > 4, add 2 to counter (skip 5 and 6)
    Reference: Farris TMA naming convention
 
-6. GEITERYGGEN FINALIZATION SKIP
+5. GEITERYGGEN FINALIZATION SKIP
    Location: parse() vertical limit handling
    Issue: Should not finalize on certain conditions
    Solution: Explicitly skip finalization if "Geiteryggen" in name
 
-7. ROMERIKE/OSLO ALTITUDE HANDLING
-   Location: parse() vertical limit finalization
-   Issue: May be missing upper limit
-   Solution: Allow finalization without upper limit for these areas
+6. ROMERIKE/OSLO ALTITUDE HANDLING
+   Location: finalize() vertical limit validation
+   Issue: These restricted areas allow finalization without complete upper limit
+   Solution: Special exception in finalization validation
+   Reference: en_sup_a_2018_015_en
 
-8. VERTICAL LIMIT "See RMK" HACK
-   Location: VerticalLimitParser.parse_vertical_limits()
-   Issue: "See remark" used as placeholder for lower limit of controlled airspace
-   Solution: Treat "See remark" as special marker, actual limit in remarks
+7. "SEE RMK" VERTICAL LIMIT HACK
+   Location: VerticalLimitParser
+   Issue: "See RMK" appears where altitude should be
+   Solution: Treat as 13499 ft placeholder
+   Reference: Various AIP documents with remarks
 
-9. COLUMN SHIFT HACK (TIA AIP ACC)
+8. COLUMN SHIFT HACK (TIA AIP ACC)
    Location: ColumnParser.detect_columns_from_pattern()
    Issue: Column detection off by 2 characters
    Solution: Subtract 2 from all detected column positions
    Reference: TIA AIP ACC format with "1     " pattern
 
-10. INCOMPLETE CIRCLE CONTINUATION
-    Location: parse() coordinate handling
-    Issue: Circle definitions sometimes span multiple lines incorrectly
-    Status: BROKEN - marked as FIXME
-    Current behavior: Attempts to concatenate lines, but incomplete
+9. EN D476/D477 NAME NORMALIZATION
+   Location: finalize() name processing
+   Issue: Names need sector suffixes for uniqueness
+   Solution: Append " R og B 1" for D476, " R og B 2" for D477
 
-11. EN D476/D477 NAME NORMALIZATION
-    Location: finalize() name processing
-    Issue: Names need sector suffixes for uniqueness
-    Solution: Append " R og B 1" for D476, " R og B 2" for D477
-
-12. SECTOR NAME SKIPPING (SÄLEN/SAAB)
+10. SECTOR NAME SKIPPING (SÄLEN/SAAB)
     Location: NameParser.should_skip_name()
     Issue: Sector subdivisions "Sector a", "Sector b" should be ignored as standalone
     Solution: Skip if name is exactly "Sector a" or "Sector b"
@@ -863,17 +851,6 @@ class SpecialCaseRegistry:
             return False
         return "SÄLEN" in aipname or "SAAB" in aipname
     
-    def is_kramfors(self, aipname):
-        """Check if airspace is Kramfors (has 'within' keyword issue).
-        
-        Args:
-            aipname: Airspace name
-            
-        Returns:
-            True if this is Kramfors airspace
-        """
-        return aipname and "KRAMFORS" in aipname
-    
     def is_farris_tma(self, aipname):
         """Check if airspace is Farris TMA (counter skip issue).
         
@@ -1044,23 +1021,6 @@ class SalenSaabHandler(SpecialCaseHandler):
                 ctx.aipname = "SAAB CTR " + line
         
         return feature
-
-
-class KramforsHandler(SpecialCaseHandler):
-    """Handler for Kramfors airspace with 'within' keyword issue.
-    
-    Special Case #3: Contains "within" keyword that breaks parsing.
-    Status: Temporary workaround
-    """
-    
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if this is Kramfors with 'within' keyword."""
-        return aipname and "KRAMFORS" in aipname and line and "within" in line
-    
-    def handle(self, feature, ctx, line=None, **kwargs):
-        """Skip this line entirely."""
-        logger.debug("Kramfors 'within' workaround: skipping line")
-        return None  # Signal to skip
 
 
 class ValldolHandler(SpecialCaseHandler):
@@ -1604,7 +1564,6 @@ for filename in os.listdir("./sources/txt"):
     # Initialize special case handlers
     oslo_notam_handler = OsloNotamHandler()
     salen_saab_handler = SalenSaabHandler()
-    kramfors_handler = KramforsHandler()
     valldol_handler = ValldolHandler()
     farris_handler = FarrisTMAHandler()
 
@@ -1657,10 +1616,6 @@ for filename in os.listdir("./sources/txt"):
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
             return
 
-        # SPECIAL CASE #3: Kramfors workaround (using handler)
-        if kramfors_handler.applies(ctx.aipname, line, ctx):
-            return
-        
         # SPECIAL CASE #2: SÄLEN/SAAB CTR sectors (using handler)
         if salen_saab_handler.applies(ctx.aipname, line, ctx) and "Sector" in line:
             salen_saab_handler.handle(ctx.feature, ctx, line, mode='split')
@@ -1701,9 +1656,7 @@ for filename in os.listdir("./sources/txt"):
                     if rad_m:
                         rad = m2nm(rad_m)
                 if not n or not e or not rad:
-                    ctx.coords_wrap += line.strip() + " "
-                    # FIXME: incomplete circle continuation is broken
-                    logger.debug("Continuing line after incomplete circle: %s", ctx.coords_wrap)
+                    logger.warning("Incomplete circle definition (missing n/e/rad), skipping: %s", line)
                     return
                 ctx.lastn, ctx.laste = n, e
                 logger.debug("Circle center is %s %s %s %s", coords.get('n'), coords.get('e'), coords.get('cn'), coords.get('ce'))
@@ -1752,9 +1705,7 @@ for filename in os.listdir("./sources/txt"):
                         ctx.lastn, ctx.laste = None, None
                         skip_next = 1
                     elif circle:
-                        ctx.coords_wrap += line.strip() + " "
-                        # FIXME: incomplete circle continuation is broken
-                        logger.debug("Continuing line after incomplete circle (3): %s", ctx.coords_wrap)
+                        logger.warning("Incomplete circle in coordinate list, skipping")
                         return
 
 
