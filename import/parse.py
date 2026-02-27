@@ -239,6 +239,37 @@ class ParsingContext:
     
     Replaces global variables with organized state management.
     Makes code more testable and easier to understand.
+    
+    Attributes:
+        aipname: Current airspace name being parsed
+        feature: Current GeoJSON feature dict being built
+        obj: Current coordinate list (geometry)
+        features: List of completed features
+        
+        alonging: True when following border ("along" keyword found)
+        lastn: Last parsed north coordinate
+        laste: Last parsed east coordinate
+        lastv: Last parsed vertical limit (for context)
+        finalcoord: True when final coordinate of polygon found
+        coords_wrap: Wrapping text for coordinates
+        sectors: List of sector definitions
+        
+        ats_chapter: True when in ATS chapter
+        airsport_intable: True when in airsport table
+        name_cont: True when airspace name continues on next line
+        
+        country: Country code ('NO' or 'SE')
+        border: Border coordinate array
+        re_coord3: Country-specific coordinate regex
+        
+        sanntid: True for AMC/Sanntidsaktivering areas
+    
+    Example:
+        ctx = ParsingContext()
+        ctx.country = 'NO'
+        ctx.border = borders['norway']
+        # ... parse lines ...
+        ctx.reset_feature()  # Start new feature
     """
     def __init__(self):
         # Feature construction state
@@ -270,7 +301,7 @@ class ParsingContext:
         self.sanntid = False
     
     def reset_feature(self):
-        """Reset feature state for new feature"""
+        """Reset feature state for new feature."""
         self.feature = {"properties": {}}
         self.obj = []
         self.alonging = False
@@ -597,6 +628,21 @@ class GeometryBuilder:
     
     Consolidates geometry operations (circles, sectors, arcs, merging).
     Provides consistent interface for building and combining airspace boundaries.
+    
+    Methods handle the various geometric shapes found in AIP documents:
+    - Circles: Full 360° circular boundaries
+    - Sectors: Partial circles (pie slices) with from/to bearing
+    - Arcs: Curved segments along circle arcs
+    - Coordinate lists: Direct point-to-point boundaries
+    
+    All methods take coordinate lists and return modified lists, allowing
+    for chaining and composition of complex boundaries.
+    
+    Example:
+        builder = GeometryBuilder()
+        obj = []
+        obj = builder.add_circle(obj, 600000, 100000, 5)  # 5 NM circle
+        obj = builder.add_sector(obj, 600000, 100000, 90, 180, 10)  # 10 NM sector
     """
     
     def add_circle(self, obj, center_n, center_e, radius_nm, convert=True):
@@ -676,6 +722,12 @@ class FeatureValidator:
     Returns structured ValidationResult objects instead of tuples.
     """
     
+    # Norwegian coordinate bounds (approximate)
+    MIN_LAT = 57.0  # Southern Norway
+    MAX_LAT = 72.0  # Svalbard
+    MIN_LON = 4.0   # Western Norway
+    MAX_LON = 32.0  # Eastern border
+    
     def validate(self, feature, obj, aipname=None):
         """Validate a feature for completeness and consistency.
         
@@ -707,8 +759,18 @@ class FeatureValidator:
         # Validate vertical limit consistency
         if from_amsl is not None and to_amsl is not None:
             try:
-                if int(from_amsl) >= int(to_amsl):
+                from_val = int(from_amsl)
+                to_val = int(to_amsl)
+                
+                if from_val >= to_val:
                     result.add_error(f"Invalid vertical limits: from={from_amsl} >= to={to_amsl}{name_str}")
+                
+                # Sanity check altitude ranges
+                if from_val < -1000:
+                    result.add_warning(f"Suspiciously low lower limit: {from_amsl} ft{name_str}")
+                if to_val > 100000:
+                    result.add_warning(f"Suspiciously high upper limit: {to_amsl} ft{name_str}")
+                    
             except (ValueError, TypeError):
                 result.add_error(f"Non-numeric vertical limits{name_str}")
         
@@ -717,6 +779,73 @@ class FeatureValidator:
             result.add_error(f"Insufficient geometry points: {len(obj) if obj else 0}{name_str}")
         elif len(obj) > 100:
             result.add_warning(f"Complex polygon with {len(obj)} points{name_str}")
+        
+        # Validate coordinates if geometry exists
+        if obj and len(obj) >= 3:
+            coord_result = self.validate_coordinates(obj, aipname)
+            result.errors.extend(coord_result.errors)
+            result.warnings.extend(coord_result.warnings)
+        
+        return result
+    
+    def validate_coordinates(self, coords, aipname=None) -> 'ValidationResult':
+        """Validate coordinate values and polygon properties.
+        
+        Args:
+            coords: List of [lon, lat] coordinate pairs
+            aipname: Optional airspace name for error messages
+            
+        Returns:
+            ValidationResult with coordinate-specific validation
+        """
+        result = ValidationResult()
+        name_str = f" ({aipname})" if aipname else ""
+        
+        if not coords or len(coords) == 0:
+            result.add_error(f"Empty coordinate list{name_str}")
+            return result
+        
+        # Check coordinate bounds
+        for i, coord in enumerate(coords):
+            if len(coord) < 2:
+                result.add_error(f"Invalid coordinate at index {i}: {coord}{name_str}")
+                continue
+            
+            try:
+                lon = float(coord[0]) if isinstance(coord[0], str) else coord[0]
+                lat = float(coord[1]) if isinstance(coord[1], str) else coord[1]
+            except (ValueError, TypeError):
+                result.add_error(f"Non-numeric coordinate at index {i}: {coord[:2]}{name_str}")
+                continue
+            
+            # Validate latitude range (-90 to 90)
+            if lat < -90 or lat > 90:
+                result.add_error(f"Latitude out of range at index {i}: {lat}{name_str}")
+            elif lat < self.MIN_LAT or lat > self.MAX_LAT:
+                result.add_warning(f"Coordinate outside Norwegian region at index {i}: {lat}N{name_str}")
+            
+            # Validate longitude range (-180 to 180)
+            if lon < -180 or lon > 180:
+                result.add_error(f"Longitude out of range at index {i}: {lon}{name_str}")
+            elif lon < self.MIN_LON or lon > self.MAX_LON:
+                result.add_warning(f"Coordinate outside Norwegian region at index {i}: {lon}E{name_str}")
+        
+        # Check if polygon is closed
+        if len(coords) >= 3:
+            try:
+                first = coords[0]
+                last = coords[-1]
+                if len(first) >= 2 and len(last) >= 2:
+                    first_lon = float(first[0]) if isinstance(first[0], str) else first[0]
+                    first_lat = float(first[1]) if isinstance(first[1], str) else first[1]
+                    last_lon = float(last[0]) if isinstance(last[0], str) else last[0]
+                    last_lat = float(last[1]) if isinstance(last[1], str) else last[1]
+                    
+                    if abs(first_lon - last_lon) > 0.0001 or abs(first_lat - last_lat) > 0.0001:
+                        result.add_warning(f"Polygon not closed: first=({first_lon:.4f}, {first_lat:.4f}) last=({last_lon:.4f}, {last_lat:.4f}){name_str}")
+            except (ValueError, TypeError, IndexError):
+                # Silently skip closure check if coordinates are malformed
+                pass
         
         return result
     
