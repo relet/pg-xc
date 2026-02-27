@@ -94,6 +94,51 @@ completed = {}
 names = {}
 accsectors = []
 
+
+class ParsingContext:
+    """Context object to hold parsing state for each file.
+    
+    Replaces global variables with organized state management.
+    Makes code more testable and easier to understand.
+    """
+    def __init__(self):
+        # Feature construction state
+        self.aipname = None
+        self.feature = {"properties": {}}
+        self.obj = []
+        self.features = []
+        
+        # Coordinate parsing state
+        self.alonging = False
+        self.lastn = None
+        self.laste = None
+        self.lastv = None
+        self.finalcoord = False
+        self.coords_wrap = ""
+        self.sectors = []
+        
+        # Document parsing state
+        self.ats_chapter = False
+        self.airsport_intable = False
+        self.name_cont = False
+        
+        # Country-specific
+        self.country = None
+        self.border = None
+        self.re_coord3 = None
+        
+        # Special flags
+        self.sanntid = False
+    
+    def reset_feature(self):
+        """Reset feature state for new feature"""
+        self.feature = {"properties": {}}
+        self.obj = []
+        self.alonging = False
+        self.coords_wrap = ""
+        self.lastv = None
+
+
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
     global completed
@@ -282,32 +327,20 @@ for filename in os.listdir("./sources/txt"):
     es_enr_5_2 = "ES_ENR_5_2" in filename
     en_enr_5_1 = "EN_ENR_5_1" in filename
 
-    airsport_intable = False
+    # Initialize parsing context for this file
+    ctx = ParsingContext()
 
     if "EN_" or "en_" or "_en." in filename:
-        country = 'EN'
-        border = borders['norway']
-        re_coord3 = re_coord3_no
+        country = 'EN'  # Keep as global for finalize()
+        ctx.country = 'EN'
+        ctx.border = borders['norway']
+        ctx.re_coord3 = re_coord3_no
     if "ES_" in filename or "aro.lfv.se" in filename:
-        country = 'ES'
-        border = borders['sweden']
-        re_coord3 = re_coord3_se
-    logger.debug("Country is %s", country)
-
-    # this is global for all polygons
-    aipname = None
-    features = []
-    ats_chapter = False
-    alonging = False
-    lastn, laste = None, None
-    lastv = None
-    finalcoord = False
-    coords_wrap = ""
-    sectors = []
-    name_cont = False
-
-    feature = {"properties":{}}
-    obj = []
+        country = 'ES'  # Keep as global for finalize()
+        ctx.country = 'ES'
+        ctx.border = borders['sweden']
+        ctx.re_coord3 = re_coord3_se
+    logger.debug("Country is %s", ctx.country)
 
     vcut = 999
     vend = 1000
@@ -317,92 +350,86 @@ for filename in os.listdir("./sources/txt"):
         line = line.strip()
         logger.debug("LINE '%s'", line)
 
-        global aipname, alonging, ats_chapter, coords_wrap, obj, feature
-        global features, finalcoord, lastn, laste, lastv, airsport_intable
-        global border, re_coord3, country, sanntid
-        global sectors, name_cont
-
+        # No more globals! Using ctx.* instead
         if line==LINEBREAK:
-            # drop current feature, if we don't have vertl by now,
+            # drop current ctx.feature, if we don't have vertl by now,
             # then this is just an overview polygon
-            feature = {"properties":{}}
-            obj = []
-            alonging = False
-            coords_wrap = ""
-            lastv = None
+            ctx.reset_feature()
             return
 
 
         if ad_aip and not "ENNO" in filename:
-            if not ats_chapter:
+            if not ctx.ats_chapter:
                 # skip to chapter 2.71
                 if "ATS airspace" in line or "ATS AIRSPACE" in line:
                     logger.debug("Found chapter 2.71")
-                    ats_chapter=True
+                    ctx.ats_chapter=True
                 return
             else:
                 # then skip everything after
                 if "AD 2." in line or "ATS COMM" in line:
                 #if "ATS komm" in line or "Kallesignal" in line:
                     logger.debug("End chapter 2.71")
-                    ats_chapter=False
+                    ctx.ats_chapter=False
 
         if 'Sanntidsaktivering' in line:
-            logger.debug("Activating AMC/Sanntidsaktivering for this feature.")
-            sanntid = True
+            logger.debug("Activating AMC/Sanntidsaktivering for this ctx.feature.")
+            ctx.sanntid = True
+            global sanntid
+            sanntid = True  # Sync with global for finalize()
 
         class_=re_class.search(line) or re_class2.search(line) or re_class_openair.search(line)
         if class_:
             logger.debug("Found class in line: %s", line)
             class_=class_.groupdict()
-            feature['properties']['class']=class_.get('class')
-            if tia_aip or (aipname and "RMZ" in aipname):
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+            ctx.feature['properties']['class']=class_.get('class')
+            if tia_aip or (ctx.aipname and "RMZ" in ctx.aipname):
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
 
         # SPECIAL CASE temporary workaround KRAMFORS
-        if aipname and ("KRAMFORS" in aipname) and ("within" in line):
+        if ctx.aipname and ("KRAMFORS" in ctx.aipname) and ("within" in line):
             return
-        # SPECIAL CASE workaround SÄLEN/SAAB CTR sectors
-        if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and ("Sector" in line):
-            logger.debug("TEST: Breaking up SÄLEN/SAAB, aipname=."+aipname)
-            sectors.append((aipname, obj))
-            feature, obj =  {"properties":{}}, []
-            if "SÄLEN" in aipname:
-                aipname = "SÄLEN CTR "+line
+        # SPECIAL CASE workaround SÄLEN/SAAB CTR ctx.sectors
+        if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and ("Sector" in line):
+            logger.debug("TEST: Breaking up SÄLEN/SAAB, ctx.aipname=."+ctx.aipname)
+            ctx.sectors.append((ctx.aipname, ctx.obj))
+            ctx.feature, ctx.obj =  {"properties":{}}, []
+            if "SÄLEN" in ctx.aipname:
+                ctx.aipname = "SÄLEN CTR "+line
             else:
-                aipname = "SAAB CTR "+line
+                ctx.aipname = "SAAB CTR "+line
         # SPECIAL CASE check for Valldal AIP names
         if valldal and 'Valldal' in line:
-            aipname=" ".join(line.strip().split()[0:2])
-            logger.debug("Valldal aipname: '%s'", aipname)
-            feature['properties']['class']='Luftsport'
-            feature['properties']['from (ft amsl)']=0
-            feature['properties']['from (m amsl)'] =0
+            ctx.aipname=" ".join(line.strip().split()[0:2])
+            logger.debug("Valldal ctx.aipname: '%s'", ctx.aipname)
+            ctx.feature['properties']['class']='Luftsport'
+            ctx.feature['properties']['from (ft amsl)']=0
+            ctx.feature['properties']['from (m amsl)'] =0
 
         coords = re_coord.search(line)
         coords2 = re_coord2.search(line)
-        coords3 = re_coord3.findall(line)
+        coords3 = ctx.re_coord3.findall(line)
 
         if (coords or coords2 or coords3):
 
             logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or 1, line)
             logger.debug(printj(coords3))
             if line.strip()[-1] == "N":
-                coords_wrap += line.strip() + " "
-                logger.debug("Continuing line after N coordinate: %s", coords_wrap)
+                ctx.coords_wrap += line.strip() + " "
+                logger.debug("Continuing line after N coordinate: %s", ctx.coords_wrap)
                 return
-            elif coords_wrap:
-                nline = coords_wrap + line
+            elif ctx.coords_wrap:
+                nline = ctx.coords_wrap + line
                 logger.debug("Continued line: %s", nline)
                 coords = re_coord.search(nline)
                 coords2 = re_coord2.search(nline)
-                coords3 = re_coord3.findall(nline)
+                coords3 = ctx.re_coord3.findall(nline)
                 logger.debug("Found %i coords in merged line: %s", coords3 and len(coords3) or '1', nline)
                 line = nline
-                coords_wrap = ""
+                ctx.coords_wrap = ""
 
-            if coords and not ("Lyng" in aipname or "Halten" in aipname):
+            if coords and not ("Lyng" in ctx.aipname or "Halten" in ctx.aipname):
                 coords  = coords.groupdict()
                 n = coords.get('cn') or coords.get('n')
                 e = coords.get('ce') or coords.get('e')
@@ -414,31 +441,31 @@ for filename in os.listdir("./sources/txt"):
                     if rad_m:
                         rad = m2nm(rad_m)
                 if not n or not e or not rad:
-                    coords_wrap += line.strip() + " "
+                    ctx.coords_wrap += line.strip() + " "
                     # FIXME: incomplete circle continuation is broken
-                    logger.debug("Continuing line after incomplete circle: %s", coords_wrap)
+                    logger.debug("Continuing line after incomplete circle: %s", ctx.coords_wrap)
                     return
-                lastn, laste = n, e
+                ctx.lastn, ctx.laste = n, e
                 logger.debug("Circle center is %s %s %s %s", coords.get('n'), coords.get('e'), coords.get('cn'), coords.get('ce'))
                 logger.debug("COORDS is %s", json.dumps(coords))
                 c_gen = gen_circle(n, e, rad)
-                logger.debug("LENS %s %s", len(obj), len(c_gen))
-                obj = merge_poly(obj, c_gen)
-                logger.debug("LENS %s %s", len(obj), len(c_gen))
+                logger.debug("LENS %s %s", len(ctx.obj), len(c_gen))
+                ctx.obj = merge_poly(ctx.obj, c_gen)
+                logger.debug("LENS %s %s", len(ctx.obj), len(c_gen))
 
             elif coords2:
                 coords  = coords2.groupdict()
                 n = coords.get('n')
                 e = coords.get('e')
                 if n is None and e is None:
-                    n,e = lastn, laste
+                    n,e = ctx.lastn, ctx.laste
                 secfrom = coords.get('secfrom')
                 secto = coords.get('secto')
                 radfrom = coords.get('radfrom')
                 radto = coords.get('rad')
                 c_gen = gen_sector(n, e, secfrom, secto, radfrom, radto)
 
-                obj = merge_poly(obj, c_gen)
+                ctx.obj = merge_poly(ctx.obj, c_gen)
 
             else:
                 skip_next = 0
@@ -453,8 +480,8 @@ for filename in os.listdir("./sources/txt"):
                     if arc:
                         arcdata = re_arc.search(line)
                         if not arcdata:
-                            coords_wrap += line.strip() + " "
-                            logger.debug("Continuing line after incomplete arc: %s", coords_wrap)
+                            ctx.coords_wrap += line.strip() + " "
+                            logger.debug("Continuing line after incomplete arc: %s", ctx.coords_wrap)
                             return
                         arcdata = arcdata.groupdict()
                         logger.debug("Completed arc: %s", arcdata)
@@ -466,54 +493,54 @@ for filename in os.listdir("./sources/txt"):
                         to_e = arcdata['e2']
                         cw = arcdata['dir']
                         logger.debug("ARC IS "+cw)
-                        fill = fill_along(obj[-1],(to_n,to_e), arc, (cw=='clockwise'))
-                        lastn, laste = None, None
+                        fill = fill_along(ctx.obj[-1],(to_n,to_e), arc, (cw=='clockwise'))
+                        ctx.lastn, ctx.laste = None, None
 
                         for apair in fill:
                             bn, be = ll2c(apair)
-                            obj.insert(0,(bn,be))
+                            ctx.obj.insert(0,(bn,be))
                         skip_next = 1
                     elif circle:
-                        coords_wrap += line.strip() + " "
+                        ctx.coords_wrap += line.strip() + " "
                         # FIXME: incomplete circle continuation is broken
-                        logger.debug("Continuing line after incomplete circle (3): %s", coords_wrap)
+                        logger.debug("Continuing line after incomplete circle (3): %s", ctx.coords_wrap)
                         return
 
 
-                    if alonging:
+                    if ctx.alonging:
                         if not n and not e:
-                            n, e = lastn, laste
-                        fill = fill_along(alonging, (n,e), border)
-                        alonging = False
-                        lastn, laste = None, None
+                            n, e = ctx.lastn, ctx.laste
+                        fill = fill_along(ctx.alonging, (n,e), ctx.border)
+                        ctx.alonging = False
+                        ctx.lastn, ctx.laste = None, None
                         #HACK matching point in the wrong direction - FIXME don't select closest but next point in correct direction
-                        if "Sälen TMA b" in aipname or "SÄLEN CTR Sector b" in aipname:
+                        if "Sälen TMA b" in ctx.aipname or "SÄLEN CTR Sector b" in ctx.aipname:
                             fill=fill[1:]
                         for bpair in fill:
                             bn, be = ll2c(bpair)
-                            obj.insert(0,(bn,be))
+                            ctx.obj.insert(0,(bn,be))
 
                     if rad and cn and ce:
                         c_gen = gen_circle(cn, ce, rad)
                         logger.debug("Merging circle using cn, ce.")
-                        obj = merge_poly(obj, c_gen)
+                        ctx.obj = merge_poly(ctx.obj, c_gen)
                     if n and e:
-                        lastn, laste = n, e
-                        obj.insert(0,(n,e))
+                        ctx.lastn, ctx.laste = n, e
+                        ctx.obj.insert(0,(n,e))
                     if along:
                         if not n and not e:
-                            n, e = lastn, laste
-                        alonging = (n,e)
+                            n, e = ctx.lastn, ctx.laste
+                        ctx.alonging = (n,e)
                     if '(' in ne:
-                        finalcoord = True
+                        ctx.finalcoord = True
                         logger.debug("Found final coord.")
                     else:
-                        finalcoord = False
-                    if (airsport_aip or aip_sup or military_aip) and finalcoord:
-                        if feature['properties'].get('from (ft amsl)') is not None:
-                            logger.debug("Finalizing: finalcoord.")
-                            feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                            lastv = None
+                        ctx.finalcoord = False
+                    if (airsport_aip or aip_sup or military_aip) and ctx.finalcoord:
+                        if ctx.feature['properties'].get('from (ft amsl)') is not None:
+                            logger.debug("Finalizing: ctx.finalcoord.")
+                            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                            ctx.lastv = None
 
             if not valldal:
                 return
@@ -526,7 +553,7 @@ for filename in os.listdir("./sources/txt"):
         if freq:
             freq = freq.groupdict()
             logger.debug("Found FREQUENCY: %s", freq['freq'])
-            feature['properties']['frequency'] = freq.get('freq')
+            ctx.feature['properties']['frequency'] = freq.get('freq')
 
         # IDENTIFY altitude limits
         vertl = re_vertl_upper.search(line) or re_vertl_lower.search(line) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
@@ -556,7 +583,7 @@ for filename in os.listdir("./sources/txt"):
                 fromamsl = int(flfrom) * 100
                 fl = fl or flfrom
             elif v is not None:
-                if lastv is None:
+                if ctx.lastv is None:
                     toamsl = v
                     if fl is not None:
                         flto = fl
@@ -570,8 +597,8 @@ for filename in os.listdir("./sources/txt"):
                 if toamsl == "UNL": toamsl = 999999
 
             if toamsl is not None:
-                lastv = toamsl
-                currentv = feature['properties'].get('to (ft amsl)')
+                ctx.lastv = toamsl
+                currentv = ctx.feature['properties'].get('to (ft amsl)')
                 if currentv is not None and currentv != toamsl:
                     logger.warning("attempt to overwrite vertl_to %s with %s." % (currentv, toamsl))
                     if int(currentv) > int(toamsl):
@@ -579,14 +606,14 @@ for filename in os.listdir("./sources/txt"):
                         return
                     logger.warning("ok.")
                 if flto is not None:
-                    feature['properties']['to (fl)']=flto
-                feature['properties']['to (ft amsl)']=toamsl
-                feature['properties']['to (m amsl)'] = ft2m(toamsl)
+                    ctx.feature['properties']['to (fl)']=flto
+                ctx.feature['properties']['to (ft amsl)']=toamsl
+                ctx.feature['properties']['to (m amsl)'] = ft2m(toamsl)
                 if valldal:
-                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                    lastv = None
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    ctx.lastv = None
             if fromamsl is not None:
-                currentv = feature['properties'].get('from (ft amsl)')
+                currentv = ctx.feature['properties'].get('from (ft amsl)')
                 if currentv is not None and currentv != fromamsl:
                     logger.warning("attempt to overwrite vertl_from %s with %s." % (currentv, fromamsl))
                     if int(currentv) < int(fromamsl):
@@ -594,24 +621,24 @@ for filename in os.listdir("./sources/txt"):
                         return
                     logger.warning("ok.")
                 if fl is not None:
-                    feature['properties']['from (fl)']=fl
-                feature['properties']['from (ft amsl)']=fromamsl
-                feature['properties']['from (m amsl)'] = ft2m(fromamsl)
-                lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (aipname and ("TIZ" in aipname))) and (finalcoord or tia_aip_acc)) or country != 'EN') and not ("Geiteryggen" in aipname):
+                    ctx.feature['properties']['from (fl)']=fl
+                ctx.feature['properties']['from (ft amsl)']=fromamsl
+                ctx.feature['properties']['from (m amsl)'] = ft2m(fromamsl)
+                ctx.lastv = None
+                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc)) or ctx.country != 'EN') and not ("Geiteryggen" in ctx.aipname):
                     logger.debug("Finalizing poly: Vertl complete.")
-                    if aipname and (("SÄLEN" in aipname) or ("SAAB" in aipname)) and len(sectors)>0:
-                        for x in sectors[1:]: # skip the first sector, which is the union of the other sectors in Swedish docs
+                    if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and len(ctx.sectors)>0:
+                        for x in ctx.sectors[1:]: # skip the first sector, which is the union of the other ctx.sectors in Swedish docs
                             aipname_,  obj_ = x
-                            logger.debug("Restoring "+aipname_+" "+str(len(sectors)))
-                            feature_ = deepcopy(feature)
+                            logger.debug("Restoring "+aipname_+" "+str(len(ctx.sectors)))
+                            feature_ = deepcopy(ctx.feature)
                             logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
-                            finalize(feature_, features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip)
-                        sectors = []
-                        logger.debug("Finalizing last poly as ."+aipname)
-                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                            finalize(feature_, ctx.features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip)
+                        ctx.sectors = []
+                        logger.debug("Finalizing last poly as ."+ctx.aipname)
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
 
-            logger.debug("From %s to %s", feature['properties'].get('from (ft amsl)'), feature['properties'].get('to (ft amsl)'))
+            logger.debug("From %s to %s", ctx.feature['properties'].get('from (ft amsl)'), ctx.feature['properties'].get('to (ft amsl)'))
             return
 
         # IDENTIFY airspace naming
@@ -619,48 +646,48 @@ for filename in os.listdir("./sources/txt"):
                re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line) or \
                re_name_openair.search(line)
 
-        if name_cont and not 'Real time' in line:
-            aipname = aipname + " " + line
-            logger.debug("Continuing name as "+aipname)
-            if line == '' or 'EN D' in aipname:
-                name_cont = False
+        if ctx.name_cont and not 'Real time' in line:
+            ctx.aipname = ctx.aipname + " " + line
+            logger.debug("Continuing name as "+ctx.aipname)
+            if line == '' or 'EN D' in ctx.aipname:
+                ctx.name_cont = False
 
         if name:
             named=name.groupdict()
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                lastv = None
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                ctx.lastv = None
 
             name=named.get('name')
             if 'polaris' in name.lower() and 'norway' in name.lower():
                 pos = name.lower().index('norway')
                 name = name[:pos]
 
-            if name[:6]=="Sector" and "ACC" in aipname:
+            if name[:6]=="Sector" and "ACC" in ctx.aipname:
                return
 
-            if named.get('name_cont'):
-                name += ' '+named.get('name_cont')
-                name_cont=True
+            if named.get('ctx.name_cont'):
+                name += ' '+named.get('ctx.name_cont')
+                ctx.name_cont=True
 
-            if (name == "Sector a") or (name == "Sector b") or (aipname and ("Sector" in aipname) and (("SÄLEN" in aipname) or ("SAAB" in aipname))):
+            if (name == "Sector a") or (name == "Sector b") or (ctx.aipname and ("Sector" in ctx.aipname) and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname))):
                 return
             if "ES R" in name or "ES D" in name:
-                name_cont=True
+                ctx.name_cont=True
             if "EN D" in name and len(name)<8:
-                name_cont=True
+                ctx.name_cont=True
 
             if restrict_aip or military_aip:
-                if feature['properties'].get('from (ft amsl)') is not None and (feature['properties'].get('to (ft amsl)') or "Romerike" in aipname or "Oslo" in aipname):
+                if ctx.feature['properties'].get('from (ft amsl)') is not None and (ctx.feature['properties'].get('to (ft amsl)') or "Romerike" in ctx.aipname or "Oslo" in ctx.aipname):
                     logger.debug("RESTRICT/MILITARY + name and vertl complete")
-                    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                    lastv = None
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    ctx.lastv = None
                 else:
                     logger.debug("RESTRICT/MILITARY + name and vertl NOT complete")
 
-            aipname = name
-            logger.debug("Found name '%s' in line: %s", aipname, line)
+            ctx.aipname = name
+            logger.debug("Found name '%s' in line: %s", ctx.aipname, line)
             return
 
         # The airsport document doesn't have recognizable airspace names
@@ -669,14 +696,14 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Unhandled line in airsport_aip: %s", line)
             if wstrip(line)=="1":
                 logger.debug("Starting airsport_aip table")
-                airsport_intable = True
-            elif wstrip(line)[0] != "2" and airsport_intable:
-                logger.debug("Considering as new aipname: '%s'", line)
-                feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-                aipname = wstrip(line)
+                ctx.airsport_intable = True
+            elif wstrip(line)[0] != "2" and ctx.airsport_intable:
+                logger.debug("Considering as new ctx.aipname: '%s'", line)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                ctx.aipname = wstrip(line)
 
         if line.strip()=="-+-":
-            feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
 
     # end def parse
 
@@ -727,7 +754,7 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Skipping end of SUP")
             break
 
-        if country == 'ES' and 'Vinschning av sk' in line:
+        if ctx.country == 'ES' and 'Vinschning av sk' in line:
             logger.debug("Skipping end of document")
             break
 
@@ -819,16 +846,16 @@ for filename in os.listdir("./sources/txt"):
             parse(line,1)
 
     if "nidaros" in source:
-        aipname = "Nidaros"
-        feature['properties']['from (ft amsl)'] = 0
-        feature['properties']['from (m amsl)'] = 0
-        feature['properties']['to (ft amsl)']= 3500
-        feature['properties']['to (m amsl)'] = ft2m(3500)
-        feature['properties']['class'] = 'Luftsport'
+        ctx.aipname = "Nidaros"
+        ctx.feature['properties']['from (ft amsl)'] = 0
+        ctx.feature['properties']['from (m amsl)'] = 0
+        ctx.feature['properties']['to (ft amsl)']= 3500
+        ctx.feature['properties']['to (m amsl)'] = ft2m(3500)
+        ctx.feature['properties']['class'] = 'Luftsport'
 
     logger.debug("Finalizing: end of doc.")
-    feature, obj = finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
-    collection.extend(features)
+    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+    collection.extend(ctx.features)
 
 logger.info("%i Features", len(collection))
 
