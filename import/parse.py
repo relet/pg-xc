@@ -323,6 +323,127 @@ class ClassParser:
         return match.groupdict().get('class')
 
 
+class VerticalLimitParser:
+    """Parser for vertical limits (altitude ranges).
+    
+    Handles various formats for altitude limits:
+    - Upper/Lower limit format: "Upper limit: FL 100" or "Lower limit: 5000 FT AMSL"
+    - Range format: "GND to 4500 FT AMSL" or "1000 - 5000"
+    - Flight level format: "FL 100" or "FL 450"
+    - Special values: GND (ground), UNL (unlimited), MSL (mean sea level)
+    - See RMK (remark) - special case for controlled airspace lower limit
+    """
+    
+    def __init__(self, patterns):
+        """Initialize with RegexPatterns instance"""
+        self.patterns = patterns
+    
+    def parse_vertical_limit(self, line, military_aip=False):
+        """Try to extract vertical limits from a line.
+        
+        Args:
+            line: Text line to parse
+            military_aip: Whether this is from military AIP (enables re_vertl3)
+            
+        Returns:
+            Match object if vertical limit found, None otherwise
+        """
+        return (self.patterns.re_vertl_upper.search(line) or 
+                self.patterns.re_vertl_lower.search(line) or 
+                self.patterns.re_vertl.search(line) or 
+                self.patterns.re_vertl2.search(line) or 
+                (military_aip and self.patterns.re_vertl3.search(line)))
+    
+    def extract_limits(self, match, ctx):
+        """Extract and process vertical limit values.
+        
+        Args:
+            match: Regex match object
+            ctx: ParsingContext (uses ctx.lastv for state)
+            
+        Returns:
+            Tuple of (from_altitude, to_altitude, from_fl, to_fl) in feet AMSL
+            Any value can be None if not found
+        """
+        vertl = match.groupdict()
+        fromamsl, toamsl = None, None
+        fl, flfrom, flto = None, None, None
+        
+        v = vertl.get('ftamsl')
+        flfrom = vertl.get('flfrom')
+        flto = vertl.get('flto')
+        fl = vertl.get('fl')
+        rmk = vertl.get('rmk')
+        
+        # HACK: "See remark" = lower limit of controlled airspace
+        if rmk is not None:
+            v = 13499
+        
+        # Convert flight level to feet
+        if fl is not None:
+            v = int(fl) * 100
+        
+        # Handle upper/lower limit pairs
+        if flto is not None:
+            toamsl = int(flto) * 100
+            if flfrom:
+                fromamsl = v or (int(flfrom) * 100)
+                fl = fl or flfrom
+        elif flfrom is not None:
+            fromamsl = int(flfrom) * 100
+            fl = fl or flfrom
+        elif v is not None:
+            # Single value - use context to determine if it's from or to
+            if ctx.lastv is None:
+                toamsl = v
+                if fl is not None:
+                    flto = fl
+            else:
+                fromamsl = v
+        else:
+            # Handle special keywords and ranges
+            fromamsl = vertl.get('msl', vertl.get('gnd', vertl.get('from')))
+            if fromamsl == "GND": fromamsl = 0
+            if fromamsl == "MSL": fromamsl = 0
+            toamsl = vertl.get('unl', vertl.get('to'))
+            if toamsl == "UNL": toamsl = 999999
+        
+        return fromamsl, toamsl, fl, flto
+
+
+class CoordinateParser:
+    """Parser for coordinate definitions in airspace boundaries.
+    
+    Handles multiple coordinate formats:
+    - Circles: "Radius 5 NM centered on 600000N 0100000E"
+    - Sectors: "Sector 090° - 180° (T), radius 10 NM"
+    - Coordinate lists: "600000N 0100000E - 610000N 0110000E"
+    - Arcs: "clockwise along an arc of 5 NM radius centered on..."
+    - Border following: "along border" (uses pre-loaded border coordinates)
+    
+    Supports line continuation for incomplete coordinates.
+    """
+    
+    def __init__(self, patterns):
+        """Initialize with RegexPatterns instance"""
+        self.patterns = patterns
+    
+    def has_coordinates(self, line, ctx):
+        """Check if line contains any coordinate format.
+        
+        Args:
+            line: Text line to check
+            ctx: ParsingContext (for country-specific re_coord3)
+            
+        Returns:
+            Tuple of (coords, coords2, coords3) match objects/lists
+        """
+        coords = self.patterns.re_coord.search(line)
+        coords2 = self.patterns.re_coord2.search(line)
+        coords3 = ctx.re_coord3.findall(line)
+        return coords, coords2, coords3
+
+
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
     global completed
@@ -515,6 +636,8 @@ for filename in os.listdir("./sources/txt"):
     ctx = ParsingContext()
     name_parser = NameParser(patterns)
     class_parser = ClassParser(patterns)
+    vertical_parser = VerticalLimitParser(patterns)
+    coord_parser = CoordinateParser(patterns)
 
     if "EN_" or "en_" or "_en." in filename:
         country = 'EN'  # Keep as global for finalize()
@@ -593,9 +716,7 @@ for filename in os.listdir("./sources/txt"):
             ctx.feature['properties']['from (ft amsl)']=0
             ctx.feature['properties']['from (m amsl)'] =0
 
-        coords = re_coord.search(line)
-        coords2 = re_coord2.search(line)
-        coords3 = ctx.re_coord3.findall(line)
+        coords, coords2, coords3 = coord_parser.has_coordinates(line, ctx)
 
         if (coords or coords2 or coords3):
 
@@ -742,45 +863,11 @@ for filename in os.listdir("./sources/txt"):
             ctx.feature['properties']['frequency'] = freq.get('freq')
 
         # IDENTIFY altitude limits
-        vertl = re_vertl_upper.search(line) or re_vertl_lower.search(line) or re_vertl.search(line) or re_vertl2.search(line) or (military_aip and re_vertl3.search(line))
+        vertl = vertical_parser.parse_vertical_limit(line, military_aip)
 
         if vertl:
-            vertl = vertl.groupdict()
-            logger.debug("Found vertl in line: %s", vertl)
-            fromamsl, toamsl = None, None
-
-            v = vertl.get('ftamsl')
-            flfrom = vertl.get('flfrom')
-            flto = vertl.get('flto')
-            fl = vertl.get('fl')
-            rmk = vertl.get('rmk')
-
-            if rmk is not None:
-                v = 13499 # HACK: rmk = "Lower limit of controlled airspace -> does not affect us"
-            if fl is not None:
-                v = int(fl) * 100
-
-            if flto is not None:
-                toamsl   = int(flto) * 100
-                if flfrom:
-                    fromamsl = v or (int(flfrom) * 100)
-                    fl = fl or flfrom
-            elif flfrom is not None:
-                fromamsl = int(flfrom) * 100
-                fl = fl or flfrom
-            elif v is not None:
-                if ctx.lastv is None:
-                    toamsl = v
-                    if fl is not None:
-                        flto = fl
-                else:
-                    fromamsl = v
-            else:
-                fromamsl = vertl.get('msl',vertl.get('gnd',vertl.get('from')))
-                if fromamsl == "GND": fromamsl = 0
-                if fromamsl == "MSL": fromamsl = 0
-                toamsl = vertl.get('unl',vertl.get('to'))
-                if toamsl == "UNL": toamsl = 999999
+            logger.debug("Found vertl in line: %s", vertl.groupdict())
+            fromamsl, toamsl, fl, flto = vertical_parser.extract_limits(vertl, ctx)
 
             if toamsl is not None:
                 ctx.lastv = toamsl
@@ -792,8 +879,8 @@ for filename in os.listdir("./sources/txt"):
                         return
                     logger.warning("ok.")
                 if flto is not None:
-                    ctx.feature['properties']['to (fl)']=flto
-                ctx.feature['properties']['to (ft amsl)']=toamsl
+                    ctx.feature['properties']['to (fl)'] = flto
+                ctx.feature['properties']['to (ft amsl)'] = toamsl
                 ctx.feature['properties']['to (m amsl)'] = ft2m(toamsl)
                 if valldal:
                     ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
@@ -807,7 +894,7 @@ for filename in os.listdir("./sources/txt"):
                         return
                     logger.warning("ok.")
                 if fl is not None:
-                    ctx.feature['properties']['from (fl)']=fl
+                    ctx.feature['properties']['from (fl)'] = fl
                 ctx.feature['properties']['from (ft amsl)']=fromamsl
                 ctx.feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 ctx.lastv = None
