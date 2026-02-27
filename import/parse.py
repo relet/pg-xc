@@ -375,11 +375,11 @@ class ClassParser:
     - OpenAir format: "AC C"
     """
     
-    def __init__(self, patterns):
+    def __init__(self, patterns: 'RegexPatterns'):
         """Initialize with RegexPatterns instance"""
         self.patterns = patterns
     
-    def parse_class(self, line):
+    def parse_class(self, line: str) -> Optional[re.Match]:
         """Try to extract airspace class from a line.
         
         Args:
@@ -392,7 +392,7 @@ class ClassParser:
                 self.patterns.re_class2.search(line) or 
                 self.patterns.re_class_openair.search(line))
     
-    def extract_class(self, match):
+    def extract_class(self, match: re.Match) -> str:
         """Extract the class value from a match.
         
         Args:
@@ -418,11 +418,11 @@ class VerticalLimitParser:
     - See RMK (remark) - special case for controlled airspace lower limit
     """
     
-    def __init__(self, patterns):
+    def __init__(self, patterns: 'RegexPatterns'):
         """Initialize with RegexPatterns instance"""
         self.patterns = patterns
     
-    def parse_vertical_limit(self, line, military_aip=False):
+    def parse_vertical_limit(self, line: str, military_aip: bool = False) -> Optional[re.Match]:
         """Try to extract vertical limits from a line.
         
         Args:
@@ -438,7 +438,7 @@ class VerticalLimitParser:
                 self.patterns.re_vertl2.search(line) or 
                 (military_aip and self.patterns.re_vertl3.search(line)))
     
-    def extract_limits(self, match, ctx):
+    def extract_limits(self, match: re.Match, ctx: 'ParsingContext') -> Tuple[Optional[int], Optional[int], Optional[str], Optional[str]]:
         """Extract and process vertical limit values.
         
         Args:
@@ -673,6 +673,7 @@ class FeatureValidator:
     
     Provides validation checks for feature completeness and correctness.
     Helps identify issues with parsed airspace data before finalization.
+    Returns structured ValidationResult objects instead of tuples.
     """
     
     def validate(self, feature, obj, aipname=None):
@@ -684,37 +685,40 @@ class FeatureValidator:
             aipname: Optional airspace name for error messages
             
         Returns:
-            Tuple of (is_valid, error_messages)
+            ValidationResult with structured errors/warnings
         """
-        errors = []
+        result = ValidationResult(info=f"Validating {aipname}" if aipname else "Validating feature")
         name_str = f" ({aipname})" if aipname else ""
         
         # Check for required properties
         if not feature.get('properties'):
-            errors.append(f"Missing properties{name_str}")
-        else:
-            # Check vertical limits
-            from_amsl = feature['properties'].get('from (ft amsl)')
-            to_amsl = feature['properties'].get('to (ft amsl)')
-            
-            if from_amsl is None:
-                errors.append(f"Missing lower limit{name_str}")
-            if to_amsl is None:
-                errors.append(f"Missing upper limit{name_str}")
-            
-            # Validate vertical limit consistency
-            if from_amsl is not None and to_amsl is not None:
-                try:
-                    if int(from_amsl) >= int(to_amsl):
-                        errors.append(f"Invalid vertical limits: from={from_amsl} >= to={to_amsl}{name_str}")
-                except (ValueError, TypeError):
-                    errors.append(f"Non-numeric vertical limits{name_str}")
+            result.add_error(f"Missing properties{name_str}")
+            return result
+        
+        # Check vertical limits
+        from_amsl = feature['properties'].get('from (ft amsl)')
+        to_amsl = feature['properties'].get('to (ft amsl)')
+        
+        if from_amsl is None:
+            result.add_error(f"Missing lower limit{name_str}")
+        if to_amsl is None:
+            result.add_error(f"Missing upper limit{name_str}")
+        
+        # Validate vertical limit consistency
+        if from_amsl is not None and to_amsl is not None:
+            try:
+                if int(from_amsl) >= int(to_amsl):
+                    result.add_error(f"Invalid vertical limits: from={from_amsl} >= to={to_amsl}{name_str}")
+            except (ValueError, TypeError):
+                result.add_error(f"Non-numeric vertical limits{name_str}")
         
         # Check geometry
         if not obj or len(obj) < 3:
-            errors.append(f"Insufficient geometry points: {len(obj) if obj else 0}{name_str}")
+            result.add_error(f"Insufficient geometry points: {len(obj) if obj else 0}{name_str}")
+        elif len(obj) > 100:
+            result.add_warning(f"Complex polygon with {len(obj)} points{name_str}")
         
-        return len(errors) == 0, errors
+        return result
     
     def check_required_property(self, feature, property_name, aipname=None):
         """Check if a required property exists.
@@ -954,6 +958,84 @@ class AirspaceClass(Enum):
             AirspaceClass.R,
             AirspaceClass.LUFTSPORT
         )
+
+
+@dataclass
+class ValidationResult:
+    """Result of a validation operation with structured error/warning tracking.
+    
+    Replaces scattered logging with structured validation results that can be
+    tested, counted, and handled programmatically.
+    
+    Attributes:
+        valid: Whether validation passed
+        errors: List of error messages (validation failures)
+        warnings: List of warning messages (suspicious but acceptable)
+        info: Optional informational message about what was validated
+    """
+    valid: bool = True
+    errors: list = None
+    warnings: list = None
+    info: str = None
+    
+    def __post_init__(self):
+        """Initialize list fields."""
+        if self.errors is None:
+            self.errors = []
+        if self.warnings is None:
+            self.warnings = []
+        
+        # Auto-set valid based on errors
+        if self.errors:
+            self.valid = False
+    
+    def add_error(self, message: str):
+        """Add an error message and mark as invalid."""
+        self.errors.append(message)
+        self.valid = False
+    
+    def add_warning(self, message: str):
+        """Add a warning message (doesn't affect validity)."""
+        self.warnings.append(message)
+    
+    def has_issues(self) -> bool:
+        """Check if there are any errors or warnings."""
+        return bool(self.errors or self.warnings)
+    
+    def log_all(self, logger):
+        """Log all errors and warnings to a logger."""
+        for error in self.errors:
+            logger.error(error)
+        for warning in self.warnings:
+            logger.warning(warning)
+    
+    @classmethod
+    def success(cls, info: str = None):
+        """Create a successful validation result."""
+        return cls(valid=True, info=info)
+    
+    @classmethod
+    def failure(cls, error: str, info: str = None):
+        """Create a failed validation result with an error."""
+        return cls(valid=False, errors=[error], info=info)
+    
+    @classmethod
+    def merge(cls, *results: 'ValidationResult'):
+        """Merge multiple validation results.
+        
+        Args:
+            *results: Variable number of ValidationResult instances
+            
+        Returns:
+            Combined ValidationResult (valid only if all valid)
+        """
+        merged = cls()
+        for result in results:
+            merged.errors.extend(result.errors)
+            merged.warnings.extend(result.warnings)
+        
+        merged.valid = len(merged.errors) == 0
+        return merged
 
 
 @dataclass
@@ -2168,9 +2250,9 @@ for filename in os.listdir("./sources/txt"):
                         if ctx.feature['properties'].get('from (ft amsl)') is not None:
                             logger.debug("Finalizing: ctx.finalcoord.")
                             # Optional validation logging (doesn't block finalize)
-                            is_valid, errors = feature_validator.validate(ctx.feature, ctx.obj, ctx.aipname)
-                            if not is_valid:
-                                logger.debug(f"Feature validation warnings: {', '.join(errors)}")
+                            validation = feature_validator.validate(ctx.feature, ctx.obj, ctx.aipname)
+                            if not validation.valid:
+                                logger.debug(f"Feature validation warnings: {', '.join(validation.errors)}")
                             ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                             ctx.lastv = None
 
