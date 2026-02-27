@@ -68,10 +68,8 @@ class RegexPatterns:
     re_coord = re.compile(r"(?:" + RE_NE + r" - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
     # Sector definition
     re_coord2 = re.compile(RE_SECTOR)
-    # All formats in coordinate list (Norway)
-    re_coord3_no = re.compile(RE_NE+r"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE)
-    # All formats in coordinate list (Sweden)
-    re_coord3_se = re.compile(RE_NE+r"|(?P<along>border)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE+r"|(?P<circle>A circle)|(?:radius)")
+    # All formats in coordinate list (Norway - using "along" for border following)
+    re_coord3 = re.compile(RE_NE+r"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE)
     # Arc along circle segment
     re_arc = re.compile(r'(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+r'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
     
@@ -113,8 +111,7 @@ re_coord = patterns.re_coord
 RE_SECTOR = patterns.RE_SECTOR
 re_coord2 = patterns.re_coord2
 RE_CIRCLE = patterns.RE_CIRCLE
-re_coord3_no = patterns.re_coord3_no
-re_coord3_se = patterns.re_coord3_se
+re_coord3 = patterns.re_coord3
 re_arc = patterns.re_arc
 re_vertl_upper = patterns.re_vertl_upper
 re_vertl_lower = patterns.re_vertl_lower
@@ -672,14 +669,9 @@ class DocumentTypeStrategy:
         self.military_aip = "ENR-5.2" in filename
         self.airsport_aip = "ENR-5.5" in filename
         self.aip_sup = "en_sup" in filename
-        self.es_aip_sup = "aro.lfv.se" in filename and "editorial" in filename
         self.valldal = "valldal" in filename
         
-        # Country-specific document types
-        self.es_enr_2_1 = "ES_ENR_2_1" in filename
-        self.es_enr_2_2 = "ES_ENR_2_2" in filename
-        self.es_enr_5_1 = "ES_ENR_5_1" in filename
-        self.es_enr_5_2 = "ES_ENR_5_2" in filename
+        # Norwegian-specific document types
         self.en_enr_5_1 = "EN_ENR_5_1" in filename
     
     def get_document_type(self):
@@ -734,28 +726,23 @@ class ColumnParser:
         self.vcut = 999    # Default vertical cut position
         self.vend = 1000   # Default vertical end position
     
-    def detect_columns_from_header(self, line, headers, es_aip_sup=False):
+    def detect_columns_from_header(self, line, headers):
         """Detect column positions from header line.
         
         Args:
             line: Header line text
             headers: Parsed header fields
-            es_aip_sup: Whether this is Swedish AIP supplement
             
         Returns:
             List of column cut positions
         """
         vcuts = []
         
-        if es_aip_sup:
-            # Hardcoded columns for Swedish AIP supplements
-            vcuts = [0, 45, 110]
-        else:
-            # Detect from header positions
-            for header in headers[0]:
-                if header:
-                    vcuts.append(line.index(header))
-            vcuts.append(len(line))
+        # Detect from header positions
+        for header in headers[0]:
+            if header:
+                vcuts.append(line.index(header))
+        vcuts.append(len(line))
         
         self.vcuts = vcuts
         logger.debug(f"Detected column positions: {vcuts}")
@@ -953,8 +940,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     if aipname == 'EN D477':
         aipname = 'EN D477 R og B 2'
 
-    if 'ACC' in aipname and country=="ES":
-        return {"properties":{}}, []
+    # Skip unwanted airspace types
     for ignore in ['ADS','AOR','FAB',' FIR','HTZ']:
         if ignore in aipname:
             logger.debug("Ignoring: %s", aipname)
@@ -1120,12 +1106,7 @@ for filename in os.listdir("./sources/txt"):
     military_aip = doc_strategy.military_aip
     airsport_aip = doc_strategy.airsport_aip
     aip_sup = doc_strategy.aip_sup
-    es_aip_sup = doc_strategy.es_aip_sup
     valldal = doc_strategy.valldal
-    es_enr_2_1 = doc_strategy.es_enr_2_1
-    es_enr_2_2 = doc_strategy.es_enr_2_2
-    es_enr_5_1 = doc_strategy.es_enr_5_1
-    es_enr_5_2 = doc_strategy.es_enr_5_2
     en_enr_5_1 = doc_strategy.en_enr_5_1
 
     # Initialize parsing context for this file
@@ -1140,17 +1121,12 @@ for filename in os.listdir("./sources/txt"):
     feature_builder = FeatureBuilder()
     column_parser = ColumnParser(doc_strategy)
 
-    if "EN_" or "en_" or "_en." in filename:
-        country = 'EN'  # Keep as global for finalize()
-        ctx.country = 'EN'
-        ctx.border = borders['norway']
-        ctx.re_coord3 = re_coord3_no
-    if "ES_" in filename or "aro.lfv.se" in filename:
-        country = 'ES'  # Keep as global for finalize()
-        ctx.country = 'ES'
-        ctx.border = borders['sweden']
-        ctx.re_coord3 = re_coord3_se
-    logger.debug("Country is %s", ctx.country)
+    # Norwegian AIP only (Swedish files will be skipped/ignored)
+    country = 'EN'
+    ctx.country = 'EN'
+    ctx.border = borders['norway']
+    ctx.re_coord3 = re_coord3
+    logger.debug("Processing Norwegian AIP document")
 
     def parse(line, half=1):
         """Parse a line (or half line) of converted pdftotext"""
@@ -1362,7 +1338,10 @@ for filename in os.listdir("./sources/txt"):
                     ctx.lastv = None
             if fromamsl is not None:
                 ctx.lastv = None
-                if (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc)) or ctx.country != 'EN') and not ("Geiteryggen" in ctx.aipname):
+                # Finalize if: special doc types have final coord
+                should_finalize = (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc))
+                                  and not ("Geiteryggen" in ctx.aipname))
+                if should_finalize:
                     logger.debug("Finalizing poly: Vertl complete.")
                     if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and len(ctx.sectors)>0:
                         for x in ctx.sectors[1:]: # skip the first sector, which is the union of the other ctx.sectors in Swedish docs
@@ -1473,10 +1452,6 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Skipping end of SUP")
             break
 
-        if ctx.country == 'ES' and 'Vinschning av sk' in line:
-            logger.debug("Skipping end of document")
-            break
-
         if 'Danger Areas active only as notified by NOTAM' in line:
             logger.debug("FOLLOWING danger areas are NOTAM activated.")
             end_notam = True
@@ -1502,19 +1477,12 @@ for filename in os.listdir("./sources/txt"):
                 row.append(lcut)
             table.append(row)
             continue
-        elif es_enr_2_1 or es_enr_2_2 or es_enr_5_1 or es_enr_5_2:
-            if line.strip()=='Vertical limits': # hack around ES_ENR_2_2 malformatting
-                headers = 'Vertical'
-                header_cont = True
-            for rex in rexes_header_es_enr:
-                headers = headers or rex.findall(line)
-                header_cont = False
-        elif es_aip_sup and not column_parser.vcuts:
-            headers = True
+        
+        # Check for headers (Norwegian documents only)
         if headers:
             logger.debug("Parsed header line as %s.", headers)
             logger.debug("line=%s.", line)
-            vcuts = column_parser.detect_columns_from_header(line, headers, es_aip_sup)
+            vcuts = column_parser.detect_columns_from_header(line, headers)
             column_parsing = sorted((column_parsing + vcuts))
             logger.debug("DEBUG: column parsing: %s", vcuts)
             continue
