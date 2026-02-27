@@ -956,6 +956,72 @@ class AirspaceClass(Enum):
         )
 
 
+@dataclass
+class ColumnLayout:
+    """Encapsulates column positions for parsing column-based AIP documents.
+    
+    Norwegian AIP documents use different column layouts depending on type:
+    - ENR-5.1/5.2: Two columns (main text, vertical limits)
+    - ENR-2.1/2.2: Single column before vertical cut
+    - ENR-5.5: Two columns with specific widths
+    - Some TIA AIP ACC: Multiple columns detected from header
+    """
+    
+    vcut: int = 999      # Vertical limit column start position
+    vend: int = 1000     # Vertical limit column end position
+    vcuts: list = None   # Multiple column positions (for ACC sectors)
+    
+    def __post_init__(self):
+        """Initialize list fields."""
+        if self.vcuts is None:
+            self.vcuts = []
+    
+    def has_multiple_columns(self) -> bool:
+        """Check if layout has multiple detected columns."""
+        return self.vcuts is not None and len(self.vcuts) > 0
+    
+    def split_line(self, line, doc_type):
+        """Split line into columns based on layout.
+        
+        Args:
+            line: Text line to split
+            doc_type: DocumentType enum value
+            
+        Returns:
+            List of (column_text, column_number) tuples
+        """
+        columns = []
+        
+        if self.has_multiple_columns():
+            # Split by detected column positions
+            for i in range(len(self.vcuts) - 1):
+                columns.append((line[self.vcuts[i]:self.vcuts[i+1]], i+1))
+            columns.append((line[self.vcuts[-1]:], len(self.vcuts)))
+        
+        elif doc_type == DocumentType.AIRSPORT_AIP:
+            # Two columns: main and vertical limits
+            columns.append((line[:self.vcut], 1))
+            columns.append((line[self.vcut:self.vend], 2))
+        
+        elif doc_type in (DocumentType.RESTRICT_AIP, DocumentType.MILITARY_AIP):
+            # Two or three columns depending on type
+            columns.append((line[:self.vcut], 1))
+            if doc_type == DocumentType.MILITARY_AIP:
+                columns.append((line[self.vcut:self.vend], 2))
+            else:
+                columns.append((line[self.vcut:], 2))
+        
+        elif doc_type in (DocumentType.CTA_AIP, DocumentType.TIA_AIP):
+            # Single column before vertical cut
+            columns.append((line[:self.vcut], 1))
+        
+        else:
+            # No column splitting - full line
+            columns.append((line, 1))
+        
+        return columns
+
+
 class DocumentTypeStrategy:
     """Strategy for determining document type and parsing behavior.
     
@@ -1327,10 +1393,10 @@ class FarrisTMAHandler(SpecialCaseHandler):
 
 
 class ColumnParser:
-    """Parser for table-based AIP documents with column layouts.
+    """Parser for column-based AIP document layouts.
     
-    Many AIP documents use tabular formats where information is organized in columns.
-    This class detects column boundaries and splits lines for separate parsing.
+    Handles detection and parsing of multi-column formats used in Norwegian AIP.
+    Different document types have different column layouts for airspace definitions.
     """
     
     def __init__(self, doc_strategy):
@@ -1340,9 +1406,7 @@ class ColumnParser:
             doc_strategy: DocumentTypeStrategy instance
         """
         self.doc_strategy = doc_strategy
-        self.vcuts = None  # Column cut positions
-        self.vcut = 999    # Default vertical cut position
-        self.vend = 1000   # Default vertical end position
+        self.layout = ColumnLayout()
     
     def detect_columns_from_header(self, line, headers):
         """Detect column positions from header line.
@@ -1362,7 +1426,7 @@ class ColumnParser:
                 vcuts.append(line.index(header))
         vcuts.append(len(line))
         
-        self.vcuts = vcuts
+        self.layout.vcuts = vcuts
         logger.debug(f"Detected column positions: {vcuts}")
         return vcuts
     
@@ -1382,7 +1446,7 @@ class ColumnParser:
             # SPECIAL CASE #9: Column shift hack for TIA AIP ACC format
             # Column positions detected are off by 2 characters
             vcuts = [(x and (x-2)) for x in vcuts]
-            self.vcuts = vcuts
+            self.layout.vcuts = vcuts
             logger.debug("vcuts %s", vcuts)
             return vcuts
         return None
@@ -1400,30 +1464,30 @@ class ColumnParser:
         
         if doc_type == DocumentType.AIRSPORT_AIP:
             if "Vertical limits" in line:
-                self.vcut = line.index("Vertical limits")
-                self.vend = self.vcut + 28
-                logger.debug(f"Airsport vcut: {self.vcut}, vend: {self.vend}")
+                self.layout.vcut = line.index("Vertical limits")
+                self.layout.vend = self.layout.vcut + 28
+                logger.debug(f"Airsport vcut: {self.layout.vcut}, vend: {self.layout.vend}")
                 return True
         
         elif self.doc_strategy.is_any_of(DocumentType.RESTRICT_AIP, DocumentType.MILITARY_AIP):
             if "Vertikale grenser" in line:
-                self.vcut = line.index("Vertikale grenser")
-                self.vend = self.vcut + 16
+                self.layout.vcut = line.index("Vertikale grenser")
+                self.layout.vend = self.layout.vcut + 16
                 if "Aktiviseringstid" in line:
-                    self.vend = line.index("Aktiviseringstid")
-                logger.debug(f"Restrict/Military vcut: {self.vcut}, vend: {self.vend}")
+                    self.layout.vend = line.index("Aktiviseringstid")
+                logger.debug(f"Restrict/Military vcut: {self.layout.vcut}, vend: {self.layout.vend}")
                 return True
         
         elif doc_type == DocumentType.CTA_AIP:
             if "Tjenesteenhet" in line:
-                self.vcut = line.index("Tjenesteenhet")
-                logger.debug(f"CTA vcut: {self.vcut}")
+                self.layout.vcut = line.index("Tjenesteenhet")
+                logger.debug(f"CTA vcut: {self.layout.vcut}")
                 return True
         
         elif doc_type == DocumentType.TIA_AIP:
             if "Unit providing" in line:
-                self.vcut = line.index("Unit providing")
-                logger.debug(f"TIA vcut: {self.vcut}")
+                self.layout.vcut = line.index("Unit providing")
+                logger.debug(f"TIA vcut: {self.layout.vcut}")
                 return True
         
         return False
@@ -1438,37 +1502,11 @@ class ColumnParser:
         Returns:
             List of (column_text, column_number) tuples
         """
-        columns = []
-        doc_type = self.doc_strategy.doc_type
+        # For TIA AIP ACC, check if we have detected columns
+        if tia_aip_acc and self.layout.has_multiple_columns():
+            return self.layout.split_line(line, None)
         
-        if tia_aip_acc and self.vcuts:
-            # Split by detected column positions
-            for i in range(len(self.vcuts) - 1):
-                columns.append((line[self.vcuts[i]:self.vcuts[i+1]], i+1))
-            columns.append((line[self.vcuts[-1]:], len(self.vcuts)))
-        
-        elif doc_type == DocumentType.AIRSPORT_AIP:
-            # Two columns: main and vertical limits
-            columns.append((line[:self.vcut], 1))
-            columns.append((line[self.vcut:self.vend], 2))
-        
-        elif self.doc_strategy.is_any_of(DocumentType.RESTRICT_AIP, DocumentType.MILITARY_AIP):
-            # Two or three columns depending on type
-            columns.append((line[:self.vcut], 1))
-            if doc_type == DocumentType.MILITARY_AIP:
-                columns.append((line[self.vcut:self.vend], 2))
-            else:
-                columns.append((line[self.vcut:], 2))
-        
-        elif self.doc_strategy.is_any_of(DocumentType.CTA_AIP, DocumentType.TIA_AIP):
-            # Single column before vertical cut
-            columns.append((line[:self.vcut], 1))
-        
-        else:
-            # No column splitting - full line
-            columns.append((line, 1))
-        
-        return columns
+        return self.layout.split_line(line, self.doc_strategy.doc_type)
 
 
 class FeatureBuilder:
@@ -1553,6 +1591,54 @@ class FeatureBuilder:
                 feature['properties'].get('to (ft amsl)') is not None)
 
 
+
+class ClassAssigner:
+    """Assigns ICAO airspace classes based on Norwegian AIP naming conventions.
+    
+    Norwegian AIPs follow predictable naming patterns that indicate airspace type:
+    - TIZ/TIA → Class G (Traffic Information Zone/Area)
+    - CTR → Class D (Control Zone)
+    - TMA/CTA/ACC → Class C (Terminal/Control Area, Area Control Center)
+    - EN D/END/ES D → Class Q (Danger area)
+    - EN R/ES R → Class R (Restricted area)
+    - ENR-5.5 documents → Luftsport (sport aviation areas)
+    
+    This heuristic approach works for Norwegian AIP structure but may not
+    generalize to other countries' AIP formats.
+    """
+    
+    def assign_class(self, feature, aipname, source):
+        """Assign airspace class based on name patterns.
+        
+        Args:
+            feature: Feature dict to update (modifies properties['class'])
+            aipname: Airspace name
+            source: Source filename (used to detect document type)
+            
+        Returns:
+            Assigned AirspaceClass enum value
+        """
+        # Priority order matters - check most specific patterns first
+        if 'TIZ' in aipname or 'TIA' in aipname:
+            assigned_class = AirspaceClass.G
+        elif 'CTR' in aipname:
+            assigned_class = AirspaceClass.D
+        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES D' in aipname:
+            assigned_class = AirspaceClass.Q
+        elif 'EN R' in aipname or 'ES R' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
+            assigned_class = AirspaceClass.R
+        elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname or 'Sector' in aipname:
+            assigned_class = AirspaceClass.C
+        elif '5.5' in source or "Hareid" in aipname:
+            assigned_class = AirspaceClass.LUFTSPORT
+        else:
+            # No pattern matched - leave unassigned
+            return None
+        
+        feature['properties']['class'] = assigned_class.value
+        return assigned_class
+
+
 class FeatureFinalizer:
     """Handles finalization and validation of airspace features.
     
@@ -1578,6 +1664,7 @@ class FeatureFinalizer:
         self.names = names
         self.accsectors = accsectors
         self.oslo_notam_handler = oslo_notam_handler
+        self.class_assigner = ClassAssigner()
     
     def _normalize_name(self, aipname):
         """Normalize airspace name with special case handling.
@@ -1646,18 +1733,7 @@ class FeatureFinalizer:
             aipname: Airspace name
             source: Source filename
         """
-        if 'TIZ' in aipname or 'TIA' in aipname:
-            feature['properties']['class'] = 'G'
-        elif 'CTR' in aipname:
-            feature['properties']['class'] = 'D'
-        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES D' in aipname:
-            feature['properties']['class'] = 'Q'
-        elif 'EN R' in aipname or 'ES R' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
-            feature['properties']['class'] = 'R'
-        elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname or 'Sector' in aipname:
-            feature['properties']['class'] = 'C'
-        elif '5.5' in source or "Hareid" in aipname:
-            feature['properties']['class'] = 'Luftsport'
+        self.class_assigner.assign_class(feature, aipname, source)
     
     def _simplify_geometry(self, feature, obj):
         """Simplify complex polygon geometries.
@@ -2287,27 +2363,27 @@ for filename in os.listdir("./sources/txt"):
 
         # parse columns separately for table formatted files
         # use header fields to detect column positions
-        if tia_aip_acc and column_parser.vcuts:
-            for i in range(len(column_parser.vcuts)-1):
-                parse(line[column_parser.vcuts[i]:column_parser.vcuts[i+1]])
-            parse(line[column_parser.vcuts[len(column_parser.vcuts)-1]:])
+        if tia_aip_acc and column_parser.layout.vcuts:
+            for i in range(len(column_parser.layout.vcuts)-1):
+                parse(line[column_parser.layout.vcuts[i]:column_parser.layout.vcuts[i+1]])
+            parse(line[column_parser.layout.vcuts[len(column_parser.layout.vcuts)-1]:])
         elif airsport_aip:
             if not column_parser.update_vertical_limit_column(line):
-                parse(line[:column_parser.vcut],1)
-                parse(line[column_parser.vcut:column_parser.vend],2)
+                parse(line[:column_parser.layout.vcut],1)
+                parse(line[column_parser.layout.vcut:column_parser.layout.vend],2)
         elif restrict_aip or military_aip:
             if not column_parser.update_vertical_limit_column(line):
-                parse(line[:column_parser.vcut],1)
+                parse(line[:column_parser.layout.vcut],1)
                 if military_aip:
-                    parse(line[column_parser.vcut:column_parser.vend],2)
+                    parse(line[column_parser.layout.vcut:column_parser.layout.vend],2)
                 else:
-                    parse(line[column_parser.vcut:],2)
+                    parse(line[column_parser.layout.vcut:],2)
         elif cta_aip:
             if not column_parser.update_vertical_limit_column(line):
-                parse(line[:column_parser.vcut],1)
+                parse(line[:column_parser.layout.vcut],1)
         elif tia_aip and not tia_aip_acc:
             if not column_parser.update_vertical_limit_column(line):
-                parse(line[:column_parser.vcut],1)
+                parse(line[:column_parser.layout.vcut],1)
         else:
             parse(line,1)
 
