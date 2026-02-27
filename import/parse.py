@@ -444,6 +444,70 @@ class CoordinateParser:
         return coords, coords2, coords3
 
 
+class FeatureBuilder:
+    """Builder for airspace feature properties.
+    
+    Encapsulates property assignment and validation for airspace features.
+    Handles altitude conversions, property overwrite warnings, and ensures
+    consistency of feature data.
+    """
+    
+    def set_class(self, feature, airspace_class):
+        """Set the airspace class property."""
+        feature['properties']['class'] = airspace_class
+    
+    def set_vertical_limits(self, feature, from_amsl=None, to_amsl=None, from_fl=None, to_fl=None, warn=True):
+        """Set vertical limit properties with optional overwrite warnings.
+        
+        Args:
+            feature: Feature dict to update
+            from_amsl: Lower limit in feet AMSL
+            to_amsl: Upper limit in feet AMSL
+            from_fl: Lower flight level
+            to_fl: Upper flight level
+            warn: Whether to warn on property overwrites
+            
+        Returns:
+            True if values were set, False if skipped due to overwrite conflict
+        """
+        if to_amsl is not None:
+            currentv = feature['properties'].get('to (ft amsl)')
+            if warn and currentv is not None and currentv != to_amsl:
+                logger.warning("attempt to overwrite vertl_to %s with %s." % (currentv, to_amsl))
+                if int(currentv) > int(to_amsl):
+                    logger.warning("skipping.")
+                    return False
+                logger.warning("ok.")
+            if to_fl is not None:
+                feature['properties']['to (fl)'] = to_fl
+            feature['properties']['to (ft amsl)'] = to_amsl
+            feature['properties']['to (m amsl)'] = ft2m(to_amsl)
+        
+        if from_amsl is not None:
+            currentv = feature['properties'].get('from (ft amsl)')
+            if warn and currentv is not None and currentv != from_amsl:
+                logger.warning("attempt to overwrite vertl_from %s with %s." % (currentv, from_amsl))
+                if int(currentv) < int(from_amsl):
+                    logger.warning("skipping.")
+                    return False
+                logger.warning("ok.")
+            if from_fl is not None:
+                feature['properties']['from (fl)'] = from_fl
+            feature['properties']['from (ft amsl)'] = from_amsl
+            feature['properties']['from (m amsl)'] = ft2m(from_amsl)
+        
+        return True
+    
+    def set_frequency(self, feature, frequency):
+        """Set the frequency property."""
+        feature['properties']['frequency'] = frequency
+    
+    def has_vertical_limits(self, feature):
+        """Check if feature has complete vertical limits."""
+        return (feature['properties'].get('from (ft amsl)') is not None and
+                feature['properties'].get('to (ft amsl)') is not None)
+
+
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
     global completed
@@ -638,6 +702,7 @@ for filename in os.listdir("./sources/txt"):
     class_parser = ClassParser(patterns)
     vertical_parser = VerticalLimitParser(patterns)
     coord_parser = CoordinateParser(patterns)
+    feature_builder = FeatureBuilder()
 
     if "EN_" or "en_" or "_en." in filename:
         country = 'EN'  # Keep as global for finalize()
@@ -691,7 +756,7 @@ for filename in os.listdir("./sources/txt"):
         if class_:
             logger.debug("Found class in line: %s", line)
             class_value = class_parser.extract_class(class_)
-            ctx.feature['properties']['class'] = class_value
+            feature_builder.set_class(ctx.feature, class_value)
             if tia_aip or (ctx.aipname and "RMZ" in ctx.aipname):
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
@@ -712,9 +777,8 @@ for filename in os.listdir("./sources/txt"):
         if valldal and 'Valldal' in line:
             ctx.aipname=" ".join(line.strip().split()[0:2])
             logger.debug("Valldal ctx.aipname: '%s'", ctx.aipname)
-            ctx.feature['properties']['class']='Luftsport'
-            ctx.feature['properties']['from (ft amsl)']=0
-            ctx.feature['properties']['from (m amsl)'] =0
+            feature_builder.set_class(ctx.feature, 'Luftsport')
+            feature_builder.set_vertical_limits(ctx.feature, from_amsl=0, to_amsl=None, warn=False)
 
         coords, coords2, coords3 = coord_parser.has_coordinates(line, ctx)
 
@@ -860,7 +924,7 @@ for filename in os.listdir("./sources/txt"):
         if freq:
             freq = freq.groupdict()
             logger.debug("Found FREQUENCY: %s", freq['freq'])
-            ctx.feature['properties']['frequency'] = freq.get('freq')
+            feature_builder.set_frequency(ctx.feature, freq.get('freq'))
 
         # IDENTIFY altitude limits
         vertl = vertical_parser.parse_vertical_limit(line, military_aip)
@@ -869,34 +933,16 @@ for filename in os.listdir("./sources/txt"):
             logger.debug("Found vertl in line: %s", vertl.groupdict())
             fromamsl, toamsl, fl, flto = vertical_parser.extract_limits(vertl, ctx)
 
+            # Use feature_builder to set limits with overwrite handling
+            if not feature_builder.set_vertical_limits(ctx.feature, fromamsl, toamsl, fl, flto):
+                return  # Skipped due to overwrite conflict
+            
             if toamsl is not None:
                 ctx.lastv = toamsl
-                currentv = ctx.feature['properties'].get('to (ft amsl)')
-                if currentv is not None and currentv != toamsl:
-                    logger.warning("attempt to overwrite vertl_to %s with %s." % (currentv, toamsl))
-                    if int(currentv) > int(toamsl):
-                        logger.warning("skipping.")
-                        return
-                    logger.warning("ok.")
-                if flto is not None:
-                    ctx.feature['properties']['to (fl)'] = flto
-                ctx.feature['properties']['to (ft amsl)'] = toamsl
-                ctx.feature['properties']['to (m amsl)'] = ft2m(toamsl)
                 if valldal:
                     ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                     ctx.lastv = None
             if fromamsl is not None:
-                currentv = ctx.feature['properties'].get('from (ft amsl)')
-                if currentv is not None and currentv != fromamsl:
-                    logger.warning("attempt to overwrite vertl_from %s with %s." % (currentv, fromamsl))
-                    if int(currentv) < int(fromamsl):
-                        logger.warning("skipping.")
-                        return
-                    logger.warning("ok.")
-                if fl is not None:
-                    ctx.feature['properties']['from (fl)'] = fl
-                ctx.feature['properties']['from (ft amsl)']=fromamsl
-                ctx.feature['properties']['from (m amsl)'] = ft2m(fromamsl)
                 ctx.lastv = None
                 if (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc)) or ctx.country != 'EN') and not ("Geiteryggen" in ctx.aipname):
                     logger.debug("Finalizing poly: Vertl complete.")
