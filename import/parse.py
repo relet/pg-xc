@@ -999,10 +999,12 @@ class OsloNotamHandler(SpecialCaseHandler):
         """Set NOTAM-only flag and handle inverted limits."""
         feature['properties']['notam_only'] = 'true'
         
-        # Also set lower limit to 0 for Romerike/Oslo
+        # Also set limits to 0/99999 for Romerike/Oslo (unspecified upper limit)
         if "Romerike" in feature['properties'].get('name', '') or "Oslo" in feature['properties'].get('name', ''):
             feature['properties']['from (ft amsl)'] = '0'
             feature['properties']['from (m amsl)'] = '0'
+            feature['properties']['to (ft amsl)'] = '99999'
+            feature['properties']['to (m amsl)'] = '99999'
         
         logger.debug(f"Applied Oslo/Romerike NOTAM handler to {feature['properties'].get('name')}")
         return feature
@@ -1316,183 +1318,250 @@ class FeatureBuilder:
                 feature['properties'].get('to (ft amsl)') is not None)
 
 
-def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
-    """Complete and sanity check a feature definition.
+class FeatureFinalizer:
+    """Handles finalization and validation of airspace features.
     
-    Args:
-        feature: Feature dict to finalize
-        features: List to append completed features to
-        obj: Geometry coordinates
-        source: Source filename
-        aipname: Airspace name
-        cta_aip, restrict_aip, aip_sup, tia_aip: Document type flags
+    Encapsulates the complex finalization logic including:
+    - Name normalization and deduplication
+    - Class assignment based on airspace type
+    - Special case handling (Oslo NOTAM, SÄLEN/SAAB, etc.)
+    - Geometry validation and simplification
+    - Duplicate detection
+    - Sanity checks
+    """
+    
+    def __init__(self, completed, names, accsectors, oslo_notam_handler):
+        """Initialize finalizer with shared state.
+        
+        Args:
+            completed: Dict tracking completed feature names
+            names: Dict tracking all seen names
+            accsectors: List for ACC sector features
+            oslo_notam_handler: Handler for Oslo NOTAM special cases
+        """
+        self.completed = completed
+        self.names = names
+        self.accsectors = accsectors
+        self.oslo_notam_handler = oslo_notam_handler
+    
+    def finalize(self, feature, features, obj, source, aipname, doc_flags, country, end_notam, sanntid_ref):
+        """Complete and sanity check a feature definition.
+        
+        Args:
+            feature: Feature dict to finalize
+            features: List to append completed features to
+            obj: Geometry coordinates
+            source: Source filename
+            aipname: Airspace name
+            doc_flags: Dict with cta_aip, restrict_aip, aip_sup, tia_aip, military_aip
+            country: Country code ('NO' or 'SE')
+            end_notam: Whether document is NOTAM-related
+            sanntid_ref: List with single element [bool] to track sanntid state
+            
+        Returns:
+            Tuple of (empty_feature, empty_obj) for reset
+        """
+        cta_aip = doc_flags.get('cta_aip', False)
+        restrict_aip = doc_flags.get('restrict_aip', False)
+        aip_sup = doc_flags.get('aip_sup', False)
+        tia_aip = doc_flags.get('tia_aip', False)
+        military_aip = doc_flags.get('military_aip', False)
+        
+        sanntid = sanntid_ref[0]  # Get current value
+        
+        feature['properties']['source_href'] = source
+        feature['properties']['country'] = country
+        feature['geometry'] = obj
+        aipname = wstrip(str(aipname))
+        
+        # SPECIAL CASE #11: EN D476/D477 name normalization
+        if aipname == 'EN D476':
+            aipname = 'EN D476 R og B 1'
+        if aipname == 'EN D477':
+            aipname = 'EN D477 R og B 2'
+        
+        # Skip unwanted airspace types
+        for ignore in ['ADS', 'AOR', 'FAB', ' FIR', 'HTZ']:
+            if ignore in aipname:
+                logger.debug("Ignoring: %s", aipname)
+                return {"properties": {}}, []
+        
+        feature['properties']['name'] = aipname
+        
+        # Handle ACC/TMA/CTA sector numbering
+        if cta_aip or aip_sup or tia_aip or 'ACC' in aipname:
+            recount = len([f for f in features if aipname in f['properties']['name']])
+            recount = recount or len([f for f in self.accsectors if aipname in f['properties']['name']])
+            if recount > 0:
+                separator = " "
+                if re.search(r'\d$', aipname):
+                    separator = "-"
+                # SPECIAL CASE #5: Farris TMA counter skip
+                if "Farris" in aipname:
+                    if recount > 4:
+                        recount += 2
+                    else:
+                        recount += 1
+                logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount + 1))
+                feature['properties']['name'] = aipname + separator + str(recount + 1)
+        
+        # Set airspace class based on name patterns
+        if 'TIZ' in aipname or 'TIA' in aipname:
+            feature['properties']['class'] = 'G'
+        elif 'CTR' in aipname:
+            feature['properties']['class'] = 'D'
+        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES D' in aipname:
+            feature['properties']['class'] = 'Q'
+        elif 'EN R' in aipname or 'ES R' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
+            feature['properties']['class'] = 'R'
+        elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname or 'Sector' in aipname:
+            feature['properties']['class'] = 'C'
+        elif '5.5' in source or "Hareid" in aipname:
+            if "Nidaros" in aipname:
+                # Skip old Nidaros airspace
+                return {"properties": {}}, []
+            feature['properties']['class'] = 'Luftsport'
+        
+        index = len(collection) + len(features)
+        
+        if self.names.get(aipname):
+            logger.debug("DUPLICATE NAME: %s", aipname)
+        
+        # Simplify complex polygons
+        if len(obj) > 100:
+            logger.debug("COMPLEX POLYGON %s with %i points", feature['properties'].get('name'), len(obj))
+            obj = simplify_poly(obj, 100)
+            feature['geometry'] = obj
+        
+        if len(obj) > 3:
+            logger.debug("Finalizing polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
+            
+            name = feature['properties'].get('name')
+            source_href = feature['properties'].get('source_href')
+            from_ = feature['properties'].get('from (ft amsl)')
+            to_ = feature['properties'].get('to (ft amsl)')
+            class_ = feature['properties'].get('class')
+            
+            # Check for duplicates
+            if name in self.completed:
+                logger.info("ERROR Duplicate feature name: #%i %s", index, name)
+                return {"properties": {}}, []
+            else:
+                if 'ACC' in aipname:
+                    logger.debug("Writing ACC sector to separate file: %s", aipname)
+                    self.accsectors.append(feature)
+                else:
+                    features.append(feature)
+            
+            # Sanity checks
+            if name is None:
+                logger.error("Feature without name: #%i", index)
+                sys.exit(1)
+            if "None" in name:
+                logger.error("Feature without name: #%i", index)
+                sys.exit(1)
+            self.completed[name] = True
+            if source_href is None:
+                logger.error("Feature without source: #%i", index)
+                sys.exit(1)
+            if feature['properties'].get('name') is None:
+                logger.error("Feature without name: #%i (%s)", index, source_href)
+                sys.exit(1)
+            if class_ is None:
+                logger.error("Feature without class (boo): #%i (%s)", index, source_href)
+                sys.exit(1)
+            
+            # SPECIAL CASE #1: Oslo/Romerike NOTAM areas
+            if self.oslo_notam_handler.applies(aipname):
+                feature = self.oslo_notam_handler.handle(feature, None)
+                # Old code had a bug: it set local vars to '0','0' forcing a swap
+                # We need to replicate this for exact output compatibility
+                if "Romerike" in aipname or "Oslo" in aipname:
+                    from_ = '0'
+                    to_ = '0'
+                else:
+                    from_ = feature['properties'].get('from (ft amsl)')
+                    to_ = feature['properties'].get('to (ft amsl)')
+            
+            # Handle NOTAM and AMC classifications
+            if ("EN D" in aipname or "END" in aipname) and (end_notam or sanntid):
+                feature['properties']['notam_only'] = 'true'
+                if sanntid:
+                    logger.debug("Classifying %s as AMC/Sanntidsaktivering", aipname)
+                    feature['properties']['amc_only'] = 'true'
+                    sanntid = False
+                    sanntid_ref[0] = False  # Update reference
+            if ("EN D" in aipname or "END" in aipname) and (military_aip or ("Klepp" in aipname)):
+                feature['properties']['amc_only'] = 'true'
+            
+            # Handle missing vertical limits
+            if from_ is None:
+                if "en_sup_a_2018_015_en" in source_href:
+                    feature['properties']['from (ft amsl)'] = '0'
+                    feature['properties']['from (m amsl)'] = '0'
+                    from_ = '0'
+                else:
+                    logger.error("Feature without lower limit: #%i (%s)", index, source_href)
+                    sys.exit(1)
+            if to_ is None:
+                if "en_sup_a_2018_015_en" in source_href:
+                    feature['properties']['to (ft amsl)'] = '99999'
+                    feature['properties']['to (m amsl)'] = '9999'
+                    to_ = '99999'
+                else:
+                    logger.error("Feature without upper limit: #%i (%s)", index, source_href)
+                    sys.exit(1)
+            
+            # Handle inverted vertical limits (SPECIAL CASE #1)
+            if int(from_) >= int(to_):
+                if "en_sup_a_2018_015_en" in source_href or "Romerike" in aipname or "Oslo" in aipname:
+                    feature['properties']['from (ft amsl)'] = to_
+                    feature['properties']['to (ft amsl)'] = from_
+                else:
+                    logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source_href)
+                    sys.exit(1)
+        elif len(obj) > 0:
+            logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
+        
+        self.names[aipname] = True
+        logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'),
+                     len(obj),
+                     feature['properties'].get('from (ft amsl)'),
+                     feature['properties'].get('to (ft amsl)'))
+        return {"properties": {}}, []
 
-    Returns:
-        Tuple of (empty_feature, empty_obj) for reset
+
+def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip=False):
+    """DEPRECATED: Legacy wrapper for backward compatibility.
+    
+    This function is maintained for existing call sites but delegates to FeatureFinalizer.
+    New code should instantiate FeatureFinalizer directly.
     """
     global completed
     global country
     global end_notam
     global sanntid
-
-    feature['properties']['source_href']=source
-    feature['properties']['country']=country
-    feature['geometry'] = obj
-    aipname = wstrip(str(aipname))
-    # SPECIAL CASE #11: EN D476/D477 name normalization
-    # Add sector suffixes for uniqueness
-    if aipname == 'EN D476':
-        aipname = 'EN D476 R og B 1'
-    if aipname == 'EN D477':
-        aipname = 'EN D477 R og B 2'
-
-    # Skip unwanted airspace types
-    for ignore in ['ADS','AOR','FAB',' FIR','HTZ']:
-        if ignore in aipname:
-            logger.debug("Ignoring: %s", aipname)
-            return {"properties":{}}, []
-    feature['properties']['name']=aipname
-    if cta_aip or aip_sup or tia_aip or 'ACC' in aipname:
-        recount = len([f for f in features if aipname in f['properties']['name']])
-        recount = recount or len([f for f in accsectors if aipname in f['properties']['name']])
-        if recount>0:
-            separator = " "
-            if re.search(r'\d$', aipname):
-                separator="-"
-            # SPECIAL CASE #5: Farris TMA counter skip
-            # Counter has gaps - skip numbers 5 and 6
-            if "Farris" in aipname:
-                if recount > 4:
-                    recount += 2
-                else:
-                    recount += 1
-            logger.debug("RECOUNT renamed " + aipname + " INTO " + aipname + separator + str(recount+1))
-            feature['properties']['name']=aipname + separator + str(recount+1)
-    if 'TIZ' in aipname or 'TIA' in aipname:
-        feature['properties']['class']='G'
-    elif 'CTR' in aipname:
-        feature['properties']['class']='D'
-    elif 'TRIDENT' in aipname \
-        or 'EN D' in aipname or 'END' in aipname \
-        or 'ES D' in aipname:
-        feature['properties']['class']='Q'
-    elif 'EN R' in aipname \
-      or 'ES R' in aipname or 'ESTRA' in aipname \
-      or 'EUCBA' in aipname or 'RPAS' in aipname:
-        feature['properties']['class']='R'
-    elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname \
-      or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname \
-      or 'Sector' in aipname:
-        feature['properties']['class']='C'
-    elif '5.5' in source or "Hareid" in aipname:
-        if "Nidaros" in aipname:
-            #skip old Nidaros airspace
-            return {"properties":{}}, []
-        feature['properties']['class']='Luftsport'
-    index = len(collection)+len(features)
-
-    if names.get(aipname):
-        logger.debug("DUPLICATE NAME: %s", aipname)
-
-    if len(obj)>100:
-        logger.debug("COMPLEX POLYGON %s with %i points", feature['properties'].get('name'), len(obj))
-        obj=simplify_poly(obj, 100)
-        feature['geometry'] = obj
-
-    if len(obj)>3:
-        logger.debug("Finalizing polygon #%i %s with %i points.", index, feature['properties'].get('name'), len(obj))
-
-        name   = feature['properties'].get('name')
-        source = feature['properties'].get('source_href')
-        from_  = feature['properties'].get('from (ft amsl)')
-        to_    = feature['properties'].get('to (ft amsl)')
-        class_ = feature['properties'].get('class')
-
-
-        if name in completed:
-            logger.info("ERROR Duplicate feature name: #%i %s", index, name)
-            return {"properties":{}}, []
-            #sys.exit(1)
-        else:
-            if 'ACC' in aipname:
-                logger.debug("Writing ACC sector to separate file: %s", aipname)
-                accsectors.append(feature)
-            else:
-                features.append(feature)
-
-        # SANITY CHECK
-        if name is None:
-            logger.error("Feature without name: #%i", index)
-            sys.exit(1)
-        if "None" in name:
-            logger.error("Feature without name: #%i", index)
-            sys.exit(1)
-        completed[name]=True
-        if source is None:
-            logger.error("Feature without source: #%i", index)
-            sys.exit(1)
-        if feature['properties'].get('name') is None:
-            logger.error("Feature without name: #%i (%s)", index, source)
-            sys.exit(1)
-        if class_ is None:
-            logger.error("Feature without class (boo): #%i (%s)", index, source)
-            sys.exit(1)
-        # SPECIAL CASE #1: NOTAM reserved ENR in Oslo area
-        # These areas are only active when NOTAMs are issued
-        # See en_sup_a_2018_015_en for background
-        if "EN R" in aipname and "Kongsvinger" in aipname:
-          feature['properties']['notam_only'] = 'true'
-        if "EN R" in aipname and ("Romerike" in aipname or ("Oslo" in aipname and not "102" in aipname)):
-          feature['properties']['notam_only'] = 'true'
-          feature['properties']['from (ft amsl)'] = '0'
-          feature['properties']['to (ft amsl)'] = '99999' # unspecified
-          feature['properties']['from (m amsl)'] = '0'
-          feature['properties']['to (m amsl)'] = '99999'
-          from_ = '0'
-          to_ = '0'
-        if ("EN D" in aipname or "END" in aipname) and (end_notam or sanntid):
-          #logger.addFilter(logging.Filter("notam_only"))
-          feature['properties']['notam_only'] = 'true'
-          if sanntid:
-              logger.debug("Classifying %s as AMC/Sanntidsaktivering", aipname)
-              feature['properties']['amc_only'] = 'true'
-              sanntid = False
-        if ("EN D" in aipname or "END" in aipname) and (military_aip or ("Klepp" in aipname)):
-          feature['properties']['amc_only'] = 'true'
-        if from_ is None:
-            if "en_sup_a_2018_015_en" in source:
-                feature['properties']['from (ft amsl)']='0'
-                feature['properties']['from (m amsl)']='0'
-                from_ = '0'
-            else:
-                logger.error("Feature without lower limit: #%i (%s)", index, source)
-                sys.exit(1)
-        if to_ is None:
-            if "en_sup_a_2018_015_en" in source:
-                feature['properties']['to (ft amsl)']='99999'
-                feature['properties']['to (m amsl)']='9999'
-                to_ = '99999'
-            else:
-                logger.error("Feature without upper limit: #%i (%s)", index, source)
-                sys.exit(1)
-        if int(from_) >= int(to_):
-            # SPECIAL CASE #1: NOTAM reserved ENR in Oslo area
-            # Vertical limits are sometimes inverted in source data - swap them
-            if "en_sup_a_2018_015_en" in source or "Romerike" in aipname or "Oslo" in aipname:
-                feature['properties']['from (ft amsl)']=to_
-                feature['properties']['to (ft amsl)']=from_
-            else:
-                logger.error("Lower limit %s > upper limit %s: #%i (%s)", from_, to_, index, source)
-                sys.exit(1)
-    elif len(obj)>0:
-        logger.error("ERROR Finalizing incomplete polygon #%i (%i points)", index, len(obj))
-
-    names[aipname]=True
-    logger.debug("OK polygon #%i %s with %i points (%s-%s).", index, feature['properties'].get('name'),
-                                                                     len(obj),
-                                                                     feature['properties'].get('from (ft amsl)'),
-                                                                     feature['properties'].get('to (ft amsl)'))
-    return {"properties":{}}, []
+    global accsectors
+    global names
+    
+    # Create finalizer if not exists (will be called multiple times per file)
+    if not hasattr(finalize, '_finalizer'):
+        # Initialize with globals on first call
+        finalize._finalizer = FeatureFinalizer(completed, names, accsectors, OsloNotamHandler())
+    
+    doc_flags = {
+        'cta_aip': cta_aip,
+        'restrict_aip': restrict_aip,
+        'aip_sup': aip_sup,
+        'tia_aip': tia_aip,
+        'military_aip': military_aip
+    }
+    
+    sanntid_ref = [sanntid]  # Wrap in list so it can be modified
+    result = finalize._finalizer.finalize(feature, features, obj, source, aipname, 
+                                          doc_flags, country, end_notam, sanntid_ref)
+    sanntid = sanntid_ref[0]  # Update global
+    return result
 
 
 for filename in os.listdir("./sources/txt"):
@@ -1585,7 +1654,7 @@ for filename in os.listdir("./sources/txt"):
             class_value = class_parser.extract_class(class_)
             feature_builder.set_class(ctx.feature, class_value)
             if tia_aip or (ctx.aipname and "RMZ" in ctx.aipname):
-                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
             return
 
         # SPECIAL CASE #3: Kramfors workaround (using handler)
@@ -1715,7 +1784,7 @@ for filename in os.listdir("./sources/txt"):
                             is_valid, errors = feature_validator.validate(ctx.feature, ctx.obj, ctx.aipname)
                             if not is_valid:
                                 logger.debug(f"Feature validation warnings: {', '.join(errors)}")
-                            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                             ctx.lastv = None
 
             if not valldal:
@@ -1745,7 +1814,7 @@ for filename in os.listdir("./sources/txt"):
             if toamsl is not None:
                 ctx.lastv = toamsl
                 if valldal:
-                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                     ctx.lastv = None
             if fromamsl is not None:
                 ctx.lastv = None
@@ -1765,10 +1834,10 @@ for filename in os.listdir("./sources/txt"):
                             logger.debug("Restoring "+aipname_+" "+str(len(ctx.sectors)))
                             feature_ = deepcopy(ctx.feature)
                             logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
-                            finalize(feature_, ctx.features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip)
+                            finalize(feature_, ctx.features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                         ctx.sectors = []
                         logger.debug("Finalizing last poly as ."+ctx.aipname)
-                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
 
             logger.debug("From %s to %s", ctx.feature['properties'].get('from (ft amsl)'), ctx.feature['properties'].get('to (ft amsl)'))
             return
@@ -1785,7 +1854,7 @@ for filename in os.listdir("./sources/txt"):
         if name:
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
-                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                 ctx.lastv = None
 
             # Process the matched name
@@ -1800,7 +1869,7 @@ for filename in os.listdir("./sources/txt"):
                 # Allow finalization without upper limit for these specific areas
                 if ctx.feature['properties'].get('from (ft amsl)') is not None and (ctx.feature['properties'].get('to (ft amsl)') or "Romerike" in ctx.aipname or "Oslo" in ctx.aipname):
                     logger.debug("RESTRICT/MILITARY + name and vertl complete")
-                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                     ctx.lastv = None
                 else:
                     logger.debug("RESTRICT/MILITARY + name and vertl NOT complete")
@@ -1818,11 +1887,11 @@ for filename in os.listdir("./sources/txt"):
                 ctx.airsport_intable = True
             elif wstrip(line)[0] != "2" and ctx.airsport_intable:
                 logger.debug("Considering as new ctx.aipname: '%s'", line)
-                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                 ctx.aipname = wstrip(line)
 
         if line.strip()=="-+-":
-            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
 
     # end def parse
 
@@ -1940,7 +2009,7 @@ for filename in os.listdir("./sources/txt"):
         ctx.feature['properties']['class'] = 'Luftsport'
 
     logger.debug("Finalizing: end of doc.")
-    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
+    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
     collection.extend(ctx.features)
 
 logger.info("%i Features", len(collection))
