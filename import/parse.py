@@ -198,6 +198,131 @@ class ParsingContext:
         self.lastv = None
 
 
+class NameParser:
+    """Parser for airspace names from AIP documents.
+    
+    Tries multiple regex patterns in sequence to identify airspace names.
+    Handles special cases like name continuation, Swedish/Norwegian formats,
+    and document-specific naming conventions.
+    """
+    
+    def __init__(self, patterns):
+        """Initialize with RegexPatterns instance"""
+        self.patterns = patterns
+    
+    def parse_name(self, line):
+        """Try to extract an airspace name from a line.
+        
+        Args:
+            line: Text line to parse
+            
+        Returns:
+            Match object if name found, None otherwise
+        """
+        # Try all name patterns in sequence
+        return (self.patterns.re_name.search(line) or 
+                self.patterns.re_name2.search(line) or 
+                self.patterns.re_name3.search(line) or 
+                self.patterns.re_name4.search(line) or 
+                self.patterns.re_miscnames.search(line) or 
+                self.patterns.re_name5.search(line) or 
+                self.patterns.re_name_cr.search(line) or 
+                self.patterns.re_name6.search(line) or 
+                self.patterns.re_name_openair.search(line))
+    
+    def process_name(self, match, line, ctx):
+        """Process a matched name and update context.
+        
+        Args:
+            match: Regex match object containing name groups
+            line: Original line text
+            ctx: ParsingContext to update
+            
+        Returns:
+            Extracted and processed name string
+        """
+        named = match.groupdict()
+        name = named.get('name')
+        
+        # Handle Polaris Norway special case
+        if name and 'polaris' in name.lower() and 'norway' in name.lower():
+            pos = name.lower().index('norway')
+            name = name[:pos]
+        
+        # Handle name continuation
+        if named.get('name_cont'):
+            name += ' ' + named.get('name_cont')
+            ctx.name_cont = True
+        
+        # Set name continuation flag for Swedish/Norwegian D/R areas
+        if name and ("ES R" in name or "ES D" in name):
+            ctx.name_cont = True
+        if name and "EN D" in name and len(name) < 8:
+            ctx.name_cont = True
+        
+        return name
+    
+    def should_skip_name(self, name, ctx):
+        """Check if this name should be skipped/ignored.
+        
+        Args:
+            name: Extracted name string
+            ctx: ParsingContext
+            
+        Returns:
+            True if name should be skipped
+        """
+        # Skip sector subdivisions of SÄLEN/SAAB
+        if (name == "Sector a" or name == "Sector b" or 
+            (ctx.aipname and "Sector" in ctx.aipname and 
+             ("SÄLEN" in ctx.aipname or "SAAB" in ctx.aipname))):
+            return True
+        
+        # Skip sector names if already in ACC context
+        if name and name[:6] == "Sector" and ctx.aipname and "ACC" in ctx.aipname:
+            return True
+        
+        return False
+
+
+class ClassParser:
+    """Parser for airspace class designations.
+    
+    Recognizes airspace classes (A, B, C, D, E, F, G) from various formats:
+    - Standard format: "Class: C" or "Class C"
+    - Single letter: "C" (on its own line)
+    - OpenAir format: "AC C"
+    """
+    
+    def __init__(self, patterns):
+        """Initialize with RegexPatterns instance"""
+        self.patterns = patterns
+    
+    def parse_class(self, line):
+        """Try to extract airspace class from a line.
+        
+        Args:
+            line: Text line to parse
+            
+        Returns:
+            Match object if class found, None otherwise
+        """
+        return (self.patterns.re_class.search(line) or 
+                self.patterns.re_class2.search(line) or 
+                self.patterns.re_class_openair.search(line))
+    
+    def extract_class(self, match):
+        """Extract the class value from a match.
+        
+        Args:
+            match: Regex match object
+            
+        Returns:
+            Class string (e.g., "C", "D", "G")
+        """
+        return match.groupdict().get('class')
+
+
 def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip):
     """Complete and sanity check a feature definition"""
     global completed
@@ -388,6 +513,8 @@ for filename in os.listdir("./sources/txt"):
 
     # Initialize parsing context for this file
     ctx = ParsingContext()
+    name_parser = NameParser(patterns)
+    class_parser = ClassParser(patterns)
 
     if "EN_" or "en_" or "_en." in filename:
         country = 'EN'  # Keep as global for finalize()
@@ -437,11 +564,11 @@ for filename in os.listdir("./sources/txt"):
             global sanntid
             sanntid = True  # Sync with global for finalize()
 
-        class_=re_class.search(line) or re_class2.search(line) or re_class_openair.search(line)
+        class_ = class_parser.parse_class(line)
         if class_:
             logger.debug("Found class in line: %s", line)
-            class_=class_.groupdict()
-            ctx.feature['properties']['class']=class_.get('class')
+            class_value = class_parser.extract_class(class_)
+            ctx.feature['properties']['class'] = class_value
             if tia_aip or (ctx.aipname and "RMZ" in ctx.aipname):
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
             return
@@ -701,9 +828,7 @@ for filename in os.listdir("./sources/txt"):
             return
 
         # IDENTIFY airspace naming
-        name = re_name.search(line) or re_name2.search(line) or re_name3.search(line) or re_name4.search(line) or \
-               re_miscnames.search(line) or re_name5.search(line) or re_name_cr.search(line) or re_name6.search(line) or \
-               re_name_openair.search(line)
+        name = name_parser.parse_name(line)
 
         if ctx.name_cont and not 'Real time' in line:
             ctx.aipname = ctx.aipname + " " + line
@@ -712,30 +837,17 @@ for filename in os.listdir("./sources/txt"):
                 ctx.name_cont = False
 
         if name:
-            named=name.groupdict()
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip)
                 ctx.lastv = None
 
-            name=named.get('name')
-            if 'polaris' in name.lower() and 'norway' in name.lower():
-                pos = name.lower().index('norway')
-                name = name[:pos]
-
-            if name[:6]=="Sector" and "ACC" in ctx.aipname:
-               return
-
-            if named.get('ctx.name_cont'):
-                name += ' '+named.get('ctx.name_cont')
-                ctx.name_cont=True
-
-            if (name == "Sector a") or (name == "Sector b") or (ctx.aipname and ("Sector" in ctx.aipname) and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname))):
+            # Process the matched name
+            name = name_parser.process_name(name, line, ctx)
+            
+            # Check if we should skip this name
+            if name_parser.should_skip_name(name, ctx):
                 return
-            if "ES R" in name or "ES D" in name:
-                ctx.name_cont=True
-            if "EN D" in name and len(name)<8:
-                ctx.name_cont=True
 
             if restrict_aip or military_aip:
                 if ctx.feature['properties'].get('from (ft amsl)') is not None and (ctx.feature['properties'].get('to (ft amsl)') or "Romerike" in ctx.aipname or "Oslo" in ctx.aipname):
