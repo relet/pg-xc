@@ -175,39 +175,6 @@ class RegexPatterns:
 # Create global instance for backward compatibility
 patterns = RegexPatterns()
 
-# Export individual patterns for backward compatibility
-re_name = patterns.re_name
-re_name2 = patterns.re_name2
-re_name3 = patterns.re_name3
-re_name4 = patterns.re_name4
-re_name5 = patterns.re_name5
-re_name6 = patterns.re_name6
-re_name_cr = patterns.re_name_cr
-re_miscnames = patterns.re_miscnames
-re_name_openair = patterns.re_name_openair
-re_class = patterns.re_class
-re_class2 = patterns.re_class2
-re_class_openair = patterns.re_class_openair
-RE_NE = patterns.RE_NE
-RE_NE2 = patterns.RE_NE2
-re_coord = patterns.re_coord
-RE_SECTOR = patterns.RE_SECTOR
-re_coord2 = patterns.re_coord2
-RE_CIRCLE = patterns.RE_CIRCLE
-re_coord3 = patterns.re_coord3
-re_arc = patterns.re_arc
-re_vertl_upper = patterns.re_vertl_upper
-re_vertl_lower = patterns.re_vertl_lower
-re_vertl = patterns.re_vertl
-re_vertl2 = patterns.re_vertl2
-re_vertl3 = patterns.re_vertl3
-RE_MONTH = patterns.RE_MONTH
-re_period = patterns.re_period
-re_period2 = patterns.re_period2
-re_period3 = patterns.re_period3
-re_freq = patterns.re_freq
-
-
 # COLUMN PARSING:
 rexes_header_es_enr = [re.compile(r"(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(C unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
                            for mult in reversed(range(3,8))]
@@ -2218,7 +2185,7 @@ for filename in os.listdir("./sources/txt"):
     country = 'EN'
     ctx.country = 'EN'
     ctx.border = borders['norway']
-    ctx.re_coord3 = re_coord3
+    ctx.re_coord3 = patterns.re_coord3
     logger.debug("Processing Norwegian AIP document")
 
     def parse(line, half=1):
@@ -2284,9 +2251,9 @@ for filename in os.listdir("./sources/txt"):
             elif ctx.coords_wrap:
                 nline = ctx.coords_wrap + line
                 logger.debug("Continued line: %s", nline)
-                coords = re_coord.search(nline)
-                coords2 = re_coord2.search(nline)
-                coords3 = ctx.re_coord3.findall(nline)
+                coords = patterns.re_coord.search(nline)
+                coords2 = patterns.re_coord2.search(nline)
+                coords3 = patterns.re_coord3.findall(nline)
                 logger.debug("Found %i coords in merged line: %s", coords3 and len(coords3) or '1', nline)
                 line = nline
                 ctx.coords_wrap = ""
@@ -2389,10 +2356,10 @@ for filename in os.listdir("./sources/txt"):
                 return
 
         # IDENTIFY temporary restrictions
-        period = re_period.search(line) or re_period2.search(line) or re_period3.search(line)
+        period = patterns.re_period.search(line) or patterns.re_period2.search(line) or patterns.re_period3.search(line)
 
         # IDENTIFY frequencies
-        freq = re_freq.search(line)
+        freq = patterns.re_freq.search(line)
         if freq:
             freq = freq.groupdict()
             logger.debug("Found FREQUENCY: %s", freq['freq'])
