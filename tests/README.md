@@ -41,6 +41,11 @@ The test suite:
 - Coordinate counts per feature
 - Key properties (class, ceiling, floor)
 
+**For xcontest.json:**
+- Normalizes timestamps (which change on every run)
+- Compares actual airspace data
+- Timestamps in `oaname` and `oadescription` are ignored
+
 **For other files:**
 - SHA256 hash (fast check)
 - Line-by-line diff if hashes differ
@@ -147,3 +152,15 @@ python3 tests/test_parse_regression.py -x
 - If `parse.py` has bugs, the baseline will include them
 - Use this test suite to refactor safely, then fix bugs separately and update baseline
 - Test runtime is dominated by `parse.py` execution (~2-5 minutes typically)
+
+## Known Issues
+
+### Non-Deterministic Output
+
+Some files contain timestamps or other non-deterministic data:
+
+- **xcontest.json** - Contains current timestamp in `oaname` and `oadescription` fields
+  - The test suite automatically normalizes these timestamps for comparison
+  - Only the actual airspace data is compared
+
+This is handled automatically - you don't need to do anything special.

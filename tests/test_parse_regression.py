@@ -104,6 +104,45 @@ class ParseRegressionTest:
             logger.error(f"Failed to hash {filepath}: {e}")
             return None
     
+    def normalize_timestamps(self, data):
+        """Normalize timestamps in xcontest.json for comparison"""
+        if isinstance(data, dict):
+            result = {}
+            for key, value in data.items():
+                # Replace timestamp fields with a fixed value
+                if key in ('oadescription', 'oaname'):
+                    if isinstance(value, str):
+                        # Remove timestamp portion (ISO format: YYYY-MM-DDTHH:MM:SS.mmmmmm)
+                        import re
+                        value = re.sub(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?', 'TIMESTAMP', value)
+                result[key] = self.normalize_timestamps(value)
+            return result
+        elif isinstance(data, list):
+            return [self.normalize_timestamps(item) for item in data]
+        else:
+            return data
+    
+    def compare_json_files(self, file1, file2):
+        """Compare two JSON files, normalizing timestamps"""
+        try:
+            with open(file1, 'r', encoding='utf-8') as f1:
+                data1 = json.load(f1)
+            with open(file2, 'r', encoding='utf-8') as f2:
+                data2 = json.load(f2)
+            
+            # Normalize timestamps for comparison
+            data1_norm = self.normalize_timestamps(data1)
+            data2_norm = self.normalize_timestamps(data2)
+            
+            if data1_norm == data2_norm:
+                return True, "JSON content matches (timestamps normalized)"
+            else:
+                # Show what's different
+                return False, "JSON content differs (excluding timestamps)"
+            
+        except Exception as e:
+            return False, f"Error comparing JSON: {e}"
+    
     def compare_text_files(self, file1, file2):
         """Compare two text files line by line"""
         try:
@@ -227,6 +266,9 @@ class ParseRegressionTest:
             
             if filename.endswith('.geojson'):
                 passed, details = self.compare_geojson_detailed(baseline_file, current_file, filename)
+            elif filename == 'xcontest.json':
+                # Special handling for xcontest.json (has timestamps)
+                passed, details = self.compare_json_files(baseline_file, current_file)
             elif filename.endswith('.json'):
                 passed, details = self.compare_text_files(baseline_file, current_file)
             else:
