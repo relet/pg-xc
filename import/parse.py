@@ -716,6 +716,151 @@ class DocumentTypeStrategy:
         return self.airsport_aip or self.aip_sup or self.military_aip
 
 
+class ColumnParser:
+    """Parser for table-based AIP documents with column layouts.
+    
+    Many AIP documents use tabular formats where information is organized in columns.
+    This class detects column boundaries and splits lines for separate parsing.
+    """
+    
+    def __init__(self, doc_strategy):
+        """Initialize with document type strategy.
+        
+        Args:
+            doc_strategy: DocumentTypeStrategy instance
+        """
+        self.doc_strategy = doc_strategy
+        self.vcuts = None  # Column cut positions
+        self.vcut = 999    # Default vertical cut position
+        self.vend = 1000   # Default vertical end position
+    
+    def detect_columns_from_header(self, line, headers, es_aip_sup=False):
+        """Detect column positions from header line.
+        
+        Args:
+            line: Header line text
+            headers: Parsed header fields
+            es_aip_sup: Whether this is Swedish AIP supplement
+            
+        Returns:
+            List of column cut positions
+        """
+        vcuts = []
+        
+        if es_aip_sup:
+            # Hardcoded columns for Swedish AIP supplements
+            vcuts = [0, 45, 110]
+        else:
+            # Detect from header positions
+            for header in headers[0]:
+                if header:
+                    vcuts.append(line.index(header))
+            vcuts.append(len(line))
+        
+        self.vcuts = vcuts
+        logger.debug(f"Detected column positions: {vcuts}")
+        return vcuts
+    
+    def detect_columns_from_pattern(self, line, tia_aip_acc=False):
+        """Detect column positions from numbered pattern.
+        
+        Args:
+            line: Line to analyze for pattern
+            tia_aip_acc: Whether this is TIA AIP ACC format
+            
+        Returns:
+            List of column positions or None
+        """
+        if tia_aip_acc and ("1     " in line):
+            logger.debug("VCUT LINE? %s", line)
+            vcuts = [m.start() for m in re.finditer(r'[^\s]', line)]
+            vcuts = [(x and (x-2)) for x in vcuts]  # HACK: adjust for column shift
+            self.vcuts = vcuts
+            logger.debug("vcuts %s", vcuts)
+            return vcuts
+        return None
+    
+    def update_vertical_limit_column(self, line):
+        """Update vertical limit column positions based on header keywords.
+        
+        Args:
+            line: Line to check for vertical limit headers
+            
+        Returns:
+            True if column positions were updated
+        """
+        if self.doc_strategy.airsport_aip:
+            if "Vertical limits" in line:
+                self.vcut = line.index("Vertical limits")
+                self.vend = self.vcut + 28
+                logger.debug(f"Airsport vcut: {self.vcut}, vend: {self.vend}")
+                return True
+        
+        elif self.doc_strategy.restrict_aip or self.doc_strategy.military_aip:
+            if "Vertikale grenser" in line:
+                self.vcut = line.index("Vertikale grenser")
+                self.vend = self.vcut + 16
+                if "Aktiviseringstid" in line:
+                    self.vend = line.index("Aktiviseringstid")
+                logger.debug(f"Restrict/Military vcut: {self.vcut}, vend: {self.vend}")
+                return True
+        
+        elif self.doc_strategy.cta_aip:
+            if "Tjenesteenhet" in line:
+                self.vcut = line.index("Tjenesteenhet")
+                logger.debug(f"CTA vcut: {self.vcut}")
+                return True
+        
+        elif self.doc_strategy.tia_aip:
+            if "Unit providing" in line:
+                self.vcut = line.index("Unit providing")
+                logger.debug(f"TIA vcut: {self.vcut}")
+                return True
+        
+        return False
+    
+    def split_line_by_columns(self, line, tia_aip_acc=False):
+        """Split a line into columns for parsing.
+        
+        Args:
+            line: Line to split
+            tia_aip_acc: Whether this is TIA AIP ACC format
+            
+        Returns:
+            List of (column_text, column_number) tuples
+        """
+        columns = []
+        
+        if tia_aip_acc and self.vcuts:
+            # Split by detected column positions
+            for i in range(len(self.vcuts) - 1):
+                columns.append((line[self.vcuts[i]:self.vcuts[i+1]], i+1))
+            columns.append((line[self.vcuts[-1]:], len(self.vcuts)))
+        
+        elif self.doc_strategy.airsport_aip:
+            # Two columns: main and vertical limits
+            columns.append((line[:self.vcut], 1))
+            columns.append((line[self.vcut:self.vend], 2))
+        
+        elif self.doc_strategy.restrict_aip or self.doc_strategy.military_aip:
+            # Two or three columns depending on type
+            columns.append((line[:self.vcut], 1))
+            if self.doc_strategy.military_aip:
+                columns.append((line[self.vcut:self.vend], 2))
+            else:
+                columns.append((line[self.vcut:], 2))
+        
+        elif self.doc_strategy.cta_aip or self.doc_strategy.tia_aip:
+            # Single column before vertical cut
+            columns.append((line[:self.vcut], 1))
+        
+        else:
+            # No column splitting - full line
+            columns.append((line, 1))
+        
+        return columns
+
+
 class FeatureBuilder:
     """Builder for airspace feature properties.
     
@@ -993,6 +1138,7 @@ for filename in os.listdir("./sources/txt"):
     geometry_builder = GeometryBuilder()
     feature_validator = FeatureValidator()
     feature_builder = FeatureBuilder()
+    column_parser = ColumnParser(doc_strategy)
 
     if "EN_" or "en_" or "_en." in filename:
         country = 'EN'  # Keep as global for finalize()
@@ -1005,9 +1151,6 @@ for filename in os.listdir("./sources/txt"):
         ctx.border = borders['sweden']
         ctx.re_coord3 = re_coord3_se
     logger.debug("Country is %s", ctx.country)
-
-    vcut = 999
-    vend = 1000
 
     def parse(line, half=1):
         """Parse a line (or half line) of converted pdftotext"""
@@ -1320,10 +1463,7 @@ for filename in os.listdir("./sources/txt"):
             if "Functional Airspace block" in line:
                 break
             if tia_aip_acc and ("1     " in line):
-                logger.debug("VCUT LINE? %s", line)
-                vcuts = [m.start() for m in re.finditer(r'[^\s]', line)]
-                vcuts=[(x and (x-2)) for x in vcuts] # HACK around annoying column shift
-                logger.debug("vcuts %s", vcuts)
+                column_parser.detect_columns_from_pattern(line, tia_aip_acc=True)
             if "ADS areas" in line:
                 skip_tia = True
             if skip_tia:
@@ -1369,58 +1509,39 @@ for filename in os.listdir("./sources/txt"):
             for rex in rexes_header_es_enr:
                 headers = headers or rex.findall(line)
                 header_cont = False
-        elif es_aip_sup and not vcuts:
+        elif es_aip_sup and not column_parser.vcuts:
             headers = True
         if headers:
             logger.debug("Parsed header line as %s.", headers)
             logger.debug("line=%s.", line)
-            vcuts = []
-            if es_aip_sup:
-               vcuts = [0, 45, 110]
-            else:
-                for header in headers[0]:
-                    if header:
-                        vcuts.append(line.index(header))
-                vcuts.append(len(line))
+            vcuts = column_parser.detect_columns_from_header(line, headers, es_aip_sup)
             column_parsing = sorted((column_parsing + vcuts))
             logger.debug("DEBUG: column parsing: %s", vcuts)
             continue
 
         # parse columns separately for table formatted files
-        # use header fields to detect the vcut character limit
-        if tia_aip_acc and vcuts:
-            for i in range(len(vcuts)-1):
-                parse(line[vcuts[i]:vcuts[i+1]])
-            parse(line[vcuts[len(vcuts)-1]:])
+        # use header fields to detect column positions
+        if tia_aip_acc and column_parser.vcuts:
+            for i in range(len(column_parser.vcuts)-1):
+                parse(line[column_parser.vcuts[i]:column_parser.vcuts[i+1]])
+            parse(line[column_parser.vcuts[len(column_parser.vcuts)-1]:])
         elif airsport_aip:
-            if "Vertical limits" in line:
-                vcut = line.index("Vertical limits")
-                vend = vcut+28
-            else:
-                parse(line[:vcut],1)
-                parse(line[vcut:vend],2)
+            if not column_parser.update_vertical_limit_column(line):
+                parse(line[:column_parser.vcut],1)
+                parse(line[column_parser.vcut:column_parser.vend],2)
         elif restrict_aip or military_aip:
-            if "Vertikale grenser" in line:
-                vcut = line.index("Vertikale grenser")
-                vend = vcut+16
-                if "Aktiviseringstid" in line:
-                    vend = line.index("Aktiviseringstid")
-            else:
-                parse(line[:vcut],1)
+            if not column_parser.update_vertical_limit_column(line):
+                parse(line[:column_parser.vcut],1)
                 if military_aip:
-                    parse(line[vcut:vend],2)
+                    parse(line[column_parser.vcut:column_parser.vend],2)
                 else:
-                    parse(line[vcut:],2)
+                    parse(line[column_parser.vcut:],2)
         elif cta_aip:
-            if "Tjenesteenhet" in line:
-                vcut = line.index("Tjenesteenhet")
-            else:
-                parse(line[:vcut],1)
+            if not column_parser.update_vertical_limit_column(line):
+                parse(line[:column_parser.vcut],1)
         elif tia_aip and not tia_aip_acc:
-            if "Unit providing" in line:
-                vcut = line.index("Unit providing")
-            else:
-                parse(line[:vcut],1)
+            if not column_parser.update_vertical_limit_column(line):
+                parse(line[:column_parser.vcut],1)
         else:
             parse(line,1)
 
