@@ -23,11 +23,70 @@
                 background-image: url(images/filter-2x.png);
                 background-size: 26px 26px;
             }
+            #airspace-stack {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 200px;
+                max-height: 80vh;
+                overflow-y: auto;
+                background: rgba(255, 255, 255, 0.95);
+                border: 2px solid #333;
+                border-radius: 5px;
+                padding: 5px;
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.3);
+                z-index: 1000;
+                display: none;
+            }
+            .airspace-box {
+                border: 2px solid #333;
+                border-radius: 3px;
+                padding: 8px;
+                margin: 3px 0;
+                text-align: center;
+                font-weight: bold;
+                cursor: pointer;
+                color: #000;
+            }
+            .airspace-box:hover {
+                opacity: 0.8;
+            }
+            .altitude-separator {
+                text-align: center;
+                color: #000;
+                font-size: 11px;
+                padding: 2px 0;
+                font-weight: normal;
+            }
+            #airspace-stack-title {
+                text-align: center;
+                font-weight: bold;
+                color: #000;
+                border-bottom: 1px solid #999;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+            }
+            .altitude-bound {
+                text-align: center;
+                color: #000;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 5px 0;
+                border-top: 2px solid #666;
+                border-bottom: 2px solid #666;
+                margin: 3px 0;
+            }
   </style>
   <title>luftrom.info - Norwegian airspace for PG pilots</title>
 </head>
 <body>
   <div id="map"></div>
+  <div id="airspace-stack">
+    <div id="airspace-stack-title">Airspace Stack</div>
+    <div id="airspace-stack-content"></div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js">
   </script>
   <script src="leaflet.js">
@@ -57,6 +116,7 @@
 
                 var i, layer;
                 var airspace = {};
+                var allAirspaceFeatures = []; // Store all airspace features for stack calculation
 
                 var big_notam=300000;
 
@@ -103,6 +163,21 @@
                                  var plug=plugify(feature.properties['name']);
 
                                  airspace[plug]=(airspace[plug]||[]).concat([layer]);
+                                 
+                                 // Only store unique features (avoid duplicates from filtered layers)
+                                 var featureKey = feature.properties['name'] + '_' + 
+                                                  feature.properties['from (m amsl)'] + '_' + 
+                                                  feature.properties['to (m amsl)'];
+                                 var alreadyExists = allAirspaceFeatures.some(function(item) {
+                                     return item.featureKey === featureKey;
+                                 });
+                                 if (!alreadyExists) {
+                                     allAirspaceFeatures.push({
+                                         feature: feature, 
+                                         layer: layer, 
+                                         featureKey: featureKey
+                                     });
+                                 }
                                  layer.on('mouseover', function() {
                                      this.setStyle({
                                        'weight': 4,
@@ -360,6 +435,198 @@
                       maxZoom: 9
                     }
                 }).addTo(map);
+
+                // Airspace stack visualization
+                var lastMouseLatLng = null;
+                var mouseThrottle = null;
+                
+                // Point-in-polygon test (ray casting algorithm)
+                var pointInPolygon = function(point, polygon) {
+                    var x = point.lat, y = point.lng;
+                    var inside = false;
+                    
+                    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+                        var xi = polygon[i].lat, yi = polygon[i].lng;
+                        var xj = polygon[j].lat, yj = polygon[j].lng;
+                        
+                        var intersect = ((yi > y) != (yj > y))
+                            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                        if (intersect) inside = !inside;
+                    }
+                    
+                    return inside;
+                };
+                
+                var updateAirspaceStack = function(latlng) {
+                    var stackDiv = document.getElementById('airspace-stack');
+                    var contentDiv = document.getElementById('airspace-stack-content');
+                    
+                    // Find all airspaces containing this point
+                    var containingAirspaces = [];
+                    
+                    allAirspaceFeatures.forEach(function(item) {
+                        var layer = item.layer;
+                        var feature = item.feature;
+                        
+                        // Quick bounding box check first
+                        if (!layer.getBounds || !layer.getBounds().contains(latlng)) {
+                            return; // Skip if not even in bounding box
+                        }
+                        
+                        // Do precise point-in-polygon check
+                        var contains = false;
+                        
+                        if (layer instanceof L.Circle) {
+                            // Circle check: distance from center
+                            var distance = map.distance(latlng, layer.getLatLng());
+                            contains = distance <= layer.getRadius();
+                        } else if (layer instanceof L.Polygon) {
+                            // Polygon check: point-in-polygon for each ring
+                            var latlngs = layer.getLatLngs();
+                            
+                            // Handle MultiPolygon (array of arrays of rings)
+                            if (latlngs.length > 0 && Array.isArray(latlngs[0])) {
+                                // Could be array of polygons or array of rings
+                                if (latlngs[0].length > 0 && latlngs[0][0].lat !== undefined) {
+                                    // Array of rings (holes)
+                                    contains = pointInPolygon(latlng, latlngs[0]);
+                                    // Check holes (if any)
+                                    for (var h = 1; h < latlngs.length; h++) {
+                                        if (pointInPolygon(latlng, latlngs[h])) {
+                                            contains = false; // Point is in a hole
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    // MultiPolygon - check each polygon
+                                    for (var p = 0; p < latlngs.length; p++) {
+                                        if (latlngs[p].length > 0 && pointInPolygon(latlng, latlngs[p][0])) {
+                                            contains = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            } else {
+                                // Simple polygon
+                                contains = pointInPolygon(latlng, latlngs);
+                            }
+                        } else if (layer instanceof L.Rectangle) {
+                            // Rectangle - getBounds is sufficient
+                            contains = true;
+                        }
+                        
+                        if (contains) {
+                            containingAirspaces.push({
+                                name: feature.properties['name'],
+                                class: feature.properties['class'],
+                                from: feature.properties['from (m amsl)'],
+                                to: feature.properties['to (m amsl)'],
+                                color: feature.properties['color'] || '#3388ff',
+                                fillOpacity: feature.properties['fillOpacity'] || 0.2,
+                                layer: layer
+                            });
+                        }
+                    });
+                    
+                    if (containingAirspaces.length === 0) {
+                        stackDiv.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Sort by altitude (highest first)
+                    containingAirspaces.sort(function(a, b) {
+                        return b.to - a.to;
+                    });
+                    
+                    // Find overall altitude bounds
+                    var maxAlt = Math.max.apply(Math, containingAirspaces.map(function(s) { return s.to; }));
+                    var minAlt = Math.min.apply(Math, containingAirspaces.map(function(s) { return s.from; }));
+                    
+                    // Format altitude display
+                    var formatAlt = function(alt) {
+                        return alt === 0 ? 'GND' : alt + 'm';
+                    };
+                    
+                    // Build the stack visualization
+                    var html = '';
+                    
+                    // Top altitude bound
+                    html += '<div class="altitude-bound">^ ' + formatAlt(maxAlt) + '</div>';
+                    
+                    for (var i = 0; i < containingAirspaces.length; i++) {
+                        var space = containingAirspaces[i];
+                        var bgColor = space.color;
+                        var bgOpacity = space.fillOpacity * 2; // Make it more visible in sidebar
+                        if (bgOpacity > 0.8) bgOpacity = 0.8;
+                        
+                        // Convert hex to rgba for background transparency (keeps text opaque)
+                        var rgba = bgColor;
+                        if (bgColor.startsWith('#')) {
+                            var r = parseInt(bgColor.substr(1,2), 16);
+                            var g = parseInt(bgColor.substr(3,2), 16);
+                            var b = parseInt(bgColor.substr(5,2), 16);
+                            rgba = 'rgba(' + r + ',' + g + ',' + b + ',' + bgOpacity + ')';
+                        }
+                        
+                        // Create airspace box
+                        html += '<div class="airspace-box" style="background-color: ' + rgba + ';" ';
+                        html += 'data-layer-id="' + i + '">';
+                        html += '<div style="font-size: 13px;">' + space.name + '</div>';
+                        html += '<div style="font-size: 11px; font-weight: normal;">Class ' + space.class + '</div>';
+                        html += '</div>';
+                        
+                        // Add altitude separator (except after last one)
+                        if (i < containingAirspaces.length - 1) {
+                            var lowerSpace = containingAirspaces[i + 1];
+                            // Show the boundary altitude between these two airspaces
+                            var separatorAlt = space.from;
+                            if (lowerSpace.to < space.from) {
+                                // Gap between airspaces - show both altitudes
+                                html += '<div class="altitude-separator">' + formatAlt(space.from) + ' &lt;-&gt; ' + formatAlt(lowerSpace.to) + '</div>';
+                            } else {
+                                // Overlapping or touching - show single altitude
+                                html += '<div class="altitude-separator">' + formatAlt(space.from) + '</div>';
+                            }
+                        }
+                    }
+                    
+                    // Bottom altitude bound
+                    html += '<div class="altitude-bound">v ' + formatAlt(minAlt) + '</div>';
+                    
+                    contentDiv.innerHTML = html;
+                    stackDiv.style.display = 'block';
+                    
+                    // Add click handlers to highlight the airspace
+                    var boxes = contentDiv.getElementsByClassName('airspace-box');
+                    for (var i = 0; i < boxes.length; i++) {
+                        (function(idx) {
+                            boxes[idx].addEventListener('click', function() {
+                                containingAirspaces[idx].layer.fire('click');
+                            });
+                        })(i);
+                    }
+                };
+                
+                map.on('mousemove', function(e) {
+                    lastMouseLatLng = e.latlng;
+                    
+                    // Throttle updates to every 300ms
+                    if (mouseThrottle) {
+                        clearTimeout(mouseThrottle);
+                    }
+                    mouseThrottle = setTimeout(function() {
+                        if (lastMouseLatLng) {
+                            updateAirspaceStack(lastMouseLatLng);
+                        }
+                    }, 300);
+                });
+                
+                map.on('mouseout', function() {
+                    document.getElementById('airspace-stack').style.display = 'none';
+                    if (mouseThrottle) {
+                        clearTimeout(mouseThrottle);
+                    }
+                });
 
             }());
   </script>
