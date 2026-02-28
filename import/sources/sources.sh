@@ -142,4 +142,32 @@ while read p; do
 
 done < sources.list
 
+# Fetch and process NOTAMs
+echo "Fetching NOTAMs from notaminfo.com..."
+NOTAM_HTML="./txt/notam.html"
+NOTAM_TXT="./txt/notam.txt"
+
+# Only fetch if cache is older than 6 hours or doesn't exist
+if [ ! -e "$NOTAM_HTML" ] || [ $(find "$NOTAM_HTML" -mmin +360 2>/dev/null | wc -l) -eq 1 ]; then
+    curl -L -A "Mozilla/5.0 (X11; Linux x86_64)" \
+         -H "Accept: text/html" \
+         'https://notaminfo.com/latest?country=Norway' \
+         -o "$NOTAM_HTML" 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Successfully fetched NOTAMs ($(wc -l < $NOTAM_HTML) lines)"
+        # Convert HTML to text (-nobs = no bold/underline backspaces)
+        html2text -width 999 -nobs "$NOTAM_HTML" > "$NOTAM_TXT"
+        echo "Converted to text ($(wc -l < $NOTAM_TXT) lines)"
+    else
+        echo "Warning: Failed to fetch NOTAMs"
+    fi
+else
+    echo "Using cached NOTAM data (less than 6 hours old)"
+    # Ensure text version exists
+    if [ ! -e "$NOTAM_TXT" ] || [ "$NOTAM_HTML" -nt "$NOTAM_TXT" ]; then
+        html2text -width 999 -nobs "$NOTAM_HTML" > "$NOTAM_TXT"
+        echo "Converted to text ($(wc -l < $NOTAM_TXT) lines)"
+    fi
+fi
+
 #./scrape.py

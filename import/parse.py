@@ -18,6 +18,7 @@ from shapely.geometry import Polygon
 
 from targets import geojson, openaip, openair, xcontest
 from util.utils import *
+from notam import NotamParser
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -100,7 +101,6 @@ GENERAL NOTES:
 - Many are location-specific (Oslo area, Farris, Valldal, etc.)
 - Some are format-specific (TIA ACC, airsport docs, supplements)
 - Keep these even if ugly - removing them breaks real-world parsing
-- Swedish AIP support was removed (2024) - some Swedish remnants may remain
 """
 
 
@@ -2139,6 +2139,11 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
 
 
 for filename in os.listdir("./sources/txt"):
+    # Skip NOTAM files - they're handled separately by NotamParser
+    if filename.startswith('notam'):
+        logger.debug(f"Skipping NOTAM file: {filename}")
+        continue
+        
     logger.info("Reading %s", "./sources/txt/"+filename)
     source = urllib.parse.unquote(filename.split(".txt")[0])
     if ".swp" in filename:
@@ -2578,6 +2583,37 @@ for filename in os.listdir("./sources/txt"):
     collection.extend(ctx.features)
 
 logger.info("%i Features", len(collection))
+
+# Add NOTAM-established airspace
+logger.info("Loading NOTAM-established airspace...")
+try:
+    notam_features = NotamParser.fetch_and_parse()
+    logger.info(f"Loaded {len(notam_features)} NOTAM features")
+    
+    # NOTAM features are already in GeoJSON format with decimal coordinates
+    # Need to convert to parse.py structure which expects:
+    # - geometry: list of DMS tuples
+    # - geometry_ll: list of (lon, lat) decimal tuples
+    # - area: polygon area in square degrees
+    for notam_feature in notam_features:
+        # Extract decimal coordinates from GeoJSON geometry
+        coords_ll = notam_feature['geometry']['coordinates'][0]
+        notam_feature['geometry_ll'] = coords_ll
+        
+        # Convert to DMS format for geometry field
+        coords_dms = []
+        for lon, lat in coords_ll:
+            coords_dms.append(ll2c((lon, lat)))
+        notam_feature['geometry'] = coords_dms
+        
+        # Calculate area
+        notam_feature['area'] = Polygon(coords_ll).area
+    
+    collection.extend(notam_features)
+    logger.info(f"Total features after NOTAM: {len(collection)}")
+except Exception as e:
+    logger.error(f"Failed to load NOTAM features: {e}")
+    logger.debug("Continuing without NOTAM data")
 
 # Add LonLat conversion to each feature
 
