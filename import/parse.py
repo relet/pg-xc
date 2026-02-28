@@ -2608,6 +2608,13 @@ try:
         
         # Calculate area
         notam_feature['area'] = Polygon(coords_ll).area
+        
+        # Validate NOTAM feature coordinates
+        validation = feature_validator.validate(notam_feature, coords_ll, notam_feature['properties'].get('name'))
+        if validation.errors:
+            logger.error(f"NOTAM validation errors for {notam_feature['properties'].get('name')}: {validation.errors}")
+        if validation.warnings:
+            logger.warning(f"NOTAM validation warnings for {notam_feature['properties'].get('name')}: {validation.warnings}")
     
     collection.extend(notam_features)
     logger.info(f"Total features after NOTAM: {len(collection)}")

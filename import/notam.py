@@ -347,7 +347,7 @@ class NotamParser:
         coords_decimal = []
         for lat_dms, lon_dms in notam['coordinates']:
             try:
-                lat_dec, lon_dec = c2ll((lat_dms, lon_dms))
+                lon_dec, lat_dec = c2ll((lat_dms, lon_dms))  # c2ll returns (lon, lat)
                 coords_decimal.append([lon_dec, lat_dec])  # GeoJSON is [lon, lat]
             except Exception as e:
                 logger.error(f"Failed to convert coordinates {lat_dms} {lon_dms}: {e}")
