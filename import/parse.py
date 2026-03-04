@@ -2084,7 +2084,7 @@ class FeatureFinalizer:
             from_, to_ = self._handle_vertical_limits(feature, source, index, aipname, doc_flags)
             
             # Handle NOTAM and AMC classifications
-            if ("EN D" in aipname or "END" in aipname) and (end_notam or sanntid):
+            if (("EN D" in aipname or "END" in aipname or "EN R" in aipname) and (end_notam or sanntid)):
                 feature['properties']['notam_only'] = 'true'
                 if sanntid:
                     logger.debug("Classifying %s as AMC/Sanntidsaktivering", aipname)
@@ -2219,12 +2219,6 @@ for filename in os.listdir("./sources/txt"):
                 #if "ATS komm" in line or "Kallesignal" in line:
                     logger.debug("End chapter 2.71")
                     ctx.ats_chapter=False
-
-        if 'Sanntidsaktivering' in line:
-            logger.debug("Activating AMC/Sanntidsaktivering for this ctx.feature.")
-            ctx.sanntid = True
-            global sanntid
-            sanntid = True  # Sync with global for finalize()
 
         class_ = class_parser.parse_class(line)
         if class_:
@@ -2372,6 +2366,21 @@ for filename in os.listdir("./sources/txt"):
 
         # IDENTIFY altitude limits
         vertl = vertical_parser.parse_vertical_limit(line, military_aip)
+
+        # Check for activation keywords BEFORE processing vertl (which has early return)
+        # Distinguish between:
+        # 1. NOTAM-only activation (just sets notam_only, not amc_only)
+        # 2. Written approval from CAA (sets both notam_only and amc_only)
+        if 'Can only be activated via NOTAM' in line or 'Kan kun settes aktivt via NOTAM' in line:
+            logger.debug("Detected NOTAM-only activation for this ctx.feature")
+            # Don't set sanntid - this is pure NOTAM activation, not AMC
+            # The finalize logic will handle this via end_notam flag
+            pass  # Oslo/Romerike handler already sets notam_only
+        elif 'Written approval from CAA' in line:
+            logger.debug("Activating AMC/Sanntidsaktivering for this ctx.feature (detected: Written approval from CAA)")
+            ctx.sanntid = True
+            global sanntid
+            sanntid = True  # Sync with global for finalize()
 
         if vertl:
             logger.debug("Found vertl in line: %s", vertl.groupdict())

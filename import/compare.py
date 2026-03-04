@@ -37,6 +37,15 @@ def exit(name, feat_old, feat_new):
     if exit_on_error:
         sys.exit(1)
 
+# Track changes for summary
+changes_summary = {
+    'size_changes': [],
+    'limit_changes': [],
+    'property_changes': {},
+    'new_properties': {},
+    'removed_properties': {}
+}
+
 ref = {}
 handled = {}
 byarea = {}
@@ -77,21 +86,92 @@ for feat in data2.features:
     compname = normalize(comp['properties']['name'])
     handled[compname] = compname
     #logger.debug("Feature found in reference: %s", name)
+    
+    # Check geometry changes
     if abs(feat['area'] - comp['area']) > 0.001:
+        changes_summary['size_changes'].append((name, comp['area'], feat['area']))
         logger.error("SIZE CHANGED: %s from %f to %f", name, comp['area'], feat['area'])
         exit(name, comp, feat)
+    
+    # Check altitude limits
     limits_new = (int(feat['properties']['from (m amsl)']), int(feat['properties']['to (m amsl)']))
     try:
         limits_old = (int(comp['properties']['from (m amsl)']), int(comp['properties']['to (m amsl)']))
     except:
         limits_old = (int(comp['properties']['floor']), int(comp['properties']['ceiling']))
     if abs(limits_new[0]-limits_old[0])>1 or abs(limits_new[1]-limits_old[1])>1:
+        changes_summary['limit_changes'].append((name, limits_old, limits_new))
         logger.error("LIMITS CHANGED: %s from %s to %s", name, limits_old, limits_new)
         exit(name, comp, feat)
+    
+    # Check all other property changes (without logging each one)
+    props_old = comp['properties']
+    props_new = feat['properties']
+    
+    # Track fields to compare
+    compare_fields = ['class', 'notam_only', 'amc_only', 'temporary', 
+                     'Date from', 'Date until', 'Time from (UTC)', 'Time until (UTC)']
+    
+    for field in compare_fields:
+        old_val = props_old.get(field)
+        new_val = props_new.get(field)
+        if old_val != new_val:
+            if field not in changes_summary['property_changes']:
+                changes_summary['property_changes'][field] = []
+            changes_summary['property_changes'][field].append((name, old_val, new_val))
+    
+    # Track new/removed properties (without logging)
+    new_props = set(props_new.keys()) - set(props_old.keys())
+    if new_props:
+        for prop in new_props:
+            if prop not in changes_summary['new_properties']:
+                changes_summary['new_properties'][prop] = []
+            changes_summary['new_properties'][prop].append(name)
+    
+    removed_props = set(props_old.keys()) - set(props_new.keys())
+    if removed_props:
+        for prop in removed_props:
+            if prop not in changes_summary['removed_properties']:
+                changes_summary['removed_properties'][prop] = []
+            changes_summary['removed_properties'][prop].append(name)
 
 for feat in data1.features:
     name = normalize(feat.properties['name'])
     if not name in handled:
         logger.error("Unhandled feature from reference: %s", name)
         exit(name, feat, None)
+
+# Print summary
+logger.info("=" * 80)
+logger.info("COMPARISON SUMMARY")
+logger.info("=" * 80)
+logger.info("Features compared: %d", len(handled))
+logger.info("New features: %d", len([f for f in data2.features if normalize(f['properties']['name']) not in ref]))
+logger.info("Removed features: %d", len([f for f in data1.features if normalize(f['properties']['name']) not in handled]))
+
+if changes_summary['size_changes']:
+    logger.info("\nGeometry changes: %d", len(changes_summary['size_changes']))
+    for name, old_area, new_area in changes_summary['size_changes'][:5]:
+        logger.info("  %s: %.6f -> %.6f", name, old_area, new_area)
+
+if changes_summary['limit_changes']:
+    logger.info("\nAltitude limit changes: %d", len(changes_summary['limit_changes']))
+    for name, old_lim, new_lim in changes_summary['limit_changes'][:5]:
+        logger.info("  %s: %s -> %s", name, old_lim, new_lim)
+
+for field, changes in sorted(changes_summary['property_changes'].items()):
+    logger.info("\nProperty '%s' changed: %d airspaces", field, len(changes))
+    # Group by change type
+    added = [(n, o, v) for n, o, v in changes if o is None and v is not None]
+    removed = [(n, o, v) for n, o, v in changes if o is not None and v is None]
+    modified = [(n, o, v) for n, o, v in changes if o is not None and v is not None]
+    
+    if added:
+        logger.info("  Added (%d): %s", len(added), ', '.join([n for n, o, v in added]))
+    if removed:
+        logger.info("  Removed (%d): %s", len(removed), ', '.join([n for n, o, v in removed]))
+    if modified:
+        logger.info("  Modified (%d): %s", len(modified), ', '.join([n for n, o, v in modified]))
+
+logger.info("=" * 80)
 
