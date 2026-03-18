@@ -9,7 +9,9 @@
   "width=device-width, initial-scale=1.0">
   <meta name="referrer" content="no-referrer">
   <link rel="shortcut icon" href="favicon.ico">
-  <link rel="stylesheet" href="leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
   <link rel="stylesheet" href="leaflet.locate.min.css">
   <style type="text/css">
             #map {
@@ -104,8 +106,9 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js">
   </script>
-  <script src="leaflet.js">
-  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
   <script src="leaflet.ajax.min.js">
   </script>
   <script src="leaflet.viewpoint.min.js">
@@ -142,8 +145,9 @@
                 var baseLayers = {
                 }
 
-                var l_osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var l_osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                    referrerPolicy: 'no-referrer-when-downgrade'
                 });
                 baseLayers["World: OpenStreetMap"] = l_osm;
                 allMapLayers["osm"] = l_osm;
