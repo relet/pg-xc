@@ -115,13 +115,69 @@
   </script>
   <script src="leaflet.locate.min.js">
   </script>
-  <script src="leaflet.hash.min.js">
-  </script>
+  <!-- Remove old leaflet.hash.min.js - using custom implementation below -->
   <script src="https://use.fontawesome.com/17dabc76c0.js">
   </script>
   <script type="text/javascript">
             (function() {
                 'use strict';
+                
+                // Simple hash management - updates URL with map position
+                var HashManager = {
+                    parseHash: function() {
+                        var hash = window.location.hash;
+                        if (hash.indexOf('#') === 0) {
+                            hash = hash.substr(1);
+                        }
+                        var args = hash.split('/');
+                        if (args.length >= 3) {
+                            var zoom = parseInt(args[0], 10);
+                            var lat = parseFloat(args[1]);
+                            var lon = parseFloat(args[2]);
+                            if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lon)) {
+                                return {
+                                    center: L.latLng(lat, lon),
+                                    zoom: zoom
+                                };
+                            }
+                        }
+                        return null;
+                    },
+                    formatHash: function(map) {
+                        var center = map.getCenter();
+                        var zoom = map.getZoom();
+                        var precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
+                        return '#' + [zoom,
+                                     center.lat.toFixed(precision),
+                                     center.lng.toFixed(precision)
+                        ].join('/');
+                    },
+                    update: function(map) {
+                        var hash = this.formatHash(map);
+                        if (window.location.hash !== hash) {
+                            window.history.replaceState(null, null, hash);
+                        }
+                    },
+                    init: function(map) {
+                        var self = this;
+                        // Update hash on map move
+                        map.on('moveend', function() {
+                            self.update(map);
+                        });
+                        // Restore from hash if present
+                        var parsed = this.parseHash();
+                        if (parsed) {
+                            map.setView(parsed.center, parsed.zoom);
+                        }
+                        // Listen for hash changes
+                        window.addEventListener('hashchange', function() {
+                            var parsed = self.parseHash();
+                            if (parsed) {
+                                map.setView(parsed.center, parsed.zoom);
+                            }
+                        });
+                    }
+                };
 
                 var luftrom='https://rawcdn.githack.com/relet/pg-xc/aeef963da6b4c89aee8f76d29482d4682b248efe/geojson/luftrom.geojson?min=1';
                 var takeoffs='https://rawcdn.githack.com/relet/pg-xc/d1ae085186641a78295956fbf2dad26345af8c2f/geojson/takeoffs.geojson?min=1';
@@ -131,6 +187,9 @@
                 };
 
                 var map = L.map('map').setView([65.5, 17.0], 4);
+                
+                // Initialize hash manager early to restore position from URL
+                HashManager.init(map);
 
                 var i, layer;
                 var airspace = {};
@@ -439,8 +498,6 @@
                   overLayers[' - indicated only'].bringToFront();
                   overLayers['<b>NOTAM<\/b>'].bringToFront();
                 });
-
-                var hash = new L.Hash(map);
 
                 var lc = L.control.layers(baseLayers, overLayers);
                 // close layercontrol on click (fix for android phones)
