@@ -114,6 +114,8 @@ class RegexPatterns:
     re_miscnames = re.compile(r"^(?P<name>Hareid .*)$")
     # OpenAir format
     re_name_openair = re.compile(r"^AN (?P<name>.*)$")
+    # AD-2 table format (aerodrome CTR/TMA/TIZ)
+    re_name_ad2 = re.compile(r"^1\s+Designation and lateral limits\s+(?P<name>.*\s+(CTR|TMA|TIZ))\s*$")
     
     # === Class Patterns ===
     re_class = re.compile(r"Class:? (?P<class>.)")
@@ -280,6 +282,7 @@ class NameParser:
                 self.patterns.re_name5.search(line) or 
                 self.patterns.re_name_cr.search(line) or 
                 self.patterns.re_name6.search(line) or 
+                self.patterns.re_name_ad2.search(line) or 
                 self.patterns.re_name_openair.search(line))
     
     def process_name(self, match, line, ctx):
@@ -2229,9 +2232,9 @@ for filename in os.listdir("./sources/txt"):
                 # SPECIAL CASE #6/#7: Finalization conditions
                 # - Skip Geiteryggen (#6)
                 # - Allow Romerike/Oslo without upper limit (#7)
-                # Finalize if: special doc types have final coord
-                should_finalize = (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc))
-                                  and not ("Geiteryggen" in ctx.aipname))
+                # Finalize if: special doc types OR TIZ/CTR in name have final coord
+                should_finalize = (((cta_aip or airsport_aip or aip_sup or tia_aip or (ctx.aipname and ("TIZ" in ctx.aipname or "CTR" in ctx.aipname))) and (ctx.finalcoord or tia_aip_acc))
+                                  and not (ctx.aipname and "Geiteryggen" in ctx.aipname))
                 if should_finalize:
                     logger.debug("Finalizing poly: Vertl complete.")
                     # SPECIAL CASE #2: SÄLEN/SAAB sector finalization
