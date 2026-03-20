@@ -32,75 +32,48 @@ SPECIAL CASES AND WORKAROUNDS IN PARSE.PY
 This document lists all special cases, hacks, and workarounds in the Norwegian AIP parser.
 These exist because human-written AIP documents are inconsistent and error-prone.
 
+HANDLER-BASED SPECIAL CASES:
+
 1. OSLO/ROMERIKE NOTAM AREAS (Kongsvinger, Romerike, Oslo)
-   Location: finalize() function
+   Handler: OsloNotamHandler
+   Location: finalize() altitude processing
    Issue: Reserved ENR areas in Oslo region are NOTAM-activated only
    Solution: Set notam_only='true' flag, swap vertical limits if inverted
    Reference: en_sup_a_2018_015_en
-   Files affected: EN R areas with "Romerike" or "Oslo" (not Oslo 102)
 
-2. SÄLEN/SAAB CTR SECTORS  
-   Location: parse() line parsing, BorderFollower
-   Issue: Multi-sector airspace with incorrect border following direction
-   Solution: 
-   - Split sectors dynamically when "Sector" keyword appears
-   - Reverse border fill for "Sälen TMA b" and "SÄLEN CTR Sector b"
-   - First sector in docs is union of others, skip it during finalization
-   Reference: Swedish AIP format (legacy, now removed but code remains)
+2. NOTODDEN TIZ MULTI-AREA PARSING
+   Handler: NotoddenHandler
+   Location: Name detection, coordinate collection, vertical limit finalization
+   Issue: Single "Notodden TIZ" heading has three coordinate blocks and vertical limits
+   Solution: Collect all blocks, generate three separate features
+   Reference: EN-AD-2.ENNO-en-GB.html.txt
 
-3. VALLDAL CUSTOM FORMAT
-   Location: parse(), main file loop
-   Issue: Custom document format different from standard AIP
-   Solution:
-   - Detect by filename "valldal"
-   - Extract name from first two words
-   - Hardcode class as 'Luftsport', lower limit 0
-   Reference: valldal.txt custom format
+INLINE SPECIAL CASES:
 
-4. FARRIS TMA COUNTER SKIP
-   Location: finalize() - duplicate handling
-   Issue: Counter numbering has gaps
-   Solution: If count > 4, add 2 to counter (skip 5 and 6)
-   Reference: Farris TMA naming convention
-
-5. GEITERYGGEN FINALIZATION SKIP
-   Location: parse() vertical limit handling
+3. GEITERYGGEN FINALIZATION SKIP
+   Location: Vertical limit handling
    Issue: Should not finalize on certain conditions
-   Solution: Explicitly skip finalization if "Geiteryggen" in name
+   Solution: Skip finalization if "Geiteryggen" in name
 
-6. ROMERIKE/OSLO ALTITUDE HANDLING
-   Location: finalize() vertical limit validation
-   Issue: These restricted areas allow finalization without complete upper limit
-   Solution: Special exception in finalization validation
-   Reference: en_sup_a_2018_015_en
-
-7. "SEE RMK" VERTICAL LIMIT HACK
+4. "SEE RMK" VERTICAL LIMIT HACK
    Location: VerticalLimitParser
    Issue: "See RMK" appears where altitude should be
    Solution: Treat as 13499 ft placeholder
-   Reference: Various AIP documents with remarks
 
-8. COLUMN SHIFT HACK (TIA AIP ACC)
+5. COLUMN SHIFT HACK (TIA AIP ACC)
    Location: ColumnParser.detect_columns_from_pattern()
-   Issue: Column detection off by 2 characters
-   Solution: Subtract 2 from all detected column positions
-   Reference: TIA AIP ACC format with "1     " pattern
+   Issue: Column detection off by 2 characters for some TIA documents
+   Solution: Try alternative column positions
 
-9. EN D476/D477 NAME NORMALIZATION
+6. EN D476/D477 NAME NORMALIZATION
    Location: finalize() name processing
    Issue: Names need sector suffixes for uniqueness
    Solution: Append " R og B 1" for D476, " R og B 2" for D477
 
-10. SECTOR NAME SKIPPING (SÄLEN/SAAB)
-    Location: NameParser.should_skip_name()
-    Issue: Sector subdivisions "Sector a", "Sector b" should be ignored as standalone
-    Solution: Skip if name is exactly "Sector a" or "Sector b"
-    
-GENERAL NOTES:
-- Most special cases exist due to inconsistent AIP formatting
-- Many are location-specific (Oslo area, Farris, Valldal, etc.)
-- Some are format-specific (TIA ACC, airsport docs, supplements)
-- Keep these even if ugly - removing them breaks real-world parsing
+REMOVED SPECIAL CASES (no longer needed, sources don't exist):
+- SÄLEN/SAAB CTR SECTORS: Swedish AIP data no longer imported
+- VALLDAL CUSTOM FORMAT: No valldal.txt file in sources
+- FARRIS TMA COUNTER SKIP: Handler was defined but never used
 """
 
 
@@ -848,7 +821,6 @@ class DocumentType(Enum):
     MILITARY_AIP = auto()    # Military areas (ENR-5.2)
     AIRSPORT_AIP = auto()    # Airsport areas (ENR-5.5)
     AIP_SUP = auto()         # Supplements (en_sup)
-    VALLDAL = auto()         # Custom Valldal format
     UNKNOWN = auto()         # Unrecognized format
     
     @property
@@ -882,7 +854,6 @@ class DocumentType(Enum):
             DocumentType.MILITARY_AIP: "ENR-5.2 (Military)",
             DocumentType.AIRSPORT_AIP: "ENR-5.5 (Airsport)",
             DocumentType.AIP_SUP: "SUP (Supplement)",
-            DocumentType.VALLDAL: "Valldal",
             DocumentType.UNKNOWN: "Unknown"
         }
         return descriptions.get(self, "Unknown")
@@ -1225,7 +1196,6 @@ class DocumentTypeStrategy:
         self.military_aip = (self.doc_type == DocumentType.MILITARY_AIP)
         self.airsport_aip = (self.doc_type == DocumentType.AIRSPORT_AIP)
         self.aip_sup = (self.doc_type == DocumentType.AIP_SUP)
-        self.valldal = (self.doc_type == DocumentType.VALLDAL)
         self.en_enr_5_1 = "EN_ENR_5_1" in filename
     
     def _detect_type(self, filename):
@@ -1252,8 +1222,6 @@ class DocumentTypeStrategy:
             return DocumentType.AIRSPORT_AIP
         elif "en_sup" in filename:
             return DocumentType.AIP_SUP
-        elif "valldal" in filename:
-            return DocumentType.VALLDAL
         else:
             return DocumentType.UNKNOWN
     
@@ -1483,91 +1451,6 @@ class OsloNotamHandler(SpecialCaseHandler):
         
         logger.debug(f"Applied Oslo/Romerike NOTAM handler to {feature['properties'].get('name')}")
         return feature
-
-
-class SalenSaabHandler(SpecialCaseHandler):
-    """Handler for SÄLEN/SAAB CTR multi-sector airspaces.
-    
-    Special Case #2: These airspaces have multiple sectors that need special handling.
-    - Split sectors dynamically when "Sector" keyword appears
-    - First sector is union of others (skip during finalization)
-    """
-    
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if airspace is SÄLEN or SAAB CTR."""
-        if not aipname:
-            return False
-        return "SÄLEN" in aipname or "SAAB" in aipname
-    
-    def handle(self, feature, ctx, line=None, **kwargs):
-        """Handle sector splitting."""
-        mode = kwargs.get('mode', 'split')
-        
-        if mode == 'split' and line and "Sector" in line:
-            # Store current sector
-            logger.debug(f"Splitting SÄLEN/SAAB sector: {ctx.aipname}")
-            ctx.sectors.append((ctx.aipname, ctx.obj))
-            
-            # Reset for next sector
-            ctx.feature = {"properties": {}}
-            ctx.obj = []
-            
-            # Set new sector name
-            if "SÄLEN" in ctx.aipname:
-                ctx.aipname = "SÄLEN CTR " + line
-            else:
-                ctx.aipname = "SAAB CTR " + line
-        
-        return feature
-
-
-class ValldolHandler(SpecialCaseHandler):
-    """Handler for Valldal custom document format.
-    
-    Special Case #4: Non-standard AIP format requiring special handling.
-    Reference: valldal.txt
-    """
-    
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if this is Valldal format."""
-        return line and 'Valldal' in line
-    
-    def handle(self, feature, ctx, line=None, **kwargs):
-        """Extract Valldal name and set defaults."""
-        # Extract name from first two words
-        ctx.aipname = " ".join(line.strip().split()[0:2])
-        logger.debug(f"Valldal name: '{ctx.aipname}'")
-        
-        # Set hardcoded class and lower limit
-        feature['properties']['class'] = 'Luftsport'
-        feature['properties']['from (ft amsl)'] = 0
-        feature['properties']['from (m amsl)'] = 0
-        
-        return feature
-
-
-class FarrisTMAHandler(SpecialCaseHandler):
-    """Handler for Farris TMA counter skip.
-    
-    Special Case #5: Counter numbering has gaps (skip 5 and 6).
-    Reference: Farris TMA naming convention
-    """
-    
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if this is Farris TMA."""
-        return aipname and "Farris" in aipname
-    
-    def handle(self, feature, ctx, line=None, **kwargs):
-        """Adjust counter for gaps."""
-        recount = kwargs.get('recount', 0)
-        
-        if recount > 4:
-            # Skip counter values 5 and 6
-            adjusted_count = recount + 2
-            logger.debug(f"Farris TMA counter: {recount} -> {adjusted_count}")
-            return adjusted_count
-        
-        return recount
 
 
 class NotoddenHandler(SpecialCaseHandler):
@@ -2244,7 +2127,6 @@ for filename in os.listdir("./sources/txt"):
     military_aip = doc_strategy.military_aip
     airsport_aip = doc_strategy.airsport_aip
     aip_sup = doc_strategy.aip_sup
-    valldal = doc_strategy.valldal
     en_enr_5_1 = doc_strategy.en_enr_5_1
 
     # Initialize parsing context for this file
@@ -2262,9 +2144,6 @@ for filename in os.listdir("./sources/txt"):
     
     # Initialize special case handlers
     oslo_notam_handler = OsloNotamHandler()
-    salen_saab_handler = SalenSaabHandler()
-    valldol_handler = ValldolHandler()
-    farris_handler = FarrisTMAHandler()
     notodden_handler = NotoddenHandler()
 
     # Norwegian AIP only (Swedish files will be skipped/ignored)
@@ -2310,13 +2189,7 @@ for filename in os.listdir("./sources/txt"):
                 ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
             return
 
-        # SPECIAL CASE #2: SÄLEN/SAAB CTR sectors (using handler)
-        if salen_saab_handler.applies(ctx.aipname, line, ctx) and "Sector" in line:
-            salen_saab_handler.handle(ctx.feature, ctx, line, mode='split')
-        
-        # SPECIAL CASE #4: Valldal custom format (using handler)
-        if valldal and valldol_handler.applies(ctx.aipname, line, ctx):
-            ctx.feature = valldol_handler.handle(ctx.feature, ctx, line)
+
 
         coords, coords2, coords3 = coord_parser.has_coordinates(line, ctx)
 
@@ -2438,8 +2311,9 @@ for filename in os.listdir("./sources/txt"):
                             ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
                             ctx.lastv = None
 
-            if not valldal:
-                return
+            # After processing coordinates, return to main loop
+            # (prevents coordinate lines from being misinterpreted as names/other data)
+            return
 
         # IDENTIFY temporary restrictions
         period = patterns.re_period.search(line) or patterns.re_period2.search(line) or patterns.re_period3.search(line)
@@ -2498,9 +2372,6 @@ for filename in os.listdir("./sources/txt"):
             
             if toamsl is not None:
                 ctx.lastv = toamsl
-                if valldal:
-                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
-                    ctx.lastv = None
             if fromamsl is not None:
                 ctx.lastv = None
                 # SPECIAL CASE #6/#7: Finalization conditions
@@ -2595,21 +2466,12 @@ for filename in os.listdir("./sources/txt"):
     skip_tia = False
     tia_aip_acc = False
     vcuts = None
-    skip_valldal = True
 
     for line in data:
 
         if "\f" in line:
             logger.debug("Stop column parsing, \f found")
             column_parsing = []
-
-        if valldal:
-            if line.strip() == 'Valldal Midt':
-                skip_valldal = False
-            if 'Varsling av aktivitet' in line:
-                break
-            if skip_valldal:
-                continue
 
         if tia_aip:
             if "Norway ACC sectorization" in line:
