@@ -1570,6 +1570,86 @@ class FarrisTMAHandler(SpecialCaseHandler):
         return recount
 
 
+class NotoddenHandler(SpecialCaseHandler):
+    """Handler for Notodden TIZ multi-area parsing.
+    
+    SPECIAL CASE #11: Notodden TIZ has three separate coordinate blocks with
+    different altitude limits, but all under one heading. Need to split into
+    three separate TIZ features (TIZ, TIZ 2, TIZ 3).
+    """
+    
+    def __init__(self):
+        """Initialize Notodden handler state"""
+        self.in_notodden = False
+        self.coord_blocks = []
+        self.vertical_blocks = []
+        self.current_coords = []
+        
+    def applies(self, aipname, line=None, ctx=None):
+        """Check if this is Notodden TIZ"""
+        return aipname and "Notodden TIZ" in aipname and "Notodden TIZ 2" not in aipname and "Notodden TIZ 3" not in aipname
+    
+    def start_collecting(self):
+        """Start collecting Notodden TIZ data"""
+        self.in_notodden = True
+        self.coord_blocks = []
+        self.vertical_blocks = []
+        self.current_coords = []
+    
+    def add_coordinate_line(self, line):
+        """Add a coordinate line to current block"""
+        # Accumulate all coordinate text for this block
+        self.current_coords.append(line.strip())
+        
+        # Check if this line ends with a closing paren (end of coordinate block)
+        if '(' in line and ')' in line:
+            # Combine all lines into a single string for this block
+            combined_coords = ' '.join(self.current_coords)
+            self.coord_blocks.append(combined_coords)
+            self.current_coords = []
+    
+    def add_vertical_limit(self, from_alt, to_alt):
+        """Add vertical limit pair"""
+        self.vertical_blocks.append((from_alt, to_alt))
+    
+    def get_features(self, base_feature, source):
+        """Generate three separate features from collected data"""
+        from copy import deepcopy
+        features = []
+        
+        for idx, (coord_str, (from_alt, to_alt)) in enumerate(zip(self.coord_blocks, self.vertical_blocks)):
+            feature = deepcopy(base_feature)
+            if idx == 0:
+                feature['properties']['name'] = "Notodden TIZ"
+            else:
+                feature['properties']['name'] = f"Notodden TIZ {idx + 1}"
+            
+            # Ensure class is set
+            if 'class' not in feature['properties'] or not feature['properties']['class']:
+                feature['properties']['class'] = 'G'  # Default for TIZ
+            
+            feature['properties']['from (ft amsl)'] = from_alt
+            feature['properties']['from (m amsl)'] = ft2m(from_alt)
+            feature['properties']['to (ft amsl)'] = to_alt
+            feature['properties']['to (m amsl)'] = ft2m(to_alt)
+            feature['properties']['aip'] = source
+            feature['properties']['source'] = source
+            feature['properties']['source_href'] = source  # xcontest needs this
+            
+            # Parse coordinates from the combined string
+            obj = []
+            coord_matches = patterns.re_coord3.findall(coord_str)
+            for match in coord_matches:
+                ne,n,e,along,arc,rad,cn,ce = match[:8]
+                if n and e:
+                    obj.insert(0, (n, e))
+            
+            feature['geometry'] = obj
+            features.append(feature)
+        
+        return features
+
+
 class ColumnParser:
     """Parser for column-based AIP document layouts.
     
@@ -2185,6 +2265,7 @@ for filename in os.listdir("./sources/txt"):
     salen_saab_handler = SalenSaabHandler()
     valldol_handler = ValldolHandler()
     farris_handler = FarrisTMAHandler()
+    notodden_handler = NotoddenHandler()
 
     # Norwegian AIP only (Swedish files will be skipped/ignored)
     country = 'EN'
@@ -2240,6 +2321,12 @@ for filename in os.listdir("./sources/txt"):
         coords, coords2, coords3 = coord_parser.has_coordinates(line, ctx)
 
         if (coords or coords2 or coords3):
+            
+            # SPECIAL CASE #11: Notodden TIZ - collect coordinate lines
+            if notodden_handler.in_notodden and notodden_handler.applies(ctx.aipname):
+                logger.debug("Collecting Notodden coordinate line: %s", line)
+                notodden_handler.add_coordinate_line(line)
+                return
 
             logger.debug("Found %i coords in line: %s", coords3 and len(coords3) or 1, line)
             logger.debug(printj(coords3))
@@ -2385,6 +2472,25 @@ for filename in os.listdir("./sources/txt"):
         if vertl:
             logger.debug("Found vertl in line: %s", vertl.groupdict())
             fromamsl, toamsl, fl, flto = vertical_parser.extract_limits(vertl, ctx)
+            
+            # SPECIAL CASE #11: Notodden TIZ - collect vertical limits
+            if notodden_handler.in_notodden and notodden_handler.applies(ctx.aipname):
+                if fromamsl is not None and toamsl is not None:
+                    logger.debug("Collecting Notodden vertical limit: GND to %i FT", toamsl)
+                    notodden_handler.add_vertical_limit(fromamsl, toamsl)
+                    
+                    # Check if we've collected all three blocks (3 coord blocks, 3 vertical limits)
+                    if len(notodden_handler.coord_blocks) == 3 and len(notodden_handler.vertical_blocks) == 3:
+                        logger.debug("Notodden TIZ collection complete - finalizing 3 features")
+                        notodden_features = notodden_handler.get_features(ctx.feature, source)
+                        for nf in notodden_features:
+                            ctx.features.append(nf)
+                        # Reset for next feature
+                        notodden_handler.in_notodden = False
+                        ctx.feature = {"properties": {}, "geometry": []}
+                        ctx.obj = []
+                        ctx.aipname = None
+                return
 
             # Use feature_builder to set limits with overwrite handling
             if not feature_builder.set_vertical_limits(ctx.feature, fromamsl, toamsl, fl, flto):
@@ -2452,6 +2558,11 @@ for filename in os.listdir("./sources/txt"):
                     ctx.lastv = None
                 else:
                     logger.debug("RESTRICT/MILITARY + name and vertl NOT complete")
+
+            # SPECIAL CASE #11: Notodden TIZ multi-area handling
+            if notodden_handler.applies(name):
+                logger.debug("Starting Notodden TIZ collection")
+                notodden_handler.start_collecting()
 
             ctx.aipname = name
             logger.debug("Found name '%s' in line: %s", ctx.aipname, line)
