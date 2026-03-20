@@ -19,6 +19,7 @@ from shapely.geometry import Polygon
 from targets import geojson, openaip, openair, xcontest
 from util.utils import *
 from notam import NotamParser
+from parsers.special_cases import oslo_notam_handler, notodden_handler
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -1384,154 +1385,6 @@ class SpecialCaseRegistry:
         return False
 
 
-class SpecialCaseHandler:
-    """Base class for location-specific special case handlers.
-    
-    Each handler encapsulates the logic for one specific special case,
-    making the code more maintainable and testable.
-    """
-    
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if this handler applies to the current situation.
-        
-        Args:
-            aipname: Airspace name
-            line: Optional current line being parsed
-            ctx: Optional parsing context
-            
-        Returns:
-            True if this handler should be applied
-        """
-        raise NotImplementedError
-    
-    def handle(self, feature, ctx, line=None, **kwargs):
-        """Apply the special case handling.
-        
-        Args:
-            feature: Feature dict to modify
-            ctx: ParsingContext
-            line: Optional current line
-            **kwargs: Additional handler-specific parameters
-            
-        Returns:
-            Modified feature or None if feature should be skipped
-        """
-        raise NotImplementedError
-
-
-class OsloNotamHandler(SpecialCaseHandler):
-    """Handler for Oslo/Romerike NOTAM-only restricted areas.
-    
-    Special Case #1: These areas are only active when NOTAMs are issued.
-    Reference: en_sup_a_2018_015_en
-    """
-    
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if airspace is Oslo/Romerike NOTAM area."""
-        if "EN R" not in aipname:
-            return False
-        if "Kongsvinger" in aipname:
-            return True
-        if "Romerike" in aipname:
-            return True
-        if "Oslo" in aipname and "102" not in aipname:
-            return True
-        return False
-    
-    def handle(self, feature, ctx, line=None, **kwargs):
-        """Set NOTAM-only flag and handle inverted limits."""
-        feature['properties']['notam_only'] = 'true'
-        
-        # Also set limits to 0/99999 for Romerike/Oslo (unspecified upper limit)
-        if "Romerike" in feature['properties'].get('name', '') or "Oslo" in feature['properties'].get('name', ''):
-            feature['properties']['from (ft amsl)'] = '0'
-            feature['properties']['from (m amsl)'] = '0'
-            feature['properties']['to (ft amsl)'] = '99999'
-            feature['properties']['to (m amsl)'] = '99999'
-        
-        logger.debug(f"Applied Oslo/Romerike NOTAM handler to {feature['properties'].get('name')}")
-        return feature
-
-
-class NotoddenHandler(SpecialCaseHandler):
-    """Handler for Notodden TIZ multi-area parsing.
-    
-    SPECIAL CASE #11: Notodden TIZ has three separate coordinate blocks with
-    different altitude limits, but all under one heading. Need to split into
-    three separate TIZ features (TIZ, TIZ 2, TIZ 3).
-    """
-    
-    def __init__(self):
-        """Initialize Notodden handler state"""
-        self.in_notodden = False
-        self.coord_blocks = []
-        self.vertical_blocks = []
-        self.current_coords = []
-        
-    def applies(self, aipname, line=None, ctx=None):
-        """Check if this is Notodden TIZ"""
-        return aipname and "Notodden TIZ" in aipname and "Notodden TIZ 2" not in aipname and "Notodden TIZ 3" not in aipname
-    
-    def start_collecting(self):
-        """Start collecting Notodden TIZ data"""
-        self.in_notodden = True
-        self.coord_blocks = []
-        self.vertical_blocks = []
-        self.current_coords = []
-    
-    def add_coordinate_line(self, line):
-        """Add a coordinate line to current block"""
-        # Accumulate all coordinate text for this block
-        self.current_coords.append(line.strip())
-        
-        # Check if this line ends with a closing paren (end of coordinate block)
-        if '(' in line and ')' in line:
-            # Combine all lines into a single string for this block
-            combined_coords = ' '.join(self.current_coords)
-            self.coord_blocks.append(combined_coords)
-            self.current_coords = []
-    
-    def add_vertical_limit(self, from_alt, to_alt):
-        """Add vertical limit pair"""
-        self.vertical_blocks.append((from_alt, to_alt))
-    
-    def get_features(self, base_feature, source):
-        """Generate three separate features from collected data"""
-        from copy import deepcopy
-        features = []
-        
-        for idx, (coord_str, (from_alt, to_alt)) in enumerate(zip(self.coord_blocks, self.vertical_blocks)):
-            feature = deepcopy(base_feature)
-            if idx == 0:
-                feature['properties']['name'] = "Notodden TIZ"
-            else:
-                feature['properties']['name'] = f"Notodden TIZ {idx + 1}"
-            
-            # Ensure class is set
-            if 'class' not in feature['properties'] or not feature['properties']['class']:
-                feature['properties']['class'] = 'G'  # Default for TIZ
-            
-            feature['properties']['from (ft amsl)'] = from_alt
-            feature['properties']['from (m amsl)'] = ft2m(from_alt)
-            feature['properties']['to (ft amsl)'] = to_alt
-            feature['properties']['to (m amsl)'] = ft2m(to_alt)
-            feature['properties']['aip'] = source
-            feature['properties']['source'] = source
-            feature['properties']['source_href'] = source  # xcontest needs this
-            
-            # Parse coordinates from the combined string
-            obj = []
-            coord_matches = patterns.re_coord3.findall(coord_str)
-            for match in coord_matches:
-                ne,n,e,along,arc,rad,cn,ce = match[:8]
-                if n and e:
-                    obj.insert(0, (n, e))
-            
-            feature['geometry'] = obj
-            features.append(feature)
-        
-        return features
-
 
 class ColumnParser:
     """Parser for column-based AIP document layouts.
@@ -2084,7 +1937,7 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
     # Create finalizer if not exists (will be called multiple times per file)
     if not hasattr(finalize, '_finalizer'):
         # Initialize with globals on first call
-        finalize._finalizer = FeatureFinalizer(completed, names, accsectors, OsloNotamHandler())
+        finalize._finalizer = FeatureFinalizer(completed, names, accsectors, oslo_notam_handler)
     
     doc_flags = {
         'cta_aip': cta_aip,
@@ -2143,8 +1996,7 @@ for filename in os.listdir("./sources/txt"):
     special_cases = SpecialCaseRegistry()
     
     # Initialize special case handlers
-    oslo_notam_handler = OsloNotamHandler()
-    notodden_handler = NotoddenHandler()
+    # Initialize special case handlers (imported from parsers/special_cases.py)
 
     # Norwegian AIP only (Swedish files will be skipped/ignored)
     country = 'EN'
@@ -2356,7 +2208,7 @@ for filename in os.listdir("./sources/txt"):
                     # Check if we've collected all three blocks (3 coord blocks, 3 vertical limits)
                     if len(notodden_handler.coord_blocks) == 3 and len(notodden_handler.vertical_blocks) == 3:
                         logger.debug("Notodden TIZ collection complete - finalizing 3 features")
-                        notodden_features = notodden_handler.get_features(ctx.feature, source)
+                        notodden_features = notodden_handler.get_features(ctx.feature, source, patterns)
                         for nf in notodden_features:
                             ctx.features.append(nf)
                         # Reset for next feature
