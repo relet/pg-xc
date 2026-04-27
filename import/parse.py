@@ -1226,6 +1226,8 @@ class DocumentTypeStrategy:
             return DocumentType.AIRSPORT_AIP
         elif "en_sup" in filename:
             return DocumentType.AIP_SUP
+        elif "lovdata.no" in filename:
+            return DocumentType.AIP_SUP
         else:
             return DocumentType.UNKNOWN
     

@@ -191,3 +191,4 @@ ovenfor.
 * 2026-01-22: update to AIP 148, minor: added ENR Halden and extended Tromso CTR.
 * 2026-02-28: add ENR123 and ENR138 from notam, not yet in AIP
 * 2026-03-30: update to AIP 152, small changes to Værnes CTR/TMA
+* 2026-04-27: source ENR138 from lovdata, including the 500ft elevation limit
