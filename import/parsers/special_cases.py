@@ -20,7 +20,8 @@ class OsloNotamHandler(SpecialCaseHandler):
     """Handler for Oslo/Romerike NOTAM-only restricted areas."""
     
     def applies(self, aipname, line=None, ctx=None):
-        if "EN R" not in aipname:
+        # Match both old format ("EN R109") and new AIRAC 153+ format ("ENR109")
+        if "EN R" not in aipname and "ENR" not in aipname:
             return False
         if "Kongsvinger" in aipname:
             return True

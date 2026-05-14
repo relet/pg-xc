@@ -20,6 +20,7 @@ from targets import geojson, openaip, openair, xcontest
 from util.utils import *
 from notam import NotamParser
 from parsers.special_cases import oslo_notam_handler, notodden_handler
+from parsers.patterns import RegexPatterns, rexes_header_es_enr
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -78,82 +79,8 @@ REMOVED SPECIAL CASES (no longer needed, sources don't exist):
 """
 
 
-class RegexPatterns:
-    """Centralized regex patterns for parsing AIP documents.
-    
-    Organizes all parsing patterns by purpose:
-    - Name patterns: Identify airspace names
-    - Class patterns: Identify airspace class
-    - Coordinate patterns: Parse coordinates, circles, sectors, arcs
-    - Vertical limit patterns: Parse altitude limits
-    - Period patterns: Parse temporary airspace periods
-    - Frequency patterns: Parse radio frequencies
-    """
-    
-    # === Coordinate Components (building blocks) ===
-    RE_NE = r'(?P<ne>\(?(?P<n>[\d\.]{5,10})\s?N(?: N)?\s*(?:\s*|-)+(?P<e>[\d\.]+)[E\)]+)'
-    RE_NE2 = r'(?P<ne2>\(?(?P<n2>\d+)N\s*(?P<e2>\d+)E\)?)'
-    RE_CIRCLE = r'A circle(?: with|,) radius (?P<rad>[\d\.]+) NM cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E'
-    RE_SECTOR = u'('+RE_NE + r' - )?((\d\. )?A s|S)ector (?P<secfrom>\d+)° - (?P<secto>\d+)° \(T\), radius ((?P<radfrom>[\d\.,]+) - )?(?P<rad>[\d\.,]+) NM'
-    RE_MONTH = r"(?:JAN|FEB|MAR|APR|MAI|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
-    
-    # === Name Patterns ===
-    # Standard airspace names with type designators
-    re_name = re.compile(r"^\s*(?P<name>[^\s]* ((Centre|West|North|South|East| Norway) )?(TRIDENT|ADS|HTZ|AOR|RMZ|ATZ|FAB|TMA|TIA|TIA/RMZ|CTA|CTR|CTR,|TIZ|FIR|OCEANIC FIR|CTR/TIZ|TIZ/RMZ|RMZ/TMZ)( (West|Centre|[a-z]))?|[^\s]*( ACC sector| ACC Oslo|ESTRA|EUCBA|RPAS).*)( cont.)?\s*($|\s{5}|.*FIR)")
-    # Norwegian/Swedish D/R areas
-    re_name2 = re.compile(r"^\s*(?P<name>E[NS] [RD].*)\s*$")
-    re_name3 = re.compile(r"^\s*(?P<name>E[NS]D\d.*)\s*$")
-    # Norwegian format
-    re_name4 = re.compile(r"Navn og utstrekning /\s+(?P<name>.*)$")
-    # ACC sectors
-    re_name5 = re.compile(r"^(?P<name>Sector .*)$")
-    re_name6 = re.compile(r"^(?P<name>Norway ACC .*)$")
-    # Controlled airspace format
-    re_name_cr = re.compile(r"^Area Name: \((?P<name>EN .*)\) (?P<name_cont>.*)$")
-    # Miscellaneous names
-    re_miscnames = re.compile(r"^(?P<name>Hareid .*)$")
-    # OpenAir format
-    re_name_openair = re.compile(r"^AN (?P<name>.*)$")
-    # AD-2 table format (aerodrome CTR/TMA/TIZ)
-    re_name_ad2 = re.compile(r"^1\s+Designation and lateral limits\s+(?P<name>.*\s+(CTR|TMA|TIZ))\s*$")
-    
-    # === Class Patterns ===
-    re_class = re.compile(r"Class:? (?P<class>.)")
-    re_class2 = re.compile(r"^(?P<class>[CDG])$")
-    re_class_openair = re.compile(r"^AC (?P<class>.*)$")
-    
-    # === Coordinate Patterns ===
-    # Circle with radius
-    re_coord = re.compile(r"(?:" + RE_NE + r" - )?(?:\d\. )?(?:A circle(?: with|,)? r|R)adius (?:(?P<rad>[\d\.,]+) NM|(?P<rad_m>[\d]+) m)(?: \([\d\.,]+ k?m\))?(?: cente?red on (?P<cn>\d+)N\s+(?P<ce>\d+)E)?")
-    # Sector definition
-    re_coord2 = re.compile(RE_SECTOR)
-    # All formats in coordinate list (Norway - using "along" for border following)
-    re_coord3 = re.compile(RE_NE+r"|(?P<along>along)|(?P<arc>(?:counter)?clockwise)|(?:\d+)N|(?:\d{4,10})E|"+RE_CIRCLE)
-    # Arc along circle segment
-    re_arc = re.compile(r'(?P<dir>(counter)?clockwise) along an arc (?:of (?P<rad1>[\d\.,]+) NM radius )?centred on '+RE_NE+r'(?:( and)?( with)?( radius) (?P<rad2>[ \d\.,]+) NM(?: \([\d\.]+ k?m\))?)? (?:- )'+RE_NE2)
-    
-    # === Vertical Limit Patterns ===
-    re_vertl_upper = re.compile(r"Upper limit:\s+(FL\s+(?P<flto>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL)?)")
-    re_vertl_lower = re.compile(r"ower limit:\s+(FL\s+(?P<flfrom>\d+)|(?P<ftamsl>\d+)\s+FT\s+(AMSL|SFC)|(?P<msl>MSL))")  # Intentionally "ower" not "Lower"
-    re_vertl = re.compile(r"(?P<from>GND|\d{3,6}) (?:(?:til/)?to|-) (?P<to>UNL|\d{3,6})( [Ff][Tt] AMSL)?")
-    re_vertl2 = re.compile(r"((?P<ftamsl>\d+)\s?[Ff][Tt] (A?MSL|GND))|(?P<gnd>GND)|(?P<unl>UNL)|(FL\s?(?P<fl>\d+))|(?P<rmk>See (remark|RMK))")
-    re_vertl3 = re.compile(r"((?P<ftamsl>\d+) FT$)")
-    
-    # === Period Patterns (temporary airspace) ===
-    re_period = re.compile(r"Active from (?P<pfrom>\d+ "+RE_MONTH+r") (?P<ptimefrom>\d+)")
-    re_period2 = re.compile(r"^(?P<pto>\d+ "+RE_MONTH+r") (?P<ptimeto>\d+)")
-    re_period3 = re.compile(r"Established for (?P<pfrom>\d+ "+RE_MONTH+r") - (?P<pto>\d+ "+RE_MONTH+")")
-    
-    # === Frequency Patterns ===
-    re_freq = re.compile(r'(?P<freq>\d+\.\d+ MHZ)')
-
-
 # Create global instance for backward compatibility
 patterns = RegexPatterns()
-
-# COLUMN PARSING:
-rexes_header_es_enr = [re.compile(r"(?:(?:(Name|Identification)|(Lateral limits)|(Vertical limits)|(C unit)|(Freq MHz)|(Callsign)|(AFIS unit)|(Remark)).*){%i}" % mult) \
-                           for mult in reversed(range(3,8))]
 
 LINEBREAK = '--linebreak--'
 
@@ -162,13 +89,8 @@ norway_fc = load(open("norway.geojson","r"))
 norway = norway_fc.features[0].geometry.coordinates[0]
 logger.debug("Norway has %i points.", len(norway))
 
-sweden_fc = load(open("fastland-sweden.geojson","r"))
-sweden = sweden_fc.features[0].geometry.coordinates[0]
-logger.debug("Sweden has %i points.", len(sweden))
-
 borders = {
         'norway': norway,
-        'sweden': sweden
 }
 
 collection = []
@@ -242,6 +164,7 @@ class ParsingContext:
         
         # Special flags
         self.sanntid = False
+        self.end_notam = False  # Captured end_notam state at name-parse time
     
     def reset_feature(self):
         """Reset feature state for new feature."""
@@ -298,6 +221,11 @@ class NameParser:
         """
         named = match.groupdict()
         name = named.get('name')
+
+        # Normalize internal whitespace (new AIRAC format uses multiple spaces,
+        # e.g. "ENR102      Oslo Sentrum" → "ENR102 Oslo Sentrum")
+        if name:
+            name = ' '.join(name.split())
         
         # Handle Polaris Norway special case
         if name and 'polaris' in name.lower() and 'norway' in name.lower():
@@ -309,9 +237,7 @@ class NameParser:
             name += ' ' + named.get('name_cont')
             ctx.name_cont = True
         
-        # Set name continuation flag for Swedish/Norwegian D/R areas
-        if name and ("ES R" in name or "ES D" in name):
-            ctx.name_cont = True
+        # Set name continuation flag for Norwegian D/R areas (EN D / EN D with short designation)
         if name and "EN D" in name and len(name) < 8:
             ctx.name_cont = True
         
@@ -327,13 +253,6 @@ class NameParser:
         Returns:
             True if name should be skipped
         """
-        # SPECIAL CASE #12: Skip sector subdivisions of SÄLEN/SAAB
-        # These sector names are handled as part of parent airspace
-        if (name == "Sector a" or name == "Sector b" or 
-            (ctx.aipname and "Sector" in ctx.aipname and 
-             ("SÄLEN" in ctx.aipname or "SAAB" in ctx.aipname))):
-            return True
-        
         # Skip sector names if already in ACC context
         if name and name[:6] == "Sector" and ctx.aipname and "ACC" in ctx.aipname:
             return True
@@ -533,14 +452,13 @@ class BorderFollower:
         ctx.alonging = (n, e)
         logger.debug(f"Starting border following from {n}, {e}")
     
-    def finish_following(self, ctx, n, e, special_case_name=None):
+    def finish_following(self, ctx, n, e):
         """Complete border following by filling coordinates.
         
         Args:
             ctx: ParsingContext with alonging start point and border data
             n: North coordinate of end point (or None to use last)
             e: East coordinate of end point (or None to use last)
-            special_case_name: Name for special case handling (e.g., "Sälen TMA b")
             
         Returns:
             List of (lon, lat) coordinate pairs along the border
@@ -552,13 +470,6 @@ class BorderFollower:
             n, e = ctx.lastn, ctx.laste
         
         fill = fill_along(ctx.alonging, (n, e), ctx.border)
-        
-        # SPECIAL CASE #2: Sälen border fill direction fix
-        # Border following goes wrong direction for these specific sectors
-        # FIXME: Should detect direction properly instead of reversing afterward
-        if special_case_name and ("Sälen TMA b" in special_case_name or "SÄLEN CTR Sector b" in special_case_name):
-            logger.debug("SÄLEN HACK: Reversing border fill direction")
-            fill = list(reversed(fill))
         
         ctx.alonging = False
         ctx.lastn, ctx.laste = None, None
@@ -1272,7 +1183,6 @@ class SpecialCaseRegistry:
     
     # Special case identifiers
     OSLO_ROMERIKE_NOTAM = "oslo_romerike_notam"
-    SALEN_SAAB_SECTORS = "salen_saab_sectors"
     KRAMFORS_WITHIN = "kramfors_within"
     VALLDAL_FORMAT = "valldal_format"
     FARRIS_COUNTER = "farris_counter"
@@ -1282,7 +1192,6 @@ class SpecialCaseRegistry:
     TIA_COLUMN_SHIFT = "tia_column_shift"
     INCOMPLETE_CIRCLE = "incomplete_circle"
     D476_D477_NAMES = "d476_d477_names"
-    SALEN_SAAB_NAME_SKIP = "salen_saab_name_skip"
     
     def __init__(self):
         """Initialize special case registry."""
@@ -1297,7 +1206,8 @@ class SpecialCaseRegistry:
         Returns:
             True if this is a NOTAM-only restricted area
         """
-        if "EN R" not in aipname:
+        # Match both old format ("EN R109") and new AIRAC 153+ format ("ENR109")
+        if "EN R" not in aipname and "ENR" not in aipname:
             return False
         
         # Specific areas that are NOTAM-activated
@@ -1310,20 +1220,17 @@ class SpecialCaseRegistry:
         
         return False
     
-    def is_salen_saab_sector(self, aipname):
-        """Check if airspace is SÄLEN or SAAB CTR sector.
+    def is_sector_name_to_skip(self, name, ctx):
+        """Check if sector name should be skipped.
         
         Args:
-            aipname: Airspace name
+            name: Name to check
+            ctx: ParsingContext
             
         Returns:
-            True if this is a SÄLEN or SAAB sector airspace
+            True if name should be skipped
         """
-        if not aipname:
-            return False
-        return "SÄLEN" in aipname or "SAAB" in aipname
-    
-    def is_farris_tma(self, aipname):
+        return False
         """Check if airspace is Farris TMA (counter skip issue).
         
         Args:
@@ -1374,7 +1281,7 @@ class SpecialCaseRegistry:
         return None
     
     def is_sector_name_to_skip(self, name, ctx):
-        """Check if sector name should be skipped (SÄLEN/SAAB subdivisions).
+        """Check if sector name should be skipped.
         
         Args:
             name: Name to check
@@ -1383,10 +1290,6 @@ class SpecialCaseRegistry:
         Returns:
             True if name should be skipped
         """
-        if name == "Sector a" or name == "Sector b":
-            return True
-        if ctx.aipname and "Sector" in ctx.aipname and self.is_salen_saab_sector(ctx.aipname):
-            return True
         return False
 
 
@@ -1622,9 +1525,9 @@ class ClassAssigner:
             assigned_class = AirspaceClass.G
         elif 'CTR' in aipname:
             assigned_class = AirspaceClass.D
-        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname or 'ES D' in aipname:
+        elif 'TRIDENT' in aipname or 'EN D' in aipname or 'END' in aipname:
             assigned_class = AirspaceClass.Q
-        elif 'EN R' in aipname or 'ES R' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
+        elif 'EN R' in aipname or 'ENR' in aipname or 'ESTRA' in aipname or 'EUCBA' in aipname or 'RPAS' in aipname:
             assigned_class = AirspaceClass.R
         elif 'TMA' in aipname or 'CTA' in aipname or 'FIR' in aipname or 'ACC' in aipname or 'ATZ' in aipname or 'FAB' in aipname or 'Sector' in aipname:
             assigned_class = AirspaceClass.C
@@ -1644,7 +1547,7 @@ class FeatureFinalizer:
     Encapsulates the complex finalization logic including:
     - Name normalization and deduplication
     - Class assignment based on airspace type
-    - Special case handling (Oslo NOTAM, SÄLEN/SAAB, etc.)
+    - Special case handling (Oslo NOTAM, etc.)
     - Geometry validation and simplification
     - Duplicate detection
     - Sanity checks
@@ -1926,11 +1829,16 @@ class FeatureFinalizer:
         return {"properties": {}}, []
 
 
-def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip=False):
+def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip=False, feature_end_notam=None):
     """DEPRECATED: Legacy wrapper for backward compatibility.
     
     This function is maintained for existing call sites but delegates to FeatureFinalizer.
     New code should instantiate FeatureFinalizer directly.
+    
+    Args:
+        feature_end_notam: If provided, overrides the global end_notam for this feature.
+            Use ctx.end_notam to pass the state captured at name-parse time, preventing
+            section header flags from bleeding into the last feature of the previous section.
     """
     global completed
     global country
@@ -1952,9 +1860,13 @@ def finalize(feature, features, obj, source, aipname, cta_aip, restrict_aip, aip
         'military_aip': military_aip
     }
     
+    # Use the captured end_notam from when the feature's name was parsed (if available),
+    # not the current global (which may have been set by a subsequent section header).
+    effective_end_notam = feature_end_notam if feature_end_notam is not None else end_notam
+    
     sanntid_ref = [sanntid]  # Wrap in list so it can be modified
     result = finalize._finalizer.finalize(feature, features, obj, source, aipname, 
-                                          doc_flags, country, end_notam, sanntid_ref)
+                                          doc_flags, country, effective_end_notam, sanntid_ref)
     sanntid = sanntid_ref[0]  # Update global
     return result
 
@@ -2043,7 +1955,7 @@ for filename in os.listdir("./sources/txt"):
             class_value = class_parser.extract_class(class_)
             feature_builder.set_class(ctx.feature, class_value)
             if tia_aip or (ctx.aipname and "RMZ" in ctx.aipname):
-                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
             return
 
 
@@ -2140,7 +2052,7 @@ for filename in os.listdir("./sources/txt"):
 
 
                     if ctx.alonging:
-                        fill = border_follower.finish_following(ctx, n, e, ctx.aipname)
+                        fill = border_follower.finish_following(ctx, n, e)
                         for bpair in fill:
                             bn, be = ll2c(bpair)
                             ctx.obj.insert(0,(bn,be))
@@ -2165,7 +2077,7 @@ for filename in os.listdir("./sources/txt"):
                             validation = feature_validator.validate(ctx.feature, ctx.obj, ctx.aipname)
                             if not validation.valid:
                                 logger.debug(f"Feature validation warnings: {', '.join(validation.errors)}")
-                            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+                            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
                             ctx.lastv = None
 
             # After processing coordinates, return to main loop
@@ -2239,18 +2151,7 @@ for filename in os.listdir("./sources/txt"):
                                   and not (ctx.aipname and "Geiteryggen" in ctx.aipname))
                 if should_finalize:
                     logger.debug("Finalizing poly: Vertl complete.")
-                    # SPECIAL CASE #2: SÄLEN/SAAB sector finalization
-                    # Process accumulated sectors (skip first which is union)
-                    if ctx.aipname and (("SÄLEN" in ctx.aipname) or ("SAAB" in ctx.aipname)) and len(ctx.sectors)>0:
-                        for x in ctx.sectors[1:]: # skip the first sector, which is the union of the other ctx.sectors in Swedish docs
-                            aipname_,  obj_ = x
-                            logger.debug("Restoring "+aipname_+" "+str(len(ctx.sectors)))
-                            feature_ = deepcopy(ctx.feature)
-                            logger.debug("Finalizing SAAB/SÄLEN: " + aipname_)
-                            finalize(feature_, ctx.features, obj_, source, aipname_, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
-                        ctx.sectors = []
-                        logger.debug("Finalizing last poly as ."+ctx.aipname)
-                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
 
             logger.debug("From %s to %s", ctx.feature['properties'].get('from (ft amsl)'), ctx.feature['properties'].get('to (ft amsl)'))
             return
@@ -2267,7 +2168,7 @@ for filename in os.listdir("./sources/txt"):
         if name:
             if en_enr_5_1 or "Hareid" in line:
                 logger.debug("RESTRICT/HAREID")
-                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
                 ctx.lastv = None
 
             # Process the matched name
@@ -2282,7 +2183,7 @@ for filename in os.listdir("./sources/txt"):
                 # Allow finalization without upper limit for these specific areas
                 if ctx.feature['properties'].get('from (ft amsl)') is not None and (ctx.feature['properties'].get('to (ft amsl)') or "Romerike" in ctx.aipname or "Oslo" in ctx.aipname):
                     logger.debug("RESTRICT/MILITARY + name and vertl complete")
-                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+                    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
                     ctx.lastv = None
                 else:
                     logger.debug("RESTRICT/MILITARY + name and vertl NOT complete")
@@ -2293,6 +2194,7 @@ for filename in os.listdir("./sources/txt"):
                 notodden_handler.start_collecting()
 
             ctx.aipname = name
+            ctx.end_notam = end_notam  # Capture flag state at name-parse time
             logger.debug("Found name '%s' in line: %s", ctx.aipname, line)
             return
 
@@ -2305,11 +2207,11 @@ for filename in os.listdir("./sources/txt"):
                 ctx.airsport_intable = True
             elif wstrip(line)[0] != "2" and ctx.airsport_intable:
                 logger.debug("Considering as new ctx.aipname: '%s'", line)
-                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+                ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
                 ctx.aipname = wstrip(line)
 
         if line.strip()=="-+-":
-            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+            ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
 
     # end def parse
 
@@ -2418,7 +2320,7 @@ for filename in os.listdir("./sources/txt"):
         ctx.feature['properties']['class'] = 'Luftsport'
 
     logger.debug("Finalizing: end of doc.")
-    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip)
+    ctx.feature, ctx.obj = finalize(ctx.feature, ctx.features, ctx.obj, source, ctx.aipname, cta_aip, restrict_aip, aip_sup, tia_aip, military_aip, feature_end_notam=ctx.end_notam)
     collection.extend(ctx.features)
 
 logger.info("%i Features", len(collection))

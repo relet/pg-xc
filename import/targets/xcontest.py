@@ -38,11 +38,6 @@ def dumps (logger, filename, features):
     for feature in features:
         p = feature['properties']
 
-        if (p.get('country') == 'ES'):
-            #HACK: ESKS CTR is defined in Sweden
-            if ('SÄLEN CTR' not in p.get('name')):
-                continue
-
         geom = feature['geometry_ll']
         if geom[0]!=geom[-1]:
             geom.append(geom[0])
