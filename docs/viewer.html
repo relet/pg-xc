@@ -522,9 +522,11 @@
                 });
 
                 var lc = L.control.layers(baseLayers, overLayers);
-                // close layercontrol on click (fix for android phones)
+                // close layercontrol on click outside it (fix for android phones)
                 document.getElementById('map').addEventListener('click', function(e) {
-                    lc.collapse();
+                    if (!e.target.closest || !e.target.closest('.leaflet-control-layers')) {
+                        lc.collapse();
+                    }
                 }, false);
                 lc.addTo(map);
                 L.control.locate({
