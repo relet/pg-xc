@@ -28,10 +28,10 @@
             #airspace-stack {
                 position: absolute;
                 right: 10px;
-                top: 10px;
+                bottom: 10px;
                 width: 200px;
-                max-height: 80vh;
-                overflow-y: auto;
+                max-height: 60vh;
+                overflow-y: hidden;
                 background: rgba(255, 255, 255, 0.95);
                 border: 2px solid #333;
                 border-radius: 5px;
@@ -40,6 +40,13 @@
                 font-size: 12px;
                 box-shadow: 0 0 15px rgba(0,0,0,0.3);
                 z-index: 1000;
+                display: none;
+            }
+            #airspace-stack-content {
+                overflow-y: auto;
+                max-height: calc(60vh - 30px);
+            }
+            #airspace-stack.collapsed #airspace-stack-content {
                 display: none;
             }
             .airspace-box {
@@ -84,6 +91,21 @@
                 border-bottom: 1px solid #999;
                 padding-bottom: 5px;
                 margin-bottom: 5px;
+                cursor: pointer;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            #airspace-stack-title::after {
+                content: ' ▼';
+                font-size: 10px;
+            }
+            #airspace-stack.collapsed #airspace-stack-title::after {
+                content: ' ▶';
+            }
+            #airspace-stack.collapsed #airspace-stack-title {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
             }
             .altitude-bound {
                 text-align: center;
@@ -515,6 +537,22 @@
                 // Airspace stack visualization
                 var lastMouseLatLng = null;
                 var mouseThrottle = null;
+                var stackCollapsed = false;
+
+                // Toggle airspace stack content on title press/click
+                document.getElementById('airspace-stack-title').addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    stackCollapsed = !stackCollapsed;
+                    document.getElementById('airspace-stack').classList.toggle('collapsed', stackCollapsed);
+                });
+
+                // Prevent map click from firing when interacting with the stack widget
+                document.getElementById('airspace-stack').addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+                document.getElementById('airspace-stack').addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                });
                 
                 // Point-in-polygon test (ray casting algorithm)
                 var pointInPolygon = function(point, polygon) {
@@ -692,6 +730,7 @@
                     
                     contentDiv.innerHTML = html;
                     stackDiv.style.display = 'block';
+                    stackDiv.classList.toggle('collapsed', stackCollapsed);
                     
                     // Add click handlers to highlight the airspace
                     var boxes = contentDiv.getElementsByClassName('airspace-box');
@@ -716,6 +755,12 @@
                             updateAirspaceStack(lastMouseLatLng);
                         }
                     }, 300);
+                });
+                
+                // Handle tap/click for mobile (touch devices have no mousemove)
+                map.on('click', function(e) {
+                    stackCollapsed = false; // auto-expand on explicit tap
+                    updateAirspaceStack(e.latlng);
                 });
                 
                 map.on('mouseout', function() {
