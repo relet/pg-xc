@@ -761,7 +761,6 @@
                 
                 // Handle tap/click for mobile (touch devices have no mousemove)
                 map.on('click', function(e) {
-                    stackCollapsed = false; // auto-expand on explicit tap
                     updateAirspaceStack(e.latlng);
                 });
                 
