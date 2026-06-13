@@ -59,10 +59,10 @@ with open('sources.list', 'r') as src:
 
             with open(f'pdf/{fname}', 'w') as f:
                 f.write(driver.page_source)
-                if ctrl=="=":
-                    os.system(f"./layout-2.sh {fname}")
-                if ctrl=="T":
-                    os.system(f"./layout-3.sh {fname}")
+            if ctrl=="=":
+                os.system(f"./layout-2.sh {fname}")
+            if ctrl=="T":
+                os.system(f"./layout-3.sh {fname}")
 
 
 driver.close()
